@@ -1017,8 +1017,8 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 }
 .samespot-logo{
   font-family:'Gasoek One', sans-serif;
-  font-size:32px;
-  margin-bottom:10px;
+  font-size:44px;
+  margin-bottom:4px;
 }
 .samespot-logo-accent{ color:var(--coral,#FF5B3A); }
 .samespot-logo-dark{ color:var(--black-ink,#161311); }
