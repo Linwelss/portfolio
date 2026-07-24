@@ -931,7 +931,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .samespot-tile{
   position:relative;
   display:block;
-  padding-top:210px;
+  padding-top:100px;
   text-decoration:none;
   color:inherit;
 }
@@ -939,7 +939,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .samespot-phones{
   position:absolute;
   top:0; left:0; right:0;
-  height:225px;
+  height:300px;
   pointer-events:none;
   z-index:1;
   overflow:visible;
@@ -1025,7 +1025,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 }
 
 @media(max-width:900px){
-  .samespot-tile{ padding-top:180px; }
+  .samespot-tile{ padding-top:85px; }
   .samespot-phone{ width:120px; }
   .samespot-tile:hover .samespot-phone-feed{ transform:translate(-105%, -95px) rotate(-13deg); }
   .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -103px) rotate(-3deg); }
