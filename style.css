@@ -970,13 +970,13 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 }
 
 .samespot-tile:hover .samespot-phone-feed{
-  transform:translate(-138%, -150px) rotate(-16deg);
+  transform:translate(-138%, -195px) rotate(-16deg);
 }
 .samespot-tile:hover .samespot-phone-dark{
-  transform:translate(-50%, -162px) rotate(-3deg);
+  transform:translate(-50%, -207px) rotate(-3deg);
 }
 .samespot-tile:hover .samespot-phone-detail{
-  transform:translate(38%, -150px) rotate(14deg);
+  transform:translate(38%, -195px) rotate(14deg);
 }
 
 .samespot-card{
@@ -1027,9 +1027,9 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 @media(max-width:900px){
   .samespot-tile{ padding-top:75px; }
   .samespot-phone{ width:120px; }
-  .samespot-tile:hover .samespot-phone-feed{ transform:translate(-138%, -120px) rotate(-16deg); }
-  .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -130px) rotate(-3deg); }
-  .samespot-tile:hover .samespot-phone-detail{ transform:translate(38%, -120px) rotate(14deg); }
+  .samespot-tile:hover .samespot-phone-feed{ transform:translate(-138%, -155px) rotate(-16deg); }
+  .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -168px) rotate(-3deg); }
+  .samespot-tile:hover .samespot-phone-detail{ transform:translate(38%, -155px) rotate(14deg); }
 }
 
 .case-card-placeholder{opacity:.5;pointer-events:none;cursor:default}
