@@ -931,7 +931,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .samespot-tile{
   position:relative;
   display:block;
-  padding-top:60px;
+  padding-top:110px;
   text-decoration:none;
   color:inherit;
 }
@@ -957,7 +957,7 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 }
 
 .samespot-phone-feed{
-  transform:translate(-125%, 0) rotate(-13deg);
+  transform:translate(-95%, 0) rotate(-11deg);
   z-index:2;
 }
 .samespot-phone-dark{
@@ -965,18 +965,18 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
   z-index:3;
 }
 .samespot-phone-detail{
-  transform:translate(25%, 0) rotate(11deg);
+  transform:translate(-5%, 0) rotate(9deg);
   z-index:2;
 }
 
 .samespot-tile:hover .samespot-phone-feed{
-  transform:translate(-138%, -195px) rotate(-16deg);
+  transform:translate(-105%, -110px) rotate(-13deg);
 }
 .samespot-tile:hover .samespot-phone-dark{
-  transform:translate(-50%, -207px) rotate(-3deg);
+  transform:translate(-50%, -120px) rotate(-3deg);
 }
 .samespot-tile:hover .samespot-phone-detail{
-  transform:translate(38%, -195px) rotate(14deg);
+  transform:translate(5%, -110px) rotate(11deg);
 }
 
 .samespot-card{
@@ -1025,11 +1025,11 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 }
 
 @media(max-width:900px){
-  .samespot-tile{ padding-top:75px; }
+  .samespot-tile{ padding-top:100px; }
   .samespot-phone{ width:120px; }
-  .samespot-tile:hover .samespot-phone-feed{ transform:translate(-138%, -155px) rotate(-16deg); }
-  .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -168px) rotate(-3deg); }
-  .samespot-tile:hover .samespot-phone-detail{ transform:translate(38%, -155px) rotate(14deg); }
+  .samespot-tile:hover .samespot-phone-feed{ transform:translate(-105%, -95px) rotate(-13deg); }
+  .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -103px) rotate(-3deg); }
+  .samespot-tile:hover .samespot-phone-detail{ transform:translate(5%, -95px) rotate(11deg); }
 }
 
 .case-card-placeholder{opacity:.5;pointer-events:none;cursor:default}
