@@ -920,11 +920,18 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .case-card-cta-label{font-size:13px;color:var(--port-ink-muted)}
 .case-arrow-btn{width:42px;height:42px;border-radius:50%;background:var(--port-green);display:flex;align-items:center;justify-content:center;color:white;font-size:16px;transition:background .2s,transform .25s cubic-bezier(.4,0,.2,1);flex-shrink:0}
 .case-card:hover .case-arrow-btn{background:var(--port-green-dark);transform:translate(4px,-4px) scale(1.1)}
-/* ===== sameSpot project tile: phones peek out on hover ===== */
+/* ===== sameSpot project tile: real screenshots peek out on hover =====
+   Default state: phones sit flush at the top of this box (top:0), and
+   since .samespot-card starts lower (tile has padding-top) with a solid
+   background and higher z-index, it naturally covers the bottom portion
+   of each phone — only the sliver above the card's top edge shows.
+   On hover, phones translate upward, revealing more of themselves from
+   behind the card. No bottom-anchoring, no fighting transforms. */
+
 .samespot-tile{
   position:relative;
   display:block;
-  padding-top:70px;
+  padding-top:60px;
   text-decoration:none;
   color:inherit;
 }
@@ -932,74 +939,45 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 .samespot-phones{
   position:absolute;
   top:0; left:0; right:0;
-  height:230px;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
+  height:225px;
   pointer-events:none;
   z-index:1;
+  overflow:visible;
 }
 
 .samespot-phone{
   position:absolute;
-  bottom:0;
-  width:118px;
-  height:230px;
-  border-radius:20px;
-  background:var(--black-ink, #161311);
-  box-shadow:0 12px 28px -8px rgba(22,19,17,.35);
-  transition:transform .45s cubic-bezier(.34,1.56,.64,1);
-  padding:14px 12px;
-  overflow:hidden;
-}
-.samespot-phone__notch{
-  width:34px; height:6px; border-radius:4px;
-  background:rgba(255,255,255,.18);
-  margin:0 auto 16px;
-}
-.samespot-phone__line{
-  height:8px; border-radius:4px;
-  background:rgba(255,255,255,.22);
-  margin-bottom:8px;
-}
-.samespot-phone__avatars{ display:flex; gap:6px; margin-top:10px; }
-.samespot-phone__avatars span{
-  width:20px; height:20px; border-radius:50%;
-  background:var(--sage-tint,#D9EADD);
-  border:1.5px solid rgba(255,255,255,.4);
-}
-.samespot-phone__photo{
-  width:100%; height:70px; border-radius:10px;
-  background:linear-gradient(135deg,var(--sage-tint,#D9EADD),var(--sage,#9DC0A3));
-  margin-bottom:10px;
-}
-.samespot-phone__photo--sunset{
-  background:linear-gradient(135deg,#F5DED4,var(--coral,#FF5B3A));
+  top:0;
+  left:50%;
+  width:150px;
+  border-radius:22px;
+  box-shadow:0 16px 32px -10px rgba(22,19,17,.3);
+  transform-origin:bottom center;
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
 }
 
-.samespot-phone-1{
-  left:50%; transform:translate(-50%, 190px) rotate(-9deg);
-  background:var(--black-ink,#161311);
+.samespot-phone-feed{
+  transform:translate(-125%, 0) rotate(-13deg);
+  z-index:2;
+}
+.samespot-phone-dark{
+  transform:translate(-50%, 0) rotate(-3deg);
   z-index:3;
 }
-.samespot-phone-2{
-  left:50%; transform:translate(-98%, 190px) rotate(-16deg);
-  background:#fff;
+.samespot-phone-detail{
+  transform:translate(25%, 0) rotate(11deg);
   z-index:2;
 }
-.samespot-phone-2 .samespot-phone__notch,
-.samespot-phone-2 .samespot-phone__line{ background:var(--border,#E3E8E4); }
-.samespot-phone-3{
-  left:50%; transform:translate(-2%, 190px) rotate(15deg);
-  background:#fff;
-  z-index:2;
-}
-.samespot-phone-3 .samespot-phone__notch,
-.samespot-phone-3 .samespot-phone__line{ background:var(--border,#E3E8E4); }
 
-.samespot-tile:hover .samespot-phone-1{ transform:translate(-50%, 40px) rotate(-7deg); }
-.samespot-tile:hover .samespot-phone-2{ transform:translate(-112%, 60px) rotate(-14deg); }
-.samespot-tile:hover .samespot-phone-3{ transform:translate(12%, 60px) rotate(13deg); }
+.samespot-tile:hover .samespot-phone-feed{
+  transform:translate(-138%, -150px) rotate(-16deg);
+}
+.samespot-tile:hover .samespot-phone-dark{
+  transform:translate(-50%, -162px) rotate(-3deg);
+}
+.samespot-tile:hover .samespot-phone-detail{
+  transform:translate(38%, -150px) rotate(14deg);
+}
 
 .samespot-card{
   position:relative;
@@ -1047,8 +1025,11 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
 }
 
 @media(max-width:900px){
-  .samespot-tile{ padding-top:100px; }
-  .samespot-phones{ height:260px; }
+  .samespot-tile{ padding-top:75px; }
+  .samespot-phone{ width:120px; }
+  .samespot-tile:hover .samespot-phone-feed{ transform:translate(-138%, -120px) rotate(-16deg); }
+  .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -130px) rotate(-3deg); }
+  .samespot-tile:hover .samespot-phone-detail{ transform:translate(38%, -120px) rotate(14deg); }
 }
 
 .case-card-placeholder{opacity:.5;pointer-events:none;cursor:default}
