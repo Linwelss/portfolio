@@ -412,14 +412,28 @@ keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: 
 
 <button type="button" class="cookie-icon" id="cookie-icon" aria-label="Cookie-Einstellungen öffnen">
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><circle cx="8.5" cy="10.5" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="15" r=".8" fill="currentColor" stroke="none"/><circle cx="15.5" cy="11.5" r=".8" fill="currentColor" stroke="none"/></svg>
+  <span class="cookie-icon-status" id="cookie-icon-status" aria-hidden="true"></span>
 </button>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
-  <h3 class="cookie-banner-heading" data-de="Darf ich kurz mitzählen?" data-en="Mind if I keep count?">Darf ich kurz mitzählen?</h3>
-  <p class="cookie-banner-text" data-de="Ich nutze Google Analytics, um zu sehen, ob und wie diese Seite jemand findet. Kein Muss, nur wenn du magst :)" data-en="I use Google Analytics to see if and how anyone finds this site. No obligation, only if you're up for it :)">Ich nutze Google Analytics, um zu sehen, ob und wie diese Seite jemand findet. Kein Muss, nur wenn du magst :)</p>
-  <div class="cookie-banner-actions">
-    <button type="button" class="cookie-banner-decline" id="cookie-decline" data-de="Ablehnen" data-en="Decline">Ablehnen</button>
-    <button type="button" class="cookie-banner-accept" id="cookie-accept" data-de="Akzeptieren" data-en="Accept">Akzeptieren</button>
+  <div class="cookie-banner-main" id="cookie-banner-main">
+    <h3 class="cookie-banner-heading" data-de="Darf ich kurz mitzählen?" data-en="Mind if I keep count?">Darf ich kurz mitzählen?</h3>
+    <p class="cookie-banner-text" data-de="Ich nutze Google Analytics, um zu sehen, ob und wie diese Seite jemand findet. Kein Muss, nur wenn du magst :)" data-en="I use Google Analytics to see if and how anyone finds this site. No obligation, only if you're up for it :)">Ich nutze Google Analytics, um zu sehen, ob und wie diese Seite jemand findet. Kein Muss, nur wenn du magst :)</p>
+
+    <div class="cookie-toggle-row">
+      <label class="cookie-toggle" for="cookie-toggle-input">
+        <input type="checkbox" id="cookie-toggle-input">
+        <span class="cookie-toggle-track" aria-hidden="true"><span class="cookie-toggle-thumb"></span></span>
+      </label>
+      <span class="cookie-toggle-label" data-de="Analytics erlauben" data-en="Allow analytics">Analytics erlauben</span>
+    </div>
+
+    <button type="button" class="cookie-banner-save" id="cookie-save" data-de="Speichern" data-en="Save">Speichern</button>
+  </div>
+
+  <div class="cookie-banner-confirm" id="cookie-banner-confirm">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <p id="cookie-confirm-text" data-de="Gespeichert. Du kannst das jederzeit über das Cookie-Icon ändern." data-en="Saved. You can change this anytime via the cookie icon.">Gespeichert. Du kannst das jederzeit über das Cookie-Icon ändern.</p>
   </div>
 </div>
 
