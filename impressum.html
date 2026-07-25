@@ -38,7 +38,9 @@
     font-size:clamp(34px,5vw,48px); letter-spacing:-.01em;
     color:var(--ink); margin-bottom:40px;
   }
-  .legal-wrap h2{ font-size:20px; font-weight:600; color:var(--ink); margin:36px 0 12px; }
+  .legal-wrap h1 em{ font-style:italic; color:#4E8B5C; }
+  .legal-wrap h2{ font-size:20px; font-weight:600; color:var(--ink); margin:36px 0 12px; padding-top:20px; border-top:1px solid var(--hairline); }
+  .legal-wrap h2:first-of-type{ padding-top:0; border-top:none; }
   .legal-wrap p{ font-size:16px; line-height:1.7; color:var(--port-ink-soft); margin-bottom:8px; }
   .legal-wrap a{ color:var(--green-dark); text-decoration:underline; text-underline-offset:3px; }
 </style>
@@ -57,7 +59,7 @@
 <div class="legal-nav-spacer" aria-hidden="true"></div>
 
 <div class="legal-wrap">
-  <h1 data-de="Impressum &amp; Datenschutz" data-en="Legal Notice &amp; Privacy">Impressum &amp; Datenschutz</h1>
+  <h1 data-de="Impressum &amp; &lt;em&gt;Datenschutz&lt;/em&gt;" data-en="Legal Notice &amp; &lt;em&gt;Privacy&lt;/em&gt;">Impressum &amp; <em>Datenschutz</em></h1>
 
   <h2 data-de="Angaben gemäß § 5 DDG" data-en="Information pursuant to § 5 DDG">Angaben gemäß § 5 DDG</h2>
   <p>Lina Melissa Arndt</p>
@@ -83,6 +85,10 @@
   <h2 data-de="Hosting" data-en="Hosting">Hosting</h2>
   <p data-de="Diese Website wird über Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA) gehostet. Der Quellcode wird auf GitHub (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) verwaltet. Die Domain wurde über STRATO AG (Otto-Ostrowski-Straße 7, 10249 Berlin) registriert. Beim Aufruf der Website können technische Zugriffsdaten (u.a. IP-Adresse, Browsertyp, Uhrzeit) in Server-Logfiles gespeichert werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO." data-en="This website is hosted by Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA). The source code is managed on GitHub (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). The domain was registered via STRATO AG (Otto-Ostrowski-Straße 7, 10249 Berlin). Technical access data (including IP address, browser type, time) may be stored in server log files. Legal basis is Art. 6 (1) lit. f GDPR.">Diese Website wird über Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA) gehostet. Der Quellcode wird auf GitHub (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) verwaltet. Die Domain wurde über STRATO AG (Otto-Ostrowski-Straße 7, 10249 Berlin) registriert. Beim Aufruf der Website können technische Zugriffsdaten (u.a. IP-Adresse, Browsertyp, Uhrzeit) in Server-Logfiles gespeichert werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
 
+  <h2 data-de="Google Analytics" data-en="Google Analytics">Google Analytics</h2>
+  <p data-de="Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Google Analytics verwendet Cookies und ähnliche Technologien, die eine Analyse der Websitenutzung ermöglichen (u.a. besuchte Seiten, Verweildauer, technische Gerätedaten). Die IP-Adresse wird dabei von Google gekürzt bzw. anonymisiert, bevor sie gespeichert wird. Es kann eine Übermittlung von Daten an Google LLC in die USA stattfinden." data-en="This website uses Google Analytics, a web analytics service provided by Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland). Google Analytics uses cookies and similar technologies to analyse website usage (including pages visited, time spent, technical device data). The IP address is shortened/anonymised by Google before being stored. Data may be transferred to Google LLC in the USA.">Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Google Analytics verwendet Cookies und ähnliche Technologien, die eine Analyse der Websitenutzung ermöglichen (u.a. besuchte Seiten, Verweildauer, technische Gerätedaten). Die IP-Adresse wird dabei von Google gekürzt bzw. anonymisiert, bevor sie gespeichert wird. Es kann eine Übermittlung von Daten an Google LLC in die USA stattfinden.</p>
+  <p data-de="Rechtsgrundlage für den Einsatz ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO i.V.m. § 25 Abs. 1 TTDSG. Google Analytics wird erst geladen, nachdem Sie im Cookie-Banner aktiv zugestimmt haben. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen oder ändern, indem Sie auf das kleine Cookie-Symbol unten links auf der Website klicken. Weitere Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google." data-en="The legal basis for this processing is your consent pursuant to Art. 6 (1) lit. a GDPR in conjunction with § 25 (1) TTDSG. Google Analytics only loads after you have actively agreed via the cookie banner. You can withdraw or change your consent at any time with future effect by clicking the small cookie icon in the bottom-left corner of the website. Further information on how Google Analytics handles user data can be found in Google's privacy policy.">Rechtsgrundlage für den Einsatz ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO i.V.m. § 25 Abs. 1 TTDSG. Google Analytics wird erst geladen, nachdem Sie im Cookie-Banner aktiv zugestimmt haben. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen oder ändern, indem Sie auf das kleine Cookie-Symbol unten links auf der Website klicken. Weitere Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.</p>
+
 </div>
 
 <footer class="site-footer">
@@ -100,7 +106,7 @@
   </div>
   <div class="site-footer-bottom">
     <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
-    <a href="/impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
+    <a href="/impressum.html" class="site-footer-impressum" data-de="Impressum &amp; Datenschutz" data-en="Legal Notice &amp; Privacy">Impressum &amp; Datenschutz</a>
   </div>
 </footer>
 
