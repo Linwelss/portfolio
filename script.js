@@ -115,7 +115,7 @@
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
-  var DURATION = 2100;
+  var DURATION = 2600;
   var CLICK_AT = DURATION * 0.44;
   var TRAVEL_START = DURATION * 0.54;
   var TRAVEL_END = DURATION * 0.80;
@@ -216,7 +216,7 @@
   }
 
   // Matches the .stat:nth-child delays already set in styles2.css
-  var delays = [2570, 2640, 2710];
+  var delays = [3180, 3270, 3360];
   nums.forEach(function (el, i) {
     setTimeout(function () { animateCount(el); }, prefersReducedMotion ? 0 : (delays[i] || 2570));
   });
