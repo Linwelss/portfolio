@@ -24,6 +24,7 @@
 (function () {
   var burger = document.getElementById('nav-burger');
   var drawer = document.getElementById('mobile-nav');
+  var closeBtn = document.getElementById('mobile-nav-close');
   if (!burger || !drawer) return;
 
   function openDrawer() {
@@ -41,6 +42,7 @@
     if (drawer.classList.contains('open')) closeDrawer();
     else openDrawer();
   });
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
 
   drawer.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', closeDrawer);
