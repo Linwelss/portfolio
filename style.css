@@ -261,7 +261,7 @@ a:focus-visible, button:focus-visible{
   background:var(--cream);
   pointer-events:none;
   animation:intro-overlay-fade 0.5s ease-out both;
-  animation-delay:1.7s;
+  animation-delay:2.08s;
 }
 @keyframes intro-overlay-fade{
   from{ opacity:1; }
@@ -541,7 +541,7 @@ a:focus-visible, button:focus-visible{
 
 .name-pill{
   left:50%; top:50%;
-  animation:pill-journey 2.1s cubic-bezier(0.65,0,0.35,1) both;
+  animation:pill-journey 2.6s cubic-bezier(0.65,0,0.35,1) both;
 }
 @keyframes pill-journey{
   0%, 30%{
@@ -608,7 +608,7 @@ a:focus-visible, button:focus-visible{
   }
 }
 .name-pill span{
-  animation:pill-text-size 2.1s cubic-bezier(0.65,0,0.35,1) both;
+  animation:pill-text-size 2.6s cubic-bezier(0.65,0,0.35,1) both;
 }
 @keyframes pill-text-size{
   0%, 54%{ font-size:32px; }
@@ -616,7 +616,7 @@ a:focus-visible, button:focus-visible{
 }
 
 .name-pill-photo{
-  animation:pill-photo-drop 2.1s cubic-bezier(0.65,0,0.35,1) both;
+  animation:pill-photo-drop 2.6s cubic-bezier(0.65,0,0.35,1) both;
 }
 @keyframes pill-photo-drop{
   0%, 54%{ opacity:1; width:40px; border-width:1px; }
@@ -662,7 +662,7 @@ a:focus-visible, button:focus-visible{
 .site-nav{
   opacity:0;
   animation:nav-reveal 0.42s ease-out both;
-  animation-delay:1.68s;
+  animation-delay:2.08s;
 }
 @keyframes nav-reveal{
   from{ opacity:0; }
@@ -689,23 +689,23 @@ a:focus-visible, button:focus-visible{
 
 .scroll-indicator{
   animation:fade-in-dim 0.7s ease-out both;
-  animation-delay:2.82s;
+  animation-delay:3.49s;
 }
 @keyframes fade-in-dim{
   from{ opacity:0; }
   to{ opacity:0.6; }
 }
 
-.eyebrow{ animation-delay:2.02s; }
-.headline .line-dark{ animation-delay:2.12s; }
-.headline .line-light{ animation-delay:2.24s; }
-.photo-cluster{ animation-delay:2.37s; }
-.cta-row{ animation-delay:2.47s; }
-.stat:nth-child(1){ animation-delay:2.57s; }
-.stat:nth-child(3){ animation-delay:2.64s; }
-.stat:nth-child(5){ animation-delay:2.71s; }
-.divider:nth-child(2){ animation-delay:2.60s; }
-.divider:nth-child(4){ animation-delay:2.67s; }
+.eyebrow{ animation-delay:2.50s; }
+.headline .line-dark{ animation-delay:2.63s; }
+.headline .line-light{ animation-delay:2.77s; }
+.photo-cluster{ animation-delay:2.93s; }
+.cta-row{ animation-delay:3.06s; }
+.stat:nth-child(1){ animation-delay:3.18s; }
+.stat:nth-child(3){ animation-delay:3.27s; }
+.stat:nth-child(5){ animation-delay:3.36s; }
+.divider:nth-child(2){ animation-delay:3.22s; }
+.divider:nth-child(4){ animation-delay:3.31s; }
 
 @media (prefers-reduced-motion: reduce){
   .cursor-doodle, .name-pill{ display:none; }
