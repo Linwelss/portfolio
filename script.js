@@ -19,6 +19,58 @@
   window.addEventListener('scroll', updateNavState, { passive: true });
 })();
 
+// --- Cookie consent: Google Analytics only loads after explicit opt-in.
+// Choice is stored in localStorage and can be changed later via the
+// "Cookie-Einstellungen" link in the footer.
+(function () {
+  var STORAGE_KEY = 'cookie-consent'; // 'accepted' | 'declined'
+  var GA_ID = 'G-L7R7JNY2FM';
+  var banner = document.getElementById('cookie-banner');
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  var settingsLink = document.getElementById('cookie-settings-link');
+
+  function loadGoogleAnalytics() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+  }
+
+  function showBanner() {
+    if (banner) banner.classList.add('visible');
+  }
+  function hideBanner() {
+    if (banner) banner.classList.remove('visible');
+  }
+
+  var stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === 'accepted') {
+    loadGoogleAnalytics();
+  } else if (stored !== 'declined') {
+    showBanner();
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener('click', function () {
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    loadGoogleAnalytics();
+    hideBanner();
+  });
+  if (declineBtn) declineBtn.addEventListener('click', function () {
+    localStorage.setItem(STORAGE_KEY, 'declined');
+    hideBanner();
+  });
+  if (settingsLink) settingsLink.addEventListener('click', function () {
+    showBanner();
+  });
+})();
+
 // --- Mobile nav: hamburger opens/closes the full-screen drawer,
 // closes on link click or Escape, locks page scroll while open.
 (function () {
