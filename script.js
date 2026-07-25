@@ -20,15 +20,31 @@
 })();
 
 // --- Cookie consent: Google Analytics only loads after explicit opt-in.
-// Choice is stored in localStorage and can be changed later via the
-// "Cookie-Einstellungen" link in the footer.
+// Toggle + Speichern instead of two competing buttons — status is
+// persistent (visible on the icon) and can be revisited/changed anytime.
 (function () {
   var STORAGE_KEY = 'cookie-consent'; // 'accepted' | 'declined'
   var GA_ID = 'G-L7R7JNY2FM';
+
   var banner = document.getElementById('cookie-banner');
-  var acceptBtn = document.getElementById('cookie-accept');
-  var declineBtn = document.getElementById('cookie-decline');
-  var settingsLink = document.getElementById('cookie-icon');
+  var main = document.getElementById('cookie-banner-main');
+  var confirmBox = document.getElementById('cookie-banner-confirm');
+  var confirmText = document.getElementById('cookie-confirm-text');
+  var toggleInput = document.getElementById('cookie-toggle-input');
+  var saveBtn = document.getElementById('cookie-save');
+  var iconStatus = document.getElementById('cookie-icon-status');
+  var settingsBtn = document.getElementById('cookie-icon');
+
+  var CONFIRM_MESSAGES = {
+    accepted: {
+      de: 'Gespeichert. Du kannst das jederzeit über das Cookie-Icon ändern.',
+      en: 'Saved. You can change this anytime via the cookie icon.'
+    },
+    declined: {
+      de: 'Alles klar, bleibt aus. Änderbar jederzeit über das Cookie-Icon.',
+      en: 'Got it, staying off. Changeable anytime via the cookie icon.'
+    }
+  };
 
   function loadGoogleAnalytics() {
     if (window.__gaLoaded) return;
@@ -43,32 +59,74 @@
     window.gtag('config', GA_ID);
   }
 
-  function showBanner() {
-    if (banner) banner.classList.add('visible');
+  function setIconStatus(state) {
+    if (!iconStatus) return;
+    iconStatus.classList.remove('status-accepted', 'status-declined');
+    if (state === 'accepted') iconStatus.classList.add('status-accepted');
+    if (state === 'declined') iconStatus.classList.add('status-declined');
+    // 'neutral' -> no extra class, base amber color from CSS
   }
+
+  function resetToMainView() {
+    if (confirmBox) confirmBox.classList.remove('visible');
+    if (main) main.classList.remove('is-hidden');
+  }
+
+  function showBanner() {
+    if (!banner) return;
+    resetToMainView();
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (toggleInput) toggleInput.checked = stored === 'accepted';
+    banner.classList.add('visible');
+  }
+
   function hideBanner() {
     if (banner) banner.classList.remove('visible');
   }
 
+  function currentLangCode() {
+    // Mirrors the "currentLang" variable set up by the language switcher
+    // further down in this file (used for the confirmation message).
+    return typeof currentLang !== 'undefined' ? currentLang : 'de';
+  }
+
+  function handleSave() {
+    var accepted = !!(toggleInput && toggleInput.checked);
+    var state = accepted ? 'accepted' : 'declined';
+
+    localStorage.setItem(STORAGE_KEY, state);
+    if (accepted) loadGoogleAnalytics();
+    setIconStatus(state);
+
+    // Swap to confirmation view
+    if (confirmText) {
+      var lang = currentLangCode();
+      confirmText.textContent = CONFIRM_MESSAGES[state][lang] || CONFIRM_MESSAGES[state].de;
+    }
+    if (main) main.classList.add('is-hidden');
+    if (confirmBox) confirmBox.classList.add('visible');
+
+    // Auto-close after a moment, then reset the view for next time
+    setTimeout(function () {
+      hideBanner();
+      setTimeout(resetToMainView, 300);
+    }, 1800);
+  }
+
+  // Initial state on page load
   var stored = localStorage.getItem(STORAGE_KEY);
   if (stored === 'accepted') {
     loadGoogleAnalytics();
-  } else if (stored !== 'declined') {
+    setIconStatus('accepted');
+  } else if (stored === 'declined') {
+    setIconStatus('declined');
+  } else {
+    setIconStatus('neutral');
     showBanner();
   }
 
-  if (acceptBtn) acceptBtn.addEventListener('click', function () {
-    localStorage.setItem(STORAGE_KEY, 'accepted');
-    loadGoogleAnalytics();
-    hideBanner();
-  });
-  if (declineBtn) declineBtn.addEventListener('click', function () {
-    localStorage.setItem(STORAGE_KEY, 'declined');
-    hideBanner();
-  });
-  if (settingsLink) settingsLink.addEventListener('click', function () {
-    showBanner();
-  });
+  if (saveBtn) saveBtn.addEventListener('click', handleSave);
+  if (settingsBtn) settingsBtn.addEventListener('click', showBanner);
 })();
 
 // --- Mobile nav: hamburger opens/closes the full-screen drawer,
