@@ -1,1502 +1,415 @@
-/* ==========================================================================
-   styles2.css — everything for this page: site navigation + hero section.
-   Kept as a single file on purpose.
-   ========================================================================== */
-
-/* ==========================================================================
-   Site navigation — two states:
-   - default (at the top of the hero): flat, full-width, no background/
-     border/shadow — just the logo and links sitting plainly on the page
-   - .is-scrolled: floating glass pill, added by script2.js once the page
-     has scrolled past the hero
-   ========================================================================== */
-
-:root{
-  --nav-ink:#161F17;
-  --nav-text:#3A4A3C;
-  --nav-underline:#4E8B5C;
-  --nav-gradient-start:#4E8B5C;
-  --nav-gradient-end:#1F4D28;
-  --nav-en-text:#6B7D6D;
-}
-
-.site-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:100;
-  padding-top:2px;
-  transition:padding-top 0.3s ease;
-}
-
-.nav-inner{
-  max-width:1240px;
-  margin:0 auto;
-  height:58px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 28px;
-  background:transparent;
-  border:1px solid transparent;
-  border-radius:0;
-  box-shadow:none;
-  transition:background-color 0.3s ease, border-color 0.3s ease,
-             box-shadow 0.3s ease, border-radius 0.3s ease;
-}
-
-.site-nav.is-scrolled{
-  padding-top:17px;
-}
-.site-nav.is-scrolled .nav-inner{
-  background:var(--cream);
-  border:1px solid var(--hairline, #E3E8E4);
-  border-radius:16px;
-  box-shadow:
-    0px 4px 24px rgba(22,31,23,0.1),
-    0px 1px 4px rgba(22,31,23,0.06);
-}
-
-.nav-logo{
-  font-family:'Inter', sans-serif;
-  font-weight:500;
-  font-size:19px;
-  letter-spacing:0.26px;
-  color:var(--nav-ink);
-  text-decoration:none;
-  white-space:nowrap;
-}
-
-.nav-list{
-  display:flex;
-  align-items:center;
-  gap:22px;
-  list-style:none;
-}
-
-.nav-list li{
-  display:flex;
-}
-
-.nav-link{
-  position:relative;
-  display:inline-block;
-  padding:2.2px 0;
-  font-family:'DM Sans', sans-serif;
-  font-variation-settings:'opsz' 9;
-  font-size:14px;
-  color:var(--nav-text);
-  text-decoration:none;
-  white-space:nowrap;
-}
-.nav-link::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-2px;
-  height:2px;
-  width:0;
-  background:var(--nav-underline);
-  border-radius:2px;
-  transition:width 0.25s ease;
-}
-.nav-link:hover::after,
-.nav-link:focus-visible::after{
-  width:100%;
-}
-.nav-link:focus-visible{
-  outline:none;
-  box-shadow:0 0 0 3px rgba(78,139,92,0.35);
-  border-radius:4px;
-}
-/* Scrollspy: whichever section you're currently viewing gets the same
-   underline treatment as hover, but permanent — so it "travels" with
-   you as you scroll from section to section. */
-.nav-link.is-active{
-  color:var(--nav-ink);
-  font-weight:500;
-}
-.nav-link.is-active::after{
-  width:100%;
-}
-
-.nav-contact{
-  position:relative;
-  overflow:hidden;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  height:34px;
-  padding:0 18px;
-  border-radius:100px;
-  background:#25302A;
-  box-shadow:0px 2px 4px rgba(31,77,40,0.2);
-  color:white;
-  font-family:'DM Sans', sans-serif;
-  font-variation-settings:'opsz' 14;
-  font-weight:500;
-  font-size:14px;
-  text-decoration:none;
-  white-space:nowrap;
-  transition:filter 0.2s ease, transform 0.15s ease;
-}
-.nav-contact:hover{ filter:brightness(1.15); }
-.nav-contact:active{ transform:scale(0.97); }
-.nav-contact:focus-visible{
-  outline:none;
-  box-shadow:0px 2px 4px rgba(31,77,40,0.2), 0 0 0 3px rgba(78,139,92,0.35);
-}
-
-.nav-lang{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  -webkit-appearance:none;
-  appearance:none;
-  width:41px;
-  height:28px;
-  background:white;
-  border:1px solid rgba(22,31,23,0.08);
-  border-radius:100px;
-  font-family:'Space Mono', monospace;
-  font-size:11px;
-  letter-spacing:0.66px;
-  color:var(--nav-en-text);
-  cursor:pointer;
-  margin:0;
-  transition:border-color 0.2s ease, color 0.2s ease;
-}
-.nav-lang:hover{ border-color:rgba(22,31,23,0.2); color:var(--nav-ink); }
-.nav-lang:focus-visible{
-  outline:none;
-  box-shadow:0 0 0 3px rgba(78,139,92,0.35);
-}
-
-/* Spacer so page content doesn't sit under the fixed nav */
-.nav-spacer{ height:60px; }
-
-/* Mobile: collapse the link list, keep logo + a simple menu button.
-   (The Figma frames only cover desktop; this is a sensible fallback
-   so the site doesn't break on small screens.) */
-/* ===== Mobile nav: hamburger + full-screen drawer ===== */
-.nav-burger{
-  display:none;
-  -webkit-appearance:none;
-  appearance:none;
-  -webkit-tap-highlight-color:transparent;
-  flex-direction:column;
-  justify-content:center;
-  gap:5px;
-  width:32px;
-  height:32px;
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:0;
-  margin:0;
-  font:inherit;
-  line-height:normal;
-}
-.nav-burger span{
-  display:block;
-  width:100%;
-  height:2px;
-  background:var(--nav-ink);
-  border-radius:2px;
-  transition:transform .25s ease, opacity .25s ease;
-}
-.nav-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-.nav-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-.nav-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-.mobile-nav-overlay{
-  position:fixed;
-  inset:0;
-  z-index:150;
-  background:var(--cream);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(-12px);
-  transition:opacity .3s ease, transform .3s ease;
-}
-.mobile-nav-overlay.open{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-.mobile-nav-close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  width:44px;
-  height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  -webkit-appearance:none;
-  appearance:none;
-  background:#fff;
-  border:1px solid var(--hairline);
-  border-radius:50%;
-  color:var(--ink);
-  cursor:pointer;
-  margin:0;
-  padding:0;
-  box-shadow:0 4px 16px rgba(22,31,23,0.1);
-}
-.mobile-nav-list{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:6px;
-  margin-bottom:28px;
-}
-.mobile-nav-link{
-  font-family:'Inter', sans-serif;
-  font-size:26px;
-  font-weight:500;
-  color:var(--ink);
-  text-decoration:none;
-  padding:10px 0;
-}
-.mobile-nav-contact{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--ink);
-  color:#fff;
-  font-size:16px;
-  font-weight:500;
-  text-decoration:none;
-  padding:14px 36px;
-  border-radius:100px;
-}
-
-@media (max-width:900px){
-  .nav-inner{ padding:0 20px; }
-  .nav-link{ display:none; }
-  .nav-list li:has(.nav-contact){ display:none; }
-  .nav-list li:has(.nav-lang){ display:flex; }
-  .nav-burger{ display:flex; }
-}
-
-
-:root{
-  --cream:#F9FDFA;
-  --ink:#25302A;
-  --green-dark:#405444;
-  --green-light:#9DC0A3;
-  --hairline:#E3E8E4;
-  --focus-ring:0 0 0 3px rgba(64,84,68,0.35);
-}
-
-*{ box-sizing:border-box; margin:0; padding:0; }
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--cream);
-  font-family:'Inter', sans-serif;
-  color:var(--ink);
-}
-
-/* Skip link — hidden until keyboard focus, standard accessibility pattern */
-.skip-link{
-  position:absolute;
-  left:-9999px;
-  top:0;
-  z-index:100;
-  background:var(--ink);
-  color:white;
-  padding:12px 20px;
-  border-radius:0 0 8px 0;
-  font-weight:500;
-  text-decoration:none;
-}
-.skip-link:focus{
-  left:0;
-}
-
-/* Universal focus-visible ring for keyboard navigation */
-a:focus-visible, button:focus-visible{
-  outline:none;
-  box-shadow:var(--focus-ring);
-}
-
-.hero-scale-wrap{
-  container-type:inline-size;
-  width:100%;
-  max-width:1905px;
-  margin:0 auto;
-  overflow:hidden;
-  background:var(--cream);
-}
-
-.hero{
-  position:relative;
-  width:100%;
-  height:44.88cqw;
-  min-height:400px;
-  background:var(--cream);
-}
-
-/* Covers the entire page while the entrance sequence plays, so nothing
-   behind (nav, other sections, scroll position edge cases) can ever
-   show through. Sits above the nav (z-index 100) but below the
-   traveling pill/cursor (200/210), and fades out right as the pill
-   docks into the nav. */
-.intro-overlay{
-  position:fixed;
-  inset:0;
-  z-index:150;
-  background:var(--cream);
-  pointer-events:none;
-  animation:intro-overlay-fade 0.5s ease-out both;
-  animation-delay:2.08s;
-}
-@keyframes intro-overlay-fade{
-  from{ opacity:1; }
-  to{ opacity:0; visibility:hidden; }
-}
-@media (prefers-reduced-motion: reduce){
-  .intro-overlay{ display:none; }
-}
-
-.cursor-doodle{
-  position:fixed;
-  z-index:210;
-  width:20px;
-}
-.name-pill{
-  position:fixed;
-  z-index:200;
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  background:var(--cream);
-  border:0 solid transparent;
-  border-radius:999px;
-  padding:12px 28px;
-  box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-  white-space:nowrap;
-  line-height:1;
-  transform-origin:left center;
-  pointer-events:none;
-}
-.name-pill-photo{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:1px solid var(--green-light);
-  object-fit:cover;
-  display:block;
-}
-.name-pill span{
-  font-family:'Inter', sans-serif;
-  font-weight:500;
-  font-size:32px;
-  letter-spacing:0.433px;
-  color:var(--nav-ink);
-}
-
-.eyebrow{
-  position:absolute;
-  z-index:2;
-  left:50%;
-  top:4.15cqw;
-  transform:translateX(-50%);
-  font-family:'Inter', sans-serif;
-  font-weight:500;
-  font-size:1.05cqw;
-  color:var(--ink);
-  white-space:nowrap;
-}
-
-.headline{
-  position:absolute;
-  z-index:2;
-  left:calc(50% - 32.05cqw);
-  top:6.77cqw;
-  width:64.15cqw;
-}
-.mobile-break{ display:none; }
-.line{
-  display:block;
-  font-family:'Gasoek One', sans-serif;
-  font-weight:400;
-  text-transform:uppercase;
-  line-height:7.03cqw;
-}
-.line-dark{ color:var(--green-dark); font-size:6.92cqw; }
-.line-light{
-  color:var(--green-light);
-  font-size:6.88cqw;
-  margin-top:0.13cqw;
-}
-
-.photo-cluster{
-  position:absolute;
-  z-index:4;
-  left:72.7cqw;
-  top:12.6cqw;
-  width:10.64cqw;
-  height:10.64cqw;
-}
-.photo-circle{
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  border:8px solid white;
-  overflow:hidden;
-  transform:rotate(7.38deg);
-  box-shadow:0px 10px 32px -4px rgba(19,25,39,0.1), 0px 6px 14px -6px rgba(19,25,39,0.12);
-}
-.photo-circle img{
-  width:100%; height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.photo-cluster{ display:block; }
-
-.cta-row{
-  position:absolute;
-  z-index:3;
-  left:50%;
-  top:23.1cqw;
-  transform:translateX(-50%);
-  display:flex;
-  gap:1.31cqw;
-  white-space:nowrap;
-}
-.btn-primary, .btn-secondary{
-  position:relative;
-  overflow:hidden;
-  display:inline-flex;
-  align-items:center;
-  gap:0.3cqw;
-  border-radius:999px;
-  padding:0.65cqw 1.57cqw;
-  font-family:'Inter', sans-serif;
-  font-weight:500;
-  font-size:0.79cqw;
-  min-font-size:13px;
-  cursor:pointer;
-  border:none;
-  text-decoration:none;
-  transition:background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-.btn-primary{ background:var(--ink); color:white; }
-.btn-primary:hover{ background:#374039; box-shadow:0 4px 12px rgba(37,48,42,0.25); }
-.btn-primary:active{ transform:scale(0.97); }
-
-.btn-secondary{ background:white; color:var(--ink); border:1.5px solid var(--ink); }
-.btn-secondary:hover{ border-color:var(--green-dark); }
-.btn-secondary:active{ transform:scale(0.97); }
-
-.btn-primary svg, .btn-secondary svg{ width:1.05cqw; height:1.05cqw; min-width:14px; min-height:14px; }
-
-.btn-primary::after, .btn-secondary::after, .nav-contact::after{
-  content:'';
-  position:absolute;
-  top:0; left:-60%;
-  width:40%; height:100%;
-  background:linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
-  transform:skewX(-18deg);
-  pointer-events:none;
-}
-.btn-secondary::after{
-  background:linear-gradient(115deg, transparent, rgba(64,84,68,0.25), transparent);
-}
-.btn-primary:hover::after, .btn-secondary:hover::after, .nav-contact:hover::after{
-  animation:shine-sweep 0.7s ease forwards;
-}
-@keyframes shine-sweep{
-  from{ left:-60%; }
-  to{ left:130%; }
-}
-@media (prefers-reduced-motion: reduce){
-  .btn-primary:hover::after, .btn-secondary:hover::after, .nav-contact:hover::after{
-    animation:none;
-  }
-}
-
-.stats-row{
-  position:absolute;
-  z-index:3;
-  left:50%;
-  top:30.08cqw;
-  transform:translateX(-50%);
-  display:flex;
-  align-items:center;
-  gap:1.68cqw;
-}
-.stat{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  width:4.7cqw;
-  min-width:70px;
-}
-.stat-num{
-  font-family:'Inter', sans-serif;
-  font-weight:700;
-  font-size:2.37cqw;
-  color:var(--green-light);
-  letter-spacing:-0.5px;
-  line-height:1.2;
-}
-.stat-label{
-  font-family:'Inter', sans-serif;
-  font-weight:400;
-  font-size:0.77cqw;
-  color:var(--ink);
-  margin-top:0.24cqw;
-  white-space:nowrap;
-}
-.divider{
-  width:1px;
-  height:5.41cqw;
-  min-height:60px;
-  background:var(--hairline, #E3E8E4);
-}
-
-.scroll-indicator{
-  position:absolute;
-  z-index:2;
-  left:50%;
-  top:37.69cqw;
-  transform:translateX(-50%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:0.42cqw;
-  opacity:0.6;
-  text-decoration:none;
-  transition:opacity 0.2s ease, transform 0.2s ease;
-}
-.scroll-indicator:hover{
-  opacity:1;
-  transform:translateX(-50%) translateY(3px);
-}
-.scroll-indicator span{
-  font-family:'Space Mono', monospace;
-  font-size:0.55cqw;
-  min-font-size:10px;
-  letter-spacing:2px;
-  color:var(--green-dark);
-}
-.scroll-pill{
-  width:1.15cqw;
-  height:1.78cqw;
-  min-width:18px;
-  min-height:28px;
-  border:2px solid var(--green-dark);
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  padding-top:0.42cqw;
-}
-.scroll-dot{
-  width:4px;
-  height:7px;
-  border-radius:2px;
-  background:var(--ink);
-  animation:scroll-bounce 1.6s ease-in-out infinite;
-}
-@keyframes scroll-bounce{
-  0%, 100%{ transform:translateY(0); opacity:1; }
-  50%{ transform:translateY(8px); opacity:0.4; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior:auto; }
-  .scroll-dot{ animation:none; }
-  .btn-primary, .btn-secondary, .scroll-indicator{ transition:none; }
-}
-
-.cursor-doodle{
-  left:calc(50% + 130px);
-  top:calc(50% + 30px);
-  animation:cursor-click-fade 1.8s cubic-bezier(0.22,1,0.36,1) both;
-}
-@keyframes cursor-click-fade{
-  0%{ opacity:0; transform:scale(1); }
-  22%{ opacity:1; transform:scale(1); }
-  32%{ transform:scale(1); }
-  38%{ transform:scale(0.7); }
-  46%{ transform:scale(1.08); }
-  54%{ opacity:1; transform:scale(1); }
-  62%{ opacity:0; }
-  100%{ opacity:0; }
-}
-
-.name-pill{
-  left:50%; top:50%;
-  animation:pill-journey 2.6s cubic-bezier(0.65,0,0.35,1) both;
-}
-@keyframes pill-journey{
-  0%, 30%{
-    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
-    background:var(--cream);
-    border:0 solid transparent;
-    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-    padding:12px 28px;
-    gap:12px;
-  }
-  36%{
-    left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
-    background:var(--cream);
-    border:2px solid var(--green-light);
-    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-    padding:12px 28px;
-    gap:12px;
-  }
-  44%{
-    left:50%; top:50%; transform:translate(-50%,-50%) scale(1.06);
-    background:var(--cream);
-    border:2px solid var(--green-light);
-    box-shadow:0 0 0 5px var(--green-light), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-    padding:12px 28px;
-    gap:12px;
-  }
-  54%{
-    left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
-    background:var(--cream);
-    border:2px solid var(--green-light);
-    box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-    padding:12px 28px;
-    gap:12px;
-  }
-  70%{
-    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
-    transform:translate(0,-50%) scale(1);
-    background:var(--cream);
-    border:0 solid transparent;
-    box-shadow:none;
-    padding:0;
-    gap:0px;
-    opacity:1;
-  }
-  80%{
-    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
-    transform:translate(0,-50%) scale(1);
-    background:var(--cream);
-    border:0 solid transparent;
-    box-shadow:none;
-    padding:0;
-    gap:0px;
-    opacity:1;
-  }
-  100%{
-    left:var(--pill-dock-x, 28px); top:var(--pill-dock-y, 29px);
-    transform:translate(0,-50%) scale(1);
-    background:var(--cream);
-    border:0 solid transparent;
-    box-shadow:none;
-    padding:0;
-    gap:0px;
-    opacity:0;
-  }
-}
-.name-pill span{
-  animation:pill-text-size 2.6s cubic-bezier(0.65,0,0.35,1) both;
-}
-@keyframes pill-text-size{
-  0%, 54%{ font-size:32px; }
-  80%, 100%{ font-size:19px; }
-}
-
-.name-pill-photo{
-  animation:pill-photo-drop 2.6s cubic-bezier(0.65,0,0.35,1) both;
-}
-@keyframes pill-photo-drop{
-  0%, 54%{ opacity:1; width:40px; border-width:1px; }
-  70%, 100%{ opacity:0; width:0; border-width:0; }
-}
-
-.click-ripple{
-  position:fixed;
-  z-index:199;
-  border-radius:999px;
-  border:2px solid var(--green-light);
-  pointer-events:none;
-  transform:translate(-50%,-50%) scale(1);
-  opacity:0.9;
-  animation:ripple-expand 0.7s ease-out forwards;
-}
-@keyframes ripple-expand{
-  from{ transform:translate(-50%,-50%) scale(1); opacity:0.9; }
-  to{ transform:translate(-50%,-50%) scale(2.1); opacity:0; }
-}
-
-.trail-dot{
-  position:fixed;
-  z-index:198;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:var(--green-light);
-  pointer-events:none;
-  transform:translate(-50%,-50%) scale(1);
-  opacity:0.55;
-  animation:trail-fade 0.6s ease-out forwards;
-}
-@keyframes trail-fade{
-  from{ transform:translate(-50%,-50%) scale(1); opacity:0.55; }
-  to{ transform:translate(-50%,-50%) scale(0.2); opacity:0; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .click-ripple, .trail-dot{ display:none; }
-}
-
-.site-nav{
-  opacity:0;
-  animation:nav-reveal 0.42s ease-out both;
-  animation-delay:2.08s;
-}
-@keyframes nav-reveal{
-  from{ opacity:0; }
-  to{ opacity:1; }
-}
-
-.headline .line, .photo-cluster, .stat, .divider{
-  animation:fade-up 0.7s ease-out both;
-}
-@keyframes fade-up{
-  from{ opacity:0; transform:translateY(14px); }
-  to{ opacity:1; transform:translateY(0); }
-}
-.headline .line-dark{ transform:none; }
-.headline .line-light{ transform:none; }
-
-.eyebrow, .cta-row{
-  animation:fade-in-centered 0.7s ease-out both;
-}
-@keyframes fade-in-centered{
-  from{ opacity:0; }
-  to{ opacity:1; }
-}
-
-.scroll-indicator{
-  animation:fade-in-dim 0.7s ease-out both;
-  animation-delay:3.49s;
-}
-@keyframes fade-in-dim{
-  from{ opacity:0; }
-  to{ opacity:0.6; }
-}
-
-.eyebrow{ animation-delay:2.50s; }
-.headline .line-dark{ animation-delay:2.63s; }
-.headline .line-light{ animation-delay:2.77s; }
-.photo-cluster{ animation-delay:2.93s; }
-.cta-row{ animation-delay:3.06s; }
-.stat:nth-child(1){ animation-delay:3.18s; }
-.stat:nth-child(3){ animation-delay:3.27s; }
-.stat:nth-child(5){ animation-delay:3.36s; }
-.divider:nth-child(2){ animation-delay:3.22s; }
-.divider:nth-child(4){ animation-delay:3.31s; }
-
-@media (prefers-reduced-motion: reduce){
-  .cursor-doodle, .name-pill{ display:none; }
-  .site-nav, .nav-logo, .eyebrow, .headline .line,
-  .photo-cluster, .cta-row, .stat, .divider, .scroll-indicator{
-    animation:none;
-    opacity:1;
-  }
-}
-
-@media (max-width:680px){
-  .hero-scale-wrap{ container-type:normal; }
-  .hero{ height:auto; min-height:0; padding:32px 20px 40px; }
-  .eyebrow{ position:static; transform:none; display:block; font-size:14px; margin-bottom:8px; }
-  .headline{ position:static; width:auto; left:auto; margin-bottom:20px; }
-  .line{ line-height:1; }
-  .line-dark{ font-size:13.5vw; }
-  .line-light{ font-size:13.5vw; margin-top:8px; }
-  .mobile-break{ display:block; }
-
-  .photo-cluster{
-    position:static;
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-    width:auto; height:auto;
-    margin:0 0 24px;
-  }
-  .photo-circle{ position:static; width:120px; height:120px; transform:rotate(4deg); }
-
-  .cta-row{ position:static; transform:none; flex-wrap:wrap; margin-bottom:32px; }
-  .btn-primary, .btn-secondary{ font-size:14px; padding:12px 20px; }
-  .btn-primary svg, .btn-secondary svg{ width:16px; height:16px; }
-
-  .stats-row{ position:static; transform:none; justify-content:space-between; margin-bottom:32px; }
-  .stat{ width:auto; min-width:0; }
-  .stat-num{ font-size:28px; }
-  .stat-label{ font-size:12px; }
-  .divider{ height:40px; min-height:0; }
-
-  .scroll-indicator{ display:none; }
-
-  /* Name-pill: smaller footprint so "Lina Melissa Arndt" plus photo
-     comfortably fits centered on narrow phone screens too. The docked
-     end-state (19px) is left untouched since it already matches the
-     nav-logo's fixed size regardless of viewport. */
-  .name-pill{ padding:10px 18px; gap:8px; }
-  .name-pill-photo{ width:30px; height:30px; }
-  @keyframes pill-journey{
-    0%, 30%{
-      left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
-      background:var(--cream);
-      border:0 solid transparent;
-      box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-      padding:10px 18px;
-      gap:8px;
-    }
-    36%{
-      left:50%; top:50%; transform:translate(-50%,-50%) scale(0.94);
-      background:var(--cream);
-      border:2px solid var(--green-light);
-      box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-      padding:10px 18px;
-      gap:8px;
-    }
-    44%{
-      left:50%; top:50%; transform:translate(-50%,-50%) scale(1.06);
-      background:var(--cream);
-      border:2px solid var(--green-light);
-      box-shadow:0 0 0 4px var(--green-light), 0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-      padding:10px 18px;
-      gap:8px;
-    }
-    54%{
-      left:50%; top:50%; transform:translate(-50%,-50%) scale(1);
-      background:var(--cream);
-      border:2px solid var(--green-light);
-      box-shadow:0px 6px 7px rgba(19,25,39,0.12), 0px 10px 16px rgba(19,25,39,0.1);
-      padding:10px 18px;
-      gap:8px;
-    }
-    70%{
-      left:var(--pill-dock-x, 20px); top:var(--pill-dock-y, 26px);
-      transform:translate(0,-50%) scale(1);
-      background:var(--cream);
-      border:0 solid transparent;
-      box-shadow:none;
-      padding:0;
-      gap:0px;
-      opacity:1;
-    }
-    80%{
-      left:var(--pill-dock-x, 20px); top:var(--pill-dock-y, 26px);
-      transform:translate(0,-50%) scale(1);
-      background:var(--cream);
-      border:0 solid transparent;
-      box-shadow:none;
-      padding:0;
-      gap:0px;
-      opacity:1;
-    }
-    100%{
-      left:var(--pill-dock-x, 20px); top:var(--pill-dock-y, 26px);
-      transform:translate(0,-50%) scale(1);
-      background:var(--cream);
-      border:0 solid transparent;
-      box-shadow:none;
-      padding:0;
-      gap:0px;
-      opacity:0;
-    }
-  }
-  @keyframes pill-text-size{
-    0%, 54%{ font-size:22px; }
-    80%, 100%{ font-size:19px; }
-  }
-  @keyframes pill-photo-drop{
-    0%, 54%{ opacity:1; width:30px; border-width:1px; }
-    70%, 100%{ opacity:0; width:0; border-width:0; }
-  }
-}
-
-@media (pointer: fine){
-  body{ cursor:none; }
-  a, button{ cursor:none; }
-
-  .live-cursor{
-    position:fixed;
-    top:0; left:0;
-    width:14px;
-    height:14px;
-    margin:-7px 0 0 -7px;
-    border-radius:50%;
-    background:var(--green-dark);
-    border:2px solid var(--green-dark);
-    pointer-events:none;
-    z-index:9999;
-    transition:width 0.18s ease, height 0.18s ease, margin 0.18s ease,
-               background 0.18s ease, border-color 0.18s ease;
-    will-change:transform;
-  }
-  .live-cursor.is-hovering{
-    width:40px;
-    height:40px;
-    margin:-20px 0 0 -20px;
-    background:rgba(64,84,68,0.15);
-    border:2px solid var(--green-dark);
-  }
-}
-@media (pointer: fine) and (prefers-reduced-motion: reduce){
-  .live-cursor{ transition:none; }
-}
-
-/* ==========================================================================
-   Below the fold — ported 1:1 from the main index.html, just with its
-   colliding variable names renamed (--port-*) so nothing here can ever
-   touch the hero/nav system above. Selectors are all new (case-grid,
-   drives-grid, tl-item, etc.) so there's no overlap either way.
-   ========================================================================== */
-
-:root{
-  --port-green:#4E8B5C;--port-green-light:#EEF4EF;--port-green-mid:#4E8B5C;--port-green-dark:#1F4D28;
-  --port-ink:#161F17;--port-ink-soft:#3a4a3c;--port-ink-muted:#6b7d6d;
-  --coral:#FF5B3A;--port-border:rgba(22,31,23,0.08);
-  --port-font-body:'Inter',sans-serif;--port-font-mono:'Inter',sans-serif;--port-font-display:'Gasoek One',sans-serif;
-}
-
-.container{max-width:1240px;margin:0 auto;padding:0 56px}
-
-/* ICONS */
-.icon,.label-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-svg.lucide{width:16px;height:16px;stroke:var(--port-green-mid);stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;display:block}
-.label-icon{margin-right:6px}
-.label-icon svg.lucide{width:12px;height:12px;stroke:var(--port-ink-muted);stroke-width:2}
-.expertise-icon svg.lucide{width:22px;height:22px;stroke:var(--port-green)}
-.now-month svg.lucide{width:11px;height:11px;stroke:var(--port-ink-muted);margin-right:5px;vertical-align:-1px}
-.tl-tag svg.lucide{width:11px;height:11px;stroke:var(--port-ink-muted);margin-right:4px;vertical-align:-1px}
-.tl-card-cert .tl-tag svg.lucide{stroke:var(--port-green-dark)}
-.contact-btn-primary svg.lucide,.contact-btn-outline svg.lucide{width:15px;height:15px;stroke:currentColor;vertical-align:-2px}
-.site-footer-link svg.lucide{width:13px;height:13px;stroke:currentColor;margin-right:6px;vertical-align:-2px}
-.skill-item svg.lucide{width:14px;height:14px;stroke:rgba(255,255,255,0.85);margin-right:8px;vertical-align:-2px}
-
-/* SECTIONS */
-section{padding:112px 0;border-bottom:1px solid var(--port-border)}
-.section-label{display:inline-flex;align-items:center;justify-content:center;width:100%;font-family:var(--port-font-mono);font-weight:600;font-size:14px;color:var(--port-green-mid);letter-spacing:.02em;text-transform:uppercase;margin-bottom:12px;text-align:center}
-.section-heading{font-size:clamp(26px,3.5vw,38px);font-weight:700;letter-spacing:.5px;color:var(--port-ink);margin-bottom:12px;line-height:1.2;text-align:center}
-.section-heading em,.about-heading em,.contact-title em,.nf-title em{font-style:italic;color:var(--port-green-mid);font-weight:700}
-.section-sub{font-size:16px;color:var(--port-ink-soft);line-height:1.8;margin-bottom:48px;text-align:center}
-
-/* "Über mich" keeps its original left-aligned, two-column layout */
-#ueber-mich .section-label{justify-content:flex-start;width:auto;text-align:left}
-
-/* CASE CARDS */
-.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:165px}
-.case-card{background:white;border:1px solid var(--port-border);border-radius:24px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .2s,box-shadow .25s;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(22,31,23,0.04),0 2px 8px rgba(22,31,23,0.03);position:relative}
-.case-card::after{content:'';position:absolute;inset:0;border-radius:24px;border:2px solid transparent;transition:border-color .25s;pointer-events:none}
-.case-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(78,139,92,0.18),0 4px 12px rgba(22,31,23,0.08)}
-.case-card:hover::after{border-color:var(--port-green-mid)}
-.case-card.wip{opacity:.45;pointer-events:none}
-.case-thumb{height:320px;position:relative;overflow:hidden}
-.case-thumb img{z-index:0}
-.case-thumb .case-tag-pill{z-index:3}
-.case-thumb img ~ .case-thumb-inner{display:none}
-.case-thumb-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:60px;transition:transform .4s cubic-bezier(.4,0,.2,1)}
-.case-card:hover .case-thumb-inner{transform:scale(1.12)}
-.case-thumb-1{background:linear-gradient(135deg,#161F17 0%,#2d3a1a 100%)}
-.case-tag-pill{position:absolute;top:18px;left:18px;background:rgba(22,31,23,0.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:5px 12px;font-size:11px;font-family:var(--port-font-mono);color:rgba(255,255,255,.95);letter-spacing:.04em;z-index:2;transition:background .2s}
-.case-card:hover .case-tag-pill{background:rgba(78,139,92,0.85);border-color:rgba(255,255,255,.3)}
-.case-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
-.case-card h3{font-size:22px;font-weight:500;line-height:1.2;margin-bottom:12px;color:var(--port-ink);letter-spacing:-.02em}
-.case-card p{font-size:14px;color:var(--port-ink-soft);line-height:1.65;flex:1}
-.case-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:18px;border-top:1px solid var(--port-border)}
-.case-card-cta-label{font-size:13px;color:var(--port-ink-muted)}
-.case-arrow-btn{width:42px;height:42px;border-radius:50%;background:var(--port-green);display:flex;align-items:center;justify-content:center;color:white;font-size:16px;transition:background .2s,transform .25s cubic-bezier(.4,0,.2,1);flex-shrink:0}
-.case-card:hover .case-arrow-btn{background:var(--port-green-dark);transform:translate(4px,-4px) scale(1.1)}
-/* ===== sameSpot project tile: real screenshots peek out on hover =====
-   Default state: phones sit flush at the top of this box (top:0), and
-   since .samespot-card starts lower (tile has padding-top) with a solid
-   background and higher z-index, it naturally covers the bottom portion
-   of each phone — only the sliver above the card's top edge shows.
-   On hover, phones translate upward, revealing more of themselves from
-   behind the card. No bottom-anchoring, no fighting transforms. */
-
-.samespot-tile{
-  position:relative;
-  display:block;
-  padding-top:100px;
-  text-decoration:none;
-  color:inherit;
-}
-
-.samespot-phones{
-  position:absolute;
-  top:0; left:0; right:0;
-  height:300px;
-  pointer-events:none;
-  z-index:1;
-  overflow:visible;
-}
-
-.samespot-phone{
-  position:absolute;
-  top:0;
-  left:50%;
-  width:150px;
-  border-radius:22px;
-  box-shadow:0 16px 32px -10px rgba(22,19,17,.3);
-  transform-origin:bottom center;
-  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
-}
-
-.samespot-phone-feed{
-  transform:translate(-95%, 0) rotate(-11deg);
-  z-index:2;
-}
-.samespot-phone-dark{
-  transform:translate(-50%, 0) rotate(-3deg);
-  z-index:3;
-}
-.samespot-phone-detail{
-  transform:translate(-5%, 0) rotate(9deg);
-  z-index:2;
-}
-
-.samespot-tile:hover .samespot-phone-feed{
-  transform:translate(-105%, -110px) rotate(-13deg);
-}
-.samespot-tile:hover .samespot-phone-dark{
-  transform:translate(-50%, -120px) rotate(-3deg);
-}
-.samespot-tile:hover .samespot-phone-detail{
-  transform:translate(5%, -110px) rotate(11deg);
-}
-
-.samespot-card{
-  position:relative;
-  z-index:4;
-  background:#fff;
-  border:1px solid var(--border,#E3E8E4);
-  border-radius:24px;
-  padding:28px 28px 24px;
-  box-shadow:0 1px 3px rgba(22,31,23,0.04),0 2px 8px rgba(22,31,23,0.03);
-  text-align:center;
-  transition:box-shadow .25s;
-}
-.samespot-tile:hover .samespot-card{
-  box-shadow:0 20px 48px rgba(78,139,92,0.14),0 4px 12px rgba(22,31,23,0.06);
-}
-.samespot-logo{
-  font-family:'Gasoek One', sans-serif;
-  font-size:44px;
-  margin-bottom:4px;
-}
-.samespot-logo-accent{ color:var(--coral,#FF5B3A); }
-.samespot-logo-dark{ color:var(--black-ink,#161311); }
-.samespot-tagline{
-  font-weight:600;
-  font-size:15px;
-  color:var(--port-ink,#161F17);
-  margin-bottom:14px;
-}
-.samespot-desc{
-  font-size:14px;
-  line-height:1.6;
-  color:var(--port-ink-soft,#3a4a3c);
-  margin-bottom:18px;
-}
-.samespot-footer{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  font-size:13px;
-  color:var(--port-ink-muted,#6b7d6d);
-  padding-top:16px;
-  border-top:1px solid var(--border,#E3E8E4);
-  width:100%;
-  justify-content:center;
-}
-
-@media(max-width:900px){
-  .samespot-tile{ padding-top:85px; }
-  .samespot-phone{ width:120px; }
-  .samespot-tile:hover .samespot-phone-feed{ transform:translate(-105%, -95px) rotate(-13deg); }
-  .samespot-tile:hover .samespot-phone-dark{ transform:translate(-50%, -103px) rotate(-3deg); }
-  .samespot-tile:hover .samespot-phone-detail{ transform:translate(5%, -95px) rotate(11deg); }
-}
-
-.case-card-empty{
-  border:1.5px dashed var(--border,#E3E8E4);
-  border-radius:24px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  min-height:100%;
-  color:var(--port-ink-muted,#6b7d6d);
-  font-size:14px;
-}
-.case-card-empty .case-wip-dot{ flex-shrink:0; }
-.case-card-samespot .case-thumb-1 img{transition:transform .6s cubic-bezier(.4,0,.2,1)}
-.case-card-samespot:hover .case-thumb-1 img{transform:scale(1.04)}
-.case-card-tagline{font-family:var(--port-font-mono);font-size:12px;color:var(--port-green-mid);margin-bottom:10px !important;flex:none !important}
-.case-card-cta-wip{display:inline-flex;align-items:center;gap:7px}
-.case-wip-dot{width:6px;height:6px;border-radius:50%;background:var(--port-green-mid);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* SKILLS BANNER */
-.skills-banner{background:linear-gradient(100deg,var(--ink) 0%,var(--green-dark) 55%,var(--green-light) 100%);overflow:hidden;padding:20px 0;user-select:none}
-.skills-marquee{display:flex;width:max-content;animation:scrollLeft 40s linear infinite;pointer-events:none;animation-play-state:running !important}
-@keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-25%)}}
-.skills-group{display:flex;flex-shrink:0}
-.skill-item{display:inline-flex;align-items:center;padding:0 32px;font-family:var(--port-font-mono);font-size:13px;color:rgba(255,255,255,.85);white-space:nowrap;letter-spacing:.04em}
-
-/* DRIVES */
-.drives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.drives-card{background:white;border:1px solid var(--port-border);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 3px rgba(22,31,23,0.04);transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-.drives-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--port-green) 0%,var(--coral) 100%);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
-.drives-card:hover::before{transform:scaleX(1)}
-.drives-card:hover{border-color:var(--port-green-mid);transform:translateY(-3px);box-shadow:0 8px 24px rgba(22,31,23,0.09);background:linear-gradient(160deg,white 0%,var(--port-green-light) 100%)}
-.drives-num{font-family:var(--port-font-mono);font-size:26px;font-weight:300;background:linear-gradient(120deg,var(--port-green) 0%,var(--coral) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.06em}
-.drives-title{font-size:20px;font-weight:500;color:var(--port-ink);letter-spacing:-.01em;line-height:1.2}
-.drives-text{font-size:14px;color:var(--port-ink-soft);line-height:1.75;flex:1}
-
-/* EXPERTISE */
-.expertise-heading{font-size:clamp(34px,5vw,60px);font-weight:500;letter-spacing:-.03em;color:var(--port-ink);margin-bottom:48px;line-height:1.1}
-.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.expertise-card{background:white;border:1px solid var(--port-border);border-radius:24px;padding:28px;box-shadow:0 1px 3px rgba(22,31,23,0.04);transition:border-color .2s,transform .2s,box-shadow .2s}
-.expertise-card:hover{border-color:var(--port-green-mid);transform:translateY(-3px);box-shadow:0 8px 24px rgba(22,31,23,0.09)}
-.expertise-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--port-green-light) 0%,#d4e8d8 100%);display:inline-flex;align-items:center;justify-content:center;margin-bottom:22px;transition:transform .3s cubic-bezier(.4,0,.2,1)}
-.expertise-card:hover .expertise-icon{transform:rotate(-8deg) scale(1.1)}
-.expertise-card h3{font-size:19px;font-weight:500;color:var(--port-ink);letter-spacing:-.01em;margin-bottom:18px}
-.expertise-tags{display:flex;flex-wrap:wrap;gap:8px}
-.expertise-tags span{background:var(--port-green-light);color:var(--port-green-dark);border-radius:100px;padding:6px 13px;font-size:12px;font-family:var(--port-font-mono);letter-spacing:.02em}
-.expertise-tags span.tool{background:#7DAB88;color:#fff;border:none;font-weight:500}
-
-/* ABOUT */
-.about-intro-row{display:grid;grid-template-columns:1fr 260px;gap:64px;align-items:start;margin-bottom:64px}
-.about-heading{font-size:clamp(28px,3.5vw,40px);font-weight:500;letter-spacing:-.02em;color:var(--port-ink);margin-bottom:18px;line-height:1.2}
-.about-text{font-size:16px;color:var(--port-ink-soft);line-height:1.85}
-.about-photo-wrap{width:280px;height:280px;border-radius:50%;background:var(--port-green-light);border:2px solid var(--port-green-mid);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(22,31,23,0.1),0 2px 8px rgba(22,31,23,0.06)}
-.about-photo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.about-photo-stage{position:relative;display:inline-block}
-.about-intro-photo-col{display:flex;flex-direction:column;align-items:center}
-.about-socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.about-social-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--port-font-mono);font-size:13px;color:var(--port-green-dark);text-decoration:none;background:var(--port-green-light);border:1px solid rgba(78,139,92,0.25);border-radius:100px;padding:8px 16px;transition:background .2s,color .2s,transform .15s,box-shadow .2s}
-.about-social-link:hover{background:var(--port-green);color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(78,139,92,0.25)}
-.about-social-link svg.lucide{width:14px;height:14px;stroke:currentColor}
-
-/* TIMELINE */
-.cv-section-label{display:inline-flex;align-items:center;font-family:var(--port-font-mono);font-size:11px;color:var(--port-ink-muted);letter-spacing:.06em;border:1px solid var(--port-border);border-radius:100px;padding:5px 12px;margin-bottom:32px;text-transform:uppercase}
-.tl{display:flex;flex-direction:column}
-.tl-item{display:grid;grid-template-columns:130px 24px 1fr;gap:0 20px;position:relative;padding-bottom:24px}
-.tl-item-last{padding-bottom:0}
-.tl-left{text-align:right;padding-top:16px}
-.tl-date{font-family:var(--port-font-mono);font-size:11px;color:var(--port-ink-muted);line-height:1.5}
-.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;padding-top:18px}
-.tl-dot-wrap::after{content:'';flex:1;width:1px;background:var(--port-border);margin-top:8px}
-.tl-item-last .tl-dot-wrap::after{display:none}
-.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--port-green-mid);border:2px solid var(--cream);box-shadow:0 0 0 1px var(--port-green-mid);flex-shrink:0;transition:transform .2s cubic-bezier(.4,0,.2,1)}
-.tl-item:hover .tl-dot{transform:scale(1.3)}
-.tl-dot-active{background:var(--port-green);box-shadow:0 0 0 3px rgba(78,139,92,.2);animation:pulse 2s ease-in-out infinite}
-.tl-dot-cert{background:var(--port-green-dark);box-shadow:0 0 0 1px var(--port-green-dark)}
-.tl-dot-small{width:7px;height:7px;background:var(--port-border);box-shadow:none}
-.tl-card{background:white;border:1px solid var(--port-border);border-radius:18px;padding:18px 22px;transition:border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 1px 3px rgba(22,31,23,0.04)}
-.tl-card:hover{border-color:var(--port-green-mid);transform:translateX(4px);box-shadow:0 6px 20px rgba(22,31,23,0.08)}
-.tl-card-cert{background:var(--port-green-light);border-color:transparent}
-.tl-card-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.tl-tag{display:inline-flex;align-items:center;font-family:var(--port-font-mono);font-size:11px;color:var(--port-ink-muted);border:1px solid var(--port-border);border-radius:100px;padding:5px 13px;background:white}
-.tl-card-cert .tl-tag{color:var(--port-green-dark);border-color:rgba(78,139,92,.2);background:rgba(255,255,255,.6)}
-.tl-badge{font-family:var(--port-font-mono);font-size:11px;color:var(--port-green-dark);background:rgba(78,139,92,.15);border-radius:100px;padding:5px 13px}
-.tl-role{font-size:16px;font-weight:500;color:var(--port-ink);margin-bottom:4px;line-height:1.3}
-.tl-where{font-size:12px;color:var(--port-ink-muted);font-family:var(--port-font-mono);margin-bottom:12px}
-.tl-bullets{list-style:none;margin:10px 0 12px;display:flex;flex-direction:column;gap:5px}
-.tl-bullets li{font-size:13px;color:var(--port-ink-soft);line-height:1.5;padding-left:12px;position:relative}
-.tl-bullets li::before{content:'·';position:absolute;left:0;color:var(--port-green-mid);font-weight:700}
-.tl-pills{display:flex;flex-wrap:wrap;gap:6px}
-.tl-pills span{background:white;color:var(--port-green-dark);font-size:11px;font-family:var(--port-font-mono);padding:3px 9px;border-radius:100px;border:1px solid rgba(78,139,92,.15)}
-.tl-card-haspdf{display:grid;grid-template-columns:1fr 168px;gap:22px;align-items:start}
-.tl-card-main{min-width:0}
-.tl-cert-preview{position:relative;border-radius:14px;overflow:hidden;background:var(--port-green-light);border:1px solid rgba(78,139,92,0.2);display:block;width:100%;box-shadow:0 4px 16px rgba(22,31,23,0.08)}
-.tl-cert-portrait{aspect-ratio:3 / 4}
-.tl-cert-landscape{aspect-ratio:4 / 3}
-.tl-cert-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(31,77,40,0);color:transparent;font-family:var(--port-font-mono);font-size:11px;letter-spacing:.04em;transition:background .25s,color .25s}
-.tl-cert-overlay svg.lucide{width:18px;height:18px;stroke:white}
-.tl-cert-preview:hover .tl-cert-overlay{background:rgba(31,77,40,0.55);color:white}
-
-/* NOW */
-.now-intro-text{font-size:16px;color:var(--port-ink-soft);line-height:1.8;max-width:820px;margin:0 auto 40px;text-align:center}
-.now-blocks{display:flex;flex-direction:column;gap:20px}
-.now-block{border-radius:24px;padding:40px;border:1px solid var(--port-border);box-shadow:0 1px 3px rgba(22,31,23,0.04);transition:box-shadow .3s,transform .3s}
-.now-block-current{background:linear-gradient(135deg,var(--port-green-light) 0%,#dcebe0 100%);border-color:transparent}
-.now-block-current:hover{box-shadow:0 8px 32px rgba(78,139,92,0.15)}
-.now-block-archive{background:white}
-.now-block-header{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid rgba(22,31,23,.07)}
-.now-block-heading{font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--port-ink);line-height:1.2}
-.now-cv-tag{display:inline-flex;align-items:center;width:fit-content;border:1px solid var(--port-border);border-radius:100px;padding:3px 10px;font-size:11px;font-family:var(--port-font-mono);color:var(--port-ink-muted);letter-spacing:.04em;background:white}
-.now-entry{margin-bottom:28px}
-.now-entry:last-child{margin-bottom:0}
-.now-month{display:flex;align-items:center;font-family:var(--port-font-mono);font-size:11px;color:var(--port-ink-muted);margin-bottom:10px}
-.now-text{font-size:15px;color:var(--port-ink-soft);line-height:1.75;margin:0}
-.now-link{color:var(--port-green-mid);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
-.now-link:hover{color:var(--port-green-dark)}
-
-/* BLOG */
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-.blog-card{background:white;border:1px solid var(--port-border);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,box-shadow .25s;box-shadow:0 1px 3px rgba(22,31,23,0.04)}
-.blog-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(22,31,23,0.09),0 2px 8px rgba(22,31,23,0.05)}
-.blog-thumb{height:160px;position:relative;display:flex;align-items:flex-start;padding:14px;overflow:hidden}
-.blog-thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.blog-thumb .blog-tag-pill{position:relative;z-index:1}
-.blog-thumb-1{background:linear-gradient(135deg,#EEF4EF 0%,#7DAB88 100%)}
-.blog-thumb-2{background:linear-gradient(135deg,#EEF4EF 0%,#4E8B5C 100%)}
-.blog-thumb-3{background:linear-gradient(135deg,#F3F7F0 0%,#1F4D28 100%)}
-.blog-thumb-4{background:linear-gradient(135deg,#EEF4EF 0%,#5E9C6E 100%)}
-.blog-tag-pill{background:var(--port-green-dark);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:4px 10px;font-size:10px;font-family:var(--port-font-mono);color:#fff;letter-spacing:.04em;z-index:2}
-.blog-body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.blog-meta{font-family:var(--port-font-mono);font-size:10px;color:var(--port-ink-muted)}
-.blog-title{font-size:14px;font-weight:500;line-height:1.4;color:var(--port-ink)}
-.blog-text{font-size:12px;color:var(--port-ink-soft);line-height:1.6}
-
-/* MASONRY */
-.masonry-grid{column-count:3;column-gap:16px;width:100%}
-.masonry-card{break-inside:avoid;margin-bottom:16px;border-radius:24px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .25s;background:#f5f5f5;display:block;box-shadow:0 1px 4px rgba(22,31,23,0.06)}
-.masonry-card:hover{transform:scale(1.01);box-shadow:0 12px 32px rgba(22,31,23,0.12)}
-.masonry-card.card-scroll{height:360px}
-.scroll-container{width:100%;height:100%;overflow:hidden;position:relative;border-radius:24px}
-.scroll-img{width:100%;height:auto !important;position:absolute;top:0;left:0;z-index:1}
-@media(min-width:901px){
-  .scroll-img{transition:transform 4s ease-in-out}
-  .masonry-card.card-scroll:hover .scroll-img{transform:translateY(calc(-100% + 360px))}
-}
-@media(max-width:900px){
-  .masonry-card.card-scroll{height:320px}
-  .scroll-img{position:absolute;top:0;transition:none;animation:mobileScrollSmooth 6s ease-in-out infinite alternate}
-}
-@keyframes mobileScrollSmooth{0%,15%{transform:translateY(0)}85%,100%{transform:translateY(calc(-100% + 320px))}}
-.masonry-video,.masonry-img{width:100%;height:auto;display:block;object-fit:cover}
-.masonry-video{object-fit:contain}
-.masonry-body{padding:0;width:100%;position:absolute;inset:0;left:0;z-index:2;box-sizing:border-box;pointer-events:none}
-.masonry-tag{position:absolute;top:14px;left:14px;display:inline-block;font-size:10px;font-family:var(--port-font-mono);border:1px solid rgba(255,255,255,0.3);padding:3px 8px;border-radius:100px;background:rgba(0,0,0,0.35);backdrop-filter:blur(6px);color:rgba(255,255,255,0.95);letter-spacing:.04em;z-index:3}
-.masonry-title{position:absolute;bottom:0;left:0;right:0;padding:40px 18px 18px;font-size:15px;font-weight:500;color:#ffffff;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
-.masonry-card:hover .masonry-title{opacity:1;transform:translateY(0)}
-.masonry-ext-link{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,0.45);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.95);text-decoration:none;z-index:4;opacity:1;transition:background .2s,transform .2s}
-.masonry-ext-link:hover{background:rgba(255,255,255,0.25);transform:scale(1.1)}
-
-/* KONTAKT */
-#kontakt{width:100%;max-width:100%;display:block;clear:both;padding:120px 0;text-align:center;background:var(--cream);position:relative;overflow:hidden}
-.contact-inner{max-width:680px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
-.contact-label{font-family:var(--port-font-mono);font-weight:600;font-size:14px;color:var(--port-green-mid);letter-spacing:.02em;text-transform:uppercase;margin-bottom:12px}
-.contact-title{font-size:clamp(36px,5vw,56px);line-height:1.15;font-weight:500;color:var(--port-ink);margin-bottom:24px;letter-spacing:-.02em}
-.contact-title em{white-space:nowrap}
-.contact-desc{font-size:16px;line-height:1.6;color:var(--port-ink-soft);margin-bottom:40px}
-.contact-buttons{display:flex;gap:16px;justify-content:center;align-items:center}
-
-/* Same look & hover behaviour as the hero buttons (.btn-primary/.btn-secondary):
-   same colors, same pill shape, same shine-sweep on hover — just fixed px
-   sizing since this sits outside the hero's cqw scaling container. */
-.contact-btn-primary,.contact-btn-outline{
-  position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;
-  border-radius:999px;padding:14px 28px;font-family:'Inter',sans-serif;font-weight:500;font-size:15px;
-  cursor:pointer;text-decoration:none;
-  transition:background-color .2s ease,border-color .2s ease,transform .15s ease,box-shadow .2s ease;
-}
-.contact-btn-primary{background:var(--ink);color:#fff;box-shadow:0 2px 8px rgba(37,48,42,.2)}
-.contact-btn-primary:hover{background:#374039;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,48,42,.28)}
-.contact-btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
-.contact-btn-outline:hover{border-color:var(--green-dark);transform:translateY(-1px)}
-
-.contact-btn-primary::after,.contact-btn-outline::after{
-  content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
-  background:linear-gradient(115deg,transparent,rgba(255,255,255,.55),transparent);
-  transform:skewX(-18deg);pointer-events:none;
-}
-.contact-btn-outline::after{background:linear-gradient(115deg,transparent,rgba(64,84,68,.25),transparent)}
-.contact-btn-primary:hover::after,.contact-btn-outline:hover::after{animation:shine-sweep .7s ease forwards}
-@media(prefers-reduced-motion:reduce){
-  .contact-btn-primary:hover::after,.contact-btn-outline:hover::after{animation:none}
-}
-
-.contact-email-hint{font-family:var(--port-font-mono);font-size:13px;color:var(--port-ink-soft);margin-top:16px;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;letter-spacing:.04em}
-.contact-email-hint.visible{opacity:1;transform:translateY(0)}
-
-/* FOOTER */
-.site-footer{background:var(--port-green-light);padding:48px 0 0;position:relative}
-.site-footer::before{content:"";position:absolute;top:0;left:0;right:0;height:40px;background:linear-gradient(180deg,rgba(31,77,40,0.06) 0%,transparent 100%);pointer-events:none}
-.site-footer-inner{max-width:1240px;margin:0 auto;padding:0 56px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
-.site-footer-brand{display:flex;flex-direction:column;gap:8px}
-.site-footer-name-text{font-family:var(--port-font-mono);font-size:15px;color:var(--port-ink)}
-.site-footer-sub{font-size:12px;color:var(--port-ink-muted);font-family:var(--port-font-mono)}
-.site-footer-status{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--port-green-mid);font-family:var(--port-font-mono);margin-top:4px}
-.site-footer-dot{width:7px;height:7px;border-radius:50%;background:var(--port-green-mid);animation:pulse 2s ease-in-out infinite}
-.site-footer-socials{display:flex;align-items:center;gap:12px}
-.site-footer-link{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:white;border:1px solid var(--port-border);color:var(--port-ink-soft);text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .15s,box-shadow .2s}
-.site-footer-link:hover{background:var(--port-green);color:#fff;border-color:var(--port-green);transform:translateY(-2px);box-shadow:0 6px 16px rgba(78,139,92,0.25)}
-.site-footer-link svg.lucide{width:18px;height:18px;stroke:currentColor;margin:0}
-.site-footer-bottom{max-width:1240px;margin:40px auto 0;padding:20px 56px;border-top:1px solid var(--port-border);display:flex;justify-content:space-between;align-items:center;gap:12px}
-.site-footer-copy{font-size:11px;color:var(--port-ink-muted);font-family:var(--port-font-mono)}
-.site-footer-impressum{font-size:11px;color:var(--port-ink-muted);text-decoration:none;font-family:var(--port-font-mono);opacity:.7;transition:opacity .2s,color .2s}
-.site-footer-impressum:hover{opacity:1;color:var(--port-green)}
-
-/* RIPPLE (Kontakt buttons only — hero buttons already have their own shine-sweep) */
-.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.35);transform:scale(0);animation:ripple-anim .5s linear;pointer-events:none}
-@keyframes ripple-anim{to{transform:scale(4);opacity:0}}
-
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-
-/* ===== INSTAGRAM/LIGHTBOX ===== */
-.lightbox-overlay{position:fixed;inset:0;background:rgba(10,14,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s cubic-bezier(.4,0,.2,1)}
-.lightbox-overlay.open{opacity:1;pointer-events:all}
-.lightbox-close{position:fixed;top:24px;right:28px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;z-index:2010}
-.lightbox-close:hover{background:rgba(255,255,255,.22);transform:rotate(90deg)}
-.lightbox-inner{max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center;position:relative}
-.lightbox-media{max-width:90vw;max-height:90vh;border-radius:16px;object-fit:contain;box-shadow:0 32px 80px rgba(0,0,0,0.5)}
-.lightbox-carousel{position:relative;max-width:90vw;max-height:90vh}
-.lightbox-carousel-track{display:flex;transition:transform .35s ease}
-.lightbox-carousel-track img{max-width:90vw;max-height:85vh;border-radius:16px;object-fit:contain;flex-shrink:0;width:100%}
-.lightbox-carousel-dots{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);display:flex;gap:7px}
-.lightbox-carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .2s,transform .2s;cursor:pointer}
-.lightbox-carousel-dots span.active{background:#fff;transform:scale(1.2)}
-.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:5}
-.lightbox-arrow:hover{background:rgba(255,255,255,.25)}
-.lightbox-arrow-left{left:-56px}
-.lightbox-arrow-right{right:-56px}
-.lightbox-scroll-wrap{width:min(900px,90vw);height:85vh;overflow-y:auto;border-radius:16px;box-shadow:0 32px 80px rgba(0,0,0,0.5);overscroll-behavior:contain}
-.lightbox-scroll-wrap img{width:100%;height:auto;display:block;border-radius:16px}
-.lightbox-scroll-wrap::-webkit-scrollbar{width:4px}
-.lightbox-scroll-wrap::-webkit-scrollbar-track{background:rgba(255,255,255,.05)}
-.lightbox-scroll-wrap::-webkit-scrollbar-thumb{background:rgba(255,255,255,.3);border-radius:2px}
-
-/* RESPONSIVE (below-the-fold only) */
-@media(max-width:1100px){
-  .expertise-grid{grid-template-columns:repeat(2,1fr)}
-  .container{max-width:100%;padding:0 40px}
-  .site-footer-inner{padding:0 40px}
-}
-@media(max-width:900px){
-  .masonry-grid{column-count:2}
-  .container{padding:0 32px}
-  .case-grid{grid-template-columns:1fr 1fr}
-  .blog-grid{grid-template-columns:repeat(2,1fr)}
-  .drives-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-  .expertise-grid{grid-template-columns:1fr 1fr}
-  #kontakt{padding:80px 0}
-  .contact-inner{padding:0 32px}
-  .site-footer-inner{padding:0 32px}
-  section{padding:88px 0}
-}
-@media(max-width:768px){
-  .tl-card-haspdf{grid-template-columns:1fr}
-  .tl-cert-preview{min-height:160px}
-}
-@media(max-width:600px){
-  .container{padding:0 20px}
-  .masonry-grid{column-count:1}
-  section{padding:56px 0}
-  .section-label{margin-bottom:28px}
-  .case-grid{grid-template-columns:1fr;gap:14px}
-  .case-card.wip{grid-column:span 1 !important}
-  .case-card-empty{grid-column:span 1 !important}
-  .case-thumb{height:220px}
-  .case-thumb-3{height:160px !important}
-  .drives-grid{grid-template-columns:1fr;gap:14px}
-  .expertise-heading{font-size:30px;margin-bottom:28px}
-  .expertise-grid{grid-template-columns:1fr;gap:14px}
-  .blog-grid{grid-template-columns:1fr;gap:14px}
-  .masonry-grid{grid-template-columns:1fr}
-  .about-intro-row{grid-template-columns:1fr;gap:28px;margin-bottom:44px;text-align:center}
-  .about-intro-photo-col{order:-1;width:100%}
-  .about-photo-wrap{margin:0 auto}
-  .about-socials{display:grid;grid-template-columns:1fr 1fr;gap:10px;justify-content:stretch}
-  .about-social-link{justify-content:center}
-  .tl-item{grid-template-columns:68px 14px 1fr;gap:0 8px}
-  .tl-left{padding-top:14px}
-  .tl-date{font-size:9px;line-height:1.4}
-  .tl-date-between{word-break:break-word;hyphens:auto}
-  .tl-item-last .tl-card{padding:20px 16px}
-  .tl-card{padding:15px 16px}
-  .tl-card-haspdf{grid-template-columns:1fr;gap:16px}
-  .tl-cert-preview{max-width:240px}
-  .contact-title{font-size:32px}
-  .contact-desc{font-size:15px}
-  .contact-buttons{flex-direction:column;width:100%;gap:12px}
-  .contact-btn-primary,.contact-btn-outline{width:100%;justify-content:center}
-  .site-footer{padding:44px 0 0;box-shadow:0 -12px 32px rgba(22,31,23,0.12)}
-  .site-footer-inner{flex-direction:column;gap:28px;padding:0 20px;text-align:center}
-  .site-footer-brand{align-items:center}
-  .site-footer-socials{justify-content:center}
-  .site-footer-bottom{margin-top:28px;padding:20px;flex-direction:column;gap:10px;text-align:center}
-  .lightbox-arrow-left{left:-4px}
-  .lightbox-arrow-right{right:-4px}
-  .lightbox-arrow{width:36px;height:36px;background:rgba(0,0,0,.4)}
-}
-
-/* ==========================================================================
-   Touch devices: nothing here should require a hover to be seen or used.
-   @media(hover:none) targets touch/no-pointer devices specifically (more
-   reliable than a width breakpoint alone, since it also covers tablets).
-   ========================================================================== */
-@media (hover:none){
-  /* Masonry project cards: title is always visible, not hidden until hover */
-  .masonry-title{
-    opacity:1;
-    transform:translateY(0);
-    padding:24px 16px 14px;
-    background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0) 100%);
-  }
-
-  /* Certificate previews in the timeline: overlay always visible so it
-     reads as tappable, instead of only appearing on hover */
-  .tl-cert-overlay{
-    background:rgba(31,77,40,0.4);
-    color:white;
-  }
-
-  /* sameSpot tile: no hover on touch, so show the phones already partway
-     revealed by default instead of requiring an interaction that can't
-     happen. Tapping the card still opens the case study once it's live. */
-  .samespot-phone-feed{ transform:translate(-100%, -55px) rotate(-12deg); }
-  .samespot-phone-dark{ transform:translate(-50%, -60px) rotate(-3deg); }
-  .samespot-phone-detail{ transform:translate(0%, -55px) rotate(10deg); }
-
-  /* Drives / expertise / blog cards: drop the hover-lift and hover-only
-     accent bar, since neither can be triggered on touch anyway */
-  .drives-card:hover{ transform:none; box-shadow:0 1px 3px rgba(22,19,17,.05); }
-  .drives-card::before{ display:none; }
-  .expertise-card:hover{ transform:none; }
-  .expertise-card:hover .expertise-icon{ transform:none; }
-  .blog-card:hover{ transform:none; box-shadow:0 1px 3px rgba(22,19,17,.04); }
-  .case-card:hover{ transform:none; box-shadow:0 1px 3px rgba(22,31,23,0.04),0 2px 8px rgba(22,31,23,0.03); }
-  .case-card:hover::after{ border-color:transparent; }
-  .masonry-card:hover{ transform:none; box-shadow:0 1px 4px rgba(22,31,23,0.06); }
-}
-
-/* Manual <br> tags throughout the copy were placed to control line length
-   on desktop. On narrow screens they'd force an unrelated, awkward break
-   partway through a much shorter line — better to let the text reflow
-   naturally at whatever width is actually available. (Timeline date
-   labels like "Apr 2026 bis / heute" are intentionally exempt: those are
-   short two-line labels regardless of viewport, not paragraph wrapping.) */
-@media (max-width:680px){
-  .section-sub br,
-  .tl-bullets li br,
-  .now-intro-text br,
-  .tl-role br,
-  .contact-desc br{
-    display:none;
-  }
-}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script>
+  // Beim Neuladen behalten Browser sonst die Scroll-Position bei — die
+  // Pill-Journey-Animation soll aber IMMER oben am Seitenanfang starten,
+  // nie mittendrin über beliebigem Content. Deshalb hier ganz früh,
+  // noch vor dem Rendern, die automatische Wiederherstellung abschalten
+  // und die Position zurücksetzen.
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lina Melissa Arndt · UX/UI Designerin in Lüneburg</title>
+<meta name="description" content="Lina Melissa Arndt ist UX/UI Designerin in Lüneburg. Portfolio mit Case Studies, Blogartikeln und Projekten rund um nutzerzentriertes Design.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lina Melissa Arndt · UX/UI Designerin">
+<meta property="og:description" content="Soft edges in a sharp world. UX/UI Design aus Lüneburg.">
+<meta property="og:image" content="og-image.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="intro-overlay" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main-content" data-de="Zum Inhalt springen" data-en="Skip to content">Zum Inhalt springen</a>
+
+<div class="live-cursor" id="live-cursor" aria-hidden="true"></div>
+
+<svg class="cursor-doodle" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+  <path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z" fill="#25302A"/>
+</svg>
+<p class="name-pill" id="name-pill">
+  <img src="ich/bild1.jpg" alt="" width="40" height="40" class="name-pill-photo">
+  <span>Lina Melissa Arndt</span>
+</p>
+
+<nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" id="nav-logo">Lina Melissa Arndt</a>
+    <ul class="nav-list">
+      <li><a href="#projekte" class="nav-link" data-de="Projekte" data-en="Projects">Projekte</a></li>
+      <li><a href="#antrieb" class="nav-link" data-de="Antrieb" data-en="Motivation">Antrieb</a></li>
+      <li><a href="#expertise" class="nav-link" data-de="Expertise" data-en="Expertise">Expertise</a></li>
+      <li><a href="#ueber-mich" class="nav-link" data-de="Über mich" data-en="About Me">Über mich</a></li>
+      <li><a href="#aktuell" class="nav-link" data-de="Aktuell" data-en="Now">Aktuell</a></li>
+      <li><a href="#blog" class="nav-link" data-de="Blog" data-en="Blog">Blog</a></li>
+      <li><a href="#mehr" class="nav-link" data-de="Mehr" data-en="More">Mehr</a></li>
+      <li class="nav-item-contact"><a href="#kontakt" class="nav-contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+      <li class="nav-item-lang"><button type="button" class="nav-lang" onclick="toggleLang()" id="lang-btn" aria-label="Sprache wechseln zu Englisch">EN</button></li>
+    </ul>
+    <button type="button" class="nav-burger" id="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+
+<div class="mobile-nav-overlay" id="mobile-nav">
+  <button type="button" class="mobile-nav-close" id="mobile-nav-close" aria-label="Menü schließen">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <ul class="mobile-nav-list">
+    <li><a href="#projekte" class="mobile-nav-link" data-de="Projekte" data-en="Projects">Projekte</a></li>
+    <li><a href="#antrieb" class="mobile-nav-link" data-de="Antrieb" data-en="Motivation">Antrieb</a></li>
+    <li><a href="#expertise" class="mobile-nav-link" data-de="Expertise" data-en="Expertise">Expertise</a></li>
+    <li><a href="#ueber-mich" class="mobile-nav-link" data-de="Über mich" data-en="About Me">Über mich</a></li>
+    <li><a href="#aktuell" class="mobile-nav-link" data-de="Aktuell" data-en="Now">Aktuell</a></li>
+    <li><a href="#blog" class="mobile-nav-link" data-de="Blog" data-en="Blog">Blog</a></li>
+    <li><a href="#mehr" class="mobile-nav-link" data-de="Mehr" data-en="More">Mehr</a></li>
+  </ul>
+  <a href="#kontakt" class="mobile-nav-contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+</div>
+
+<header class="hero-scale-wrap">
+  <div class="hero">
+
+    <p class="eyebrow" data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</p>
+
+    <h1 class="headline">
+      <span class="line line-dark">soft edges<br class="mobile-break"> in a</span>
+      <span class="line line-light">sharp world.</span>
+    </h1>
+
+
+    <div class="photo-cluster">
+      <div class="photo-circle">
+        <img src="ich/bild1.jpg" alt="Portrait von Lina Melissa Arndt" width="181" height="184" fetchpriority="high">
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn-primary" href="CV/CV_Lina-Melissa-Arndt.pdf" download>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        CV herunterladen
+      </a>
+      <a class="btn-secondary" href="#ueber-mich">
+        Über mich
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <dl class="stats-row">
+      <div class="stat"><dt class="stat-num" data-count="1">0</dt><dd class="stat-label">Case Study</dd></div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="stat"><dt class="stat-num" data-count="4">0</dt><dd class="stat-label">Blogartikel</dd></div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="stat"><dt class="stat-num" data-count="7">0</dt><dd class="stat-label">Projekte</dd></div>
+    </dl>
+
+    <a class="scroll-indicator" href="#main-content" aria-label="Zum Inhalt scrollen">
+      <span>SCROLL</span>
+      <span class="scroll-pill"><span class="scroll-dot" aria-hidden="true"></span></span>
+    </a>
+
+  </div>
+</header>
+
+<div class="skills-banner" id="main-content">
+  <div class="skills-marquee" id="skills-marquee"></div>
+</div>
+<div class="container">
+  <section id="projekte" class="reveal">
+    <p class="section-label"><span data-de="Ausgewählte Projekte" data-en="Selected Projects">Ausgewählte Projekte</span></p>
+    <h2 class="section-heading" data-de="Echte Probleme, &lt;em&gt;echte Lösungen.&lt;/em&gt;" data-en="Real problems, &lt;em&gt;real solutions.&lt;/em&gt;">Echte Probleme, <em>echte Lösungen.</em></h2>
+    <p class="section-sub" data-de="Jede Studie zeigt den Teil, den die meisten Portfolios überspringen. Das Audit,<br> die Interviews, die Irrwege und die Entscheidung, die ich am Ende getroffen habe, und warum." data-en="Each one shows the part most portfolios skip. The audit, the interviews, the wrong turns, and the call I made in the end, and why.">Jede Studie zeigt den Teil, den die meisten Portfolios überspringen. Das Audit,<br> die Interviews, die Irrwege und die Entscheidung, die ich am Ende getroffen habe, und warum.</p>
+    <div class="case-grid">
+      <div class="samespot-tile reveal" style="cursor:default;">
+        <div class="samespot-phones" aria-hidden="true">
+          <img class="samespot-phone samespot-phone-feed" src="samespot-mocks/samespot-mock-feed.png" alt="">
+          <img class="samespot-phone samespot-phone-dark" src="samespot-mocks/samespot-mock-dark.png" alt="">
+          <img class="samespot-phone samespot-phone-detail" src="samespot-mocks/samespot-mock-detail.png" alt="">
+        </div>
+        <div class="samespot-card">
+          <div class="samespot-logo"><span class="samespot-logo-accent">same</span><span class="samespot-logo-dark">Spot</span></div>
+          <p class="samespot-tagline" data-de="Deine Stadt. Deine Spots." data-en="Your city. Your spots.">Deine Stadt. Deine Spots.</p>
+          <p class="samespot-desc" data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="An app where local connection emerges as a by-product, not as a goal. For people who long for closeness but are put off by classic social apps. The guiding question: would my persona use it, even knowing she'd never meet anyone?">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps eher abgeschreckt werden. Der Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
+          <div class="samespot-footer"><span class="case-wip-dot"></span><span data-de="Case Study in Arbeit" data-en="Case study in progress">Case Study in Arbeit</span></div>
+        </div>
+      </div>
+      <div class="case-card-empty"></div>
+    </div>
+  </section>
+  <section id="antrieb" class="reveal">
+    <p class="section-label"><span data-de="Was mich antreibt" data-en="What drives me">Was mich antreibt</span></p>
+    <h2 class="section-heading" data-de="Drei Dinge, die &lt;em&gt;meine Arbeit prägen.&lt;/em&gt;" data-en="Three things that &lt;em&gt;shape my work.&lt;/em&gt;">Drei Dinge, die <em>meine Arbeit prägen.</em></h2>
+    <p class="section-sub" data-de="Gutes Design passiert nicht zufällig. Dahinter steckt eine Haltung, eine Art zu denken<br> und Entscheidungen zu treffen. Das hier sind die drei Dinge, die meine Arbeit am stärksten prägen." data-en="Good design doesn't happen by accident. Behind it is an attitude, a way of thinking<br> and making decisions. These are the three things that shape my work the most.">Gutes Design passiert nicht zufällig. Dahinter steckt eine Haltung, eine Art zu denken<br> und Entscheidungen zu treffen. Das hier sind die drei Dinge, die meine Arbeit am stärksten prägen.</p>
+    <div class="drives-grid">
+      <div class="drives-card reveal">
+        <div class="drives-num">01</div>
+        <h3 class="drives-title" data-de="Design, das sich selbst erklärt" data-en="Design that explains itself">Design, das sich selbst erklärt</h3>
+        <p class="drives-text" data-de="Ich denke in Systemen, in Layouts, in Hierarchie. Das kommt aus der Mediengestaltung und sitzt einfach. Gutes Design braucht keine Bedienungsanleitung. Wenn etwas erklärt werden muss, ist es noch nicht fertig." data-en="I think in systems, layouts, hierarchy. That comes from media design and is simply ingrained. Good design needs no manual. If something has to be explained, it isn't finished yet.">Ich denke in Systemen, in Layouts, in Hierarchie. Das kommt aus der Mediengestaltung und sitzt einfach. Gutes Design braucht keine Bedienungsanleitung. Wenn etwas erklärt werden muss, ist es noch nicht fertig.</p>
+      </div>
+      <div class="drives-card reveal reveal-delay-1">
+        <div class="drives-num">02</div>
+        <h3 class="drives-title" data-de="Menschen vor Pixel" data-en="People before pixels">Menschen vor Pixel</h3>
+        <p class="drives-text" data-de="Research, Befragungen, echte Mitsprache. Für mich kein optionaler Schritt, sondern die Grundlage. Der Mensch steht im Fokus, und das System wird um ihn herum gebaut. Nie andersrum." data-en="Research, surveys, real participation. For me not an optional step, but the foundation. People are the focus, and the system is built around them. Never the other way round.">Research, Befragungen, echte Mitsprache. Für mich kein optionaler Schritt, sondern die Grundlage. Der Mensch steht im Fokus, und das System wird um ihn herum gebaut. Nie andersrum.</p>
+      </div>
+      <div class="drives-card reveal reveal-delay-2">
+        <div class="drives-num">03</div>
+        <h3 class="drives-title" data-de="Echte Neugierde" data-en="Genuine curiosity">Echte Neugierde</h3>
+        <p class="drives-text" data-de="3 Monate Au-pair in London, die Ostküste Australiens bereist, übers Wochenende spontan nach Kopenhagen und Malmö, einfach so in die Niederlande, nach Italien, Spanien. Ich bin durch und durch neugierig. Genau das bringe ich in jedes Projekt mit." data-en="3 months as an au pair in London, travelled Australia's east coast, spontaneous weekends in Copenhagen and Malmö, just like that to the Netherlands, Italy, Spain. I'm curious through and through. That's exactly what I bring to every project.">3 Monate Au-pair in London, die Ostküste Australiens bereist, übers Wochenende spontan nach Kopenhagen und Malmö, einfach so in die Niederlande, nach Italien, Spanien. Ich bin durch und durch neugierig. Genau das bringe ich in jedes Projekt mit.</p>
+      </div>
+    </div>
+  </section>
+  <section id="expertise" class="reveal">
+    <p class="section-label"><span data-de="Expertise" data-en="Expertise">Expertise</span></p>
+    <h3 class="section-heading" data-de="Gelernt, geübt, <em>angewendet.</em>" data-en="Learned, practised, <em>applied.</em>">Gelernt, geübt, <em>angewendet.</em></h3>
+    <p class="section-sub" data-de="Viele Jahre Designerfahrung hinterlassen Spuren. Aus der Mediengestaltung kommt das Gefühl für Layout<br> und Hierarchie, aus dem Bootcamp die UX-Methodik, und aus dem täglichen Ausprobieren der Rest." data-en="Years of design experience leave their mark. The sense for layout and hierarchy comes from media design, the UX methodology from the bootcamp, and the rest from daily trial and error.">Viele Jahre Designerfahrung hinterlassen Spuren. Aus der Mediengestaltung kommt das Gefühl für Layout<br> und Hierarchie, aus dem Bootcamp die UX-Methodik, und aus dem täglichen Ausprobieren der Rest.</p>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal"><div class="expertise-icon" data-icon="search"></div><h3 data-de="UX Research" data-en="UX Research">UX Research</h3><div class="expertise-tags"><span data-de="Nutzerinterviews" data-en="User Interviews">Nutzerinterviews</span><span data-de="Umfragen" data-en="Surveys">Umfragen</span><span data-de="Persona Mapping" data-en="Persona Mapping">Persona Mapping</span><span data-de="Usability Testing" data-en="Usability Testing">Usability Testing</span><span data-de="Wettbewerbsanalyse" data-en="Competitive Analysis">Wettbewerbsanalyse</span></div></div>
+      <div class="expertise-card reveal reveal-delay-1"><div class="expertise-icon" data-icon="git-branch"></div><h3 data-de="UX-Methodik" data-en="UX Methodology">UX-Methodik</h3><div class="expertise-tags"><span data-de="Card Sorting" data-en="Card Sorting">Card Sorting</span><span data-de="User Journeys" data-en="User Journeys">User Journeys</span><span data-de="Storyboarding" data-en="Storyboarding">Storyboarding</span><span data-de="Interaction Design" data-en="Interaction Design">Interaction Design</span></div></div>
+      <div class="expertise-card reveal reveal-delay-2"><div class="expertise-icon" data-icon="layers"></div><h3 data-de="UX/UI Design" data-en="UX/UI Design">UX/UI Design</h3><div class="expertise-tags"><span data-de="Wireframing" data-en="Wireframing">Wireframing</span><span data-de="Prototyping" data-en="Prototyping">Prototyping</span><span data-de="Design Systems" data-en="Design Systems">Design Systems</span><span data-de="Components" data-en="Components">Components</span><span data-de="Responsive Design" data-en="Responsive Design">Responsive Design</span></div></div>
+      <div class="expertise-card reveal"><div class="expertise-icon" data-icon="pen-tool"></div><h3 data-de="Visual Design" data-en="Visual Design">Visual Design</h3><div class="expertise-tags"><span class="tool">Figma</span><span class="tool">FigJam</span><span class="tool">Figma Slides</span><span data-de="Component Libraries" data-en="Component Libraries">Component Libraries</span><span data-de="Style Guides" data-en="Style Guides">Style Guides</span><span data-de="Design Tokens" data-en="Design Tokens">Design Tokens</span><span data-de="Branding" data-en="Branding">Branding</span></div></div>
+      <div class="expertise-card reveal reveal-delay-1"><div class="expertise-icon" data-icon="printer"></div><h3 data-de="Print &amp; Mediengestaltung" data-en="Print &amp; Media Design">Print &amp; Mediengestaltung</h3><div class="expertise-tags"><span class="tool">InDesign</span><span class="tool">Illustrator</span><span class="tool">Photoshop</span><span data-de="Druckproduktion" data-en="Print Production">Druckproduktion</span><span data-de="Reinzeichnung" data-en="Artwork Finalisation">Reinzeichnung</span></div></div>
+      <div class="expertise-card reveal reveal-delay-2"><div class="expertise-icon" data-icon="sparkles"></div><h3 data-de="Tools &amp; KI" data-en="Tools &amp; AI">Tools &amp; KI</h3><div class="expertise-tags"><span class="tool">Framer</span><span class="tool">Notion</span><span class="tool">Miro</span><span class="tool">Blender</span><span data-de="Vibe Coding" data-en="Vibe Coding">Vibe Coding</span><span class="tool">Claude</span><span class="tool">Gemini</span><span class="tool">Perplexity</span></div></div>
+    </div>
+  </section>
+  <section id="ueber-mich" class="reveal">
+    <p class="section-label"><span data-de="Über mich" data-en="About me">Über mich</span></p>
+    <div class="about-intro-row">
+      <div>
+        <h2 class="about-heading" data-de="Hi, ich bin <em>Lina.</em>" data-en="Hi, I'm <em>Lina.</em>">Hi, ich bin <em>Lina.</em></h2>
+        <p class="about-text" data-de="Ich bin UX/UI Designerin, komme eigentlich aus der Mediengestaltung Digital &amp; Print. Irgendwo zwischen all den Erfahrungen der letzten Jahre habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt. Welches Gefühl löst es aus? Was geht dabei im Kopf vor? Genau das treibt mich an." data-en="I'm a UX/UI Designer, originally from media design, digital &amp; print. Somewhere between all the experiences of the past years I realised: I'm not just interested in how something looks, but how it feels to use. What emotion does it trigger? What goes on in your head? That's exactly what drives me.">Ich bin UX/UI Designerin, komme eigentlich aus der Mediengestaltung Digital &amp; Print. Irgendwo zwischen all den Erfahrungen der letzten Jahre habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt. Welches Gefühl löst es aus? Was geht dabei im Kopf vor? Genau das treibt mich an.</p>
+        <div class="about-socials">
+          <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="about-social-link"><span class="icon" data-icon="linkedin"></span>LinkedIn</a>
+          <a href="https://www.behance.net/linamelissa" target="_blank" class="about-social-link"><span class="icon" data-icon="behance"></span>Behance</a>
+          <a href="https://dribbble.com/linamelissade" target="_blank" class="about-social-link"><span class="icon" data-icon="dribbble"></span>Dribbble</a>
+          <a href="https://www.instagram.com/linamelissa.de/" target="_blank" class="about-social-link"><span class="icon" data-icon="instagram"></span>Instagram</a>
+        </div>
+      </div>
+      <div class="about-intro-photo-col">
+        <div class="about-photo-stage">
+          <div class="about-photo-wrap"><img id="about-img" src="ich/bild2.jpg" alt="Lina Melissa"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date"><span data-de="Apr 2026 bis" data-en="Apr 2026 bis">Apr 2026 bis</span><br> <span data-de="heute" data-en="present">heute</span></div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot-active"></div></div>
+        <div class="tl-card tl-card-cert tl-card-haspdf">
+          <div class="tl-card-main">
+            <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Weiterbildung" data-en="Further Education">Weiterbildung</span></span><span class="tl-badge" data-de="aktuell" data-en="current">aktuell</span></div>
+            <div class="tl-role" data-de="Product Design Bootcamp" data-en="Product Design Bootcamp">Product Design Bootcamp</div>
+            <div class="tl-where">Digitale Leute School · Remote</div>
+            <ul class="tl-bullets">
+              <li data-de="AZAV-zertifiziert, kompletten UX/UI-Prozess durchlaufen, von Research über Wireframing bis zum fertigen Design System" data-en="AZAV-certified, went through the complete UX/UI process, from research through wireframing to the finished design system">AZAV-zertifiziert, kompletten UX/UI-Prozess durchlaufen,<br> von Research über Wireframing bis zum fertigen Design System</li>
+              <li data-de="Unterricht von Trainer:innen aus Unternehmen wie Miro, Delivery Hero, Airbnb und Porsche Digital" data-en="Taught by trainers from companies like Miro, Delivery Hero, Airbnb and Porsche Digital">Unterricht von Trainer:innen aus Unternehmen wie Miro,<br> Delivery Hero, Airbnb und Porsche Digital</li>
+              <li data-de="Vollzeit durchgezogen, über 800 Stunden" data-en="Completed full-time, over 800 hours">Vollzeit durchgezogen, über 800 Stunden</li>
+              <li data-de="Den kompletten Prozess eigenständig in meinem Praxisprojekt &lt;a href='samespot.html' class='now-link'&gt;&lt;strong&gt;sameSpot&lt;/strong&gt;&lt;/a&gt; angewendet" data-en="Applied the whole process independently in my practice project &lt;a href='samespot.html' class='now-link'&gt;&lt;strong&gt;sameSpot&lt;/strong&gt;&lt;/a&gt;">Den kompletten Prozess eigenständig in meinem Praxisprojekt <a href="samespot.html" class="now-link"><strong>sameSpot</strong></a> angewendet</li>
+            </ul>
+            <div class="tl-pills"><span>UX Research</span><span>Wireframing</span><span>Prototyping</span><span>Design Systems</span></div>
+          </div>
+          <a class="tl-cert-preview tl-cert-portrait" href="CV/zertifikat-bootcamp.jpg" target="_blank" rel="noopener" title="Zertifikat in neuem Tab öffnen">
+            <img src="CV/zertifikat-bootcamp.jpg" alt="Zertifikat Bootcamp" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px;">
+            <span class="tl-cert-overlay"><span class="icon" data-icon="external-link"></span><span data-de="Öffnen" data-en="Open">Öffnen</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Feb 2025 bis<br> Feb 2026</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="briefcase"></span><span data-de="Job" data-en="Job">Job</span></span></div>
+          <div class="tl-role" data-de="Mediengestalterin / Social Media &amp; Produktion" data-en="Media Designer / Social Media &amp; Production">Mediengestalterin / Social Media &amp; Produktion</div>
+          <div class="tl-where">PR Druck · Lüneburg</div>
+          <ul class="tl-bullets">
+            <li data-de="Notion-basiertes Aufgabensystem konzipiert, der Geschäftsführung vorgestellt und im ganzen Team ausgerollt, erstmals Struktur in vorher unkoordinierte Abläufe gebracht" data-en="Designed a Notion-based task system, presented it to management and rolled it out across the whole team, bringing structure to previously uncoordinated workflows for the first time">Notion-basiertes Aufgabensystem konzipiert, der Geschäftsführung vorgestellt<br> und im ganzen Team ausgerollt, erstmals Struktur in vorher unkoordinierte Abläufe gebracht</li>
+            <li data-de="Produktionszyklus eigenverantwortlich gesteuert, von Auftragsannahme bis Druckfreigabe, in einem Team von 10, vorher gab's dafür keine klaren Abläufe" data-en="Independently managed the production cycle, from order intake to print approval, in a team of 10, where no clear workflows existed before">Produktionszyklus eigenverantwortlich gesteuert, von Auftragsannahme bis<br> Druckfreigabe, in einem Team von 10, vorher gab's dafür keine klaren Abläufe</li>
+            <li data-de="Visuelle Markenkommunikation für PR Druck selbst aufgebaut, von der Designsprache bis zur Umsetzung in Print und Digital" data-en="Built the visual brand communication for PR Druck itself, from the design language through to execution in print and digital">Visuelle Markenkommunikation für PR Druck selbst aufgebaut,<br> von der Designsprache bis zur Umsetzung in Print und Digital</li>
+            <li data-de="Video-Content für Social Media eigenständig konzipiert, gedreht und geschnitten" data-en="Independently conceived, filmed and edited video content for social media">Video-Content für Social Media eigenständig konzipiert, gedreht und geschnitten</li>
+          </ul>
+          <div class="tl-pills"><span data-de="Branding" data-en="Branding">Branding</span><span data-de="Video Content" data-en="Video Content">Video Content</span><span data-de="Prozessdesign" data-en="Process Design">Prozessdesign</span><span data-de="Print" data-en="Print">Print</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date"><span data-de="Nov 2025 bis" data-en="Nov 2025 bis">Nov 2025 bis</span><br> <span data-de="Dez 2025" data-en="Dec 2025">Dez 2025</span></div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot-cert"></div></div>
+        <div class="tl-card tl-card-cert tl-card-haspdf">
+          <div class="tl-card-main">
+            <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="award"></span><span data-de="Zertifikat" data-en="Certificate">Zertifikat</span></span></div>
+            <div class="tl-role" data-de="Google UX Design Professional Certificate" data-en="Google UX Design Professional Certificate">Google UX Design Professional Certificate</div>
+            <div class="tl-where">Coursera · Remote</div>
+            <ul class="tl-bullets">
+              <li data-de="8-kursiges Zertifikatsprogramm, abgeschlossen neben einer Teilzeitanstellung" data-en="8-course certificate programme, completed alongside part-time employment">8-kursiges Zertifikatsprogramm, abgeschlossen neben einer Teilzeitanstellung</li>
+              <li data-de="Nutzerzentriertes Design, Empathize-Define-Ideate-Prozess und UX Research" data-en="User-centred design, Empathize-Define-Ideate process and UX research">Nutzerzentriertes Design, Empathize-Define-Ideate-Prozess und UX Research</li>
+              <li data-de="Wireframing, Prototyping und Hi-Fi Designs in Figma" data-en="Wireframing, prototyping and hi-fi designs in Figma">Wireframing, Prototyping und Hi-Fi Designs in Figma</li>
+              <li data-de="Alles direkt angewendet in meinem Praxisprojekt &lt;a href='https://www.behance.net/gallery/241482999/YUMI-UXUI-Case-Study' target='_blank' rel='noopener' class='now-link'&gt;&lt;strong&gt;Yumi&lt;/strong&gt;&lt;/a&gt;, einer Meal-Decision-App gegen Entscheidungsmüdigkeit" data-en="Applied everything directly in my practice project &lt;a href='https://www.behance.net/gallery/241482999/YUMI-UXUI-Case-Study' target='_blank' rel='noopener' class='now-link'&gt;&lt;strong&gt;Yumi&lt;/strong&gt;&lt;/a&gt;, a meal-decision app against decision fatigue">Alles direkt angewendet in meinem Praxisprojekt <a href="https://www.behance.net/gallery/241482999/YUMI-UXUI-Case-Study" target="_blank" rel="noopener" class="now-link"><strong>Yumi</strong></a>, einer Meal-Decision-App gegen Entscheidungsmüdigkeit</li>
+            </ul>
+            <div class="tl-pills"><span data-de="Nutzerzentriertes Design" data-en="User-centred Design">Nutzerzentriertes Design</span><span data-de="Agile Methoden" data-en="Agile Methods">Agile Methoden</span></div>
+          </div>
+          <a class="tl-cert-preview tl-cert-landscape" href="CV/zertifikat-google.jpg" target="_blank" rel="noopener" title="Zertifikat in neuem Tab öffnen">
+            <img src="CV/zertifikat-google.jpg" alt="Google UX Design Certificate" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px;">
+            <span class="tl-cert-overlay"><span class="icon" data-icon="external-link"></span><span data-de="Öffnen" data-en="Open">Öffnen</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Aug 2020 bis<br> Jul 2023</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="book-open"></span><span data-de="Ausbildung" data-en="Apprenticeship">Ausbildung</span></span></div>
+          <div class="tl-role" data-de="Mediengestalterin Digital &amp; Print" data-en="Media Designer Digital &amp; Print">Mediengestalterin Digital &amp; Print</div>
+          <div class="tl-where">Machbar GmbH · Kassel</div>
+          <ul class="tl-bullets">
+            <li data-de="Für plentymarkets Illustrationen, Grafiken und Präsentationen erstellt, für EAM Flyer, Illustrationen und eine Animation gestaltet und dabei auch ein Fotoshooting begleitet" data-en="Created illustrations, graphics and presentations for plentymarkets, and designed flyers, illustrations and an animation for EAM, also accompanying a photoshoot along the way">Für plentymarkets Illustrationen, Grafiken und Präsentationen erstellt, für EAM Flyer,<br> Illustrationen und eine Animation gestaltet und dabei auch ein Fotoshooting begleitet</li>
+            <li data-de="Mitarbeit an einer WordPress-Website sowie Pflege und Anpassungen in Typo3" data-en="Contributed to a WordPress website and maintained and adapted content in Typo3">Mitarbeit an einer WordPress-Website sowie Pflege und Anpassungen in Typo3</li>
+            <li data-de="Folien-Animationen und eine Line-Faden-Animation umgesetzt" data-en="Created slide animations and a line-thread animation">Folien-Animationen und eine Line-Faden-Animation umgesetzt</li>
+            <li data-de="Erstes UX-Projekt: Persona, User Flow und Konzept für eine Karriereseite entwickelt" data-en="First UX project: developed persona, user flow and concept for a careers page">Erstes UX-Projekt: Persona, User Flow und Konzept für eine Karriereseite entwickelt</li>
+            <li data-de="Abschlussprüfung: Website mit sechs Unterseiten eigenständig konzipiert und in HTML, CSS und JavaScript umgesetzt" data-en="Final exam: independently conceived and built a website with six subpages in HTML, CSS and JavaScript">Abschlussprüfung: Website mit sechs Unterseiten eigenständig konzipiert<br> und in HTML, CSS und JavaScript umgesetzt</li>
+          </ul>
+          <div class="tl-pills"><span data-de="Print &amp; Digital" data-en="Print &amp; Digital">Print &amp; Digital</span><span data-de="Illustration" data-en="Illustration">Illustration</span><span data-de="HTML/CSS/JS" data-en="HTML/CSS/JS">HTML/CSS/JS</span><span data-de="UX Grundlagen" data-en="UX Basics">UX Grundlagen</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-date">Aug 2016 bis<br> Jun 2018</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-header"><span class="tl-tag"><span class="icon" data-icon="graduation-cap"></span><span data-de="Schule &amp; Praktikum" data-en="School &amp; Internship">Schule &amp; Praktikum</span></span></div>
+          <div class="tl-role" data-de="Fachhochschulreife Gestaltung &amp; Jahrespraktikum Mediengestaltung" data-en="Vocational Diploma in Design &amp; Internship Year in Media Design">Fachhochschulreife Gestaltung &amp; Jahrespraktikum Mediengestaltung</div>
+          <div class="tl-where">Media Marketing GmbH &amp; BBS · Winsen (Luhe)</div>
+          <ul class="tl-bullets">
+            <li data-de="Fachhochschulreife mit Schwerpunkt Gestaltung" data-en="Vocational diploma with a focus on design">Fachhochschulreife mit Schwerpunkt Gestaltung</li>
+            <li data-de="Digitale Werbemittel und Print-Materialien mit der Adobe Suite gestaltet" data-en="Designed digital advertising materials and print assets using the Adobe Suite">Digitale Werbemittel und Print-Materialien mit der Adobe Suite gestaltet</li>
+            <li data-de="Mitarbeit an einem Imagefilm, von Storyboard über Dreharbeiten bis zum Schnitt" data-en="Contributed to a corporate film, from storyboard through filming to editing">Mitarbeit an einem Imagefilm, von Storyboard über Dreharbeiten bis zum Schnitt</li>
+          </ul>
+          <div class="tl-pills"><span data-de="Adobe Suite" data-en="Adobe Suite">Adobe Suite</span><span data-de="Print" data-en="Print">Print</span><span data-de="Video &amp; Schnitt" data-en="Video &amp; Editing">Video &amp; Schnitt</span></div>
+        </div>
+      </div>
+      <div class="tl-item tl-item-last">
+        <div class="tl-left"><div class="tl-date tl-date-between" style="font-style:italic;opacity:.6;" data-de="Und zwischendurch?" data-en="In between?">Und zwischendurch?</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot tl-dot-small"></div></div>
+        <div class="tl-card" style="background:transparent;border-style:dashed;">
+          <div class="tl-role" style="font-weight:400;font-size:13px;color:var(--ink-soft);" data-de="Au pair in London, Reise durch Australien, mehrere Umzüge innerhalb Deutschlands, dazwischen befristete Jobs (u. a. bei Butlers, CinemaxX, Hello GmbH, C&amp;A) mit viel Kundenkontakt und Verkauf. Jahre der Neuorientierung, die mich letztlich zu UX/UI Design geführt haben." data-en="Au pair in London, travelling through Australia, several moves within Germany, in between temp jobs (including Butlers, CinemaxX, Hello GmbH, C&amp;A) with plenty of customer contact and sales. Years of reorientation that ultimately led me to UX/UI design.">Au pair in London, Reise durch Australien, mehrere Umzüge innerhalb Deutschlands, dazwischen<br> befristete Jobs (u. a. bei Butlers, CinemaxX, Hello GmbH, C&amp;A) mit viel Kundenkontakt und Verkauf.<br> Jahre der Neuorientierung, die mich letztlich zu UX/UI Design geführt haben.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="aktuell" class="reveal">
+    <p class="section-label"><span data-de="Aktuell" data-en="Now">Aktuell</span></p>
+    <h2 class="section-heading" data-de="Was gerade bei &lt;em&gt;mir läuft.&lt;/em&gt;" data-en="What's currently &lt;em&gt;going on with me.&lt;/em&gt;">Was gerade bei <em>mir läuft.</em></h2>
+    <p class="now-intro-text" id="now-intro" data-de="Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media,<br> keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: <a href='https://nownownow.com/about' target='_blank' class='now-link'>mehr erfahren ↗</a>" data-en="What's on my mind right now, what I'm working on and thinking about. No social media,<br> no highlights. Just the honest state of things. An idea by Derek Sivers: <a href='https://nownownow.com/about' target='_blank' class='now-link'>learn more ↗</a>">Was mich gerade beschäftigt, woran ich arbeite und worüber ich nachdenke. Kein Social Media,
+keine Highlights. Nur der ehrliche Stand der Dinge. Eine Idee von Derek Sivers: <a href="https://nownownow.com/about" target="_blank" class="now-link">mehr erfahren ↗</a></p>
+    <div class="now-blocks">
+      <div class="now-block now-block-current reveal">
+        <div class="now-block-header"><span class="now-cv-tag" data-de="Aktuelles" data-en="Current">Aktuelles</span><h3 class="now-block-heading" data-de="Was gerade so geht" data-en="What's going on">Was gerade so geht</h3></div>
+        <div class="now-entry">
+          <div class="now-month"><span class="icon" data-icon="calendar"></span><span data-de="Mai 2026" data-en="May 2026">Mai 2026</span></div>
+          <p class="now-text" data-de="Ich hatte endlich die finale Idee für mein Portfolio: erst eine Struktur, dann den Wireframe in Figma, den ich anschließend in Framer umgesetzt habe. Funktionsfähig und nutzbar. Nach vier Tagen Arbeit habe ich mich dann spontan entschieden, Vibe Coding mit Claude auszuprobieren. Das Ergebnis siehst du hier. Gefällt es dir? :)" data-en="I finally had the final idea for my portfolio: first a structure, then the wireframe in Figma, which I then built in Framer. Functional and usable. After four days of work I spontaneously decided to try vibe coding with Claude. You're looking at the result. Do you like it? :)">Ich hatte endlich die finale Idee für mein Portfolio: erst eine Struktur, dann den Wireframe in Figma, den ich anschließend in Framer umgesetzt habe. Funktionsfähig und nutzbar. Nach vier Tagen Arbeit habe ich mich dann spontan entschieden, Vibe Coding mit Claude auszuprobieren. Das Ergebnis siehst du hier. Gefällt es dir? :)</p>
+        </div>
+      </div>
+      <div class="now-block now-block-archive reveal reveal-delay-1">
+        <div class="now-block-header"><span class="now-cv-tag" data-de="Archiv" data-en="Archive">Archiv</span><h3 class="now-block-heading" data-de="Schnee von gestern" data-en="Water under the bridge">Schnee von gestern</h3></div>
+        <div class="now-entry">
+          <div class="now-month"><span class="icon" data-icon="calendar"></span><span data-de="April 2026" data-en="April 2026">April 2026</span></div>
+          <p class="now-text" data-de="Das Product-Design-Bootcamp von der <a href='https://school.digitale-leute.de' target='_blank' class='now-link'>Digitale Leute School</a> hat gestartet. Tatsächlich habe ich mich relativ schnell für eine Problemstellung entschieden, da ich das schon seit Jahren beobachte. Kleiner Spoiler: Es ist mein Case: <a href='case-study-01.html' class='now-link'>sameSpot</a>." data-en="The Product Design bootcamp at <a href='https://school.digitale-leute.de' target='_blank' class='now-link'>Digitale Leute School</a> has started. I actually settled on a problem quite quickly, since I've been observing it for years. Small spoiler: it's my case: <span class='now-link'>sameSpot</span>.">Das Product-Design-Bootcamp von der <a href="https://school.digitale-leute.de" target="_blank" class="now-link">Digitale Leute School</a> hat gestartet. Tatsächlich habe ich mich relativ schnell für eine Problemstellung entschieden, da ich das schon seit Jahren beobachte. Kleiner Spoiler: Es ist mein Case: <span class="now-link">sameSpot</span>.</p>
+        </div>
+        <div class="now-entry">
+          <div class="now-month"><span class="icon" data-icon="calendar"></span><span data-de="November 2025" data-en="November 2025">November 2025</span></div>
+          <p class="now-text" data-de="Neben meinem Angestellten-Job als Mediengestalterin das <a href='https://www.coursera.org/professional-certificates/google-ux-design' target='_blank' class='now-link'>Google UX Design Certificate</a> bei Coursera gemacht und festgestellt: Ja, genau das will ich machen. Das ist das, was mich stunden-, wenn nicht sogar tagelang beschäftigt. Und mich dabei nicht auslaugt." data-en="Alongside my employed job as a media designer, I completed the <a href='https://www.coursera.org/professional-certificates/google-ux-design' target='_blank' class='now-link'>Google UX Design Certificate</a> on Coursera and realised: yes, this is exactly what I want to do. It's what keeps me busy for hours, if not days. Without draining me.">Neben meinem Angestellten-Job als Mediengestalterin das <a href="https://www.coursera.org/professional-certificates/google-ux-design" target="_blank" class="now-link">Google UX Design Certificate</a> bei Coursera gemacht und festgestellt: Ja, genau das will ich machen. Das ist das, was mich stunden-, wenn nicht sogar tagelang beschäftigt. Und mich dabei nicht auslaugt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="blog" class="reveal">
+    <p class="section-label"><span data-de="Gedanken" data-en="Thoughts">Gedanken</span></p>
+    <h2 class="section-heading" data-de="Gedanken aus &lt;em&gt;dem Prozess.&lt;/em&gt;" data-en="Thoughts from &lt;em&gt;the process.&lt;/em&gt;">Gedanken aus <em>dem Prozess.</em></h2>
+    <p class="section-sub" data-de="Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und<br> die Fragen, die mich nicht loslassen." data-en="Observations from someone right in the middle of the process. About design, AI and the questions that won't leave me alone.">Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und<br> die Fragen, die mich nicht loslassen.</p>
+    <div class="blog-grid">
+      <a class="blog-card reveal" href="Blog/blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><img class="blog-thumb-img" src="Blog/blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design. Und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design. Then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design. Und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
+      <a class="blog-card reveal reveal-delay-1" href="Blog/blog-artikel-02.html"><div class="blog-thumb blog-thumb-2"><img class="blog-thumb-img" src="Blog/blog-bild-02.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="UX Design" data-en="UX Design">UX Design</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3><p class="blog-text" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen. Und wie man sie zum Leben erweckt, bevor eine Zeile Code geschrieben ist." data-en="How to build a structure people don't get lost in. And bring it to life before a line of code is written.">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen. Und wie man sie zum Leben erweckt, bevor eine Zeile Code geschrieben ist.</p></div></a>
+      <a class="blog-card reveal reveal-delay-2" href="Blog/blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="Blog/blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns und warum ich sie ablehne" data-en="Dark patterns and why I reject them">Dark Patterns und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut. Warum ich da nicht mitmache." data-en="Some designs aren't badly made. They're deliberately built against you. Why I won't play along.">Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut. Warum ich da nicht mitmache.</p></div></a>
+      <a class="blog-card reveal reveal-delay-3" href="Blog/blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><img class="blog-thumb-img" src="Blog/blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="KI &amp; Tools" data-en="AI &amp; Tools">KI &amp; Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
+    </div>
+  </section>
+  <section id="mehr" class="reveal">
+    <p class="section-label"><span data-de="Weitere Projekte" data-en="More Projects">Weitere Projekte</span></p>
+    <h2 class="section-heading" data-de="Und da ist &lt;em&gt;noch mehr.&lt;/em&gt;" data-en="And there's &lt;em&gt;even more.&lt;/em&gt;">Und da ist <em>noch mehr.</em></h2>
+    <p class="section-sub" data-de="Von Web Design über App UI bis Instagram. Projekte aus verschiedenen Phasen, in verschiedenen Rollen und<br> für verschiedene Ziele. Nicht jedes davon ist eine Case Study, aber jedes davon hat mich hierhin gebracht." data-en="From web design to app UI to Instagram. Projects from different phases, different roles and different goals. Not all of them are case studies, but each one brought me here.">Von Web Design über App UI bis Instagram. Projekte aus verschiedenen Phasen, in verschiedenen Rollen und<br> für verschiedene Ziele. Nicht jedes davon ist eine Case Study, aber jedes davon hat mich hierhin gebracht.</p>
+    <div class="masonry-grid">
+      <div class="masonry-card card-scroll masonry-card-external" data-href="https://portfolio-tm-linamelissa.framer.website/"><div class="scroll-container"><img src="Weitere Projekte/tm.jpg" alt="Projekt tm" class="masonry-img scroll-img"></div><div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="E-Commerce &amp; Branding für tm" data-en="E-Commerce &amp; Branding for tm">E-Commerce &amp; Branding für tm</div></div><a href="https://portfolio-tm-linamelissa.framer.website/" target="_blank" rel="noopener" class="masonry-ext-link" title="Website öffnen"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+      <div class="masonry-card"><video src="Weitere Projekte/memorycapsule.mp4" class="masonry-video" autoplay loop muted playsinline></video><div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Memory Capsule" data-en="Memory Capsule">Memory Capsule</div></div></div>
+
+      <div class="masonry-card masonry-card-external" data-href="https://www.behance.net/gallery/241482999/YUMI-UXUI-Case-Study"><img src="Weitere Projekte/cover_yumi.jpg" alt="Projekt yumi" class="masonry-img"><div class="masonry-body"><span class="masonry-tag" data-de="App Design" data-en="App Design">App Design</span><div class="masonry-title" data-de="Mobile App UI für yumi" data-en="Mobile app UI for yumi">Mobile App UI für yumi</div></div><a href="https://www.behance.net/gallery/241482999/YUMI-UXUI-Case-Study" target="_blank" rel="noopener" class="masonry-ext-link" title="Auf Behance öffnen"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+      <div class="masonry-card card-scroll"><div class="scroll-container"><img src="Weitere Projekte/prdruck.jpg" alt="Projekt prdruck" class="masonry-img scroll-img"></div><div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Corporate Website für pr.druck" data-en="Corporate website for pr.druck">Corporate Website für pr.druck</div></div></div>
+      <div class="masonry-card masonry-card-external" data-href="https://www.behance.net/gallery/241483747/GreenSip-Flavor-based-UI-Motion-Concept"><video src="Weitere Projekte/greensip.mp4" class="masonry-video" autoplay loop muted playsinline></video><div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Landingpage für GreenSip" data-en="Landing page for GreenSip">Landingpage für GreenSip</div></div><a href="https://www.behance.net/gallery/241483747/GreenSip-Flavor-based-UI-Motion-Concept" target="_blank" rel="noopener" class="masonry-ext-link" title="Auf Behance öffnen"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+      <div class="masonry-card"><video src="Weitere Projekte/zodiac.mp4" class="masonry-video" autoplay loop muted playsinline></video><div class="masonry-body"><span class="masonry-tag" data-de="Web Design" data-en="Web Design">Web Design</span><div class="masonry-title" data-de="Zodiac" data-en="Zodiac">Zodiac</div></div></div>
+      <div class="masonry-card"><img src="Weitere Projekte/blender.jpg" alt="3D Room Illustration" class="masonry-img"><div class="masonry-body"><span class="masonry-tag" data-de="3D Illustration" data-en="3D Illustration">3D Illustration</span><div class="masonry-title" data-de="Isometrischer Raum in Blender" data-en="Isometric room in Blender">Isometrischer Raum in Blender</div></div></div>
+
+    </div>
+  </section>
+</div>
+<div id="kontakt">
+  <div class="contact-inner">
+    <p class="contact-label" data-de="Offen für neue Möglichkeiten" data-en="Open for new opportunities">Offen für neue Möglichkeiten</p>
+    <h2 class="contact-title" data-de="Ich freue mich auf &lt;em&gt;dein Hallo :)&lt;/em&gt;" data-en="I'm looking forward to &lt;em&gt;your hello :)&lt;/em&gt;">Ich freue mich auf <em>dein Hallo :)</em></h2>
+    <p class="contact-desc"><span data-de="Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo.<br> Ich bin immer offen für neue Gespräche." data-en="Whether it's a job opportunity, freelance project or just a friendly hello. I'm always open for a chat.">Ob Jobmöglichkeit, Freelance-Anfrage oder einfach ein nettes Hallo.<br> Ich bin immer offen für neue Gespräche.</span></p>
+    <div class="contact-buttons">
+      <a href="CV/CV_Lina-Melissa-Arndt.pdf" download class="contact-btn-outline"><span class="icon" data-icon="download"></span><span data-de="CV herunterladen" data-en="Download CV">CV herunterladen</span></a>
+      <a href="mailto:Lina-Melissa@web.de" class="contact-btn-primary" id="mail-btn" onclick="copyEmail(event)"><span class="icon" data-icon="mail"></span><span data-de="Mail me" data-en="Mail me">Mail me</span></a>
+    </div>
+    <p class="contact-email-hint" id="contact-email-hint">lina-melissa [at] web.de</p>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <span class="site-footer-name-text">Lina Melissa</span>
+      <span class="site-footer-sub" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span>
+      
+    </div>
+    <div class="site-footer-socials">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
+      <a href="https://www.behance.net/linamelissa" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
+      <a href="https://dribbble.com/linamelissade" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
+      <a href="https://www.instagram.com/linamelissa.de/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
+    <a href="impressum.html" class="site-footer-impressum" data-de="Impressum &amp; Datenschutz" data-en="Legal Notice &amp; Privacy">Impressum &amp; Datenschutz</a>
+  </div>
+</footer>
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" class="lightbox-media" src="" alt="" style="display:none">
+    <video id="lightbox-video" class="lightbox-media" autoplay loop muted playsinline style="display:none"></video>
+    <div id="lightbox-scroll" class="lightbox-scroll-wrap" style="display:none"><img id="lightbox-scroll-img" src="" alt=""></div>
+    <div id="lightbox-carousel" class="lightbox-carousel" style="display:none">
+      <div class="lightbox-carousel-track" id="lightbox-carousel-track"></div>
+      <div class="lightbox-carousel-dots" id="lightbox-carousel-dots"></div>
+      <button class="lightbox-arrow lightbox-arrow-left" onclick="lightboxCarouselGo(-1)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="lightbox-arrow lightbox-arrow-right" onclick="lightboxCarouselGo(1)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
