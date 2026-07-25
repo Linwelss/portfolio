@@ -24,7 +24,9 @@
 // persistent (visible on the icon) and can be revisited/changed anytime.
 (function () {
   var STORAGE_KEY = 'cookie-consent'; // 'accepted' | 'declined'
+  var STORAGE_TS_KEY = 'cookie-consent-ts'; // timestamp of that decision, for expiry
   var GA_ID = 'G-L7R7JNY2FM';
+  var CONSENT_EXPIRY_MS = 180 * 24 * 60 * 60 * 1000; // 6 months — re-ask after that
 
   var banner = document.getElementById('cookie-banner');
   var main = document.getElementById('cookie-banner-main');
@@ -46,7 +48,16 @@
     }
   };
 
+  // Google's own documented opt-out convention: gtag.js checks this exact
+  // global before sending any hit. Setting it true stops tracking
+  // immediately in the current tab, even if the script is already loaded —
+  // no page reload needed, which is what makes a revoke actually work.
+  function disableGoogleAnalytics() {
+    window['ga-disable-' + GA_ID] = true;
+  }
+
   function loadGoogleAnalytics() {
+    window['ga-disable-' + GA_ID] = false;
     if (window.__gaLoaded) return;
     window.__gaLoaded = true;
     var script = document.createElement('script');
@@ -95,7 +106,12 @@
     var state = accepted ? 'accepted' : 'declined';
 
     localStorage.setItem(STORAGE_KEY, state);
-    if (accepted) loadGoogleAnalytics();
+    localStorage.setItem(STORAGE_TS_KEY, String(Date.now()));
+    if (accepted) {
+      loadGoogleAnalytics();
+    } else {
+      disableGoogleAnalytics();
+    }
     setIconStatus(state);
 
     // Swap to confirmation view
@@ -115,10 +131,23 @@
 
   // Initial state on page load
   var stored = localStorage.getItem(STORAGE_KEY);
+  var storedTs = parseInt(localStorage.getItem(STORAGE_TS_KEY), 10);
+  var isExpired = stored && (!storedTs || (Date.now() - storedTs) > CONSENT_EXPIRY_MS);
+
+  if (isExpired) {
+    // Consent older than 6 months (or has no timestamp at all, e.g. from
+    // before this was tracked) — don't keep relying on a stale decision,
+    // ask again instead.
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(STORAGE_TS_KEY);
+    stored = null;
+  }
+
   if (stored === 'accepted') {
     loadGoogleAnalytics();
     setIconStatus('accepted');
   } else if (stored === 'declined') {
+    disableGoogleAnalytics();
     setIconStatus('declined');
   } else {
     setIconStatus('neutral');
