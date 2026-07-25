@@ -19,6 +19,38 @@
   window.addEventListener('scroll', updateNavState, { passive: true });
 })();
 
+// --- Mobile nav: hamburger opens/closes the full-screen drawer,
+// closes on link click or Escape, locks page scroll while open.
+(function () {
+  var burger = document.getElementById('nav-burger');
+  var drawer = document.getElementById('mobile-nav');
+  if (!burger || !drawer) return;
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', function () {
+    if (drawer.classList.contains('open')) closeDrawer();
+    else openDrawer();
+  });
+
+  drawer.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+})();
+
 // --- Scrollspy: highlights whichever section is currently in view,
 // so the nav always shows "you are here". Scroll-position-based (not
 // IntersectionObserver) so it works reliably in both scroll directions
