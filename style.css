@@ -152,6 +152,8 @@
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  -webkit-appearance:none;
+  appearance:none;
   width:41px;
   height:28px;
   background:white;
@@ -162,6 +164,7 @@
   letter-spacing:0.66px;
   color:var(--nav-en-text);
   cursor:pointer;
+  margin:0;
   transition:border-color 0.2s ease, color 0.2s ease;
 }
 .nav-lang:hover{ border-color:rgba(22,31,23,0.2); color:var(--nav-ink); }
@@ -179,6 +182,9 @@
 /* ===== Mobile nav: hamburger + full-screen drawer ===== */
 .nav-burger{
   display:none;
+  -webkit-appearance:none;
+  appearance:none;
+  -webkit-tap-highlight-color:transparent;
   flex-direction:column;
   justify-content:center;
   gap:5px;
@@ -188,6 +194,9 @@
   border:none;
   cursor:pointer;
   padding:0;
+  margin:0;
+  font:inherit;
+  line-height:normal;
 }
 .nav-burger span{
   display:block;
@@ -230,11 +239,15 @@
   display:flex;
   align-items:center;
   justify-content:center;
+  -webkit-appearance:none;
+  appearance:none;
   background:#fff;
   border:1px solid var(--hairline);
   border-radius:50%;
   color:var(--ink);
   cursor:pointer;
+  margin:0;
+  padding:0;
   box-shadow:0 4px 16px rgba(22,31,23,0.1);
 }
 .mobile-nav-list{
