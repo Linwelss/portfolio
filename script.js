@@ -28,7 +28,7 @@
   var banner = document.getElementById('cookie-banner');
   var acceptBtn = document.getElementById('cookie-accept');
   var declineBtn = document.getElementById('cookie-decline');
-  var settingsLink = document.getElementById('cookie-settings-link');
+  var settingsLink = document.getElementById('cookie-icon');
 
   function loadGoogleAnalytics() {
     if (window.__gaLoaded) return;
