@@ -176,15 +176,86 @@
 /* Mobile: collapse the link list, keep logo + a simple menu button.
    (The Figma frames only cover desktop; this is a sensible fallback
    so the site doesn't break on small screens.) */
+/* ===== Mobile nav: hamburger + full-screen drawer ===== */
+.nav-burger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:32px;
+  height:32px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0;
+}
+.nav-burger span{
+  display:block;
+  width:100%;
+  height:2px;
+  background:var(--nav-ink);
+  border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.nav-burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+.mobile-nav-overlay{
+  position:fixed;
+  inset:0;
+  z-index:150;
+  background:var(--cream);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-12px);
+  transition:opacity .3s ease, transform .3s ease;
+}
+.mobile-nav-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+.mobile-nav-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  margin-bottom:28px;
+}
+.mobile-nav-link{
+  font-family:'Inter', sans-serif;
+  font-size:26px;
+  font-weight:500;
+  color:var(--ink);
+  text-decoration:none;
+  padding:10px 0;
+}
+.mobile-nav-contact{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--ink);
+  color:#fff;
+  font-size:16px;
+  font-weight:500;
+  text-decoration:none;
+  padding:14px 36px;
+  border-radius:100px;
+}
+
 @media (max-width:900px){
   .nav-inner{ padding:0 20px; }
-  .nav-list{ gap:14px; }
   .nav-link{ display:none; }
-  .nav-list li:has(.nav-contact),
+  .nav-list li:has(.nav-contact){ display:none; }
   .nav-list li:has(.nav-lang){ display:flex; }
-}
-@media (max-width:480px){
-  .nav-lang{ display:none; }
+  .nav-burger{ display:flex; }
 }
 
 
@@ -1339,4 +1410,60 @@ section{padding:112px 0;border-bottom:1px solid var(--port-border)}
   .lightbox-arrow-left{left:-4px}
   .lightbox-arrow-right{right:-4px}
   .lightbox-arrow{width:36px;height:36px;background:rgba(0,0,0,.4)}
+}
+
+/* ==========================================================================
+   Touch devices: nothing here should require a hover to be seen or used.
+   @media(hover:none) targets touch/no-pointer devices specifically (more
+   reliable than a width breakpoint alone, since it also covers tablets).
+   ========================================================================== */
+@media (hover:none){
+  /* Masonry project cards: title is always visible, not hidden until hover */
+  .masonry-title{
+    opacity:1;
+    transform:translateY(0);
+    padding:24px 16px 14px;
+    background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0) 100%);
+  }
+
+  /* Certificate previews in the timeline: overlay always visible so it
+     reads as tappable, instead of only appearing on hover */
+  .tl-cert-overlay{
+    background:rgba(31,77,40,0.4);
+    color:white;
+  }
+
+  /* sameSpot tile: no hover on touch, so show the phones already partway
+     revealed by default instead of requiring an interaction that can't
+     happen. Tapping the card still opens the case study once it's live. */
+  .samespot-phone-feed{ transform:translate(-100%, -55px) rotate(-12deg); }
+  .samespot-phone-dark{ transform:translate(-50%, -60px) rotate(-3deg); }
+  .samespot-phone-detail{ transform:translate(0%, -55px) rotate(10deg); }
+
+  /* Drives / expertise / blog cards: drop the hover-lift and hover-only
+     accent bar, since neither can be triggered on touch anyway */
+  .drives-card:hover{ transform:none; box-shadow:0 1px 3px rgba(22,19,17,.05); }
+  .drives-card::before{ display:none; }
+  .expertise-card:hover{ transform:none; }
+  .expertise-card:hover .expertise-icon{ transform:none; }
+  .blog-card:hover{ transform:none; box-shadow:0 1px 3px rgba(22,19,17,.04); }
+  .case-card:hover{ transform:none; box-shadow:0 1px 3px rgba(22,31,23,0.04),0 2px 8px rgba(22,31,23,0.03); }
+  .case-card:hover::after{ border-color:transparent; }
+  .masonry-card:hover{ transform:none; box-shadow:0 1px 4px rgba(22,31,23,0.06); }
+}
+
+/* Manual <br> tags throughout the copy were placed to control line length
+   on desktop. On narrow screens they'd force an unrelated, awkward break
+   partway through a much shorter line — better to let the text reflow
+   naturally at whatever width is actually available. (Timeline date
+   labels like "Apr 2026 bis / heute" are intentionally exempt: those are
+   short two-line labels regardless of viewport, not paragraph wrapping.) */
+@media (max-width:680px){
+  .section-sub br,
+  .tl-bullets li br,
+  .now-intro-text br,
+  .tl-role br,
+  .contact-desc br{
+    display:none;
+  }
 }
