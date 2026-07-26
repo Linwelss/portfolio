@@ -1,7 +1,7 @@
 /* ===================================================
    sameSpot — Case Study Header
    Farben & Fonts strikt nach Figma-Vorgabe
-   VERSION-MARKER: hat-a11y-trimmed-v38-phone-placeholders
+   VERSION-MARKER: hat-a11y-trimmed-v37
 =================================================== */
 
 :root {
@@ -125,6 +125,7 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(-2px);
 }
 
+/* Exact button spec: white bg, 1px border, full pill, 12px/6px13px, deep-green text */
 .topnav__brand {
   position: absolute;
   left: 50%;
@@ -158,6 +159,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ---------------------------------
    Table of Contents (sidebar)
+   — klebt fest, mittig am linken Rand
 ---------------------------------- */
 .toc {
   position: fixed;
@@ -174,6 +176,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 0 16px 16px 0;
   padding: 10px;
   box-shadow: 0 8px 32px rgba(37, 48, 42, 0.08), 0 1px 4px rgba(37, 48, 42, 0.05);
+  /* niemals scrollbar — die Liste bestimmt ihre Höhe selbst */
   overflow: visible;
   opacity: 0;
   animation: toc-in var(--dur-slow) var(--ease) 0.3s forwards;
@@ -217,6 +220,7 @@ a { text-decoration: none; color: inherit; }
   transition: background-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 
+/* Hover — Punkt wächst, Schrift wird fetter, leichter Versatz */
 .toc__link:hover {
   background: transparent;
   color: var(--deep-green);
@@ -229,6 +233,8 @@ a { text-decoration: none; color: inherit; }
   transform: scale(1.35);
 }
 
+/* Aktiv (Scrollspy) — der Punkt leuchtet mit einem Glow auf,
+   während man durch die Seite scrollt */
 .toc__link.is-active {
   color: var(--deep-green);
   font-weight: 600;
@@ -241,6 +247,9 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 0 4px rgba(78, 139, 92, 0.22);
 }
 
+/* "Prototyp & Lösung" — soll immer herausstechen, unabhängig vom
+   Scrollspy-Status. Coral statt Sage, damit es dauerhaft auffällt,
+   nicht nur wenn es gerade aktiv ist. */
 .toc__link--highlight {
   color: var(--coral-dark);
   font-weight: 700;
@@ -269,6 +278,8 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 0 4px rgba(255, 91, 58, 0.22);
 }
 
+/* Exact button spec for the Figma pill:
+   white bg, 1px border, radius 6px, asymmetric padding (9 / 33 / 9 / 13) */
 .toc__figma {
   display: flex;
   align-items: center;
@@ -323,54 +334,6 @@ a { text-decoration: none; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .toc { opacity: 1; transform: none; transition: none; animation: none; }
   html { scroll-behavior: auto; }
-}
-
-/* ---------------------------------
-   Screen-Bild-Platzhalter — echte <img>-Slots, die alle
-   vorerst auf "phone.jpg" zeigen. Einfach später pro Slot
-   den src-Wert austauschen, die Klasse bestimmt nur Größe/Form.
----------------------------------- */
-.screen-img {
-  border-radius: 10px;
-  object-fit: cover;
-  display: block;
-  background: var(--sage-tint);
-}
-
-.screen-img--wide {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  margin-bottom: 14px;
-}
-
-.screen-img--mini {
-  width: 100%;
-  max-width: 76px;
-  aspect-ratio: 9 / 16;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.ethik-preview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  width: 100%;
-  margin-bottom: 4px;
-}
-
-.ethik-preview__arrow {
-  flex-shrink: 0;
-  color: var(--sage-hover);
-}
-
-.flow__screen {
-  margin-top: -2px;
-}
-
-@media (max-width: 800px) {
-  .flow__screen { display: none; }
 }
 
 /* ---------------------------------
@@ -604,6 +567,7 @@ a { text-decoration: none; color: inherit; }
   will-change: transform;
 }
 
+/* Pfeile zwischen den Karten — verbinden die 3 Schritte zu einer Erzählung */
 .ueberblick__arrow {
   display: flex;
   align-items: center;
@@ -627,6 +591,8 @@ a { text-decoration: none; color: inherit; }
   .ueberblick__arrow { display: none; }
 }
 
+/* Faden — verbindet den Überblick sichtbar mit dem Problem-Kapitel,
+   damit klar wird: jetzt geht es ins Detail */
 .section-thread {
   display: flex;
   justify-content: center;
@@ -818,6 +784,7 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
 }
 
+/* leichter Glanz-Schimmer nach dem Aufziehen */
 .agebar-row__bar::after {
   content: '';
   position: absolute;
@@ -966,6 +933,9 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
+/* ---------------------------------
+   Große Bildschirme: alles darf wieder atmen
+---------------------------------- */
 @media (min-width: 1900px) {
   .hero { padding-top: 130px; }
   .hero__inner { max-width: 1080px; gap: 40px; }
@@ -990,6 +960,9 @@ a { text-decoration: none; color: inherit; }
   gap: clamp(28px, 3.5vw, 48px);
 }
 
+/* Sticky Stat-Reihe — bleibt oben, während man durch die drei
+   Research-Blöcke scrollt; die aktive Box hebt sich klar ab.
+   Voll blickdicht, damit nichts dahinter durchscheint. */
 .research__stats-wrap {
   position: sticky;
   top: 59px;
@@ -999,6 +972,8 @@ a { text-decoration: none; color: inherit; }
   background: var(--light-green);
 }
 
+/* weicher Übergang statt hartem Schnitt — der Text darunter
+   taucht sanft auf, statt abzureißen */
 .research__stats-wrap::after {
   content: '';
   position: absolute;
@@ -1110,6 +1085,7 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
+/* Zitat-Stapel */
 .quote-stack {
   display: flex;
   flex-direction: column;
@@ -1167,6 +1143,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--sage-hover);
 }
 
+/* Daten-Karten */
 .data-cards {
   display: flex;
   flex-wrap: wrap;
@@ -1239,6 +1216,7 @@ a { text-decoration: none; color: inherit; }
   padding-top: 6px;
 }
 
+/* Punkte-Raster — "1 von 52" */
 .dot-grid {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
@@ -1256,6 +1234,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--sage-hover);
 }
 
+/* Quellen-Liste */
 .source-list {
   display: flex;
   flex-direction: column;
@@ -1586,6 +1565,8 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
+/* Ideen-Fächer — eine ausgewählte Karte vorn, drei weitere
+   dahinter gestaffelt wie eine aufgefächerte Kartenreihe */
 .idea-fan {
   display: flex;
   width: 100%;
@@ -2147,6 +2128,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 700;
 }
 
+/* Pfeile — zeigen von jeder Kraft auf die Wettbewerbsintensität in der Mitte */
 .porter-arrow {
   position: relative;
   display: flex;
@@ -2678,6 +2660,7 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
+/* Schritt-Fluss */
 .flow {
   display: flex;
   align-items: flex-start;
@@ -2733,6 +2716,7 @@ a { text-decoration: none; color: inherit; }
   .flow__step { width: 120px; }
 }
 
+/* Preis-Karten */
 .pricing {
   display: flex;
   flex-wrap: wrap;
@@ -3588,18 +3572,11 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   justify-content: center;
   transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-  overflow: hidden;
 }
 
 .lofi-card:hover .lofi-card__frame {
   transform: translateY(-3px);
   box-shadow: 0 14px 26px -10px rgba(64, 84, 68, 0.2);
-}
-
-.lofi-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .lofi-card__play {
@@ -3829,18 +3806,11 @@ a { text-decoration: none; color: inherit; }
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
   transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-  overflow: hidden;
 }
 
 .testing-card:hover .testing-card__frame {
   transform: translateY(-3px);
   box-shadow: 0 14px 26px -10px rgba(64, 84, 68, 0.2);
-}
-
-.testing-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .testing-card__label {
@@ -4500,13 +4470,6 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-
-.hifi-proto__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .hifi-proto__play {
