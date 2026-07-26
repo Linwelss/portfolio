@@ -1,6 +1,6 @@
 /* ===================================================
    sameSpot — Case Study Header
-   VERSION-MARKER: hat-a11y-trimmed-v39-deepdive-storymoments
+   VERSION-MARKER: hat-a11y-trimmed-v38-phone-placeholders
 =================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (id) tocMap[id] = link;
   });
 
-  const sectionsWithIds = Array.from(document.querySelectorAll('main section[id]'));
+  const sectionsWithIds = Array.from(document.querySelectorAll('main > section[id]'));
 
   function setActiveTocLink(id) {
     tocLinks.forEach((l) => l.classList.remove('is-active'));
@@ -242,51 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       console.info('Play-Button geklickt, hier später echten Prototyp/Video-Embed einhängen.');
     });
-  });
-
-  /* ---------------------------------
-     DEEP-DIVE MODUS: Skip-Buttons + Fortschritts-Punkte
-     Jeder .deepdive-Wrapper bekommt einen eigenen aktiven
-     Fortschrittsbalken, basierend auf den enthaltenen
-     [data-dd-section]-Abschnitten.
-  ---------------------------------- */
-  function scrollToId(id) {
-    const target = document.getElementById(id);
-    if (!target) return;
-    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-  }
-
-  document.querySelectorAll('[data-skip-to]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      scrollToId(btn.getAttribute('data-skip-to'));
-    });
-  });
-
-  const deepdiveWrappers = document.querySelectorAll('.deepdive');
-  deepdiveWrappers.forEach((wrapper) => {
-    const ddSections = Array.from(wrapper.querySelectorAll('[data-dd-section]'));
-    const dots = wrapper.querySelectorAll('[data-dd-dot]');
-    const dotMap = {};
-    dots.forEach((dot) => { dotMap[dot.getAttribute('data-dd-dot')] = dot; });
-
-    function setActiveDot(key) {
-      dots.forEach((dot) => {
-        dot.classList.toggle('is-current', dot.getAttribute('data-dd-dot') === key);
-      });
-    }
-
-    if (ddSections.length) {
-      const ddObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const key = entry.target.getAttribute('data-dd-section');
-            if (key) setActiveDot(key);
-          }
-        });
-      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-
-      ddSections.forEach((sec) => ddObserver.observe(sec));
-    }
   });
 
 });
