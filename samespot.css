@@ -125,7 +125,6 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(-2px);
 }
 
-/* Exact button spec: white bg, 1px border, full pill, 12px/6px13px, deep-green text */
 .topnav__brand {
   position: absolute;
   left: 50%;
@@ -159,7 +158,6 @@ a { text-decoration: none; color: inherit; }
 
 /* ---------------------------------
    Table of Contents (sidebar)
-   — klebt fest, mittig am linken Rand
 ---------------------------------- */
 .toc {
   position: fixed;
@@ -176,7 +174,6 @@ a { text-decoration: none; color: inherit; }
   border-radius: 0 16px 16px 0;
   padding: 10px;
   box-shadow: 0 8px 32px rgba(37, 48, 42, 0.08), 0 1px 4px rgba(37, 48, 42, 0.05);
-  /* niemals scrollbar — die Liste bestimmt ihre Höhe selbst */
   overflow: visible;
   opacity: 0;
   animation: toc-in var(--dur-slow) var(--ease) 0.3s forwards;
@@ -220,7 +217,6 @@ a { text-decoration: none; color: inherit; }
   transition: background-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 
-/* Hover — Punkt wächst, Schrift wird fetter, leichter Versatz */
 .toc__link:hover {
   background: transparent;
   color: var(--deep-green);
@@ -233,8 +229,6 @@ a { text-decoration: none; color: inherit; }
   transform: scale(1.35);
 }
 
-/* Aktiv (Scrollspy) — der Punkt leuchtet mit einem Glow auf,
-   während man durch die Seite scrollt */
 .toc__link.is-active {
   color: var(--deep-green);
   font-weight: 600;
@@ -247,9 +241,6 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 0 4px rgba(78, 139, 92, 0.22);
 }
 
-/* "Prototyp & Lösung" — soll immer herausstechen, unabhängig vom
-   Scrollspy-Status. Coral statt Sage, damit es dauerhaft auffällt,
-   nicht nur wenn es gerade aktiv ist. */
 .toc__link--highlight {
   color: var(--coral-dark);
   font-weight: 700;
@@ -278,8 +269,36 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 0 4px rgba(255, 91, 58, 0.22);
 }
 
-/* Exact button spec for the Figma pill:
-   white bg, 1px border, radius 6px, asymmetric padding (9 / 33 / 9 / 13) */
+/* Deep-Dive Einträge in der TOC: gedämpfter, kleinerer Punkt —
+   signalisiert "Beleg-Material", nicht Haupt-Story */
+.toc__link--muted {
+  color: var(--slate-light);
+  opacity: 0.75;
+}
+
+.toc__link--muted::before {
+  width: 5px;
+  height: 5px;
+  background: var(--slate-light);
+  opacity: 0.6;
+}
+
+.toc__link--muted:hover {
+  color: var(--slate);
+  opacity: 1;
+}
+
+.toc__link--muted.is-active {
+  color: var(--slate);
+  opacity: 1;
+}
+
+.toc__link--muted.is-active::before {
+  background: var(--slate-light);
+  transform: scale(1.3);
+  box-shadow: 0 0 0 3px rgba(107, 125, 109, 0.18);
+}
+
 .toc__figma {
   display: flex;
   align-items: center;
@@ -315,6 +334,8 @@ a { text-decoration: none; color: inherit; }
 
 /* ---------------------------------
    Reveal-on-scroll utility
+   (scroll-position-basiert statt IntersectionObserver,
+   damit bei schnellem Scrollen nichts übersprungen wird)
 ---------------------------------- */
 .reveal {
   opacity: 0;
@@ -567,7 +588,6 @@ a { text-decoration: none; color: inherit; }
   will-change: transform;
 }
 
-/* Pfeile zwischen den Karten — verbinden die 3 Schritte zu einer Erzählung */
 .ueberblick__arrow {
   display: flex;
   align-items: center;
@@ -591,8 +611,6 @@ a { text-decoration: none; color: inherit; }
   .ueberblick__arrow { display: none; }
 }
 
-/* Faden — verbindet den Überblick sichtbar mit dem Problem-Kapitel,
-   damit klar wird: jetzt geht es ins Detail */
 .section-thread {
   display: flex;
   justify-content: center;
@@ -680,6 +698,105 @@ a { text-decoration: none; color: inherit; }
 
 .card--overview p.muted {
   color: rgba(15, 20, 15, 0.35);
+}
+
+/* ---------------------------------
+   Story-Moment: großer Statement-Block
+   (für die 92%-Zahl und weitere emotionale Wendepunkte)
+---------------------------------- */
+.moment {
+  padding: clamp(40px, 6vw, 72px) 24px;
+  scroll-margin-top: 80px;
+}
+
+.moment__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 28px);
+  text-align: center;
+}
+
+.moment__eyebrow {
+  font-weight: 600;
+  font-size: clamp(12px, 1vw, 14px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin: 0;
+}
+
+.moment__number {
+  font-family: 'Gasoek One', sans-serif;
+  font-weight: 400;
+  font-size: clamp(72px, 12vw, 180px);
+  line-height: 0.9;
+  color: var(--black-ink);
+  margin: 0;
+}
+
+.moment__number span {
+  color: var(--coral);
+}
+
+.moment__text {
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.45;
+  color: var(--slate);
+  max-width: 620px;
+  margin: 0;
+}
+
+.moment__text strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Dunkler Break-Moment: für Konflikt-/Wendepunkte (z.B. Hanna-Konflikt) */
+.moment--dark {
+  background: var(--black-ink);
+  border-radius: clamp(24px, 4vw, 48px);
+  padding: clamp(48px, 7vw, 90px) 24px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.moment--dark .moment__eyebrow {
+  color: var(--sage);
+}
+
+.moment--dark .moment__number {
+  color: var(--white);
+}
+
+.moment--dark .moment__number span {
+  color: var(--coral);
+}
+
+.moment--dark .moment__text {
+  color: var(--sage-tint);
+}
+
+.moment--dark .moment__text strong {
+  color: var(--white);
+}
+
+.moment__statement {
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(22px, 3.2vw, 42px);
+  line-height: 1.3;
+  color: var(--white);
+  max-width: 760px;
+  margin: 0;
+}
+
+.moment__statement em {
+  color: var(--coral);
+  font-style: italic;
 }
 
 /* ---------------------------------
@@ -784,7 +901,6 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
 }
 
-/* leichter Glanz-Schimmer nach dem Aufziehen */
 .agebar-row__bar::after {
   content: '';
   position: absolute;
@@ -933,9 +1049,6 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-/* ---------------------------------
-   Große Bildschirme: alles darf wieder atmen
----------------------------------- */
 @media (min-width: 1900px) {
   .hero { padding-top: 130px; }
   .hero__inner { max-width: 1080px; gap: 40px; }
@@ -960,9 +1073,6 @@ a { text-decoration: none; color: inherit; }
   gap: clamp(28px, 3.5vw, 48px);
 }
 
-/* Sticky Stat-Reihe — bleibt oben, während man durch die drei
-   Research-Blöcke scrollt; die aktive Box hebt sich klar ab.
-   Voll blickdicht, damit nichts dahinter durchscheint. */
 .research__stats-wrap {
   position: sticky;
   top: 59px;
@@ -972,8 +1082,6 @@ a { text-decoration: none; color: inherit; }
   background: var(--light-green);
 }
 
-/* weicher Übergang statt hartem Schnitt — der Text darunter
-   taucht sanft auf, statt abzureißen */
 .research__stats-wrap::after {
   content: '';
   position: absolute;
@@ -1085,7 +1193,6 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-/* Zitat-Stapel */
 .quote-stack {
   display: flex;
   flex-direction: column;
@@ -1143,7 +1250,6 @@ a { text-decoration: none; color: inherit; }
   color: var(--sage-hover);
 }
 
-/* Daten-Karten */
 .data-cards {
   display: flex;
   flex-wrap: wrap;
@@ -1216,7 +1322,6 @@ a { text-decoration: none; color: inherit; }
   padding-top: 6px;
 }
 
-/* Punkte-Raster — "1 von 52" */
 .dot-grid {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
@@ -1234,7 +1339,6 @@ a { text-decoration: none; color: inherit; }
   background: var(--sage-hover);
 }
 
-/* Quellen-Liste */
 .source-list {
   display: flex;
   flex-direction: column;
@@ -1565,8 +1669,6 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-/* Ideen-Fächer — eine ausgewählte Karte vorn, drei weitere
-   dahinter gestaffelt wie eine aufgefächerte Kartenreihe */
 .idea-fan {
   display: flex;
   width: 100%;
@@ -1931,6 +2033,249 @@ a { text-decoration: none; color: inherit; }
   .market-grid { grid-template-columns: 1fr; }
 }
 
+/* ===================================================
+   DEEP-DIVE MODUS
+   Wrapper für Beleg-lastige Sections (PESTEL, Porter,
+   BMC, Prozess, Nav&Layout, A11y). Dunkler Hintergrund
+   signalisiert "Vertiefung", mit Skip-Möglichkeit direkt
+   zur nächsten Story-Section.
+=================================================== */
+.deepdive {
+  position: relative;
+  background: var(--black-ink);
+  padding-top: clamp(8px, 1vw, 16px);
+  padding-bottom: clamp(8px, 1vw, 16px);
+}
+
+/* Eingang: Übergangsmoment von hell zu dunkel */
+.deepdive__gate {
+  padding: clamp(40px, 6vw, 72px) 24px clamp(32px, 5vw, 56px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.deepdive__gate-eyebrow {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin: 0;
+}
+
+.deepdive__gate-title {
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 30px);
+  color: var(--white);
+  margin: 0;
+  max-width: 560px;
+}
+
+.deepdive__gate-sub {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--sage-tint);
+  max-width: 520px;
+  margin: 0;
+}
+
+.deepdive__skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 11px 20px;
+  border-radius: 100px;
+  background: var(--coral);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease-bounce);
+}
+
+.deepdive__skip:hover {
+  background: var(--coral-dark);
+  transform: translateY(-2px);
+}
+
+.deepdive__skip svg {
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.deepdive__skip:hover svg {
+  transform: translateX(2px);
+}
+
+/* Sticky Fortschrittsanzeige, während man innerhalb des
+   Deep-Dive-Bereichs scrollt */
+.deepdive__progress {
+  position: sticky;
+  top: 59px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: rgba(22, 19, 17, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.deepdive__progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--sage-tint);
+  white-space: nowrap;
+}
+
+.deepdive__progress-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.deepdive__progress-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.deepdive__progress-dots span.is-current {
+  background: var(--coral);
+  transform: scale(1.3);
+}
+
+.deepdive__progress-skip {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sage-tint);
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.deepdive__progress-skip:hover {
+  border-color: var(--coral);
+  color: var(--white);
+}
+
+/* Innerhalb des Deep-Dive: alle Section-Titel/Cards auf dunkel */
+.deepdive .eyebrow { color: var(--sage); }
+.deepdive .pestel__title,
+.deepdive .porter__title,
+.deepdive .bmc__title,
+.deepdive .prozess__title,
+.deepdive .navlayout__title,
+.deepdive .a11y__title {
+  color: var(--white);
+}
+.deepdive .pestel__title em,
+.deepdive .porter__title em,
+.deepdive .bmc__title em,
+.deepdive .prozess__title em,
+.deepdive .navlayout__title em,
+.deepdive .a11y__title em {
+  color: var(--sage);
+}
+.deepdive .pestel__sub,
+.deepdive .porter__sub,
+.deepdive .bmc__sub,
+.deepdive .prozess__sub,
+.deepdive .navlayout__sub,
+.deepdive .a11y__sub {
+  color: var(--sage-tint);
+}
+
+.deepdive .pestel-row { background: rgba(157, 192, 163, 0.12); }
+.deepdive .pestel-row__card { background: var(--dark-ink); }
+.deepdive .pestel-row__card h3 { color: var(--white); }
+.deepdive .pestel-row__card p { color: var(--sage-tint); }
+.deepdive .pestel-row__card p strong { color: var(--white); }
+.deepdive .pestel-row__letter { color: var(--sage); }
+
+.deepdive .porter-box { background: var(--dark-ink); box-shadow: none; }
+.deepdive .porter-box h3 { color: var(--white); }
+.deepdive .porter-box p { color: var(--sage-tint); }
+.deepdive .porter-box--center { background: rgba(255, 91, 58, 0.14); }
+.deepdive .porter-box--center h3,
+.deepdive .porter-box--center p { color: var(--coral); }
+
+.deepdive .bmc-cell--partners,
+.deepdive .bmc-cell--activities,
+.deepdive .bmc-cell--resources,
+.deepdive .bmc-cell--relationships,
+.deepdive .bmc-cell--channels,
+.deepdive .bmc-cell--segments {
+  background: rgba(157, 192, 163, 0.12);
+}
+.deepdive .bmc-cell h3 { color: var(--white); }
+.deepdive .bmc-cell li { color: var(--sage-tint); }
+.deepdive .bmc-cell li::before { background: var(--sage-tint); }
+.deepdive .bmc-cell--value { background: var(--sage-hover); }
+.deepdive .bmc-cell--wide { background: var(--dark-ink); box-shadow: none; }
+.deepdive .bmc-cell--wide p { color: var(--sage-tint); }
+
+.deepdive .ethik-card,
+.deepdive .market-card { background: var(--dark-ink); box-shadow: none; }
+
+.deepdive .prozess-root { background: var(--sage-hover); }
+.deepdive .prozess-connector__trunk,
+.deepdive .prozess-connector__hline,
+.deepdive .prozess-connector__drop { background: rgba(157, 192, 163, 0.4); }
+.deepdive .prozess-col__head { background: rgba(157, 192, 163, 0.14); color: var(--sage-tint); box-shadow: none; }
+.deepdive .prozess-item { background: var(--dark-ink); color: var(--sage-tint); box-shadow: none; }
+
+.deepdive .navlayout-navitem { background: var(--dark-ink); box-shadow: none; }
+.deepdive .navlayout-navitem span { color: var(--white); }
+.deepdive .navlayout-navitem svg path { stroke: var(--sage-tint); }
+.deepdive .navlayout-connectors span { background: rgba(157, 192, 163, 0.4); }
+.deepdive .navlayout-click,
+.deepdive .navlayout-feature { background: var(--dark-ink); color: var(--sage-tint); box-shadow: none; }
+
+.deepdive .a11y-card { background: var(--dark-ink); box-shadow: none; }
+.deepdive .a11y-card h3 { color: var(--white); }
+.deepdive .a11y-card li { color: var(--sage-tint); }
+.deepdive .a11y-check path { stroke: var(--sage); }
+
+/* Ausgang: heller Übergang zurück in die Story */
+.deepdive__exit {
+  background: var(--light-green);
+  padding: clamp(28px, 4vw, 48px) 24px;
+  text-align: center;
+  border-radius: clamp(24px, 4vw, 48px) clamp(24px, 4vw, 48px) 0 0;
+  margin-top: clamp(8px, 1vw, 16px);
+}
+
+.deepdive__exit-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--sage-hover);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .deepdive__progress { flex-wrap: wrap; }
+  .deepdive__progress-label { display: none; }
+}
+
 /* ---------------------------------
    PESTEL
 ---------------------------------- */
@@ -2128,7 +2473,6 @@ a { text-decoration: none; color: inherit; }
   font-weight: 700;
 }
 
-/* Pfeile — zeigen von jeder Kraft auf die Wettbewerbsintensität in der Mitte */
 .porter-arrow {
   position: relative;
   display: flex;
@@ -2660,7 +3004,6 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-/* Schritt-Fluss */
 .flow {
   display: flex;
   align-items: flex-start;
@@ -2716,7 +3059,6 @@ a { text-decoration: none; color: inherit; }
   .flow__step { width: 120px; }
 }
 
-/* Preis-Karten */
 .pricing {
   display: flex;
   flex-wrap: wrap;
@@ -2797,7 +3139,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------------------------------
-   HEART-Modell
+   HEART-Modell — als visuelle Karten
+   statt Tabellen-Raster
 ---------------------------------- */
 .heart {
   padding: clamp(48px, 6vw, 90px) 24px;
@@ -2805,7 +3148,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .heart__inner {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -2843,92 +3186,104 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-.heart-grid {
+.heart-cards {
+  display: flex;
+  gap: clamp(14px, 1.8vw, 20px);
   width: 100%;
-  display: grid;
-  grid-template-columns: 90px repeat(5, 1fr);
-  gap: clamp(8px, 1.2vw, 14px);
   align-items: stretch;
 }
 
-.heart-grid__spacer {
-  grid-column: 1;
+.heart-card {
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 
-.heart-col {
+.heart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px -10px rgba(64, 84, 68, 0.24);
+}
+
+.heart-card__head {
+  background: var(--black-ink);
+  padding: clamp(18px, 2vw, 24px) clamp(14px, 1.6vw, 18px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding-bottom: 8px;
+  gap: 4px;
+  text-align: center;
 }
 
-.heart-col__letter {
-  font-weight: 700;
-  font-size: 28px;
-  color: var(--dark-ink);
+.heart-card__letter {
+  font-family: 'Gasoek One', sans-serif;
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 40px);
+  color: var(--coral);
   line-height: 1;
 }
 
-.heart-col__word {
-  font-size: 11px;
+.heart-card__word {
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--slate-light);
+  letter-spacing: 0.05em;
+  color: var(--sage-tint);
 }
 
-.heart-rowlabel {
-  grid-column: 1;
+.heart-card__body {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.heart-card__row {
+  padding: clamp(12px, 1.4vw, 16px);
   font-size: 12px;
+  line-height: 1.45;
+  border-top: 1px solid var(--border);
+}
+
+.heart-card__row:first-child {
+  border-top: none;
+}
+
+.heart-card__row-label {
+  display: block;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--dark-ink);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
 }
 
-.heart-cell {
-  border-radius: 8px;
-  padding: clamp(14px, 1.6vw, 18px);
-  font-size: 12.5px;
-  line-height: 1.5;
-  display: flex;
-  align-items: flex-start;
+.heart-card__row--goals { background: var(--sage-tint); }
+.heart-card__row--goals .heart-card__row-label { color: var(--deep-green); }
+.heart-card__row--goals { color: var(--slate); }
+
+.heart-card__row--signals { background: rgba(157, 192, 163, 0.35); }
+.heart-card__row--signals .heart-card__row-label { color: var(--deep-green); }
+.heart-card__row--signals { color: var(--deep-green); }
+
+.heart-card__row--metrics { background: var(--deep-green); }
+.heart-card__row--metrics .heart-card__row-label { color: var(--sage-tint); }
+.heart-card__row--metrics { color: var(--white); }
+
+@media (max-width: 1000px) {
+  .heart-cards { flex-wrap: wrap; }
+  .heart-card { flex: 1 1 45%; }
 }
 
-.heart-cell--goals {
-  background: var(--sage-tint);
-  color: var(--slate);
-}
-
-.heart-cell--signals {
-  background: var(--sage);
-  color: var(--deep-green);
-}
-
-.heart-cell--metrics {
-  background: var(--deep-green);
-  color: var(--white);
-}
-
-@media (max-width: 900px) {
-  .heart-grid { grid-template-columns: 70px repeat(5, minmax(140px, 1fr)); overflow-x: auto; }
-  .heart__inner { width: 100%; }
-}
-
-@media (max-width: 700px) {
-  .heart-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .heart-grid__spacer { display: none; }
-  .heart-col { flex-direction: row; justify-content: flex-start; gap: 8px; padding: 8px 0 0; }
-  .heart-rowlabel { padding-top: 12px; }
+@media (max-width: 600px) {
+  .heart-card { flex: 1 1 100%; }
 }
 
 /* ---------------------------------
-   Customer Journey Map
+   Customer Journey Map — als horizontale
+   Zeitleiste mit Icons statt Tabellen-Grid
 ---------------------------------- */
 .journey {
   padding: clamp(48px, 6vw, 90px) 24px;
@@ -2973,67 +3328,97 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-.journey-table-wrap {
+.journey-timeline {
   width: 100%;
-  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.journey-table {
+.journey-timeline__track {
   display: grid;
-  grid-template-columns: 90px repeat(5, minmax(160px, 1fr));
-  gap: clamp(8px, 1.2vw, 14px);
-  min-width: 900px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(10px, 1.4vw, 18px);
+  width: 100%;
+  position: relative;
 }
 
-.journey-row,
-.journey-row--head {
-  display: contents;
+.journey-timeline__track::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: var(--sage);
+  z-index: 0;
 }
 
-.journey-row__label {
+.journey-phase {
+  position: relative;
+  z-index: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--dark-ink);
+  gap: 12px;
 }
 
-.journey-cell {
-  border-radius: 8px;
-  padding: clamp(14px, 1.6vw, 18px);
-  font-size: 12.5px;
-  line-height: 1.5;
+.journey-phase__dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--sage-hover);
   display: flex;
-  align-items: flex-start;
-}
-
-.journey-cell--head {
-  background: var(--black-ink);
-  color: var(--white);
-  font-weight: 600;
-  font-size: 14px;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--deep-green);
+  flex-shrink: 0;
+}
+
+.journey-phase__title {
+  font-weight: 600;
+  font-size: 13.5px;
   text-align: center;
-  min-height: 64px;
+  color: var(--ink);
+  min-height: 34px;
 }
 
-.journey-cell--white {
+.journey-phase__card {
+  width: 100%;
   background: var(--white);
-  color: var(--slate);
+  border-radius: 10px;
   box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  padding: clamp(12px, 1.4vw, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.journey-cell--sage {
-  background: var(--sage-tint);
-  color: var(--slate);
+.journey-phase__block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.journey-cell--problem {
-  background: var(--problem-tint);
-  color: var(--problem-dark);
+.journey-phase__block-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--slate-light);
 }
+
+.journey-phase__block p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.journey-phase__block--steps p { color: var(--slate); }
+.journey-phase__block--emotion p { color: var(--deep-green); font-style: italic; }
+.journey-phase__block--need p { color: var(--problem-dark); }
 
 .journey-opps {
   width: 100%;
@@ -3084,7 +3469,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 900px) {
-  .journey-table { grid-template-columns: 70px repeat(5, minmax(150px, 1fr)); }
+  .journey-timeline__track { grid-template-columns: 1fr; }
+  .journey-timeline__track::before { display: none; }
+  .journey-phase { flex-direction: row; align-items: flex-start; text-align: left; }
+  .journey-phase__title { text-align: left; min-height: 0; }
 }
 
 /* ---------------------------------
@@ -3498,7 +3886,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ---------------------------------
-   Lo-Fi Wireframes
+   Lo-Fi Wireframes / Testing / Hi-Fi
+   Prototyp-Frames — jetzt als echte Bild-Container
 ---------------------------------- */
 .lofi {
   padding: clamp(48px, 6vw, 90px) 24px;
@@ -3560,7 +3949,10 @@ a { text-decoration: none; color: inherit; }
   gap: 12px;
 }
 
+/* Frame ist jetzt ein Bild-Container: nimmt echtes Bild/GIF auf
+   statt leerer Farbfläche. object-fit sorgt für sauberen Crop. */
 .lofi-card__frame {
+  position: relative;
   width: 100%;
   max-width: 190px;
   margin: 0 auto;
@@ -3571,7 +3963,14 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+.lofi-card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .lofi-card:hover .lofi-card__frame {
@@ -3580,16 +3979,23 @@ a { text-decoration: none; color: inherit; }
 }
 
 .lofi-card__play {
+  position: relative;
+  z-index: 2;
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--deep-green);
+  background: rgba(64, 84, 68, 0.55);
+  backdrop-filter: blur(2px);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform var(--dur-fast) var(--ease-bounce);
+  transition: transform var(--dur-fast) var(--ease-bounce), background-color var(--dur-fast) var(--ease);
+}
+
+.lofi-card__frame:not(:has(img[src=""])) .lofi-card__play {
+  position: absolute;
 }
 
 .lofi-card__play svg {
@@ -3598,6 +4004,7 @@ a { text-decoration: none; color: inherit; }
 
 .lofi-card__play:hover {
   transform: scale(1.1);
+  background: rgba(64, 84, 68, 0.75);
 }
 
 .lofi-card__label {
@@ -3805,7 +4212,14 @@ a { text-decoration: none; color: inherit; }
   background: var(--sage-tint);
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(64, 84, 68, 0.1), 0 4px 2px rgba(64, 84, 68, 0.08);
+  overflow: hidden;
   transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+.testing-card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .testing-card:hover .testing-card__frame {
@@ -4462,6 +4876,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hifi-proto__frame {
+  position: relative;
   width: 100%;
   aspect-ratio: 275 / 595;
   background: var(--sage-tint);
@@ -4470,13 +4885,23 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.hifi-proto__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hifi-proto__play {
+  position: relative;
+  z-index: 2;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--deep-green);
+  background: rgba(64, 84, 68, 0.55);
+  backdrop-filter: blur(2px);
   border: none;
   display: flex;
   align-items: center;
