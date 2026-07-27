@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------------------------
-     Scroll-Fortschritt + Top-Nav-Schatten
-  ---------------------------------- */
   const scrollProgress = document.getElementById('scrollProgress');
   const topnav = document.getElementById('topnav');
 
@@ -24,9 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
-  /* ---------------------------------
-     Reveal-on-scroll
-  ---------------------------------- */
   const revealEls = document.querySelectorAll('.reveal');
 
   if (prefersReducedMotion) {
@@ -44,9 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach((el) => revealObserver.observe(el));
   }
 
-  /* ---------------------------------
-     Count-up Zahlen (Stat-Kacheln, Alters-Balken, Ort≠Verbundenheit-Kachel)
-  ---------------------------------- */
   const countEls = document.querySelectorAll('[data-count-to]');
 
   function animateCount(el) {
@@ -89,9 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   countEls.forEach((el) => countObserver.observe(el));
 
-  /* ---------------------------------
-     Balken-Animationen (Problem-Alters-Balken, Research-Daten-Balken)
-  ---------------------------------- */
   const ageBars = document.querySelectorAll('.agebar-row__bar[data-target]');
   const dataBars = document.querySelectorAll('.data-bar__fill[data-target]');
 
@@ -115,9 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ageBars.forEach((el) => barObserver.observe(el));
   dataBars.forEach((el) => barObserver.observe(el));
 
-  /* ---------------------------------
-     Section-Faden (verbindende Linie zwischen Abschnitten)
-  ---------------------------------- */
   const threads = document.querySelectorAll('.section-thread');
   const threadObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -129,9 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   threads.forEach((el) => threadObserver.observe(el));
 
-  /* ---------------------------------
-     Zitat-Karte (Problem): Border-Reveal separat triggern
-  ---------------------------------- */
   const quoteCards = document.querySelectorAll('.card--quote');
   const quoteObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -143,9 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.4 });
   quoteCards.forEach((el) => quoteObserver.observe(el));
 
-  /* ---------------------------------
-     Table of Contents: aktiver Link je nach Scroll-Position
-  ---------------------------------- */
   const tocLinks = document.querySelectorAll('.toc__link[data-toc]');
   const tocMap = {};
   tocLinks.forEach((link) => {
@@ -173,9 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionsWithIds.forEach((section) => tocObserver.observe(section));
   }
 
-  /* ---------------------------------
-     Research: Sticky-Kacheln wechseln je nach sichtbarem Block
-  ---------------------------------- */
   const statMinis = document.querySelectorAll('.stat-mini[data-stat]');
   const researchBlocks = document.querySelectorAll('.research__block[data-stat-trigger]');
   const statMap = {};
@@ -206,10 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
     researchBlocks.forEach((block) => researchObserver.observe(block));
   }
 
-  /* ---------------------------------
-     Dot-Grid generieren (Research, "Niemand spricht Neue an")
-     48 Punkte, 1 hervorgehoben = 1 von 52 entspricht
-  ---------------------------------- */
   const dotGrid = document.getElementById('dotGrid');
   if (dotGrid) {
     const totalDots = 48;
@@ -221,9 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---------------------------------
-     Design-Ethik: Hover-Karten auch per Tap (Mobile) togglebar
-  ---------------------------------- */
   const ethikCards = document.querySelectorAll('.ethik-card');
   ethikCards.forEach((card) => {
     card.addEventListener('click', () => {
@@ -233,10 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------------------------------
-     Lo-Fi / Hi-Fi Play-Buttons: Platzhalter-Verhalten
-     (später hier echten Video-/Prototyp-Embed öffnen)
-  ---------------------------------- */
   const playButtons = document.querySelectorAll('.lofi-card__play, .hifi-proto__play');
   playButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
