@@ -50,44 +50,47 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
+      <span class="hero__bg-num" aria-hidden="true">01</span>
       <div class="hero__inner">
 
-        <p class="eyebrow reveal" data-reveal>PORTFOLIO CASE · UX-KONZEPT</p>
+        <div class="hero__lede">
+          <p class="eyebrow reveal" data-reveal>PORTFOLIO CASE · UX-KONZEPT</p>
 
-        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1">
-          <span class="hero__title-accent">same</span><span class="hero__title-dark">Spot</span>
-        </h1>
+          <h1 class="hero__title reveal" data-reveal data-reveal-delay="1" id="heroTitle">
+            <span class="hero__title-accent">same</span><span class="hero__title-dark">Spot</span>
+          </h1>
 
-        <p class="hero__desc reveal" data-reveal data-reveal-delay="2">
-          Eine App-Idee für Menschen, die Nähe wollen, aber am ersten Schritt scheitern: aus wiederholten Begegnungen am selben Ort wird ein Austausch — ohne dass jemand anschreiben muss.
-        </p>
+          <p class="hero__desc reveal" data-reveal data-reveal-delay="2">
+            Eine App-Idee für Menschen, die Nähe wollen, aber am ersten Schritt scheitern: aus wiederholten Begegnungen am selben Ort wird ein Austausch — ohne dass jemand anschreiben muss.
+          </p>
 
-        <div class="hero-stats reveal" data-reveal data-reveal-delay="3">
-          <div class="hero-stats__card">
-            <p class="hero-stats__num">71<span>%</span></p>
-            <p class="hero-stats__label">warten passiv darauf, angesprochen zu werden</p>
-            <p class="hero-stats__sub">aus meiner Umfrage, n=52</p>
-          </div>
-          <div class="hero-stats__card">
-            <p class="hero-stats__num">3</p>
-            <p class="hero-stats__label">Usability-Probleme gefunden und behoben</p>
-            <p class="hero-stats__sub">im Think-Aloud-Test mit Mid-Fi-Prototyp</p>
-          </div>
-          <div class="hero-stats__card">
-            <p class="hero-stats__num">2</p>
-            <p class="hero-stats__label">Klicks bis zu jeder Kernfunktion</p>
-            <p class="hero-stats__sub">vier Bereiche statt verschachtelter Menüs</p>
-          </div>
-          <div class="hero-stats__card hero-stats__card--dark">
-            <p class="hero-stats__num">≥15<span>%</span></p>
-            <p class="hero-stats__label">Ziel-KPI: Wiedersehen führt zu echtem Austausch</p>
-            <p class="hero-stats__sub">definiert, nicht gemessen — das Konzept ist nicht live</p>
+          <div class="hero-cta reveal" data-reveal data-reveal-delay="3">
+            <a href="https://figma.com" target="_blank" rel="noopener" class="btn btn--dark">Prototyp ansehen</a>
+            <a href="#story" class="btn btn--outline">Wie ich dahin kam</a>
           </div>
         </div>
 
-        <div class="hero-cta reveal" data-reveal data-reveal-delay="3">
-          <a href="https://figma.com" target="_blank" rel="noopener" class="btn btn--dark">Prototyp ansehen</a>
-          <a href="#story" class="btn btn--outline">Wie ich dahin kam</a>
+        <div class="hero-stats reveal" data-reveal data-reveal-delay="3">
+          <div class="hero-stats__card hero-stats__card--1">
+            <p class="hero-stats__num"><span data-count-to="71" data-suffix="%">0%</span></p>
+            <p class="hero-stats__label">warten passiv darauf, angesprochen zu werden</p>
+            <p class="hero-stats__sub">aus meiner Umfrage, n=52</p>
+          </div>
+          <div class="hero-stats__card hero-stats__card--2">
+            <p class="hero-stats__num"><span data-count-to="3" data-suffix="">0</span></p>
+            <p class="hero-stats__label">Usability-Probleme gefunden und behoben</p>
+            <p class="hero-stats__sub">im Think-Aloud-Test mit Mid-Fi-Prototyp</p>
+          </div>
+          <div class="hero-stats__card hero-stats__card--3">
+            <p class="hero-stats__num"><span data-count-to="2" data-suffix="">0</span></p>
+            <p class="hero-stats__label">Klicks bis zu jeder Kernfunktion</p>
+            <p class="hero-stats__sub">vier Bereiche statt verschachtelter Menüs</p>
+          </div>
+          <div class="hero-stats__card hero-stats__card--4 hero-stats__card--dark">
+            <p class="hero-stats__num">≥<span data-count-to="15" data-suffix="%">0%</span></p>
+            <p class="hero-stats__label">Ziel-KPI: Wiedersehen führt zu echtem Austausch</p>
+            <p class="hero-stats__sub">definiert, nicht gemessen — das Konzept ist nicht live</p>
+          </div>
         </div>
 
       </div>
@@ -103,7 +106,7 @@
         </div>
 
         <div class="phone-row">
-          <div class="phone-placeholder reveal" data-reveal>
+          <div class="phone-placeholder phone-placeholder--offset-a reveal" data-reveal>
             <div class="phone-placeholder__frame">
               <span class="phone-placeholder__icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -112,7 +115,7 @@
             </div>
             <span class="phone-placeholder__caption">Aufgabe an einem Spot</span>
           </div>
-          <div class="phone-placeholder reveal" data-reveal data-reveal-delay="1">
+          <div class="phone-placeholder phone-placeholder--offset-b reveal" data-reveal data-reveal-delay="1">
             <div class="phone-placeholder__frame">
               <span class="phone-placeholder__icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -121,7 +124,7 @@
             </div>
             <span class="phone-placeholder__caption">Feed mit Wiedersehen</span>
           </div>
-          <div class="phone-placeholder reveal" data-reveal data-reveal-delay="2">
+          <div class="phone-placeholder phone-placeholder--offset-c reveal" data-reveal data-reveal-delay="2">
             <div class="phone-placeholder__frame">
               <span class="phone-placeholder__icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -143,7 +146,8 @@
         </div>
 
         <!-- Szene 1: Der Widerspruch -->
-        <article class="story-beat reveal" data-reveal>
+        <article class="story-beat story-beat--offset-a reveal" data-reveal>
+          <span class="story-beat__bg-num" aria-hidden="true">01</span>
           <div class="story-beat__main">
             <p class="story-beat__eyebrow"><span class="story-beat__num">1</span> DER WIDERSPRUCH</p>
             <h3 class="story-beat__title">„Ich würde ja gerne — <em>aber nicht so.</em>“</h3>
@@ -168,7 +172,8 @@
         </article>
 
         <!-- Szene 2: Die Mechanik -->
-        <article class="story-beat reveal" data-reveal>
+        <article class="story-beat story-beat--offset-b reveal" data-reveal>
+          <span class="story-beat__bg-num" aria-hidden="true">02</span>
           <div class="story-beat__main">
             <p class="story-beat__eyebrow"><span class="story-beat__num">2</span> DIE MECHANIK</p>
             <h3 class="story-beat__title">Ich habe das Ansprechen <em>weggenommen</em></h3>
@@ -193,7 +198,8 @@
         </article>
 
         <!-- Szene 3: Der Rückschlag (dark) -->
-        <article class="story-beat story-beat--dark reveal" data-reveal>
+        <article class="story-beat story-beat--dark story-beat--offset-a reveal" data-reveal>
+          <span class="story-beat__bg-num story-beat__bg-num--dark" aria-hidden="true">03</span>
           <div class="story-beat__main">
             <p class="story-beat__eyebrow"><span class="story-beat__num">3</span> DER RÜCKSCHLAG</p>
             <h3 class="story-beat__title">Dann hat der Test <em>meine Lieblingsidee zerlegt</em></h3>
@@ -217,7 +223,8 @@
         </article>
 
         <!-- Szene 4: Die Lösung -->
-        <article class="story-beat reveal" data-reveal>
+        <article class="story-beat story-beat--offset-b reveal" data-reveal>
+          <span class="story-beat__bg-num" aria-hidden="true">04</span>
           <div class="story-beat__main">
             <p class="story-beat__eyebrow"><span class="story-beat__num">4</span> DIE LÖSUNG</p>
             <h3 class="story-beat__title">Von „creepy“ zu <em>„niemand muss anfangen“</em></h3>
