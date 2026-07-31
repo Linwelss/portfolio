@@ -2165,3 +2165,155 @@ a { text-decoration: none; color: inherit; }
   color: rgba(15, 20, 15, 0.35);
   font-style: italic;
 }
+
+/* ===================================================
+   Visuelle Verstärkung: Typografie, Asymmetrie, Bewegung
+=================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__bg-num {
+  position: absolute;
+  top: -4vw;
+  right: -1vw;
+  font-family: 'Gasoek One', sans-serif;
+  font-size: clamp(140px, 22vw, 340px);
+  line-height: 1;
+  color: var(--sage-tint);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(28px, 3.5vw, 44px);
+  max-width: 1100px;
+}
+
+.hero__lede {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(10px, 1.4vw, 18px);
+  text-align: left;
+  max-width: 760px;
+}
+
+.hero__title {
+  font-size: clamp(64px, 11vw, 168px);
+  line-height: 0.86;
+  text-align: left;
+  will-change: transform;
+}
+
+.hero__desc {
+  text-align: left;
+  max-width: 620px;
+}
+
+.hero-cta {
+  justify-content: flex-start;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.hero-stats__card {
+  flex: 1 1 220px;
+  max-width: 260px;
+}
+
+.hero-stats__card--1 { transform: translateY(0); }
+.hero-stats__card--2 { transform: translateY(22px) rotate(-1.2deg); }
+.hero-stats__card--3 { transform: translateY(-14px) rotate(1deg); }
+.hero-stats__card--4 { transform: translateY(10px) rotate(-0.6deg); }
+
+@media (max-width: 800px) {
+  .hero-stats__card--1, .hero-stats__card--2, .hero-stats__card--3, .hero-stats__card--4 {
+    transform: none;
+  }
+}
+
+/* ---------------------------------
+   Konzept: versetzte Phones
+---------------------------------- */
+.phone-placeholder--offset-a { transform: translateY(0) rotate(-2deg); }
+.phone-placeholder--offset-b { transform: translateY(-28px) rotate(0deg); }
+.phone-placeholder--offset-c { transform: translateY(8px) rotate(2deg); }
+
+@media (max-width: 700px) {
+  .phone-placeholder--offset-a, .phone-placeholder--offset-b, .phone-placeholder--offset-c {
+    transform: none;
+  }
+}
+
+.konzept__title {
+  font-size: clamp(32px, 5vw, 64px);
+}
+
+/* ---------------------------------
+   Story: Hintergrundziffern, Asymmetrie
+---------------------------------- */
+.story-beat {
+  position: relative;
+  overflow: hidden;
+}
+
+.story-beat__bg-num {
+  position: absolute;
+  top: -6%;
+  right: 2%;
+  font-family: 'Gasoek One', sans-serif;
+  font-size: clamp(120px, 16vw, 220px);
+  line-height: 1;
+  color: var(--sage-tint);
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.story-beat__bg-num--dark {
+  color: rgba(255, 255, 255, 0.06);
+  opacity: 1;
+}
+
+.story-beat__main,
+.story-beat__panel {
+  position: relative;
+  z-index: 1;
+}
+
+.story-beat__title {
+  font-size: clamp(24px, 3.4vw, 40px);
+}
+
+.story-beat--offset-a {
+  margin-right: clamp(0px, 4vw, 48px);
+}
+
+.story-beat--offset-b {
+  margin-left: clamp(0px, 4vw, 48px);
+}
+
+@media (max-width: 850px) {
+  .story-beat--offset-a, .story-beat--offset-b { margin: 0; }
+}
+
+.story__title {
+  font-size: clamp(32px, 5vw, 64px);
+}
