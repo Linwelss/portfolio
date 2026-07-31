@@ -209,4 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const materialRows = document.querySelectorAll('.material-row');
+  materialRows.forEach((row) => {
+    row.addEventListener('click', () => {
+      const expanded = row.getAttribute('aria-expanded') === 'true';
+      row.setAttribute('aria-expanded', String(!expanded));
+    });
+  });
+
 });
