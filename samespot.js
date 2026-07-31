@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isNaN(target)) return;
     const duration = prefersReducedMotion ? 0 : 900;
     const start = performance.now();
-    const suffix = '%';
+    const suffix = el.hasAttribute('data-suffix') ? el.getAttribute('data-suffix') : '%';
 
     if (duration === 0) {
       el.textContent = target + suffix;
@@ -216,5 +216,25 @@ document.addEventListener('DOMContentLoaded', () => {
       row.setAttribute('aria-expanded', String(!expanded));
     });
   });
+
+  if (!prefersReducedMotion) {
+    const heroTitle = document.getElementById('heroTitle');
+    const bgNums = document.querySelectorAll('.hero__bg-num, .story-beat__bg-num');
+
+    function updateParallax() {
+      const scrollTop = window.scrollY;
+      if (heroTitle) {
+        heroTitle.style.transform = 'translateY(' + Math.min(scrollTop * 0.15, 60) + 'px)';
+      }
+      bgNums.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const offset = (rect.top - window.innerHeight / 2) * -0.06;
+        el.style.transform = 'translateY(' + offset + 'px)';
+      });
+    }
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+  }
 
 });
