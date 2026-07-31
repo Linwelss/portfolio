@@ -2167,153 +2167,130 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ===================================================
-   Visuelle Verstärkung: Typografie, Asymmetrie, Bewegung
+   Hero: zentriert, echtes Screen-Bild, mehr Coral
 =================================================== */
 
-.hero {
-  position: relative;
-  overflow: hidden;
+.hero__phones {
+  width: 100%;
+  max-width: clamp(420px, 46vw, 640px);
+  margin-top: 4px;
 }
 
-.hero__bg-num {
-  position: absolute;
-  top: -4vw;
-  right: -1vw;
-  font-family: 'Gasoek One', sans-serif;
-  font-size: clamp(140px, 22vw, 340px);
-  line-height: 1;
-  color: var(--sage-tint);
-  opacity: 0.5;
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(28px, 3.5vw, 44px);
-  max-width: 1100px;
-}
-
-.hero__lede {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(10px, 1.4vw, 18px);
-  text-align: left;
-  max-width: 760px;
-}
-
-.hero__title {
-  font-size: clamp(64px, 11vw, 168px);
-  line-height: 0.86;
-  text-align: left;
-  will-change: transform;
-}
-
-.hero__desc {
-  text-align: left;
-  max-width: 620px;
-}
-
-.hero-cta {
-  justify-content: flex-start;
+.hero__phones-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 32px rgba(9, 20, 50, 0.12));
 }
 
 .hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   width: 100%;
-  align-items: flex-start;
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; }
 }
 
 .hero-stats__card {
-  flex: 1 1 220px;
-  max-width: 260px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 22px 20px;
+  box-shadow: 0 4px 16px rgba(37, 48, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
 }
 
-.hero-stats__card--1 { transform: translateY(0); }
-.hero-stats__card--2 { transform: translateY(22px) rotate(-1.2deg); }
-.hero-stats__card--3 { transform: translateY(-14px) rotate(1deg); }
-.hero-stats__card--4 { transform: translateY(10px) rotate(-0.6deg); }
+.hero-stats__card--coral {
+  background: var(--coral);
+}
 
-@media (max-width: 800px) {
-  .hero-stats__card--1, .hero-stats__card--2, .hero-stats__card--3, .hero-stats__card--4 {
-    transform: none;
-  }
+.hero-stats__num {
+  font-weight: 700;
+  font-size: 34px;
+  letter-spacing: -0.3px;
+  color: var(--coral);
+  margin: 0;
+}
+
+.hero-stats__card--coral .hero-stats__num,
+.hero-stats__card--coral .hero-stats__label {
+  color: var(--white);
+}
+
+.hero-stats__label {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+}
+
+.hero-stats__sub {
+  font-size: 11.5px;
+  color: var(--slate-light);
+  margin: 0;
+}
+
+.hero-stats__card--coral .hero-stats__sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.badge {
+  background: var(--coral-tint, #FFE3DB);
+  color: var(--coral-dark);
+}
+
+.btn--coral {
+  background: var(--coral);
+  color: var(--white);
+}
+
+.btn--coral:hover {
+  transform: translateY(-1px);
+  background: var(--coral-dark);
+}
+
+.btn--outline:hover {
+  border-color: var(--coral);
+  background: var(--coral-tint, #FFE3DB);
 }
 
 /* ---------------------------------
-   Konzept: versetzte Phones
+   Konzept & Story: ruhiger, zentriert
 ---------------------------------- */
-.phone-placeholder--offset-a { transform: translateY(0) rotate(-2deg); }
-.phone-placeholder--offset-b { transform: translateY(-28px) rotate(0deg); }
-.phone-placeholder--offset-c { transform: translateY(8px) rotate(2deg); }
+.konzept__title em { color: var(--white); }
 
-@media (max-width: 700px) {
-  .phone-placeholder--offset-a, .phone-placeholder--offset-b, .phone-placeholder--offset-c {
-    transform: none;
-  }
+.story-beat__num {
+  background: #FFE3DB;
+  color: var(--coral-dark);
 }
 
-.konzept__title {
-  font-size: clamp(32px, 5vw, 64px);
+.story-beat--dark .story-beat__num {
+  background: var(--coral);
+  color: var(--white);
 }
 
-/* ---------------------------------
-   Story: Hintergrundziffern, Asymmetrie
----------------------------------- */
-.story-beat {
-  position: relative;
-  overflow: hidden;
+.story-beat__flow-accent {
+  color: var(--coral-dark);
 }
 
-.story-beat__bg-num {
-  position: absolute;
-  top: -6%;
-  right: 2%;
-  font-family: 'Gasoek One', sans-serif;
-  font-size: clamp(120px, 16vw, 220px);
-  line-height: 1;
-  color: var(--sage-tint);
-  opacity: 0.55;
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
+.before-after__col--accent {
+  background: #FFE3DB;
 }
 
-.story-beat__bg-num--dark {
-  color: rgba(255, 255, 255, 0.06);
-  opacity: 1;
+.before-after__col--accent .before-after__label {
+  color: var(--coral-dark);
 }
 
-.story-beat__main,
-.story-beat__panel {
-  position: relative;
-  z-index: 1;
+.story-beat__quote {
+  border-left-color: var(--coral);
 }
 
-.story-beat__title {
-  font-size: clamp(24px, 3.4vw, 40px);
-}
-
-.story-beat--offset-a {
-  margin-right: clamp(0px, 4vw, 48px);
-}
-
-.story-beat--offset-b {
-  margin-left: clamp(0px, 4vw, 48px);
-}
-
-@media (max-width: 850px) {
-  .story-beat--offset-a, .story-beat--offset-b { margin: 0; }
-}
-
-.story__title {
-  font-size: clamp(32px, 5vw, 64px);
+.story-beat__quote--dark {
+  border-left-color: var(--coral);
 }
