@@ -1,6 +1,6 @@
 /* ===================================================
    sameSpot — Case Study Header
-   VERSION-MARKER: hat-a11y-trimmed-v38-phone-placeholders
+   VERSION-MARKER: v40-full-rebuild
 =================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,12 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollProgress) scrollProgress.style.width = pct + '%';
     if (topnav) topnav.classList.toggle('is-scrolled', scrollTop > 8);
   }
-
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
   const revealEls = document.querySelectorAll('.reveal');
-
   if (prefersReducedMotion) {
     revealEls.forEach((el) => el.classList.add('is-visible'));
   } else {
@@ -34,11 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
     revealEls.forEach((el) => revealObserver.observe(el));
   }
-
-  const countEls = document.querySelectorAll('[data-count-to]');
 
   function animateCount(el) {
     const target = parseFloat(el.getAttribute('data-count-to'));
@@ -46,195 +41,83 @@ document.addEventListener('DOMContentLoaded', () => {
     const duration = prefersReducedMotion ? 0 : 900;
     const start = performance.now();
     const suffix = el.hasAttribute('data-suffix') ? el.getAttribute('data-suffix') : '%';
-
     if (duration === 0) {
       el.textContent = target + suffix;
       el.classList.add('is-done');
       return;
     }
-
     function tick(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const value = Math.round(target * eased);
       el.textContent = value + suffix;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        el.textContent = target + suffix;
-        el.classList.add('is-done');
-      }
+      if (progress < 1) requestAnimationFrame(tick);
+      else { el.textContent = target + suffix; el.classList.add('is-done'); }
     }
     requestAnimationFrame(tick);
   }
-
   const countObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateCount(entry.target);
-        countObserver.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { animateCount(entry.target); countObserver.unobserve(entry.target); }
     });
   }, { threshold: 0.4 });
-
-  countEls.forEach((el) => countObserver.observe(el));
-
-  const ageBars = document.querySelectorAll('.agebar-row__bar[data-target]');
-  const dataBars = document.querySelectorAll('.data-bar__fill[data-target]');
+  document.querySelectorAll('[data-count-to]').forEach((el) => countObserver.observe(el));
 
   function animateBar(el) {
     const target = parseFloat(el.getAttribute('data-target'));
     if (isNaN(target)) return;
-    requestAnimationFrame(() => {
-      el.style.width = target + '%';
-    });
+    requestAnimationFrame(() => { el.style.width = target + '%'; });
   }
-
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateBar(entry.target);
-        barObserver.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { animateBar(entry.target); barObserver.unobserve(entry.target); }
     });
   }, { threshold: 0.3 });
+  document.querySelectorAll('[data-target]').forEach((el) => barObserver.observe(el));
 
-  ageBars.forEach((el) => barObserver.observe(el));
-  dataBars.forEach((el) => barObserver.observe(el));
-
-  const threads = document.querySelectorAll('.section-thread');
   const threadObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        threadObserver.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); threadObserver.unobserve(entry.target); }
     });
   }, { threshold: 0.5 });
-  threads.forEach((el) => threadObserver.observe(el));
+  document.querySelectorAll('.section-thread').forEach((el) => threadObserver.observe(el));
 
-  const quoteCards = document.querySelectorAll('.card--quote');
   const quoteObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        quoteObserver.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); quoteObserver.unobserve(entry.target); }
     });
   }, { threshold: 0.4 });
-  quoteCards.forEach((el) => quoteObserver.observe(el));
+  document.querySelectorAll('.card--quote').forEach((el) => quoteObserver.observe(el));
 
-  const tocLinks = document.querySelectorAll('.toc__link[data-toc]');
+  // TOC active-link tracking (top-level + nested sub-sections)
+  const tocLinks = document.querySelectorAll('.toc__link[href^="#"]');
   const tocMap = {};
   tocLinks.forEach((link) => {
     const id = link.getAttribute('href').replace('#', '');
     if (id) tocMap[id] = link;
   });
-
-  const sectionsWithIds = Array.from(document.querySelectorAll('main > section[id]'));
-
+  const trackedSections = Array.from(document.querySelectorAll('[data-toc-section]'));
   function setActiveTocLink(id) {
     tocLinks.forEach((l) => l.classList.remove('is-active'));
     const link = tocMap[id];
     if (link) link.classList.add('is-active');
   }
-
-  if (sectionsWithIds.length) {
+  if (trackedSections.length) {
     const tocObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveTocLink(entry.target.id);
-        }
+        if (entry.isIntersecting) setActiveTocLink(entry.target.getAttribute('data-toc-section'));
       });
-    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
-
-    sectionsWithIds.forEach((section) => tocObserver.observe(section));
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    trackedSections.forEach((section) => tocObserver.observe(section));
   }
 
-  const statMinis = document.querySelectorAll('.stat-mini[data-stat]');
-  const researchBlocks = document.querySelectorAll('.research__block[data-stat-trigger]');
-  const statMap = {};
-  statMinis.forEach((el) => { statMap[el.getAttribute('data-stat')] = el; });
-
-  function setActiveStat(key) {
-    statMinis.forEach((el) => {
-      const isActive = el.getAttribute('data-stat') === key;
-      const wasActive = el.classList.contains('is-active');
-      el.classList.toggle('is-active', isActive);
-      if (isActive && !wasActive && !prefersReducedMotion) {
-        el.classList.add('is-switching');
-        setTimeout(() => el.classList.remove('is-switching'), 520);
-      }
-    });
-  }
-
-  if (researchBlocks.length) {
-    const researchObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const key = entry.target.getAttribute('data-stat-trigger');
-          if (key) setActiveStat(key);
-        }
-      });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-
-    researchBlocks.forEach((block) => researchObserver.observe(block));
-  }
-
-  const dotGrid = document.getElementById('dotGrid');
-  if (dotGrid) {
-    const totalDots = 48;
-    const accentIndex = 0;
-    for (let i = 0; i < totalDots; i++) {
-      const dot = document.createElement('span');
-      dot.className = 'dot-grid__dot' + (i === accentIndex ? ' is-accent' : '');
-      dotGrid.appendChild(dot);
-    }
-  }
-
-  const ethikCards = document.querySelectorAll('.ethik-card');
-  ethikCards.forEach((card) => {
-    card.addEventListener('click', () => {
-      if (window.matchMedia('(hover: none)').matches) {
-        card.classList.toggle('is-tapped');
-      }
-    });
-  });
-
-  const playButtons = document.querySelectorAll('.lofi-card__play, .hifi-proto__play');
-  playButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      console.info('Play-Button geklickt, hier später echten Prototyp/Video-Embed einhängen.');
-    });
-  });
-
-  const materialRows = document.querySelectorAll('.material-row');
-  materialRows.forEach((row) => {
+  // Generic accordion toggle (Material / Prozess komplett)
+  document.querySelectorAll('.accordion-toggle').forEach((row) => {
     row.addEventListener('click', () => {
       const expanded = row.getAttribute('aria-expanded') === 'true';
       row.setAttribute('aria-expanded', String(!expanded));
     });
   });
-
-  if (!prefersReducedMotion) {
-    const heroTitle = document.getElementById('heroTitle');
-    const bgNums = document.querySelectorAll('.hero__bg-num, .story-beat__bg-num');
-
-    function updateParallax() {
-      const scrollTop = window.scrollY;
-      if (heroTitle) {
-        heroTitle.style.transform = 'translateY(' + Math.min(scrollTop * 0.15, 60) + 'px)';
-      }
-      bgNums.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const offset = (rect.top - window.innerHeight / 2) * -0.06;
-        el.style.transform = 'translateY(' + offset + 'px)';
-      });
-    }
-
-    window.addEventListener('scroll', updateParallax, { passive: true });
-    updateParallax();
-  }
 
 });
