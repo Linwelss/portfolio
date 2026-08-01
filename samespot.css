@@ -2294,3 +2294,37 @@ a { text-decoration: none; color: inherit; }
 .story-beat__quote--dark {
   border-left-color: var(--coral);
 }
+
+/* ===================================================
+   Material-Akkordeon: echte aufklappbare Inhalte
+=================================================== */
+
+.material-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.material-panel {
+  display: none;
+  padding: 0 24px 20px 4px;
+  text-align: left;
+}
+
+.material-row[aria-expanded="true"] + .material-panel {
+  display: block;
+}
+
+.material-panel p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--slate);
+  margin: 0 0 10px;
+}
+
+.material-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.material-panel strong {
+  color: var(--dark-ink);
+}
