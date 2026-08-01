@@ -7,20 +7,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="samespot.css?v=39">
+<link rel="stylesheet" href="samespot.css?v=40">
 </head>
 <body>
 
-  <!-- Scroll-Fortschritt: immer sichtbar, ganz oben -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Top Navigation -->
   <header class="topnav" id="topnav">
     <div class="topnav__inner">
       <a href="/" class="topnav__back">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M9.5 3L4.5 7.5L9.5 12" stroke="#3A4A3C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.5 3L4.5 7.5L9.5 12" stroke="#3A4A3C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>Alle Projekte</span>
       </a>
       <a href="/" class="topnav__brand">Lina Melissa</a>
@@ -28,134 +24,167 @@
     </div>
   </header>
 
-  <!-- Table of Contents (sidebar) -->
-  <nav class="toc" id="toc" aria-label="Case Study Inhaltsverzeichnis">
+  <!-- Sidebar: verschachteltes Inhaltsverzeichnis -->
+  <nav class="toc toc--sidebar" id="toc" aria-label="Case Study Inhaltsverzeichnis">
+    <div class="toc__brand"><span class="toc__brand-accent">same</span>Spot</div>
     <ul class="toc__list">
-      <li><a href="#konzept" class="toc__link" data-toc="konzept">Konzept</a></li>
-      <li><a href="#story" class="toc__link" data-toc="story">Story</a></li>
-      <li><a href="#material" class="toc__link" data-toc="material">Material</a></li>
-      <li><a href="#learnings" class="toc__link" data-toc="learnings">Learnings</a></li>
-      <li>
-        <a href="https://figma.com" target="_blank" rel="noopener" class="toc__figma">
-          <span>Figma</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 10L10 4M10 4H5.5M10 4V8.5" stroke="#405444" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+      <li><a href="#ueberblick" class="toc__link is-active">Überblick</a></li>
+      <li><a href="#zahlen" class="toc__link">Vier Zahlen</a></li>
+      <li><a href="#ergebnis" class="toc__link">Ergebnis</a></li>
+      <li class="toc__chapter">
+        <a href="#widerspruch" class="toc__link toc__link--chapter"><span class="toc__num">01</span> Widerspruch</a>
+        <ul class="toc__sublist">
+          <li><a href="#persona" class="toc__link toc__link--sub">Persona</a></li>
+          <li><a href="#marktluecke" class="toc__link toc__link--sub">Marktlücke</a></li>
+        </ul>
       </li>
+      <li class="toc__chapter">
+        <a href="#mechanik" class="toc__link toc__link--chapter"><span class="toc__num">02</span> Mechanik</a>
+        <ul class="toc__sublist">
+          <li><a href="#scope" class="toc__link toc__link--sub">Scope</a></li>
+          <li><a href="#constraints" class="toc__link toc__link--sub">Constraints</a></li>
+        </ul>
+      </li>
+      <li class="toc__chapter">
+        <a href="#rueckschlag" class="toc__link toc__link--chapter"><span class="toc__num">03</span> Rückschlag</a>
+        <ul class="toc__sublist">
+          <li><a href="#priorisierung" class="toc__link toc__link--sub">Priorisierung</a></li>
+        </ul>
+      </li>
+      <li class="toc__chapter">
+        <a href="#loesung" class="toc__link toc__link--chapter"><span class="toc__num">04</span> Lösung</a>
+        <ul class="toc__sublist">
+          <li><a href="#sicherheit" class="toc__link toc__link--sub">Sicherheit</a></li>
+          <li><a href="#ui-system" class="toc__link toc__link--sub">UI-System</a></li>
+          <li><a href="#ki" class="toc__link toc__link--sub">Arbeit mit KI</a></li>
+        </ul>
+      </li>
+      <li><a href="#prozess" class="toc__link">Prozess komplett</a></li>
+      <li><a href="#learnings" class="toc__link">Learnings</a></li>
     </ul>
+    <a href="https://figma.com" target="_blank" rel="noopener" class="toc__figma">
+      <span>Figma</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 10L10 4M10 4H5.5M10 4V8.5" stroke="#405444" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </nav>
 
-  <main>
+  <main class="main--with-sidebar">
 
-    <!-- Hero -->
-    <section class="hero" id="hero">
-      <div class="hero__inner">
+    <!-- Überblick -->
+    <section class="ueberblick-top" id="ueberblick" data-toc-section="ueberblick">
+      <span class="ueberblick-top__dot reveal" data-reveal aria-hidden="true"></span>
+      <h1 class="ueberblick-top__title reveal" data-reveal data-reveal-delay="1">
+        <span class="hero__title-accent">same</span><span class="hero__title-dark">Spot</span>
+      </h1>
+      <p class="ueberblick-top__sub reveal" data-reveal data-reveal-delay="2">Aus wiederholten Begegnungen am selben Ort wird ein Austausch — ohne dass jemand den ersten Schritt machen muss.</p>
 
-        <span class="badge reveal" data-reveal>UX/UI Design</span>
-
-        <h1 class="hero__title reveal" data-reveal data-reveal-delay="1" id="heroTitle">
-          <span class="hero__title-accent">same</span><span class="hero__title-dark">Spot</span>
-        </h1>
-
-        <p class="hero__desc reveal" data-reveal data-reveal-delay="2">
-          Eine App-Idee für Menschen, die Nähe wollen, aber am ersten Schritt scheitern: aus wiederholten Begegnungen am selben Ort wird ein Austausch — ohne dass jemand anschreiben muss.
-        </p>
-
-        <div class="hero-cta reveal" data-reveal data-reveal-delay="3">
-          <a href="https://figma.com" target="_blank" rel="noopener" class="btn btn--coral">Prototyp ansehen</a>
-          <a href="#story" class="btn btn--outline">Wie ich dahin kam</a>
+      <div class="meta-grid reveal" data-reveal data-reveal-delay="3">
+        <div class="meta-grid__item">
+          <p class="meta-grid__label">ROLLE</p>
+          <p class="meta-grid__value">UX-Konzept, UI, Research, Test — alles selbst</p>
         </div>
-
-        <div class="hero__phones reveal" data-reveal data-reveal-delay="2">
-          <img src="hero-phones-real.png" alt="Drei Screens der sameSpot App: Begegnungs-Moment mit 'Handys aneinander halten', Feed mit Wiedersehen, Detailansicht eines Spots" class="hero__phones-img">
+        <div class="meta-grid__item">
+          <p class="meta-grid__label">KONTEXT</p>
+          <p class="meta-grid__value">Bootcamp-Projekt, allein umgesetzt</p>
         </div>
-
-        <div class="hero-stats reveal" data-reveal data-reveal-delay="3">
-          <div class="hero-stats__card">
-            <p class="hero-stats__num"><span data-count-to="71" data-suffix="%">0%</span></p>
-            <p class="hero-stats__label">warten passiv darauf, angesprochen zu werden</p>
-            <p class="hero-stats__sub">aus meiner Umfrage, n=52</p>
-          </div>
-          <div class="hero-stats__card">
-            <p class="hero-stats__num"><span data-count-to="3" data-suffix="">0</span></p>
-            <p class="hero-stats__label">Usability-Probleme gefunden und behoben</p>
-            <p class="hero-stats__sub">im Think-Aloud-Test mit Mid-Fi-Prototyp</p>
-          </div>
-          <div class="hero-stats__card">
-            <p class="hero-stats__num"><span data-count-to="2" data-suffix="">0</span></p>
-            <p class="hero-stats__label">Klicks bis zu jeder Kernfunktion</p>
-            <p class="hero-stats__sub">vier Bereiche statt verschachtelter Menüs</p>
-          </div>
-          <div class="hero-stats__card hero-stats__card--coral">
-            <p class="hero-stats__num">≥<span data-count-to="15" data-suffix="%">0%</span></p>
-            <p class="hero-stats__label">Ziel-KPI: Wiedersehen führt zu echtem Austausch</p>
-            <p class="hero-stats__sub">definiert, nicht gemessen — das Konzept ist nicht live</p>
-          </div>
+        <div class="meta-grid__item">
+          <p class="meta-grid__label">ZEITRAUM</p>
+          <p class="meta-grid__value">4 Monate · Mentoren-Feedback alle 2–3 Wochen</p>
         </div>
+        <div class="meta-grid__item">
+          <p class="meta-grid__label">TOOLS</p>
+          <p class="meta-grid__value">Figma · Umfrage- &amp; Interview-Auswertung · KI als Sparringspartner</p>
+        </div>
+      </div>
 
+      <div class="meta-grid__result reveal" data-reveal data-reveal-delay="3">
+        <p class="meta-grid__label">ERGEBNIS</p>
+        <p class="meta-grid__value">Konzept + klickbarer Prototyp, nicht live</p>
+      </div>
+
+      <p class="ueberblick-top__readtime reveal" data-reveal>5 Min Lesezeit · 14 Kapitel</p>
+      <div class="ueberblick-top__links reveal" data-reveal>
+        <a href="#ergebnis">Direkt zum Ergebnis</a>
+        <a href="#learnings">Nur die Learnings</a>
       </div>
     </section>
 
-    <!-- Erst das Konzept, dann der Weg -->
-    <section class="konzept" id="konzept">
-      <div class="konzept__inner">
-        <div class="konzept__heading">
-          <p class="eyebrow eyebrow--onlight reveal" data-reveal>DAS ERGEBNIS</p>
-          <h2 class="konzept__title reveal" data-reveal data-reveal-delay="1">Erst das Konzept, <em>dann der Weg</em></h2>
-          <p class="konzept__sub reveal" data-reveal data-reveal-delay="2">Der Kern-Loop in drei Screens: eine Aufgabe an einem Ort, ein passives Wiedersehen im Feed, ein Code-Austausch — der erste Schritt passiert von selbst.</p>
+    <!-- Vier Zahlen -->
+    <section class="zahlen" id="zahlen" data-toc-section="zahlen">
+      <p class="eyebrow reveal" data-reveal>VIER ZAHLEN ZUERST</p>
+      <div class="zahlen__grid">
+        <div class="zahlen__card reveal" data-reveal>
+          <p class="zahlen__num"><span data-count-to="71" data-suffix="%">0%</span></p>
+          <p class="zahlen__label">warten passiv darauf, angesprochen zu werden</p>
+          <p class="zahlen__sub">aus meiner Umfrage, n=52. Der Grund, warum ich nicht noch eine Dating-App gebaut habe.</p>
         </div>
+        <div class="zahlen__card reveal" data-reveal data-reveal-delay="1">
+          <p class="zahlen__num zahlen__num--fraction">1<span class="zahlen__colon">:</span>52</p>
+          <p class="zahlen__label">hat sich je getraut, jemanden anzusprechen</p>
+          <p class="zahlen__sub">Eine Person. Das Problem war nie das Wollen.</p>
+        </div>
+        <div class="zahlen__card reveal" data-reveal data-reveal-delay="2">
+          <p class="zahlen__num"><span data-count-to="3" data-suffix="">0</span></p>
+          <p class="zahlen__label">blockierende Probleme im Test — alle drei behoben</p>
+          <p class="zahlen__sub">Darunter das größte: meine Kernmechanik wirkte auf Testpersonen wie Verfolgung.</p>
+        </div>
+        <div class="zahlen__card zahlen__card--coral reveal" data-reveal data-reveal-delay="3">
+          <p class="zahlen__tag">HYPOTHESE</p>
+          <p class="zahlen__num">≥<span data-count-to="15" data-suffix="%">0%</span></p>
+          <p class="zahlen__label">der Wiederbegegnungen sollen zu einem Austausch führen</p>
+          <p class="zahlen__sub">Der Prüfstein, den ich für den Kernmechanismus definiert habe — die Bedingung, unter der das Konzept scheitern darf.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="phone-row">
+    <!-- Ergebnis (dark) -->
+    <section class="ergebnis" id="ergebnis" data-toc-section="ergebnis">
+      <div class="ergebnis__inner">
+        <p class="eyebrow eyebrow--ondark reveal" data-reveal>DAS ERGEBNIS</p>
+        <h2 class="ergebnis__title reveal" data-reveal data-reveal-delay="1">Erst das Ergebnis, <em>dann der Weg dahin.</em></h2>
+        <p class="ergebnis__sub reveal" data-reveal data-reveal-delay="2">Der Loop in drei Screens: eine kleine Aufgabe an einem Ort, ein passives Wiedersehen im Feed, ein Code-Austausch, wenn beide wollen.</p>
+        <ul class="ergebnis__steps reveal" data-reveal data-reveal-delay="2">
+          <li>Spot besuchen</li>
+          <li>wieder da sein</li>
+          <li>Code tauschen</li>
+        </ul>
+        <a href="https://figma.com" target="_blank" rel="noopener" class="btn btn--coral reveal" data-reveal data-reveal-delay="3">Prototyp ansehen</a>
+
+        <div class="phone-row phone-row--dark">
           <div class="phone-placeholder reveal" data-reveal>
-            <div class="phone-placeholder__frame">
-              <span class="phone-placeholder__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
+            <div class="phone-placeholder__frame phone-placeholder__frame--dark">
+              <span class="phone-placeholder__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="phone-placeholder__note muted">Screen folgt</span>
             </div>
-            <span class="phone-placeholder__caption">Aufgabe an einem Spot</span>
+            <span class="phone-placeholder__caption phone-placeholder__caption--dark">Aufgabe / Spot</span>
           </div>
           <div class="phone-placeholder reveal" data-reveal data-reveal-delay="1">
-            <div class="phone-placeholder__frame">
-              <span class="phone-placeholder__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
+            <div class="phone-placeholder__frame phone-placeholder__frame--dark">
+              <span class="phone-placeholder__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="phone-placeholder__note muted">Screen folgt</span>
             </div>
-            <span class="phone-placeholder__caption">Feed mit Wiedersehen</span>
+            <span class="phone-placeholder__caption phone-placeholder__caption--dark">Wiedersehen im Feed</span>
           </div>
           <div class="phone-placeholder reveal" data-reveal data-reveal-delay="2">
-            <div class="phone-placeholder__frame">
-              <span class="phone-placeholder__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
+            <div class="phone-placeholder__frame phone-placeholder__frame--dark">
+              <span class="phone-placeholder__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8.5" cy="10" r="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 16l4.5-4 3 2.5L17 10l3 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <span class="phone-placeholder__note muted">Screen folgt</span>
             </div>
-            <span class="phone-placeholder__caption">Code-Exchange</span>
+            <span class="phone-placeholder__caption phone-placeholder__caption--dark">Code-Austausch</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Die Story in vier Szenen -->
-    <section class="story" id="story">
-      <div class="story__inner">
-        <div class="story__heading">
-          <p class="eyebrow reveal" data-reveal>DIE STORY IN VIER SZENEN</p>
-          <h2 class="story__title reveal" data-reveal data-reveal-delay="1">Und so ist es <em>dazu gekommen</em></h2>
-        </div>
+    <!-- 01 Widerspruch -->
+    <section class="chapter" id="widerspruch" data-toc-section="widerspruch">
+      <div class="chapter__inner">
+        <p class="chapter__eyebrow reveal" data-reveal><span class="chapter__num">01</span> DER WIDERSPRUCH</p>
+        <h2 class="chapter__title reveal" data-reveal data-reveal-delay="1">„Ich würde ja gerne — <em>aber nicht so.</em>“</h2>
+        <p class="chapter__body reveal" data-reveal data-reveal-delay="2">Ich bin mit einer harmlosen Frage gestartet: warum lernen sich Menschen, die sich täglich sehen, nie kennen? Die Antworten haben die Frage gedreht. Es fehlt nicht an Gelegenheiten und nicht an Interesse — es fehlt an einer Situation, in der niemand den ersten Schritt machen muss.</p>
 
-        <!-- Szene 1: Der Widerspruch -->
-        <article class="story-beat reveal" data-reveal>
-          <div class="story-beat__main">
-            <p class="story-beat__eyebrow"><span class="story-beat__num">1</span> DER WIDERSPRUCH</p>
-            <h3 class="story-beat__title">„Ich würde ja gerne — <em>aber nicht so.</em>“</h3>
-            <p class="story-beat__body">Ich bin mit einer harmlosen Frage gestartet: warum lernen sich Leute, die sich täglich sehen, nicht kennen? Die Antworten aus Umfrage und Interviews haben die Frage gedreht. Es fehlt nicht an Gelegenheiten und nicht an Interesse — es fehlt an einer Situation, in der niemand den ersten Schritt machen muss.</p>
-            <blockquote class="story-beat__quote">„Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen.“<cite>Interviewperson 2, Kernzielgruppe</cite></blockquote>
-          </div>
-          <div class="story-beat__panel">
-            <p class="story-beat__panel-label">UMFRAGE, 52 ANTWORTEN</p>
+        <div class="chapter__stat-quote reveal" data-reveal data-reveal-delay="3">
+          <div class="chapter__bars">
             <div class="story-beat__bar">
               <div class="story-beat__bar-top"><span>warten passiv darauf, angesprochen zu werden</span><span>71%</span></div>
               <div class="story-beat__bar-track"><div class="story-beat__bar-fill" data-target="71"></div></div>
@@ -164,214 +193,340 @@
               <div class="story-beat__bar-top"><span>mind. moderat einsam (18–35 J.)</span><span>51%</span></div>
               <div class="story-beat__bar-track"><div class="story-beat__bar-fill story-beat__bar-fill--sage" data-target="51"></div></div>
             </div>
-            <div class="story-beat__callout">
-              <p class="story-beat__callout-num">1/52</p>
-              <p class="story-beat__callout-text">eine einzige Person hat sich getraut, jemanden aktiv anzusprechen</p>
-            </div>
+            <p class="chapter__bars-source">Umfrage · n=52 Antworten</p>
           </div>
-        </article>
+          <blockquote class="story-beat__quote">„Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen.“<cite>Interviewperson 2, Kernzielgruppe</cite></blockquote>
+        </div>
 
-        <!-- Szene 2: Die Mechanik -->
-        <article class="story-beat reveal" data-reveal>
-          <div class="story-beat__main">
-            <p class="story-beat__eyebrow"><span class="story-beat__num">2</span> DIE MECHANIK</p>
-            <h3 class="story-beat__title">Ich habe das Ansprechen <em>weggenommen</em></h3>
-            <p class="story-beat__body">Statt Profile zu wischen, macht man eine kleine Aufgabe an einem Ort. Wer öfter am selben Spot war, taucht im Feed wieder auf — passiv, ohne Nachricht. Erst wenn beide wollen, wird ein Code getauscht. Der erste Schritt ist damit keine Entscheidung mehr, sondern eine Wiederholung.</p>
-            <div class="story-beat__flow">
-              <span>Spot besuchen</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Wiedersehen im Feed</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="story-beat__flow-accent">Code-Austausch</span>
-            </div>
-          </div>
-          <div class="story-beat__panel">
-            <p class="story-beat__panel-label">MARKTANALYSE</p>
-            <p class="story-beat__panel-text">Vergleichbare Apps setzen fast durchgehend aktives Anschreiben voraus — genau das habe ich bewusst vermieden.</p>
-            <p class="story-beat__panel-label" style="margin-top:16px">STRUKTUR</p>
-            <div class="story-beat__grid">
-              <span>Aufgaben</span><span>Entdecken</span><span>Austausch</span><span>Profil</span>
-            </div>
-            <p class="story-beat__panel-note">vier Bereiche, jede Kernfunktion in maximal zwei Klicks</p>
-          </div>
-        </article>
+        <!-- Persona -->
+        <div class="subsection" id="persona" data-toc-section="persona">
+          <p class="eyebrow reveal" data-reveal>PERSONA</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Hanna ist keine Annahme, sondern <em>eine Verdichtung.</em></h3>
+          <p class="chapter__body reveal" data-reveal data-reveal-delay="2">Vier Interviews und 52 Umfrage-Antworten in einer Person: sie lebt allein, wünscht sich Verbindung und ist von alltäglicher Ansprache überfordert. Sie merkt das Problem in den kleinen, unverabredeten Momenten — nicht abends in einer App.</p>
 
-        <!-- Szene 3: Der Rückschlag (dark) -->
-        <article class="story-beat story-beat--dark reveal" data-reveal>
-          <div class="story-beat__main">
-            <p class="story-beat__eyebrow"><span class="story-beat__num">3</span> DER RÜCKSCHLAG</p>
-            <h3 class="story-beat__title">Dann hat der Test <em>meine Lieblingsidee zerlegt</em></h3>
-            <p class="story-beat__body">Zwei Testpersonen, Think-Aloud, klickbarer Mid-Fi-Prototyp. Beide haben das Konzept im Gespräch verstanden — im Interface aber nicht wiedererkannt. Genau die Mechanik, auf die ich stolz war, hat sich falsch angefühlt.</p>
-            <blockquote class="story-beat__quote story-beat__quote--dark">„Warum sehe ich ständig die gleiche Person? Würde die blockieren wollen.“<cite>Tester #2, zur Wiederbegegnungs-Mechanik im Feed</cite></blockquote>
-          </div>
-          <div class="story-beat__panel story-beat__panel--dark">
-            <div class="story-beat__problem">
-              <p class="story-beat__problem-title">Wiedersehen wirkt „creepy“</p>
-              <p class="story-beat__problem-sub">nicht als Absicht gedeutet, sondern als Verfolgung</p>
-            </div>
-            <div class="story-beat__problem">
-              <p class="story-beat__problem-title">Orientierungslos nach dem Onboarding</p>
-              <p class="story-beat__problem-sub">kein klarer erster Schritt, kein sichtbarer CTA</p>
-            </div>
-            <div class="story-beat__problem">
-              <p class="story-beat__problem-title">Chat und Begegnungen nicht auffindbar</p>
-              <p class="story-beat__problem-sub">versteckt statt in der Hauptnavigation</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Szene 4: Die Lösung -->
-        <article class="story-beat reveal" data-reveal>
-          <div class="story-beat__main">
-            <p class="story-beat__eyebrow"><span class="story-beat__num">4</span> DIE LÖSUNG</p>
-            <h3 class="story-beat__title">Von „creepy“ zu <em>„niemand muss anfangen“</em></h3>
-            <p class="story-beat__body">Ich habe die Mechanik nicht geändert, sondern ihre Erzählung. Das Wiedersehen wird als gemeinsame Geschichte gezeigt statt als Beobachtung, der erste Spot wird geführt, und Austausch bekommt einen festen Platz in der Navigation.</p>
-            <div class="before-after">
-              <div class="before-after__col">
-                <p class="before-after__label">VORHER, MID-FI</p>
-                <p>Wiederbegegnung wird ohne Erklärung im Feed angezeigt.</p>
-                <p>„Warum sehe ich ständig die gleiche Person? Würde blockieren wollen.“</p>
-                <p>Austausch per Code eintippen.</p>
-              </div>
-              <div class="before-after__col before-after__col--accent">
-                <p class="before-after__label">NACHHER, HI-FI</p>
-                <p>Begegnung wird erklärt, beide sehen sie gleichzeitig.</p>
-                <p>„Ihr seid euch gerade begegnet. Niemand muss den Anfang machen.“</p>
-                <p>Austausch durch Handys aneinander halten, kein Code mehr.</p>
+          <div class="persona-card reveal" data-reveal>
+            <div class="persona-card__head">
+              <span class="persona-card__avatar">H</span>
+              <div class="persona-card__id">
+                <span class="persona-card__name">Hanna Polm</span>
+                <span class="persona-card__tag">Die Blockierte</span>
               </div>
             </div>
           </div>
-          <div class="story-beat__panel story-beat__panel--kpi">
-            <p class="story-beat__panel-label">ZIEL-KPI</p>
-            <p class="story-beat__kpi-num">≥15%</p>
-            <p class="story-beat__panel-text">der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Exchange. Wöchentlich geprüft, verantwortet von UX, UI und Dev.</p>
+
+          <div class="persona-traits reveal" data-reveal>
+            <article class="trait-card">
+              <h3>Verhalten</h3>
+              <p>wartet auf Ansprache, zerdenkt soziale Momente, bevor sie passieren</p>
+            </article>
+            <article class="trait-card">
+              <h3>Needs</h3>
+              <p>Verbindung ohne Druck, den ersten Schritt nicht selbst machen müssen</p>
+            </article>
+            <article class="trait-card">
+              <h3>Motivation</h3>
+              <p>will, dass sich ihr Leben wieder echter anfühlt, nicht taub durch den Alltag</p>
+            </article>
+            <article class="trait-card">
+              <h3>Pain Points</h3>
+              <p>Angst vor Ablehnung, sucht den Fehler bei sich selbst</p>
+            </article>
           </div>
-        </article>
+
+          <p class="chapter__body chapter__body--note reveal" data-reveal><strong>Was Hanna im Entwurf verändert hat:</strong> Ich hatte einen Kompatibilitäts-Score geplant. An Hanna gemessen wäre das eine weitere Bewertung gewesen, vor der sie sich fürchtet — der Score ist rausgeflogen, die Wiederholung am Ort hat ihn ersetzt.</p>
+        </div>
+
+        <!-- Marktlücke -->
+        <div class="subsection" id="marktluecke" data-toc-section="marktluecke">
+          <p class="eyebrow reveal" data-reveal>MARKT</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Vier Apps im Detail — und eine <em>leere Ecke gefunden.</em></h3>
+
+          <div class="market-map reveal" data-reveal>
+            <span class="market-map__axis market-map__axis--top">ortsgebunden</span>
+            <span class="market-map__axis market-map__axis--bottom">passiv</span>
+            <span class="market-map__axis market-map__axis--left">aktiv anschreiben</span>
+            <div class="market-map__dot" style="top:12%; left:62%;"><span>Pokémon GO</span></div>
+            <div class="market-map__dot" style="top:48%; left:38%;"><span>Meetup</span></div>
+            <div class="market-map__dot" style="top:58%; left:28%;"><span>nebenan.de</span></div>
+            <div class="market-map__dot" style="top:68%; left:18%;"><span>Bumble BFF</span></div>
+            <div class="market-map__dot market-map__dot--accent" style="top:14%; left:14%;"><span>sameSpot</span></div>
+          </div>
+
+          <p class="chapter__body reveal" data-reveal>Vier Apps, die Teile der Idee schon können: <strong>Bumble BFF</strong> (Kontakt ohne Dating-Druck), <strong>Meetup</strong> (gemeinsamer Anlass), <strong>nebenan.de</strong> (Nachbarschaft) und <strong>Pokémon GO</strong> (Orte als Spielfeld). Sortiert nach Ortsbindung und danach, wie viel Eigeninitiative der erste Kontakt kostet.</p>
+          <p class="chapter__body reveal" data-reveal><strong>Ortsbezug</strong> wird meist nur als Filter benutzt, nicht als Anlass. <strong>Wiederholung</strong> nutzt keine der vier als Signal — Pokémon GO bindet Orte, aber keine Menschen.</p>
+          <p class="chapter__body reveal" data-reveal><strong>Positionierung:</strong> ortsgebunden und passiv — genau da sitzt sameSpot.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Das Material dahinter -->
-    <section class="material" id="material">
-      <div class="material__inner">
-        <p class="eyebrow reveal" data-reveal>FÜR ALLE, DIE ES GENAU WISSEN WOLLEN</p>
-        <h2 class="material__title reveal" data-reveal data-reveal-delay="1">Das Material <em>dahinter</em></h2>
+    <!-- 02 Mechanik -->
+    <section class="chapter chapter--tint" id="mechanik" data-toc-section="mechanik">
+      <div class="chapter__inner">
+        <p class="chapter__eyebrow reveal" data-reveal><span class="chapter__num">02</span> DIE MECHANIK</p>
+        <h2 class="chapter__title reveal" data-reveal data-reveal-delay="1">Also habe ich das Ansprechen <em>weggenommen.</em></h2>
+        <p class="chapter__body reveal" data-reveal data-reveal-delay="2">Statt Profile zu wischen, macht man eine kleine Aufgabe an einem Ort. Wer öfter am selben Spot war, taucht im Feed wieder auf — passiv, ohne Nachricht. Erst wenn beide wollen, wird ein Code getauscht. Der erste Schritt ist damit keine Entscheidung mehr, sondern eine Wiederholung.</p>
 
-        <div class="material-accordion">
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Research komplett — Umfrage, Interviews, Studienlage</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p class="muted">Platzhalter — noch nicht ausgeschrieben.</p>
-            </div>
+        <div class="mech-flow reveal" data-reveal>
+          <span><b>1×</b> Spot besuchen</span>
+          <span class="mech-flow__sep">—</span>
+          <span><b>3×</b> Wiedersehen im Feed</span>
+          <span class="mech-flow__sep">—</span>
+          <span class="mech-flow__accent">Code-Austausch</span>
+        </div>
+
+        <p class="chapter__label reveal" data-reveal>INFORMATIONSARCHITEKTUR <span class="muted">— jede Kernfunktion in maximal 2 Klicks</span></p>
+        <div class="ia-grid reveal" data-reveal>
+          <div class="ia-grid__col"><span class="ia-grid__head">Aufgaben</span><span>Spot-Detail</span><span>Aufgabe starten</span><span>Kamera</span></div>
+          <div class="ia-grid__col"><span class="ia-grid__head">Entdecken</span><span>Feed</span><span>Beitrag</span><span>Wiedersehen</span></div>
+          <div class="ia-grid__col"><span class="ia-grid__head">Austausch</span><span>Begegnungen</span><span>Chat</span><span>Code-Exchange</span></div>
+          <div class="ia-grid__col"><span class="ia-grid__head">Profil</span><span>Meine Spots</span><span>Einstellungen</span><span>Sichtbarkeit</span></div>
+        </div>
+        <p class="chapter__body reveal" data-reveal>Vier Bereiche, eine Ebene darunter — mehr gibt es nicht. Die Tiefe ist der Beweis: von jedem Startpunkt sind Aufgabe, Feed, Austausch und Einstellungen in zwei Klicks erreichbar.</p>
+
+        <!-- Scope -->
+        <div class="subsection" id="scope" data-toc-section="scope">
+          <p class="eyebrow reveal" data-reveal>SCOPE</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Was ich bewusst <em>weggelassen habe.</em></h3>
+          <p class="chapter__body reveal" data-reveal>Der Kern-Loop musste ohne Beiwerk funktionieren. Alles, was ihn erklärt oder monetarisiert hätte, ist rausgeflogen — nicht für immer, sondern für diese Version.</p>
+          <div class="scope-grid reveal" data-reveal>
+            <div class="scope-grid__item"><h4>Kein Matching-Algorithmus</h4><p>Die Wiederholung am Ort ist das Signal. Ein Score hätte genau das ersetzt, was die App besonders macht.</p></div>
+            <div class="scope-grid__item"><h4>Premium raus aus dem Kernflow</h4><p>Im Test hat jede Bezahl-Schwelle den Loop unterbrochen, bevor er verstanden war.</p></div>
+            <div class="scope-grid__item"><h4>Kein Chat-Ausbau</h4><p>Der Code-Austausch endet die Aufgabe der App. Wie danach geschrieben wird, war nicht mein Problem.</p></div>
           </div>
+        </div>
 
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Marktlücke — vier Apps im Vergleich</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p>Vier Apps, die Teile der Idee schon können: <strong>Bumble BFF</strong> (Kontakt ohne Dating-Druck), <strong>Meetup</strong> (gemeinsamer Anlass), <strong>nebenan.de</strong> (Nachbarschaft) und <strong>Pokémon GO</strong> (Orte als Spielfeld). Sortiert nach Ortsbindung und danach, wie viel Eigeninitiative der erste Kontakt kostet.</p>
-              <p>Ortsbezug wird bei allen vier meist nur als Filter benutzt, nicht als Anlass. Keine der vier nutzt Wiederholung als Signal — Pokémon GO bindet Orte, aber keine Menschen.</p>
-              <p><strong>Positionierung:</strong> ortsgebunden und passiv — genau da sitzt sameSpot, in einer bisher leeren Ecke.</p>
-            </div>
+        <!-- Constraints -->
+        <div class="subsection" id="constraints" data-toc-section="constraints">
+          <p class="eyebrow reveal" data-reveal>CONSTRAINTS</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Womit ich arbeiten musste — <em>und was mich das gekostet hat.</em></h3>
+          <div class="constraints-table reveal" data-reveal>
+            <div class="constraints-row constraints-row--head"><span>Einschränkung</span><span>Trade-off, den ich eingegangen bin</span></div>
+            <div class="constraints-row"><span>Allein gearbeitet, kein Dev</span><span>Kein echtes Standort-Tracking testbar — die Mechanik ist im Prototyp simuliert.</span></div>
+            <div class="constraints-row"><span>Nur 2 Testpersonen</span><span>Auf Verständnisprobleme optimiert statt auf Verhaltensmuster — dafür früh getestet statt einmal groß am Ende.</span></div>
+            <div class="constraints-row"><span>4 Monate neben dem Bootcamp</span><span>Breite geopfert: ein Kern-Loop vollständig statt vier Bereiche halb.</span></div>
+            <div class="constraints-row"><span>Keine echten Nutzerdaten</span><span>Statt Erfolgszahlen zu behaupten, einen prüfbaren Ziel-KPI definiert. Das Konzept ist widerlegbar, nicht bewiesen.</span></div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Scope — was ich bewusst weggelassen habe</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p><strong>Kein Matching-Algorithmus</strong> — die Wiederholung am Ort ist das Signal. Ein Score hätte genau das ersetzt, was die App besonders macht.</p>
-              <p><strong>Premium raus aus dem Kernflow</strong> — im Test hat jede Bezahl-Schwelle den Loop unterbrochen, bevor er verstanden war.</p>
-              <p><strong>Kein Chat-Ausbau</strong> — der Code-Austausch beendet die Aufgabe der App. Wie danach geschrieben wird, war nicht das Problem, das gelöst werden sollte.</p>
+    <!-- 03 Rückschlag (dark) -->
+    <section class="chapter chapter--dark" id="rueckschlag" data-toc-section="rueckschlag">
+      <div class="chapter__inner">
+        <p class="chapter__eyebrow reveal" data-reveal><span class="chapter__num">03</span> DER RÜCKSCHLAG</p>
+        <h2 class="chapter__title reveal" data-reveal data-reveal-delay="1">„Warum sehe ich ständig die gleiche Person? <em>Würde die blockieren wollen.</em>“</h2>
+        <p class="chapter__cite reveal" data-reveal data-reveal-delay="1">Tester #2 · Think-Aloud · zur Wiederbegegnungs-Mechanik im Feed</p>
+        <p class="chapter__body reveal" data-reveal data-reveal-delay="2">Zwei Testpersonen, klickbarer Mid-Fi-Prototyp. Beide haben das Konzept im Gespräch verstanden — im Interface aber nicht wiedererkannt. Genau die Mechanik, auf die ich stolz war, hat sich falsch angefühlt.</p>
+
+        <div class="problem-grid reveal" data-reveal>
+          <div class="problem-grid__item"><h4>Wiedersehen wirkt „creepy“</h4><p>als Verfolgung gedeutet, nicht als Absicht</p></div>
+          <div class="problem-grid__item"><h4>Orientierungslos nach dem Onboarding</h4><p>kein klarer erster Schritt, kein sichtbarer CTA</p></div>
+          <div class="problem-grid__item"><h4>Chat und Begegnungen nicht auffindbar</h4><p>im Profil versteckt statt in der Hauptnavigation</p></div>
+        </div>
+
+        <p class="chapter__pull-quote reveal" data-reveal><em>Ich war überzeugt, das Wiedersehen sei der Wow-Moment. Es war das größte Risiko.</em></p>
+        <p class="chapter__body chapter__body--muted reveal" data-reveal>Grenze dieser Erkenntnis: zwei Testpersonen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
+
+        <!-- Priorisierung -->
+        <div class="subsection" id="priorisierung" data-toc-section="priorisierung">
+          <p class="eyebrow eyebrow--ondark reveal" data-reveal>PRIORISIERUNG</p>
+          <h3 class="subsection__title subsection__title--dark reveal" data-reveal data-reveal-delay="1">Nicht alles Gefundene war <em>gleich wichtig.</em></h3>
+          <p class="chapter__body reveal" data-reveal>Aus dem Test kamen mehr Findings als Zeit. Ich habe sie danach sortiert, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen — nur die erste Gruppe habe ich umgesetzt.</p>
+          <div class="priorisierung-grid reveal" data-reveal>
+            <div>
+              <p class="priorisierung-grid__label">JETZT GELÖST — BLOCKIERT DEN LOOP</p>
+              <ul><li>Wiedersehen positiv framen</li><li>Geführter erster Spot mit klarem CTA</li><li>Austausch in die Hauptnavigation</li></ul>
             </div>
-          </div>
-
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Constraints — womit ich arbeiten musste</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p><strong>Allein gearbeitet, kein Dev</strong> — kein echtes Standort-Tracking testbar, die Mechanik ist im Prototyp simuliert.</p>
-              <p><strong>Nur 2 Testpersonen</strong> — auf Verständnisprobleme optimiert statt auf Verhaltensmuster, dafür früh getestet statt einmal groß am Ende.</p>
-              <p><strong>4 Monate neben dem Bootcamp</strong> — Breite geopfert für einen vollständigen Kern-Loop statt vier halb fertige Bereiche.</p>
-              <p><strong>Keine echten Nutzerdaten</strong> — statt Erfolgszahlen zu behaupten, definiert als prüfbaren Ziel-KPI. Das Konzept ist widerlegbar, nicht bewiesen.</p>
-            </div>
-          </div>
-
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Priorisierung der Test-Findings</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p>Aus dem Test kamen mehr Findings als Zeit — sortiert danach, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen.</p>
-              <p><strong>Jetzt gelöst (blockierte den Loop):</strong> Wiedersehen positiv geframt, geführter erster Spot mit klarem CTA, Austausch in die Hauptnavigation.</p>
-              <p><strong>Vertagt (nice to have):</strong> Begegnungs-Kennzahl schärfen, Entdecken-Bereich weiter vereinfachen.</p>
-            </div>
-          </div>
-
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Persona &amp; Informationsarchitektur</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p><strong>Hanna Polm, „Die Blockierte"</strong> — Verdichtung aus 4 Interviews und 52 Umfrage-Antworten. Lebt allein, wünscht sich Verbindung, ist überfordert von alltäglicher Ansprache.</p>
-              <p>„Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen. Ich hab mich einfach damit abgefunden, dass mir irgendwas fehlt, ich aber nicht weiß was."</p>
-              <p><strong>Verhalten:</strong> wartet auf Ansprache statt selbst zuzugehen, zerdenkt soziale Momente, bevor sie passieren.</p>
-              <p><strong>Needs &amp; Goals:</strong> Verbindung ohne Druck, den ersten Schritt nicht selbst machen zu müssen.</p>
-              <p><strong>Motivation:</strong> möchte, dass sich ihr Leben wieder echt anfühlt.</p>
-              <p><strong>Pain Points:</strong> Angst vor Ablehnung, sucht Fehler immer bei sich selbst.</p>
-              <p><strong>Informationsarchitektur:</strong> vier Bereiche (Aufgaben, Entdecken, Austausch, Profil), eine Ebene darunter — jede Kernfunktion in maximal zwei Klicks erreichbar.</p>
-            </div>
-          </div>
-
-          <div class="material-item">
-            <button class="material-row reveal" data-reveal type="button" aria-expanded="false">
-              <span>Wie KI mir im Prozess geholfen hat</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </button>
-            <div class="material-panel">
-              <p class="muted">Platzhalter — noch nicht ausgeschrieben.</p>
+            <div>
+              <p class="priorisierung-grid__label">VERTAGT — NICE TO HAVE</p>
+              <ul><li>Begegnungs-Kennzahl schärfen</li><li>Entdecken-Bereich weiter vereinfachen</li></ul>
             </div>
           </div>
         </div>
-        <p class="material__note muted reveal" data-reveal>Zwei Punkte sind noch offen (Research komplett, KI-Einsatz) — die kommen, sobald du sie in deinen eigenen Worten geschrieben hast.</p>
       </div>
     </section>
 
-    <!-- Was ich mitnehme -->
-    <section class="learnings" id="learnings">
+    <!-- 04 Lösung -->
+    <section class="chapter" id="loesung" data-toc-section="loesung">
+      <div class="chapter__inner">
+        <p class="chapter__eyebrow reveal" data-reveal><span class="chapter__num">04</span> DIE LÖSUNG</p>
+        <h2 class="chapter__title reveal" data-reveal data-reveal-delay="1">Ich habe nicht die Mechanik geändert, sondern <em>ihre Erzählung.</em></h2>
+
+        <div class="before-after reveal" data-reveal>
+          <div class="before-after__col">
+            <p class="before-after__label">VORHER</p>
+            <p>„Wiederbegegnung wird ohne Erklärung im Feed angezeigt.“</p>
+            <p>„Warum sehe ich ständig die gleiche Person? Würde blockieren wollen.“</p>
+            <p>Austausch per Code eintippen.</p>
+          </div>
+          <div class="before-after__col before-after__col--accent">
+            <p class="before-after__label">NACHHER</p>
+            <p>Begegnung wird erklärt, beide sehen sie gleichzeitig.</p>
+            <p>„Ihr seid euch gerade begegnet. Niemand muss den Anfang machen.“</p>
+            <p>Austausch durch Handys aneinander halten, kein Code mehr.</p>
+          </div>
+        </div>
+
+        <div class="kpi-box reveal" data-reveal>
+          <p class="kpi-box__num">≥15%</p>
+          <p class="kpi-box__label">ZIEL-KPI, NICHT GEMESSEN</p>
+          <p class="kpi-box__text">der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch. Daran würde ich messen, ob der Kernmechanismus trägt — wöchentlich, verantwortet von UX, UI und Dev.</p>
+        </div>
+
+        <!-- Sicherheit -->
+        <div class="subsection" id="sicherheit" data-toc-section="sicherheit">
+          <p class="eyebrow reveal" data-reveal>SICHERHEIT</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Eine App, die Orte kennt, <em>muss sich das verdienen.</em></h3>
+          <p class="chapter__body reveal" data-reveal>Das „creepy“ aus dem Test war kein Copy-Problem, sondern eine berechtigte Frage nach Kontrolle. Festgelegt und im Projekt umgesetzt ist bislang eine Regel:</p>
+          <div class="safety-grid safety-grid--single reveal" data-reveal>
+            <div class="safety-grid__item"><h4>Der Code ist die Grenze</h4><p>Ohne Austausch kein Kontakt. Es gibt keinen Weg, jemanden ungefragt anzuschreiben.</p></div>
+          </div>
+          <p class="chapter__label reveal" data-reveal style="margin-top:24px">WAS ICH HEUTE ANDERS MACHEN WÜRDE</p>
+          <div class="safety-grid reveal" data-reveal>
+            <div class="safety-grid__item safety-grid__item--muted"><h4>Keine Live-Position</h4><p>Nur, dass ihr beide da wart. Nie, wann — und nie, wo jemand gerade ist.</p></div>
+            <div class="safety-grid__item safety-grid__item--muted"><h4>Beidseitig oder gar nicht</h4><p>Eine Wiederbegegnung erscheint bei beiden gleichzeitig — niemand beobachtet einseitig.</p></div>
+            <div class="safety-grid__item safety-grid__item--muted"><h4>Jederzeit unsichtbar</h4><p>Ein Schalter, ein Klick, kein Erklärdialog.</p></div>
+          </div>
+          <p class="chapter__body chapter__body--muted reveal" data-reveal>Diese drei standen im Entwurf zur Diskussion, waren am Ende aber nicht mehr Teil des umgesetzten Scopes — deshalb hier als offene Absicht statt als fertige Regel markiert.</p>
+        </div>
+
+        <!-- UI-System (echte Tokens) -->
+        <div class="subsection" id="ui-system" data-toc-section="ui-system">
+          <p class="eyebrow reveal" data-reveal>UI-SYSTEM</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Ein kleines System, <em>damit alle Screens zusammengehören.</em></h3>
+          <p class="chapter__body reveal" data-reveal>Eine Regel hält das System zusammen: Coral markiert ausschließlich die Wiederbegegnung. Taucht es zweimal auf einem Screen auf, ist etwas falsch priorisiert. Der Rest ist bewusst schmal gehalten.</p>
+          <div class="ui-colors reveal" data-reveal>
+            <div class="ui-colors__swatch" style="background:#161311"><span>Black Ink</span><span>#161311</span></div>
+            <div class="ui-colors__swatch" style="background:#4E8B5C"><span>Sage</span><span>#4E8B5C</span></div>
+            <div class="ui-colors__swatch" style="background:#D9EADD; color:#25302A;"><span>Sage-Tint</span><span>#D9EADD</span></div>
+            <div class="ui-colors__swatch" style="background:#FF5B3A"><span>Coral</span><span>#FF5B3A</span></div>
+          </div>
+        </div>
+
+        <!-- Arbeit mit KI -->
+        <div class="subsection" id="ki" data-toc-section="ki">
+          <p class="eyebrow reveal" data-reveal>ARBEITSWEISE</p>
+          <h3 class="subsection__title reveal" data-reveal data-reveal-delay="1">Wie ich mit KI gearbeitet habe — <em>und wo ich ihr nicht gefolgt bin.</em></h3>
+          <p class="muted reveal" data-reveal>Platzhalter — noch nicht in deinen eigenen Worten geschrieben.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prozess komplett -->
+    <section class="material" id="prozess" data-toc-section="prozess">
+      <div class="material__inner">
+        <p class="eyebrow reveal" data-reveal>FÜR ALLE, DIE ES GENAU WISSEN WOLLEN</p>
+        <h2 class="material__title reveal" data-reveal data-reveal-delay="1">Prozess <em>komplett</em></h2>
+
+        <div class="material-accordion">
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Desk Research &amp; Studienlage</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Recherche zu Einsamkeit und sozialer Isolation bei 18–35-Jährigen und zur Rolle wiederkehrender Alltagsorte.</p>
+              <p>Literatur zu „familiar strangers" und wiederholtem Kontakt als Vertrauensfaktor — die theoretische Basis für die Wiederbegegnung.</p>
+              <p>Die Quellen dienten dazu, eigene Interviewbeobachtungen zu prüfen, nicht sie zu ersetzen.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Marktanalyse — Bumble BFF, Meetup, nebenan.de, Pokémon GO</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Vier Apps verglichen nach Mechanik, Einstiegshürde, Ortsbezug und Monetarisierung, reduziert auf zwei Achsen: Ortsbindung und Eigeninitiative beim ersten Kontakt.</p>
+              <p>Ergebnis: alle vier setzen aktives Anschreiben voraus, Ortsbezug wird nur als Filter benutzt — die Ecke „ortsgebunden und passiv" war leer.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Clustering &amp; Affinity Mapping</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Alle Aussagen aus Interviews und Umfrage auf Karten, dann nach Themen gruppiert statt nach Quelle.</p>
+              <p>Vier Cluster: Hemmschwelle, Wunsch nach Beiläufigkeit, Abneigung gegen Bewertung, Bedeutung fester Orte.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Problem Statement &amp; How-Might-We</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Problem: Menschen begegnen sich regelmäßig, aber niemand macht den ersten Schritt — die Hürde ist die Ansprache, nicht die Gelegenheit.</p>
+              <p>HMW: Wie können wir Nähe entstehen lassen, ohne dass jemand aktiv ansprechen muss?</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Konzeptvarianten</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Bevor der Ort zur Mechanik wurde, mehrere Richtungen an derselben Frage gemessen: wer muss den ersten Schritt machen? Wiederholung am Ort war die einzige, bei der die Antwort „niemand" lautete.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Nutzerflows</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Kernflow: Onboarding → erster Spot → Aufgabe → Wiedersehen im Feed → Code-Austausch.</p>
+              <p>Nebenflows: Aufgabe abbrechen, Wiederbegegnung ignorieren, Austausch später fortsetzen.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Informationsarchitektur</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Vier Bereiche, eine Ebene darunter — mehr gibt es nicht. Austausch ist erst nach dem Test in die Hauptnavigation gewandert.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Sketches, Wireframes, Mid-Fi</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Handskizzen für die Grundformen, Lo-Fi-Wireframes für die Struktur, Mid-Fi für den klickbaren Prototyp — bewusst grau gehalten, damit im Test die Struktur bewertet wird und nicht die Farbe.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Microcopy &amp; Tonalität</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Regel: nichts behaupten, was die Nutzerin fühlen soll — keine „Matches", keine Bewertung, keine Zahlen über Menschen.</p>
+              <p>Die Wiederbegegnung wird als gemeinsame Beobachtung formuliert, nie als Beobachtung einer Person.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Klickbarer Prototyp</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Vier Screens vollständig verknüpft: Onboarding, Aufgaben entdecken, Feed, Code-Exchange. Nur der Kernpfad war klickbar, alles andere absichtlich Sackgasse, um den Test zu fokussieren.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Usability-Test — 2 Personen, Think-Aloud</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Aufgaben statt Fragen: „finde heraus, was diese App von dir will", „nimm Kontakt auf".</p>
+              <p>Protokolliert wurden Stolperstellen, Formulierungen der Testpersonen und Abbruchmomente.</p>
+              <p>Grenze: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Findings &amp; Priorisierung</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Blockierend: Wiedersehen wirkt creepy, Orientierungslosigkeit nach dem Onboarding, Austausch nicht auffindbar, unklarer Ortsbezug der Aufgabe.</p>
+              <p>Vertagt: Begegnungs-Kennzahl schärfen, Entdecken-Bereich weiter vereinfachen.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Iteration — vorher/nachher</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Formulierung des Wiedersehens von Beobachtung auf gemeinsame Geschichte umgestellt.</p>
+              <p>Onboarding endet nicht mehr im leeren Feed, sondern in einem konkreten ersten Spot. Austausch als eigener Bereich statt im Profil.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>KPI-Definition</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>≥15% der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch.</p>
+              <p>Messung: Verhältnis angezeigter Wiederbegegnungen zu gestarteten Code-Exchanges, wöchentlich. Verantwortung: UX für Flow und Copy, UI für Auffindbarkeit, Dev für Tracking.</p>
+            </div>
+          </div>
+          <div class="material-item"><button class="material-row accordion-toggle reveal" data-reveal type="button" aria-expanded="false"><span>Was offen bleibt</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <div class="material-panel">
+              <p>Test an echten Orten statt am Schreibtisch.</p>
+              <p>Sicherheits- und Sichtbarkeitseinstellungen — wer sieht wen, wie lange, wie widerrufbar?</p>
+              <p>Redaktion der Aufgaben: wer denkt sich die Spots aus, und wie bleiben sie lokal sinnvoll?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learnings -->
+    <section class="learnings" id="learnings" data-toc-section="learnings">
       <div class="learnings__inner">
         <p class="eyebrow reveal" data-reveal>LEARNING</p>
         <h2 class="learnings__title reveal" data-reveal data-reveal-delay="1">Was ich <em>mitnehme</em></h2>
         <p class="learnings__draft-note muted reveal" data-reveal>Entwurf — noch nicht in deinen eigenen Worten bestätigt:</p>
-
         <div class="learning-cards">
-          <article class="learning-card reveal" data-reveal>
-            <h3>Verstanden ≠ wiedererkannt</h3>
-            <p>Ein Konzept kann im Gespräch überzeugen und im Interface trotzdem unsichtbar sein.</p>
-          </article>
-          <article class="learning-card reveal" data-reveal data-reveal-delay="1">
-            <h3>Framing ist Funktion</h3>
-            <p>Dieselbe Mechanik kippt von „creepy“ zu „schön“ — nur durch die Formulierung.</p>
-          </article>
-          <article class="learning-card reveal" data-reveal data-reveal-delay="2">
-            <h3>Zwei Tester reichen für Klarheit</h3>
-            <p>Die drei größten Probleme lagen nach zwei Sessions offen — früher testen lohnt sich.</p>
-          </article>
+          <article class="learning-card reveal" data-reveal><h3>Verstanden ≠ wiedererkannt</h3><p>Ein Konzept kann im Gespräch überzeugen und im Interface trotzdem unsichtbar sein.</p></article>
+          <article class="learning-card reveal" data-reveal data-reveal-delay="1"><h3>Framing ist Funktion</h3><p>Dieselbe Mechanik kippt von „creepy" zu „schön" — nur durch die Formulierung.</p></article>
+          <article class="learning-card reveal" data-reveal data-reveal-delay="2"><h3>Zwei Tester reichen für Klarheit</h3><p>Die drei größten Probleme lagen nach zwei Sessions offen — früher testen lohnt sich.</p></article>
         </div>
-
         <div class="footer-cta reveal" data-reveal>
           <p>Noch eine Case?</p>
           <div class="hero-cta">
-            <a href="https://figma.com" target="_blank" rel="noopener" class="btn btn--dark">Prototyp ansehen</a>
+            <a href="https://figma.com" target="_blank" rel="noopener" class="btn btn--coral">Prototyp ansehen</a>
             <a href="/" class="btn btn--outline">Nächste Case</a>
           </div>
         </div>
@@ -380,6 +535,6 @@
 
   </main>
 
-<script src="samespot.js?v=39"></script>
+<script src="samespot.js?v=40"></script>
 </body>
 </html>
