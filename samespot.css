@@ -226,6 +226,7 @@ main{flex:1;min-width:0;padding:clamp(10px,2.5vh,24px) 0 96px;overflow-x:hidden;
   font-synthesis:none;
   font-size:clamp(48px, min(8vw, 12vh), 112px);
   line-height:1;
+  margin:0;
 }
 .hero-title .same{color:var(--coral);}
 .hero-title .spot{color:#161311;}
