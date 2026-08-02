@@ -166,8 +166,14 @@ p{margin:0;}
   color:var(--ink-35);
 }
 
-main{flex:1;min-width:0;padding:clamp(10px,2.5vh,24px) 0 96px;overflow-x:hidden;}
+main{flex:1;min-width:0;padding:0 0 96px;overflow-x:hidden;}
 .content-col{max-width:var(--content-max);margin:0 auto;padding:0 var(--content-pad);}
+.first-screen{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:calc(100vh - 47px);
+}
 .full-bleed{width:100%;}
 
 @media (max-width:860px){
@@ -285,6 +291,7 @@ main{flex:1;min-width:0;padding:clamp(10px,2.5vh,24px) 0 96px;overflow-x:hidden;
   aspect-ratio:337/681;
   border-radius:20px;
   overflow:hidden;
+  background:var(--sage-tint);
   transition:transform .35s ease, box-shadow .35s ease;
 }
 .phone-frame img{
