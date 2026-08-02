@@ -487,6 +487,78 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   padding-top:24px;
 }
 .scatter-note{font-size:13px;color:var(--ink-55);line-height:1.55;}
+
+/* Optionen: concept comparison cards */
+.concept-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:32px;
+  align-items:stretch;
+}
+.concept-card{
+  border-radius:14px;
+  padding:22px 22px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.concept-card.discard{
+  background:#fff;
+  border:1px solid var(--ink-08);
+}
+.concept-card.chosen{
+  background:var(--ink);
+  color:#fff;
+}
+.concept-card:hover{transform:translateY(-3px);}
+.concept-card.discard:hover{box-shadow:0 12px 28px rgba(9,20,50,.08);}
+.concept-card.chosen:hover{box-shadow:0 12px 28px rgba(9,20,50,.28);}
+.concept-tag{
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-35);
+}
+.concept-card.chosen .concept-tag{color:var(--sage-light);}
+.concept-card h4{
+  font-family:var(--body);
+  font-weight:700;
+  font-size:16px;
+  margin:0;
+  color:var(--ink-90);
+}
+.concept-card.chosen h4{color:#fff;}
+.concept-card p{font-size:13px;color:var(--ink-55);line-height:1.5;}
+.concept-card.chosen p{color:rgba(255,255,255,.7);}
+.concept-scores{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size:11px;
+  font-weight:600;
+  color:var(--ink-35);
+}
+.concept-card.chosen .concept-scores{color:rgba(255,255,255,.4);}
+.concept-why{
+  margin-top:auto;
+  padding-top:14px;
+  border-top:1px solid var(--ink-08);
+  font-size:12.5px;
+  color:var(--ink-55);
+}
+.concept-card.chosen .concept-why{
+  border-top:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.7);
+}
+.concept-why b{color:var(--ink-90);font-weight:600;}
+.concept-card.chosen .concept-why b{color:#fff;}
+
+@media (max-width:1180px){
+  .concept-grid{grid-template-columns:1fr;}
+}
 .scatter-notes .uebersicht-divider{margin:0;}
 .scatter-note b{color:var(--ink-90);}
 
