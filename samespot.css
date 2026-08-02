@@ -239,7 +239,7 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
 
 .marquee-row{
   display:flex;
-  gap:10px;
+  gap:18px;
   width:max-content;
 }
 .marquee-row.dir-left{animation:marqueeLeft 35s linear infinite;}
@@ -255,11 +255,11 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
   to{transform:translateX(0);}
 }
 
-.phone-card{display:flex;flex-direction:column;align-items:center;gap:12px;width:124px;flex:0 0 auto;}
+.phone-card{display:flex;flex-direction:column;align-items:center;gap:14px;width:180px;flex:0 0 auto;}
 .phone-frame{
   width:100%;
   aspect-ratio:337/681;
-  border-radius:16px;
+  border-radius:20px;
   overflow:hidden;
   transition:transform .35s ease, box-shadow .35s ease;
 }
@@ -271,9 +271,9 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
 }
 .phone-card:hover .phone-frame{
   transform:translateY(-4px);
-  box-shadow:0 10px 22px rgba(9,20,50,.12);
+  box-shadow:0 12px 26px rgba(9,20,50,.14);
 }
-.phone-name{font-size:12.98px;font-weight:600;color:var(--ink-55);text-align:center;margin-top:2px;}
+.phone-name{font-size:13.5px;font-weight:600;color:var(--ink-55);text-align:center;margin-top:2px;}
 
 /* ================= SECTION SPACING ================= */
 .section{margin-top:76px;}
