@@ -436,6 +436,7 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 .two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;margin-top:14px;align-items:start;}
 .lede{font-size:15.93px;color:var(--ink-70);line-height:1.55;max-width:480px;}
 #marktluecke .lede{max-width:760px;}
+#optionen .lede{max-width:620px;}
 .umfrage-caption{margin-top:14px;font-size:12.98px;color:var(--ink-55);}
 .quote-card{
   background:rgba(203,226,216,.45);
@@ -558,6 +559,82 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 
 @media (max-width:1180px){
   .concept-grid{grid-template-columns:1fr;}
+}
+
+/* ============ Mechanik: loop pills ============ */
+.loop-pills{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+.loop-pill{
+  font-size:13px;
+  font-weight:600;
+  border-radius:20px;
+  padding:8px 18px;
+}
+.loop-pill.outline{border:1px solid var(--ink-14);color:var(--ink-35);}
+.loop-pill.filled{background:var(--sage-hover);color:#fff;}
+.loop-dash{color:var(--ink-14);}
+
+/* ============ Informationsarchitektur ============ */
+.ia-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.ia-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.ia-card{
+  background:#fff;
+  border:1px solid var(--ink-08);
+  border-radius:12px;
+  padding:18px 18px;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.ia-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(9,20,50,.08);}
+.ia-dot-title{
+  font-weight:700;
+  font-size:14px;
+  color:var(--ink-90);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+}
+.ia-dot-title::before{content:'';width:6px;height:6px;background:var(--sage);border-radius:50%;}
+.ia-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+.ia-card li{font-size:12.5px;color:var(--ink-55);}
+.ia-caption{margin-top:18px;font-size:13px;color:var(--ink-55);line-height:1.55;max-width:680px;}
+
+/* ============ Mockup triplet (Sketches / Wireframes / Mid-Fi) ============ */
+.mockup-triplet{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:36px;
+}
+.mockup-col{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.mockup-title{font-weight:700;font-size:14px;color:var(--ink-90);}
+.mockup-phone{
+  width:100%;
+  aspect-ratio:337/681;
+  border-radius:18px;
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.mockup-phone img{display:block;width:100%;height:100%;object-fit:cover;}
+.mockup-col:hover .mockup-phone{transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,20,50,.12);}
+
+@media (max-width:1180px){
+  .ia-grid{grid-template-columns:repeat(2,1fr);}
+  .mockup-triplet{grid-template-columns:1fr;}
 }
 .scatter-notes .uebersicht-divider{margin:0;}
 .scatter-note b{color:var(--ink-90);}
