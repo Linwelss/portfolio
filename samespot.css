@@ -242,8 +242,8 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
   gap:10px;
   width:max-content;
 }
-.marquee-row.dir-left{animation:marqueeLeft 40s linear infinite;}
-.marquee-row.dir-right{animation:marqueeRight 40s linear infinite;transform:translateX(-50%);}
+.marquee-row.dir-left{animation:marqueeLeft 35s linear infinite;}
+.marquee-row.dir-right{animation:marqueeRight 35s linear infinite;transform:translateX(-50%);}
 .marquee-wrap:hover .marquee-row{animation-play-state:paused;}
 
 @keyframes marqueeLeft{
