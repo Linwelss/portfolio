@@ -313,6 +313,7 @@ main{flex:1;min-width:0;padding:0 0 96px;overflow-x:hidden;}
 
 /* ================= SECTION SPACING ================= */
 .section{margin-top:76px;}
+.sub-gap{margin-top:96px;}
 #vier-zahlen{margin-top:clamp(16px,3vh,32px);}
 .eyebrow{
   font-size:12.39px;
