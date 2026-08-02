@@ -166,7 +166,7 @@ p{margin:0;}
   color:var(--ink-35);
 }
 
-main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
+main{flex:1;min-width:0;padding:24px 0 96px;overflow-x:hidden;}
 .content-col{max-width:var(--content-max);margin:0 auto;padding:0 var(--content-pad);}
 .full-bleed{width:100%;}
 
@@ -182,7 +182,7 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
   gap:28px;
   text-align:center;
 }
-.hero-top{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;}
+.hero-top{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;}
 .kategorie{
   background:var(--sage-tint);
   color:#4e8b5c;
@@ -219,12 +219,12 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
   .ergebnis-list .li{opacity:1;transform:none;transition:none;}
   .dot-row span.highlight{animation:none;}
 }
-.hero-heading{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;}
+.hero-heading{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%;}
 .hero-title{
   font-family:var(--display);
   font-weight:400;
   font-synthesis:none;
-  font-size:clamp(32px,4.2vw,50px);
+  font-size:clamp(64px,8.5vw,108px);
   line-height:1;
 }
 .hero-title .same{color:var(--coral);}
@@ -233,7 +233,7 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
 .hero-desc{
   font-size:15.93px;
   color:#25302a;
-  max-width:560px;
+  max-width:730px;
   line-height:1.55;
 }
 .hero-meta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;}
@@ -300,6 +300,7 @@ main{flex:1;min-width:0;padding:40px 0 96px;overflow-x:hidden;}
 
 /* ================= SECTION SPACING ================= */
 .section{margin-top:76px;}
+#vier-zahlen{margin-top:32px;}
 .eyebrow{
   font-size:12.39px;
   font-weight:700;
