@@ -59,4 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   observedEls.forEach(el => observer.observe(el));
   if (observedEls[0]) setActive(observedEls[0].id);
+
+  // ---------- Scroll-reveal for sections ----------
+  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
 });
