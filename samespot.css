@@ -446,6 +446,52 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 .quote-card .q{font-style:italic;font-size:15.93px;color:var(--ink-90);line-height:1.5;}
 .quote-card .who{margin-top:8px;font-size:12.98px;color:var(--ink-55);}
 
+/* Persona card */
+.persona-card{
+  background:#fff;
+  border:1px solid var(--ink-08);
+  border-radius:14px;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.persona-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(9,20,50,.08);}
+.avatar{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  overflow:hidden;
+  flex:0 0 auto;
+  background:var(--sage-tint);
+}
+.avatar img{display:block;width:100%;height:100%;object-fit:cover;}
+.persona-name{font-weight:700;font-size:15.34px;color:var(--ink-90);}
+.persona-role{font-style:italic;font-size:13.5px;color:var(--ink-55);margin-top:2px;}
+
+/* Persona traits grid (Verhalten / Needs / Motivation / Pain Points) */
+.persona-traits-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+  margin-top:40px;
+  padding-top:28px;
+  border-top:1px solid var(--ink-08);
+}
+.trait-item h4{
+  font-family:var(--body);
+  font-weight:700;
+  font-size:15px;
+  color:var(--ink-90);
+  margin:0 0 8px;
+}
+.trait-item p{font-size:13px;color:var(--ink-55);line-height:1.5;}
+
+@media (max-width:860px){
+  .persona-traits-grid{grid-template-columns:1fr 1fr;row-gap:24px;}
+  .persona-traits-grid .uebersicht-divider{display:none;}
+}
+
 /* Übersicht analysis cards */
 .uebersicht-grid{
   display:grid;
