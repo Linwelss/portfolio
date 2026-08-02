@@ -71,4 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
+
+  // ---------- Animate progress bars into view ----------
+  const barFills = Array.from(document.querySelectorAll('.bar-fill[data-w]'));
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        // slight delay so it fills just after the card fades in
+        setTimeout(() => { el.style.width = el.dataset.w; }, 200);
+        barObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  barFills.forEach(el => barObserver.observe(el));
 });
