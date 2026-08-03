@@ -144,9 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let mx = 0, my = 0, cx = 0, cy = 0, started = false;
     document.addEventListener('mousemove', (e) => {
       mx = e.clientX; my = e.clientY;
-      if (!started) { cx = mx; cy = my; started = true; cursor.classList.add('visible'); }
+      if (!started) { cx = mx; cy = my; started = true; }
+      cursor.classList.add('visible');
     });
     document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+    document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
     function animCursor() {
       cx += (mx - cx) * 0.18;
       cy += (my - cy) * 0.18;
@@ -213,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
     parallaxEls.forEach(el => {
       const rect = el.getBoundingClientRect();
       const centerOffset = (rect.top + rect.height / 2) - vh / 2;
-      const shift = centerOffset * -0.18; // noticeably stronger, opposite-direction drift
+      let shift = centerOffset * -0.05;
+      shift = Math.max(-8, Math.min(8, shift)); // hard clamp: never large enough to overlap neighbouring text
       el.style.transform = `translateY(${shift}px)`;
     });
   }
