@@ -43,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loesung: chapterEls.find(c => c.dataset.chapterFor === 'loesung'),
   };
   const watchIds = Object.keys(linkById).concat(Object.keys(chapterTargets));
-  const observedEls = watchIds.map(id => document.getElementById(id)).filter(Boolean);
+  const observedEls = watchIds
+    .map(id => ({ id, el: document.getElementById(id) }))
+    .filter(o => o.el)
+    .sort((a, b) => a.el.getBoundingClientRect().top - b.el.getBoundingClientRect().top);
 
   function clearActive() {
     navLinks.forEach(l => l.classList.remove('active'));
@@ -55,18 +58,47 @@ document.addEventListener('DOMContentLoaded', () => {
     if (chapterTargets[id]) chapterTargets[id].classList.add('active');
   }
 
+  const ACTIVATION_LINE = 140; // px from top of viewport that counts as "current section"
   let currentId = null;
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries.filter(e => e.isIntersecting)
-      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-    if (visible.length > 0) {
-      const id = visible[0].target.id;
-      if (id !== currentId) { currentId = id; setActive(id); }
-    }
-  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  let ticking = false;
 
-  observedEls.forEach(el => observer.observe(el));
-  if (observedEls[0]) setActive(observedEls[0].id);
+  function updateActiveSection() {
+    ticking = false;
+
+    // Near the very bottom of the page: always activate the last section.
+    const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
+    if (atBottom && observedEls.length) {
+      const lastId = observedEls[observedEls.length - 1].id;
+      if (lastId !== currentId) { currentId = lastId; setActive(lastId); }
+      return;
+    }
+
+    // Otherwise: the active section is the last one whose top has crossed the activation line.
+    let candidate = observedEls[0] ? observedEls[0].id : null;
+    for (const { id, el } of observedEls) {
+      const top = el.getBoundingClientRect().top;
+      if (top <= ACTIVATION_LINE) {
+        candidate = id;
+      } else {
+        break; // sections are in document order, so we can stop early
+      }
+    }
+    if (candidate && candidate !== currentId) {
+      currentId = candidate;
+      setActive(candidate);
+    }
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateActiveSection);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateActiveSection();
 
   // ---------- Scroll-reveal for sections ----------
   const revealEls = Array.from(document.querySelectorAll('.reveal'));
