@@ -257,6 +257,7 @@ main{flex:1;min-width:0;padding:0 0 96px;overflow-x:hidden;}
   margin-bottom:12px;
 }
 .screens-inner-head .hint{font-size:12.39px;color:var(--ink-35);}
+.ia-head .hint{font-size:12px;color:var(--ink-35);font-weight:400;}
 
 .marquee-wrap{
   overflow:hidden;
