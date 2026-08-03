@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---------- Accordion (Prozess komplett) ----------
+  document.querySelectorAll('[data-accordion]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      item.classList.toggle('open');
+    });
+  });
+
   // ---------- Build the "1 von 52" dot grid ----------
   const grid = document.getElementById('dotGrid');
   if (grid) {
