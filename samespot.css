@@ -124,11 +124,16 @@ p{margin:0;}
 .nav a:hover{transform:translateX(2px);}
 .nav a.active{font-weight:700;color:var(--ink);}
 .nav a:hover{color:var(--ink);}
+.nav-divider{
+  height:1px;
+  background:var(--ink-08);
+  margin:10px 0 2px;
+}
 .nav .chapter{
   display:flex;
   gap:6px;
   align-items:baseline;
-  margin-top:8px;
+  margin-top:6px;
   font-weight:600;
   font-size:13px;
   color:var(--ink-70);
