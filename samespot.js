@@ -141,22 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ================= 1. Custom cursor (dot -> ring on hover) =================
   const cursor = document.getElementById('customCursor');
   if (cursor && !window.matchMedia('(hover: none), (pointer: coarse)').matches) {
-    let mx = 0, my = 0, cx = 0, cy = 0, started = false;
     document.addEventListener('mousemove', (e) => {
-      mx = e.clientX; my = e.clientY;
-      if (!started) { cx = mx; cy = my; started = true; }
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
       cursor.classList.add('visible');
     });
     document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
     document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
-    function animCursor() {
-      cx += (mx - cx) * 0.18;
-      cy += (my - cy) * 0.18;
-      cursor.style.left = cx + 'px';
-      cursor.style.top = cy + 'px';
-      requestAnimationFrame(animCursor);
-    }
-    animCursor();
 
     const hoverTargets = 'a, button, .phone-card, .concept-card, .ia-card, .uebersicht-card, .persona-card, .quote-card, .safety-item, .color-list-row, .accordion-trigger, .swatch-compact, .feat-dark';
     document.querySelectorAll(hoverTargets).forEach(el => {
