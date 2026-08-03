@@ -1079,12 +1079,27 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   .type-scale-head-compact,.type-scale-row-compact{grid-template-columns:2fr 1fr 0.6fr;}
 }
 
-/* Bausteine */
+/* Bausteine — bento grid matching the Figma reference (node 565:29607) */
 .building-grid-compact{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-areas:
+    "buttons buttons aufgaben aufgaben"
+    "austausch austausch navigation navigation"
+    "spot profil icons icons"
+    "tag segmented icons icons";
   gap:14px;
 }
+.gc-buttons{grid-area:buttons;}
+.gc-aufgaben{grid-area:aufgaben;}
+.gc-austausch{grid-area:austausch;}
+.gc-navigation{grid-area:navigation;}
+.gc-spot{grid-area:spot;}
+.gc-profil{grid-area:profil;}
+.gc-icons{grid-area:icons;}
+.gc-tag{grid-area:tag;}
+.gc-segmented{grid-area:segmented;}
+
 .build-card-compact{
   background:#fff;
   border:1px solid var(--ink-08);
@@ -1102,6 +1117,38 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   display:flex;
   justify-content:space-between;
 }
+
+/* Bausteine: real reference screenshots */
+.build-card-compact.has-image{
+  padding:14px 14px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  height:100%;
+}
+.build-card-compact .b-shot-wrap{
+  background:var(--bg);
+  border:1px solid var(--ink-08);
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:1 1 auto;
+  min-height:150px;
+  padding:8px;
+}
+.build-card-compact .b-shot-wrap img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:4px;
+  cursor:zoom-in;
+  transition:transform .3s ease;
+}
+.build-card-compact .b-shot-wrap img:hover{transform:scale(1.02);}
+.gc-icons .b-shot-wrap{min-height:320px;}
 
 .mock-buttons-compact{display:flex;flex-direction:column;gap:9px;align-items:flex-start;}
 .mock-btn-solid-compact{background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:8px 16px;border-radius:999px;}
@@ -1140,10 +1187,34 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 
 @media (max-width:1180px){
   .swatch-row-compact{grid-template-columns:repeat(2,1fr);}
+  .building-grid-compact{
+    grid-template-columns:repeat(2,1fr);
+    grid-template-areas:
+      "buttons buttons"
+      "aufgaben aufgaben"
+      "austausch austausch"
+      "navigation navigation"
+      "spot profil"
+      "icons icons"
+      "tag segmented";
+  }
 }
 @media (max-width:860px){
   .swatch-row-compact{grid-template-columns:1fr 1fr;}
-  .building-grid-compact{grid-template-columns:1fr;}
+  .building-grid-compact{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "buttons"
+      "aufgaben"
+      "austausch"
+      "navigation"
+      "spot"
+      "profil"
+      "icons"
+      "tag"
+      "segmented";
+  }
+  .gc-icons .b-shot-wrap{min-height:220px;}
 }
 
 /* ================= Additional motion pass ================= */
@@ -1186,6 +1257,9 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 .building-grid-compact > .build-card-compact:nth-child(4){transition-delay:.32s;}
 .building-grid-compact > .build-card-compact:nth-child(5){transition-delay:.41s;}
 .building-grid-compact > .build-card-compact:nth-child(6){transition-delay:.5s;}
+.building-grid-compact > .build-card-compact:nth-child(7){transition-delay:.59s;}
+.building-grid-compact > .build-card-compact:nth-child(8){transition-delay:.68s;}
+.building-grid-compact > .build-card-compact:nth-child(9){transition-delay:.77s;}
 
 /* Gentle hover for elements that were missing it */
 .feat-dark{transition:transform .3s ease;}
