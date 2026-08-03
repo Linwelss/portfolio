@@ -991,27 +991,41 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   margin-bottom:14px;
 }
 
-/* Farbe */
-.swatch-row-compact{
+/* Farbe: grouped list */
+.color-list{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
+  grid-template-columns:1fr 1fr;
+  gap:0 40px;
 }
-.swatch-compact{display:flex;flex-direction:column;gap:8px;}
-.chip-compact{height:52px;border-radius:8px;}
-.swatch-compact .s-name{font-weight:700;font-size:12.5px;color:var(--ink-90);}
-.swatch-compact .s-hex{font-size:11px;color:var(--ink-55);font-variant-numeric:tabular-nums;}
-.swatch-compact .s-use{font-size:10.5px;color:var(--ink-35);}
-
-.mini-swatch-row{
+.color-list-group{margin-bottom:6px;}
+.cl-group-title{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  color:var(--ink-35);
+  padding:14px 0 8px;
+  border-bottom:1px solid var(--ink-14);
+}
+.color-list-row{
   display:flex;
-  flex-wrap:wrap;
-  gap:10px 18px;
-  margin-top:16px;
+  align-items:center;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid var(--ink-08);
 }
-.mini-swatch{display:flex;align-items:center;gap:7px;}
-.mini-chip{width:14px;height:14px;border-radius:4px;flex:0 0 auto;border:1px solid var(--ink-08);}
-.mini-swatch span:last-child{font-size:11px;color:var(--ink-55);}
+.cl-swatch{
+  width:18px;
+  height:18px;
+  border-radius:5px;
+  flex:0 0 auto;
+  border:1px solid var(--ink-08);
+}
+.cl-name{font-size:12.5px;color:var(--ink-90);flex:1;}
+.cl-hex{font-size:11.5px;color:var(--ink-55);font-variant-numeric:tabular-nums;}
+
+@media (max-width:860px){
+  .color-list{grid-template-columns:1fr;}
+}
 
 /* Typografie */
 .type-scale-compact{border-top:1px solid var(--ink-14);margin-top:4px;}
