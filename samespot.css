@@ -1244,3 +1244,142 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   .kpi-num,
   .big-stat{opacity:1;transform:none;transition:none;}
 }
+
+/* ================= Large-screen hero breathing room ================= */
+@media (min-width:1700px){
+  .hero-top{gap:22px;}
+  .hero-heading{gap:clamp(20px,3.5vh,34px);}
+  .hero-sub-wrap{gap:clamp(14px,2.2vh,22px);}
+  .kategorie{padding:7px 16px;}
+}
+
+/* ================= Scroll progress indicator ================= */
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg, var(--sage), var(--signal));
+  z-index:100;
+  transition:width .1s ease-out;
+}
+
+/* ================= Custom cursor (matches linamelissa.de) ================= */
+.custom-cursor{
+  position:fixed;
+  top:0;left:0;
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--ink);
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s cubic-bezier(.22,.61,.36,1), height .25s cubic-bezier(.22,.61,.36,1), background .2s ease, border-color .2s ease, opacity .2s ease;
+  opacity:0;
+}
+.custom-cursor.visible{opacity:1;}
+.custom-cursor.hovering{
+  width:38px;height:38px;
+  background:transparent;
+  border:1.5px solid var(--ink);
+}
+.custom-cursor.clicking{width:7px;height:7px;}
+@media (hover:none), (pointer:coarse){
+  .custom-cursor{display:none;}
+}
+
+/* ================= Sidebar: visited chapter marker ================= */
+.nav .chapter .num{position:relative;}
+.nav .chapter.visited:not(.active) .num{color:var(--sage);}
+.nav .chapter.visited:not(.active) .num::after{
+  content:'';
+  position:absolute;
+  top:-2px;
+  right:-6px;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--sage);
+}
+
+/* ================= Back to top ================= */
+.back-to-top{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--ink);
+  color:#fff;
+  border:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(12px);
+  pointer-events:none;
+  transition:opacity .3s ease, transform .3s ease, background .2s ease;
+  z-index:80;
+}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+.back-to-top:hover{background:var(--sage-hover);}
+.back-to-top svg{width:18px;height:18px;}
+
+/* ================= Lightbox ================= */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(22,33,27,.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s ease;
+}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox img{
+  max-width:min(80vw, 420px);
+  max-height:85vh;
+  border-radius:24px;
+  transform:scale(.9);
+  transition:transform .35s cubic-bezier(.22,.61,.36,1);
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+}
+.lightbox.open img{transform:scale(1);}
+.lightbox-close{
+  position:absolute;
+  top:28px;
+  right:32px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+  transition:background .2s ease, transform .2s ease;
+}
+.lightbox-close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg);}
+.phone-card{cursor:pointer;}
+
+/* ================= Typewriter cursor blink ================= */
+.typewriter-cursor{
+  display:inline-block;
+  width:2px;
+  background:var(--signal);
+  margin-left:2px;
+  animation:twBlink .8s steps(1) infinite;
+}
+@keyframes twBlink{50%{opacity:0;}}
+
+@media (prefers-reduced-motion: reduce){
+  .custom-cursor{display:none;}
+  .lightbox img{transition:none;}
+}
