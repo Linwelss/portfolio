@@ -786,7 +786,9 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   gap:24px;
   margin-top:40px;
   padding-top:28px;
+  padding-bottom:28px;
   border-top:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
 }
 .feat-dark h4{
   font-family:var(--body);
