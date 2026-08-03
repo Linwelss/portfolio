@@ -1079,26 +1079,18 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   .type-scale-head-compact,.type-scale-row-compact{grid-template-columns:2fr 1fr 0.6fr;}
 }
 
-/* Bausteine — bento grid matching the Figma reference (node 565:29607) */
+/* Bausteine — self-arranging grid: each tile just declares its own size
+   (wide = spans 2 columns, tall = spans 2 rows) and the browser packs
+   everything densely, so spacing stays consistent no matter what changes. */
 .building-grid-compact{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  grid-template-areas:
-    "buttons buttons aufgaben aufgaben"
-    "austausch austausch navigation navigation"
-    "spot profil icons icons"
-    "tag segmented icons icons";
+  grid-auto-flow:dense;
   gap:14px;
+  align-items:start;
 }
-.gc-buttons{grid-area:buttons;}
-.gc-aufgaben{grid-area:aufgaben;}
-.gc-austausch{grid-area:austausch;}
-.gc-navigation{grid-area:navigation;}
-.gc-spot{grid-area:spot;}
-.gc-profil{grid-area:profil;}
-.gc-icons{grid-area:icons;}
-.gc-tag{grid-area:tag;}
-.gc-segmented{grid-area:segmented;}
+.building-grid-compact > .tile-wide{grid-column:span 2;}
+.building-grid-compact > .tile-tall{grid-row:span 2;}
 
 .build-card-compact{
   background:#fff;
@@ -1183,33 +1175,12 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 
 @media (max-width:1180px){
   .swatch-row-compact{grid-template-columns:repeat(2,1fr);}
-  .building-grid-compact{
-    grid-template-columns:repeat(2,1fr);
-    grid-template-areas:
-      "buttons buttons"
-      "aufgaben aufgaben"
-      "austausch austausch"
-      "navigation navigation"
-      "spot profil"
-      "icons icons"
-      "tag segmented";
-  }
+  .building-grid-compact{grid-template-columns:repeat(2,1fr);}
+  .building-grid-compact > .tile-tall{grid-row:span 1;}
 }
 @media (max-width:860px){
   .swatch-row-compact{grid-template-columns:1fr 1fr;}
-  .building-grid-compact{
-    grid-template-columns:1fr;
-    grid-template-areas:
-      "buttons"
-      "aufgaben"
-      "austausch"
-      "navigation"
-      "spot"
-      "profil"
-      "icons"
-      "tag"
-      "segmented";
-  }
+  .building-grid-compact{grid-template-columns:1fr;}
 }
 
 /* ================= Additional motion pass ================= */
