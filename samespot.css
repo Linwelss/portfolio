@@ -1118,37 +1118,33 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   justify-content:space-between;
 }
 
-/* Bausteine: real reference screenshots */
+/* Bausteine: real reference screenshots — the jpgs already contain their own
+   title/border/background, so these wrappers add no extra chrome. */
 .build-card-compact.has-image{
-  padding:14px 14px 14px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  height:100%;
+  padding:0;
+  background:transparent;
+  border:none;
+  border-radius:10px;
+  overflow:hidden;
+  align-self:start;
 }
 .build-card-compact .b-shot-wrap{
-  background:var(--bg);
-  border:1px solid var(--ink-08);
-  border-radius:8px;
+  background:none;
+  border:none;
+  padding:0;
+  border-radius:10px;
   overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:1 1 auto;
-  min-height:150px;
-  padding:8px;
+  display:block;
 }
 .build-card-compact .b-shot-wrap img{
   display:block;
   width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:4px;
+  height:auto;
+  border-radius:10px;
   cursor:zoom-in;
   transition:transform .3s ease;
 }
-.build-card-compact .b-shot-wrap img:hover{transform:scale(1.02);}
-.gc-icons .b-shot-wrap{min-height:320px;}
+.build-card-compact .b-shot-wrap img:hover{transform:scale(1.01);}
 
 .mock-buttons-compact{display:flex;flex-direction:column;gap:9px;align-items:flex-start;}
 .mock-btn-solid-compact{background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:8px 16px;border-radius:999px;}
@@ -1214,7 +1210,6 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
       "tag"
       "segmented";
   }
-  .gc-icons .b-shot-wrap{min-height:220px;}
 }
 
 /* ================= Additional motion pass ================= */
