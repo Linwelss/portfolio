@@ -754,7 +754,7 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 }
 
 /* ================= 03 Rückschlag (dark) ================= */
-.dark-chapter{border-radius:0;}
+.dark-chapter{border-radius:0;text-align:left;}
 .dark-chapter-inner{
   max-width:var(--content-max);
   margin:0 auto;
@@ -959,8 +959,7 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 /* Sicherheit */
 .safety-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
+  grid-template-columns:1fr auto 1fr auto 1fr;
   margin-top:32px;
 }
 .safety-item h4{
@@ -973,7 +972,8 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 .safety-item p{font-size:13px;color:var(--ink-55);line-height:1.5;}
 
 @media (max-width:1180px){
-  .safety-grid{grid-template-columns:1fr 1fr;}
+  .safety-grid{grid-template-columns:1fr 1fr;row-gap:24px;}
+  .safety-grid .uebersicht-divider{display:none;}
 }
 @media (max-width:860px){
   .safety-grid{grid-template-columns:1fr;}
