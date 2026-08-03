@@ -887,3 +887,71 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   h2{font-size:22.42px;}
   .stat-row{grid-template-columns:repeat(2,1fr);}
 }
+
+/* ================= Arbeitsweise / Prozess komplett ================= */
+.intro-bullets{
+  list-style:none;
+  margin:16px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.intro-bullets li{
+  font-size:13.5px;
+  color:var(--ink-70);
+  padding-left:18px;
+  position:relative;
+}
+.intro-bullets li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:var(--ink-35);
+}
+
+.phase-label{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-top:48px;
+  margin-bottom:4px;
+}
+.phase-label:first-of-type{margin-top:56px;}
+
+.accordion-item{border-top:1px solid var(--ink-08);}
+.accordion-item:last-child{border-bottom:1px solid var(--ink-08);}
+
+.accordion-trigger{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:18px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:18px 0;
+  text-align:left;
+  font-family:var(--body);
+  color:var(--ink);
+}
+.accordion-trigger .at-title{font-weight:700;font-size:14.5px;}
+.accordion-trigger .at-tag{font-size:12.5px;color:var(--ink-35);font-weight:400;margin-left:10px;}
+.accordion-trigger .at-icon{
+  font-size:18px;
+  color:var(--ink-35);
+  flex:0 0 auto;
+  transition:transform .2s ease, color .2s ease;
+}
+.accordion-item.open .at-icon{transform:rotate(45deg);color:var(--sage);}
+
+.accordion-panel{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+.accordion-item.open .accordion-panel{max-height:400px;}
+.accordion-panel-inner{padding:0 0 20px;min-height:12px;}
