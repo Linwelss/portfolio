@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
     document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
 
-    const hoverTargets = 'a, button, .phone-card, .concept-card, .ia-card, .uebersicht-card, .persona-card, .quote-card, .safety-item, .color-list-row, .accordion-trigger, .swatch-compact, .feat-dark';
+    const hoverTargets = 'a, button, .phone-card, .concept-card, .ia-card, .uebersicht-card, .persona-card, .quote-card, .safety-item, .color-list-row, .accordion-trigger, .swatch-compact, .feat-dark, .b-shot-wrap img';
     document.querySelectorAll(hoverTargets).forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ================= 4. Lightbox for phone screens =================
+  // ================= 4. Lightbox for phone screens + Bausteine screenshots =================
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
@@ -192,6 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const img = card.querySelector('.phone-frame img');
       if (img) openLightbox(img.src, img.alt);
     });
+  });
+  document.querySelectorAll('.b-shot-wrap img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
   });
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
   if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
