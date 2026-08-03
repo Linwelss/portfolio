@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- ============ TOP NAVBAR ============ -->
 <header class="topbar">
   <div class="topbar-inner">
@@ -879,6 +881,20 @@
   </div>
   </main>
 </div>
+
+<!-- Custom cursor -->
+<div id="customCursor" class="custom-cursor"></div>
+
+<!-- Lightbox for phone screens -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- Back to top -->
+<button id="backToTop" class="back-to-top" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <script src="samespot.js"></script>
 </body>
