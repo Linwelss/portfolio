@@ -94,7 +94,6 @@ p{margin:0;}
 
 /* ================= PAGE FRAME ================= */
 .page-wrap{
-  max-width:1680px;
   margin:0 auto;
   display:flex;
   align-items:flex-start;
@@ -1142,4 +1141,105 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 @media (max-width:860px){
   .swatch-row-compact{grid-template-columns:1fr 1fr;}
   .building-grid-compact{grid-template-columns:1fr;}
+}
+
+/* ================= Additional motion pass ================= */
+
+/* Staggered fade-up for grid children, once their parent .reveal is in view */
+.feat-grid-dark > .feat-dark,
+.concept-grid > .concept-card,
+.safety-grid > .safety-item,
+.ia-grid > .ia-card,
+.building-grid-compact > .build-card-compact{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.in-view .feat-grid-dark > .feat-dark,
+.reveal.in-view .concept-grid > .concept-card,
+.reveal.in-view .safety-grid > .safety-item,
+.reveal.in-view .ia-grid > .ia-card,
+.reveal.in-view .building-grid-compact > .build-card-compact{
+  opacity:1;
+  transform:translateY(0);
+}
+.feat-grid-dark > .feat-dark:nth-child(1),
+.concept-grid > .concept-card:nth-child(1),
+.safety-grid > .safety-item:nth-child(1),
+.ia-grid > .ia-card:nth-child(1),
+.building-grid-compact > .build-card-compact:nth-child(1){transition-delay:.05s;}
+.feat-grid-dark > .feat-dark:nth-child(2),
+.concept-grid > .concept-card:nth-child(2),
+.safety-grid > .safety-item:nth-child(2),
+.ia-grid > .ia-card:nth-child(2),
+.building-grid-compact > .build-card-compact:nth-child(2){transition-delay:.14s;}
+.feat-grid-dark > .feat-dark:nth-child(3),
+.concept-grid > .concept-card:nth-child(3),
+.safety-grid > .safety-item:nth-child(3),
+.ia-grid > .ia-card:nth-child(3),
+.building-grid-compact > .build-card-compact:nth-child(3){transition-delay:.23s;}
+.safety-grid > .safety-item:nth-child(4),
+.ia-grid > .ia-card:nth-child(4),
+.building-grid-compact > .build-card-compact:nth-child(4){transition-delay:.32s;}
+.building-grid-compact > .build-card-compact:nth-child(5){transition-delay:.41s;}
+.building-grid-compact > .build-card-compact:nth-child(6){transition-delay:.5s;}
+
+/* Gentle hover for elements that were missing it */
+.feat-dark{transition:transform .3s ease;}
+.feat-dark:hover{transform:translateY(-3px);}
+.safety-item{transition:transform .3s ease;}
+.safety-item:hover{transform:translateX(3px);}
+.color-list-row{transition:background .2s ease, padding-left .2s ease;}
+.color-list-row:hover{background:rgba(22,33,27,.03);padding-left:6px;}
+.accordion-trigger{transition:padding-left .2s ease;}
+.accordion-trigger:hover{padding-left:4px;}
+.ia-card{transition:transform .3s ease, box-shadow .3s ease;}
+.ia-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(9,20,50,.08);}
+.build-card-compact{transition:transform .3s ease, box-shadow .3s ease;}
+.build-card-compact:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(9,20,50,.06);}
+
+/* Subtle pop-in for big numbers when their section reveals */
+.kpi-num,
+.big-stat{
+  display:inline-block;
+  transform:scale(.85);
+  opacity:0;
+  transition:transform .55s cubic-bezier(.34,1.56,.64,1), opacity .5s ease;
+}
+.reveal.in-view .kpi-num,
+.reveal.in-view .big-stat{
+  transform:scale(1);
+  opacity:1;
+}
+
+/* Progress bars, gentle easing already present; give trait/scope items a light stagger too */
+.persona-traits-grid > .trait-item,
+.feature-grid > .feature-item,
+.color-list > .color-list-group{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.in-view .persona-traits-grid > .trait-item,
+.reveal.in-view .feature-grid > .feature-item,
+.reveal.in-view .color-list > .color-list-group{
+  opacity:1;
+  transform:translateY(0);
+}
+.persona-traits-grid > .trait-item:nth-child(1),.feature-grid > .feature-item:nth-child(1){transition-delay:.05s;}
+.persona-traits-grid > .trait-item:nth-child(3),.feature-grid > .feature-item:nth-child(2){transition-delay:.14s;}
+.persona-traits-grid > .trait-item:nth-child(5),.feature-grid > .feature-item:nth-child(3){transition-delay:.23s;}
+.persona-traits-grid > .trait-item:nth-child(7){transition-delay:.32s;}
+
+@media (prefers-reduced-motion: reduce){
+  .feat-grid-dark > .feat-dark,
+  .concept-grid > .concept-card,
+  .safety-grid > .safety-item,
+  .ia-grid > .ia-card,
+  .building-grid-compact > .build-card-compact,
+  .persona-traits-grid > .trait-item,
+  .feature-grid > .feature-item,
+  .color-list > .color-list-group,
+  .kpi-num,
+  .big-stat{opacity:1;transform:none;transition:none;}
 }
