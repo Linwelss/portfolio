@@ -165,23 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
   }
 
-  // ================= 2. Sidebar: mark visited chapters =================
-  // Reuses the scrollspy's chapter elements; whenever one becomes active for
-  // the first time, keep a subtle "visited" dot on it going forward.
-  const allChapterEls = Array.from(document.querySelectorAll('.nav .chapter'));
-  const chapterObserverTargets = allChapterEls
-    .map(c => document.getElementById(c.dataset.chapterFor))
-    .filter(Boolean);
-  const visitedObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.boundingClientRect.top < window.innerHeight * 0.5) {
-        const chapterEl = allChapterEls.find(c => c.dataset.chapterFor === entry.target.id);
-        if (chapterEl) chapterEl.classList.add('visited');
-      }
-    });
-  }, { threshold: 0 });
-  chapterObserverTargets.forEach(el => visitedObserver.observe(el));
-
   // ================= 3. Back to top =================
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
@@ -222,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
   // ================= 5. Gentle parallax on big numbers =================
-  const parallaxEls = Array.from(document.querySelectorAll('.kpi-num, .big-stat, .stat-row .big-num'));
+  const parallaxEls = Array.from(document.querySelectorAll('.pfx-inner'));
   let parallaxTicking = false;
   function updateParallax() {
     parallaxTicking = false;
@@ -230,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     parallaxEls.forEach(el => {
       const rect = el.getBoundingClientRect();
       const centerOffset = (rect.top + rect.height / 2) - vh / 2;
-      const shift = centerOffset * -0.04; // subtle, opposite-direction drift
+      const shift = centerOffset * -0.18; // noticeably stronger, opposite-direction drift
       el.style.transform = `translateY(${shift}px)`;
     });
   }
@@ -268,20 +251,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.5 });
   typeTargets.forEach(el => typeObserver.observe(el));
-
-  // ================= 7. Keyboard navigation (j/k, arrow keys) =================
-  const jumpTargets = observedEls.map(o => o.el);
-  document.addEventListener('keydown', (e) => {
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-    const key = e.key;
-    if (key !== 'j' && key !== 'k' && key !== 'ArrowDown' && key !== 'ArrowUp') return;
-    e.preventDefault();
-    const goingDown = (key === 'j' || key === 'ArrowDown');
-    const line = 140;
-    let idx = jumpTargets.findIndex(el => el.getBoundingClientRect().top > line);
-    if (idx === -1) idx = jumpTargets.length;
-    let targetIdx = goingDown ? idx : idx - 2;
-    targetIdx = Math.max(0, Math.min(jumpTargets.length - 1, targetIdx));
-    jumpTargets[targetIdx].scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 });
