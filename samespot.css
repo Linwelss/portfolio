@@ -991,7 +991,22 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   margin-bottom:14px;
 }
 
-/* Farbe: grouped list */
+/* Farbe: main grid + grouped list */
+.main-swatch-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:28px;
+}
+.main-swatch{display:flex;flex-direction:column;gap:9px;}
+.main-chip{height:60px;border-radius:10px;}
+.ms-name{font-weight:700;font-size:13px;color:var(--ink-90);}
+.ms-hex{font-size:11.5px;color:var(--ink-55);font-variant-numeric:tabular-nums;}
+.ms-use{font-size:11px;color:var(--ink-35);}
+
+@media (max-width:1180px){
+  .main-swatch-grid{grid-template-columns:1fr 1fr;}
+}
 .color-list{
   display:grid;
   grid-template-columns:1fr 1fr;
