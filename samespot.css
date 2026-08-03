@@ -312,7 +312,7 @@ main{flex:1;min-width:0;padding:0 0 96px;overflow-x:hidden;}
 .phone-name{font-size:13.5px;font-weight:600;color:var(--ink-55);text-align:center;margin-top:2px;}
 
 /* ================= SECTION SPACING ================= */
-.section{margin-top:76px;}
+.section{margin-top:200px;}
 .sub-gap{margin-top:200px;}
 #vier-zahlen{margin-top:clamp(16px,3vh,32px);}
 .eyebrow{
