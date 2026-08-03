@@ -904,7 +904,7 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   position:relative;
 }
 .intro-bullets li::before{
-  content:'—';
+  content:'•';
   position:absolute;
   left:0;
   color:var(--ink-35);
@@ -955,3 +955,26 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 }
 .accordion-item.open .accordion-panel{max-height:400px;}
 .accordion-panel-inner{padding:0 0 20px;min-height:12px;}
+
+/* Sicherheit */
+.safety-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  margin-top:32px;
+}
+.safety-item h4{
+  font-family:var(--body);
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--ink-90);
+  margin:0 0 8px;
+}
+.safety-item p{font-size:13px;color:var(--ink-55);line-height:1.5;}
+
+@media (max-width:1180px){
+  .safety-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:860px){
+  .safety-grid{grid-template-columns:1fr;}
+}
