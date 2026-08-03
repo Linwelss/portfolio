@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---------- Scroll progress bar ----------
+  const progressBar = document.getElementById('scrollProgress');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+    if (progressBar) progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
   // ---------- Accordion (Prozess komplett) ----------
   document.querySelectorAll('[data-accordion]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -125,4 +137,151 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.4 });
   barFills.forEach(el => barObserver.observe(el));
+
+  // ================= 1. Custom cursor (dot -> ring on hover) =================
+  const cursor = document.getElementById('customCursor');
+  if (cursor && !window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+    let mx = 0, my = 0, cx = 0, cy = 0, started = false;
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!started) { cx = mx; cy = my; started = true; cursor.classList.add('visible'); }
+    });
+    document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+    function animCursor() {
+      cx += (mx - cx) * 0.18;
+      cy += (my - cy) * 0.18;
+      cursor.style.left = cx + 'px';
+      cursor.style.top = cy + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    const hoverTargets = 'a, button, .phone-card, .concept-card, .ia-card, .uebersicht-card, .persona-card, .quote-card, .safety-item, .color-list-row, .accordion-trigger, .swatch-compact, .feat-dark';
+    document.querySelectorAll(hoverTargets).forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+    });
+    document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+    document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
+  }
+
+  // ================= 2. Sidebar: mark visited chapters =================
+  // Reuses the scrollspy's chapter elements; whenever one becomes active for
+  // the first time, keep a subtle "visited" dot on it going forward.
+  const allChapterEls = Array.from(document.querySelectorAll('.nav .chapter'));
+  const chapterObserverTargets = allChapterEls
+    .map(c => document.getElementById(c.dataset.chapterFor))
+    .filter(Boolean);
+  const visitedObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.boundingClientRect.top < window.innerHeight * 0.5) {
+        const chapterEl = allChapterEls.find(c => c.dataset.chapterFor === entry.target.id);
+        if (chapterEl) chapterEl.classList.add('visited');
+      }
+    });
+  }, { threshold: 0 });
+  chapterObserverTargets.forEach(el => visitedObserver.observe(el));
+
+  // ================= 3. Back to top =================
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    function toggleBackToTop() {
+      backToTop.classList.toggle('visible', window.scrollY > 700);
+    }
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ================= 4. Lightbox for phone screens =================
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  function openLightbox(src, alt) {
+    if (!lightbox || !src) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.phone-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('.phone-frame img');
+      if (img) openLightbox(img.src, img.alt);
+    });
+  });
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ================= 5. Gentle parallax on big numbers =================
+  const parallaxEls = Array.from(document.querySelectorAll('.kpi-num, .big-stat, .stat-row .big-num'));
+  let parallaxTicking = false;
+  function updateParallax() {
+    parallaxTicking = false;
+    const vh = window.innerHeight;
+    parallaxEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const centerOffset = (rect.top + rect.height / 2) - vh / 2;
+      const shift = centerOffset * -0.04; // subtle, opposite-direction drift
+      el.style.transform = `translateY(${shift}px)`;
+    });
+  }
+  window.addEventListener('scroll', () => {
+    if (!parallaxTicking) { parallaxTicking = true; requestAnimationFrame(updateParallax); }
+  }, { passive: true });
+  updateParallax();
+
+  // ================= 6. Typewriter effect for quote cards =================
+  const typeTargets = document.querySelectorAll('.quote-card .q');
+  const typeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      typeObserver.unobserve(el);
+      const fullText = el.textContent;
+      el.textContent = '';
+      el.style.visibility = 'visible';
+      const cursorSpan = document.createElement('span');
+      cursorSpan.className = 'typewriter-cursor';
+      el.appendChild(document.createTextNode(''));
+      el.appendChild(cursorSpan);
+      let i = 0;
+      const speed = 28;
+      function typeNext() {
+        if (i <= fullText.length) {
+          el.firstChild.textContent = fullText.slice(0, i);
+          i++;
+          setTimeout(typeNext, speed);
+        } else {
+          cursorSpan.remove();
+        }
+      }
+      typeNext();
+    });
+  }, { threshold: 0.5 });
+  typeTargets.forEach(el => typeObserver.observe(el));
+
+  // ================= 7. Keyboard navigation (j/k, arrow keys) =================
+  const jumpTargets = observedEls.map(o => o.el);
+  document.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    const key = e.key;
+    if (key !== 'j' && key !== 'k' && key !== 'ArrowDown' && key !== 'ArrowUp') return;
+    e.preventDefault();
+    const goingDown = (key === 'j' || key === 'ArrowDown');
+    const line = 140;
+    let idx = jumpTargets.findIndex(el => el.getBoundingClientRect().top > line);
+    if (idx === -1) idx = jumpTargets.length;
+    let targetIdx = goingDown ? idx : idx - 2;
+    targetIdx = Math.max(0, Math.min(jumpTargets.length - 1, targetIdx));
+    jumpTargets[targetIdx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 });
