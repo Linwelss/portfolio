@@ -726,6 +726,152 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   50%{box-shadow:0 0 0 5px rgba(255,91,58,0);}
 }
 
+/* ================= Constraints table ================= */
+.data-table{margin-top:28px;border-top:1px solid var(--ink-14);}
+.t-head{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:28px;
+  padding:11px 0;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-35);
+}
+.t-row{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:28px;
+  padding:20px 0;
+  border-top:1px solid var(--ink-08);
+}
+.t-row .k{font-weight:700;font-size:14.5px;color:var(--ink-90);}
+.t-row .v{font-size:13px;color:var(--ink-55);line-height:1.55;}
+
+@media (max-width:860px){
+  .t-head,.t-row{grid-template-columns:1fr;gap:8px;}
+}
+
+/* ================= 03 Rückschlag (dark) ================= */
+.dark-chapter{border-radius:0;}
+.dark-chapter-inner{
+  max-width:var(--content-max);
+  margin:0 auto;
+  padding:96px var(--content-pad) 80px;
+}
+.quote-lead{
+  font-family:var(--body);
+  font-weight:800;
+  font-size:28px;
+  line-height:1.3;
+  max-width:720px;
+  margin-top:14px;
+  letter-spacing:-.01em;
+  color:#f5f8f5;
+}
+.quote-lead::before{content:'„';}
+.quote-lead::after{content:'“';}
+.quote-source{margin-top:14px;font-size:13px;color:var(--sage-light);}
+
+.feat-grid-dark{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:40px;
+  padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.feat-dark h4{
+  font-family:var(--body);
+  font-weight:700;
+  font-size:14.5px;
+  color:#f5f8f5;
+  margin:0 0 8px;
+}
+.feat-dark p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5;}
+
+.rueckschlag-screen-row{
+  display:grid;
+  grid-template-columns:216px 1fr;
+  gap:40px;
+  margin-top:64px;
+  align-items:center;
+}
+.rueckschlag-screen-row .mockup-phone{margin:0;}
+.italic-statement-dark{
+  font-weight:700;
+  font-size:22px;
+  line-height:1.4;
+  color:#f5f8f5;
+  letter-spacing:-.01em;
+}
+.statement-caption-dark{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin-top:12px;}
+
+@media (max-width:860px){
+  .feat-grid-dark{grid-template-columns:1fr;gap:20px;}
+  .rueckschlag-screen-row{grid-template-columns:1fr;}
+}
+
+/* ================= Priorisierung ================= */
+.priority-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  margin-top:32px;
+}
+.priority-col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;}
+.priority-col li{
+  font-size:14px;
+  padding:12px 0;
+  border-bottom:1px solid var(--ink-08);
+}
+.priority-col.done li{color:var(--ink-90);font-weight:500;}
+.priority-col.later li{color:var(--ink-35);}
+.priority-col .eyebrow{display:block;margin-bottom:16px;}
+
+@media (max-width:860px){
+  .priority-grid{grid-template-columns:1fr;}
+}
+
+/* ================= Lösung: vorher/nachher + KPI ================= */
+.ba-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  margin-top:40px;
+}
+.ba-col .eyebrow{display:block;margin-bottom:16px;text-align:center;}
+.ba-col.before .mockup-phone{border:1.5px dashed var(--ink-14);}
+.ba-col.after .mockup-phone{border:1.5px solid var(--ink);}
+.ba-caption{margin-top:18px;display:flex;flex-direction:column;gap:6px;text-align:center;}
+.ba-caption p{font-size:13px;color:var(--ink-70);}
+
+.kpi-card{
+  margin-top:56px;
+  background:var(--ink);
+  border-radius:18px;
+  padding:44px 48px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:40px;
+  align-items:center;
+}
+.kpi-num{
+  font-weight:800;
+  letter-spacing:-.02em;
+  font-size:52px;
+  color:var(--sage-light);
+  line-height:1;
+}
+.kpi-card .eyebrow{color:rgba(255,255,255,.35);display:block;margin-bottom:9px;}
+.kpi-card p{font-size:13.5px;color:rgba(255,255,255,.7);max-width:500px;}
+
+@media (max-width:860px){
+  .ba-grid{grid-template-columns:1fr;}
+  .kpi-card{grid-template-columns:1fr;text-align:left;}
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width:1180px){
   .stat-row{grid-template-columns:repeat(2,1fr);}
