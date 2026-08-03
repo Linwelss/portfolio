@@ -493,6 +493,140 @@
           </div>
         </div>
       </div>
+
+      <!-- Constraints -->
+      <div class="sub-gap" id="constraints">
+        <span class="eyebrow">Constraints</span>
+        <h3>Womit ich arbeiten musste — <span class="accent-italic" style="color:var(--sage);">und was mich das gekostet hat.</span></h3>
+
+        <div class="data-table">
+          <div class="t-head"><span>Einschränkung</span><span>Trade-off, den ich eingegangen bin</span></div>
+          <div class="t-row">
+            <div class="k">Allein gearbeitet, kein Dev</div>
+            <div class="v">Kein echtes Standort-Tracking testbar — die Mechanik ist im Prototyp simuliert. Verhalten in der echten Welt bleibt ungeprüft.</div>
+          </div>
+          <div class="t-row">
+            <div class="k">Nur 2 Testpersonen</div>
+            <div class="v">Ich habe auf Verständnisprobleme optimiert statt auf Verhaltensmuster — dafür früh getestet statt einmal groß am Ende.</div>
+          </div>
+          <div class="t-row">
+            <div class="k">4 Monate neben dem Bootcamp</div>
+            <div class="v">Ich habe Breite geopfert: ein Kern-Loop vollständig statt vier Bereiche halb. Entdecken und Profil sind bewusst skizzenhaft geblieben.</div>
+          </div>
+          <div class="t-row">
+            <div class="k">Keine echten Nutzerdaten</div>
+            <div class="v">Statt Erfolgszahlen zu behaupten, habe ich einen prüfbaren Ziel-KPI definiert. Das Konzept ist widerlegbar, nicht bewiesen.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+    <!-- ============ 03 DER RÜCKSCHLAG (dark, full-bleed) ============ -->
+    <section id="rueckschlag" class="section full-bleed reveal">
+      <div class="ergebnis-wrap dark-chapter">
+        <div class="dark-chapter-inner">
+          <span class="eyebrow on-dark">03 · Der Rückschlag</span>
+          <p class="quote-lead">Warum sehe ich ständig die gleiche Person? Würde die blockieren wollen.</p>
+          <p class="quote-source">Tester #2 · Think-Aloud · zur Wiederbegegnungs-Mechanik im Feed</p>
+
+          <p class="lede" style="margin-top:22px;max-width:700px;color:rgba(245,248,245,.7);">Zwei Testpersonen, klickbarer Mid-Fi-Prototyp. Beide haben das Konzept im Gespräch verstanden — im Interface aber nicht wiedererkannt. Genau die Mechanik, auf die ich stolz war, hat sich falsch angefühlt.</p>
+
+          <div class="feat-grid-dark">
+            <div class="feat-dark">
+              <h4>Wiedersehen wirkt „creepy“</h4>
+              <p>als Verfolgung gedeutet, nicht als Absicht</p>
+            </div>
+            <div class="feat-dark">
+              <h4>Orientierungslos nach dem Onboarding</h4>
+              <p>kein klarer erster Schritt, kein sichtbarer CTA</p>
+            </div>
+            <div class="feat-dark">
+              <h4>Chat und Begegnungen nicht auffindbar</h4>
+              <p>im Profil versteckt statt in der Hauptnavigation</p>
+            </div>
+          </div>
+
+          <div class="rueckschlag-screen-row">
+            <div class="mockup-phone"><img src="phone.jpg" alt="der getestete Feed-Screen"></div>
+            <div class="rueckschlag-statement">
+              <p class="italic-statement-dark">Ich war überzeugt, das Wiedersehen sei der Wow-Moment. Es war das größte Risiko.</p>
+              <p class="statement-caption-dark">Der Screen, an dem beide Testpersonen hängengeblieben sind: die Wiederbegegnung stand im Feed wie eine Beobachtung — mit Zähler, ohne Kontext, ohne Gegenüber.</p>
+              <p class="statement-caption-dark" style="margin-top:14px;opacity:.6;">Grenze dieser Erkenntnis: zwei Testpersonen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <div class="content-col">
+      <!-- Priorisierung -->
+      <div class="section reveal" id="priorisierung">
+        <span class="eyebrow">Priorisierung</span>
+        <h3>Nicht alles Gefundene war <span class="accent-italic" style="color:var(--sage);">gleich wichtig.</span></h3>
+        <p class="lede" style="max-width:660px;">Aus dem Test kamen mehr Findings als Zeit. Ich habe sie danach sortiert, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen — nur die erste Gruppe habe ich umgesetzt.</p>
+
+        <div class="priority-grid">
+          <div class="priority-col done">
+            <span class="eyebrow">Jetzt gelöst — blockiert den Loop</span>
+            <ul>
+              <li>Wiedersehen positiv framen</li>
+              <li>Geführter erster Spot mit klarem CTA</li>
+              <li>Austausch in die Hauptnavigation</li>
+              <li>Ortsbezug der Aufgabe klarer machen</li>
+            </ul>
+          </div>
+          <div class="priority-col later">
+            <span class="eyebrow muted">Vertagt — nice to have</span>
+            <ul>
+              <li>Begegnungs-Kennzahl schärfen</li>
+              <li>Streak-Bedeutung erklären</li>
+              <li>QR-Austausch angenehmer gestalten</li>
+              <li>Entdecken-Bereich weiter vereinfachen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <!-- ============ 04 DIE LÖSUNG ============ -->
+    <section id="loesung" class="section reveal">
+      <div class="chapter-head">
+        <span class="chapter-num">04</span>
+        <div>
+          <span class="eyebrow">Die Lösung</span>
+          <h2 style="margin-top:6px;">Ich habe nicht die Mechanik geändert, sondern <span class="accent-italic" style="color:var(--sage);">ihre Erzählung.</span></h2>
+        </div>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-col before">
+          <span class="eyebrow muted">Vorher</span>
+          <div class="mockup-phone" style="width:216px;margin:0 auto;"><img src="phone.jpg" alt="Screen vorher"></div>
+          <div class="ba-caption">
+            <p>„Du warst schon 3x am selben Ort wie Mara.“</p>
+            <p>Onboarding endet im leeren Feed.</p>
+            <p>Nachrichten liegen im Profil.</p>
+          </div>
+        </div>
+        <div class="ba-col after">
+          <span class="eyebrow">Nachher</span>
+          <div class="mockup-phone" style="width:216px;margin:0 auto;"><img src="phone.jpg" alt="Screen nachher"></div>
+          <div class="ba-caption">
+            <p>„Ihr wart beide dreimal hier — Zufall oder nicht?“</p>
+            <p>Geführter erster Spot mit einem klaren CTA.</p>
+            <p>Austausch als eigener Bereich unten.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-num">≥15%</div>
+        <div>
+          <span class="eyebrow">Ziel-KPI, nicht gemessen</span>
+          <p>der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch. Daran würde ich messen, ob der Kernmechanismus trägt — wöchentlich, verantwortet von UX, UI und Dev.</p>
+        </div>
+      </div>
     </section>
 
   </div>
