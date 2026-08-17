@@ -21,5 +21,6 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 @media (max-width:640px){.stats-grid{grid-template-columns:1fr}}
 @keyframes panVertical{0%,8%{object-position:center top}46%,54%{object-position:center bottom}92%,100%{object-position:center top}}
 .pan-tile{animation:panVertical 13s ease-in-out infinite}
-@keyframes slideCycle{0%,28%{opacity:1}36%,100%{opacity:0}}
-.slide-img{animation:slideCycle 9s infinite}
+@keyframes slideTrack{0%,28%{transform:translateX(0%)}33%,61%{transform:translateX(-33.3333%)}66%,94%{transform:translateX(-66.6666%)}100%{transform:translateX(0%)}}
+.slide-track{position:absolute;inset:0;display:flex;width:300%;height:100%;animation:slideTrack 9s cubic-bezier(.65,0,.35,1) infinite}
+.slide-track img{width:33.3333%;height:100%;object-fit:cover;flex-shrink:0}
