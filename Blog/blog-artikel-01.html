@@ -1,128 +1,197 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wie ich dieses Portfolio mit Vibe Coding gebaut habe · Lina Melissa</title>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wie ich dieses Portfolio mit Vibe Coding gebaut habe · Lina Melissa Arndt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/Blog/blog-artikel.css">
-<style>body{ cursor:auto; } a, button{ cursor:pointer; }</style>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<nav class="blog-nav">
-  <div class="blog-nav-inner">
-    <a href="/#blog" class="blog-nav-back">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-      <span data-de="Zum Blog" data-en="Back to Blog">Zum Blog</span>
-    </a>
-    <a href="/" class="blog-nav-logo">Lina Melissa</a>
-    <div class="blog-nav-right">
-      <a href="/#kontakt" class="blog-nav-contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
-      <button type="button" class="nav-lang" onclick="toggleLang()" id="lang-btn" aria-label="Sprache wechseln zu Englisch">EN</button>
+<div style="background:#fff;padding-top:92px">
+
+  <nav aria-label="Hauptnavigation" style="position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:200;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,0.62);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);box-shadow:0 1px 0 rgba(255,255,255,0.8) inset,0 0 0 1px rgba(0,0,0,0.06),0 14px 40px -14px rgba(0,0,0,0.26);max-width:calc(100vw - 24px)">
+    <div style="display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+      <ul style="display:flex;align-items:center;gap:2px">
+        <li style="position:relative">
+          <a href="../index.html" aria-label="Start · Lina Melissa Arndt" style="display:flex;align-items:center;gap:9px;height:46px;padding:0 14px 0 11px;border-radius:16px;color:#0A0A0A;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-active="transform:scale(.94)" style-hover="background:#F0F0F2;color:#0A0A0A">
+            <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:-0.02em;flex-shrink:0">LA</span>
+            <span style="font-size:14.5px;font-weight:600;letter-spacing:-0.025em;white-space:nowrap">Lina Melissa Arndt</span>
+          </a>
+        </li>
+        <li aria-hidden="true" style="width:1px;height:22px;background:rgba(0,0,0,0.09);margin:0 5px"></li>
+        <li style="position:relative">
+          <a href="../index.html#blog" data-de="Zum Blog" data-en="Back to blog" style="display:flex;align-items:center;gap:8px;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;color:#6E6E73;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+            <span>Zum Blog</span>
+          </a>
+        </li>
+        <li style="position:relative">
+          <a href="../index.html#kontakt" data-de="Kontakt" data-en="Contact" style="display:flex;align-items:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;color:#6E6E73;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Kontakt</a>
+        </li>
+        <li aria-hidden="true" style="width:1px;height:22px;background:rgba(0,0,0,0.09);margin:0 5px"></li>
+        <li style="position:relative">
+          <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;cursor:pointer;font-family:inherit;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">EN</button>
+        </li>
+      </ul>
     </div>
-  </div>
-</nav>
-<div class="blog-nav-spacer" aria-hidden="true"></div>
+  </nav>
 
-<article class="blog-article">
+  <article style="max-width:720px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(20px,5vw,40px) 0">
 
-  <header class="ba-header">
-    <div class="ba-meta">
-      <span class="ba-category" data-de="Prozess" data-en="Process">Prozess</span>
-      <span class="ba-dot">·</span>
-      <time data-de="Mai 2026" data-en="May 2026">Mai 2026</time>
-      <span class="ba-dot">·</span>
-      <span data-de="6 Min. Lesezeit" data-en="6 min read">6 Min. Lesezeit</span>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:#8E8E93;letter-spacing:.04em;margin-bottom:22px">
+      <span data-de="Prozess" data-en="Process" style="color:#1F7A45;font-weight:600">Prozess</span>
+      <span aria-hidden="true" style="opacity:.5">·</span>
+      <time data-de="Mai 2026" data-en="May 2026&quot;>Mai 2026</time>
+      <span aria-hidden=&quot;true" style="opacity:.5">·</span>
+      <span data-de="6 Min. Lesezeit" data-en="6 min read&quot;>6 Min. Lesezeit</span>
     </div>
-    <h1 class="ba-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h1>
-    <p class="ba-lead" data-de="Vier Tage hatte ich in mein Figma-Design gesteckt: Struktur, Wireframe, ein funktionierender Framer-Prototyp. Und dann habe ich es spontan halbwegs über Bord geworfen und etwas völlig anderes ausprobiert. Diese Portfolio-Website ist das Ergebnis." data-en="I'd put four days into my Figma design: structure, wireframe, a working Framer prototype. And then I spontaneously threw it overboard and tried something completely different. This portfolio website is the result.">Vier Tage hatte ich in mein Figma-Design gesteckt: Struktur, Wireframe, ein funktionierender Framer-Prototyp. Und dann habe ich es spontan halbwegs über Bord geworfen und etwas völlig anderes ausprobiert. Diese Portfolio-Website ist das Ergebnis.</p>
-  </header>
 
-  <div class="ba-body">
+    <h1 data-de=&quot;Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding" style="font-size:clamp(30px,4.6vw,46px);line-height:1.12;letter-spacing:-0.03em;font-weight:700;color:#0A0A0A;margin-bottom:22px">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h1>
 
-    <p data-de="Ich kann nicht programmieren. Das muss ich gleich am Anfang sagen, damit klar ist, woher ich komme. Mein Hintergrund ist Mediengestaltung Digital &amp; Print, und in den letzten Monaten UX und Product Design im Bootcamp. HTML, CSS, JavaScript, das kenne ich alles von meiner Ausbildung, zumindest war mein Abschlussprojekt eine Website, wo ich diese drei Sprachen verwendet habe. Ich würde also sagen, dass ich mir der Grundstruktur auf jeden Fall bewusst bin... aber mehr auch nicht." data-en="I can't code. I need to say that right at the start so it's clear where I'm coming from. My background is media design, digital &amp; print, and over the last months UX and product design at the bootcamp. HTML, CSS, JavaScript, I know all of that from my training, at least my final project was a website where I used those three languages. I'd say I'm aware of the basic structure, but not much more than that.">Ich kann nicht programmieren. Das muss ich gleich am Anfang sagen, damit klar ist, woher ich komme. Mein Hintergrund ist Mediengestaltung Digital &amp; Print, und in den letzten Monaten UX und Product Design im Bootcamp. HTML, CSS, JavaScript, das kenne ich alles von meiner Ausbildung, zumindest war mein Abschlussprojekt eine Website, wo ich diese drei Sprachen verwendet habe. Ich würde also sagen, dass ich mir der Grundstruktur auf jeden Fall bewusst bin... aber mehr auch nicht.</p>
+    <p data-de="Vier Tage hatte ich in mein Figma-Design gesteckt: Struktur, Wireframe, ein funktionierender Framer-Prototyp. Und dann habe ich es spontan halbwegs über Bord geworfen und etwas völlig anderes ausprobiert. Diese Portfolio-Website ist das Ergebnis." data-en="I'd put four days into my Figma design: structure, wireframe, a working Framer prototype. And then I spontaneously threw it overboard and tried something completely different. This portfolio website is the result." style="font-size:19px;line-height:1.6;color:#6E6E73;margin-bottom:48px">Vier Tage hatte ich in mein Figma-Design gesteckt: Struktur, Wireframe, ein funktionierender Framer-Prototyp. Und dann habe ich es spontan halbwegs über Bord geworfen und etwas völlig anderes ausprobiert. Diese Portfolio-Website ist das Ergebnis.</p>
 
-    <p data-de="Trotzdem siehst du hier nun eine fertige Website. Wie das kam, erzähle ich hier ehrlich, inklusive der Stellen, an denen ich kurz davor war, es wieder zu lassen." data-en="And yet here you are on exactly that kind of site. How that happened is what I want to tell you honestly here, including the moments I almost gave up.">Trotzdem siehst du hier nun eine fertige Website. Wie das kam, erzähle ich hier ehrlich, inklusive der Stellen, an denen ich kurz davor war, es wieder zu lassen.</p>
-
-    <h2 data-de="Der eigentliche Plan" data-en="The original plan">Der eigentliche Plan</h2>
-
-    <p data-de="Mein Weg war eigentlich vorgezeichnet und sauber: Erst die Informationsarchitektur, also welche Informationen ich wirklich zeigen möchte, welche wichtig sind und was ein Portfolio rausstechen lässt. Ich wusste natürlich die Antwort darauf: Persönlichkeit zeigen. Nur wie zeige ich meine? Als ich mir dessen bewusst war, habe ich angefangen die Low-Fidelity-Wireframes in Figma zu bauen, anschließend die Systeme (sprich Farb-, Typo- und Component-Systeme) zu definieren. Als das stand, bin ich zu Framer umgezogen und habe dort die Website gebaut, responsiv auf drei Devices ausgelegt. Nach vier Tagen hatte ich eine funktionierende, nutzbare Seite, alles in den Tools, mit denen ich mich auskenne." data-en="My path was actually mapped out and clean: first the information architecture, which information I really want to show, what matters, and what makes a portfolio stand out. The answer I already knew: showing personality. But how do I show mine? Once I'd figured that out, I started building low-fidelity wireframes in Figma, then defined the systems (colour, typography, and component systems). Once that was in place, I moved to Framer and built the site, responsive across three devices. After four days I had a working, usable site, all in the tools I know.">Mein Weg war eigentlich vorgezeichnet und sauber: Erst die Informationsarchitektur, also welche Informationen ich wirklich zeigen möchte, welche wichtig sind und was ein Portfolio rausstechen lässt. Ich wusste natürlich die Antwort darauf: Persönlichkeit zeigen. Nur wie zeige ich meine? Als ich mir dessen bewusst war, habe ich angefangen die Low-Fidelity-Wireframes in Figma zu bauen, anschließend die Systeme (sprich Farb-, Typo- und Component-Systeme) zu definieren. Als das stand, bin ich zu Framer umgezogen und habe dort die Website gebaut, responsiv auf drei Devices ausgelegt. Nach vier Tagen hatte ich eine funktionierende, nutzbare Seite, alles in den Tools, mit denen ich mich auskenne.</p>
-
-    <p data-de="Es hätte hier aufhören können. Tat es aber nicht. Ich hatte einen Fehler gemacht: Ich war mir so sicher, den richtigen Weg gewählt zu haben, doch leider war dem nicht so. Denn ich hatte mich vorher gar nicht damit auseinandergesetzt, dass ich auch einen kleinen Blog führen möchte. Zudem ist Framer für den gebotenen Umfang teurer geworden als erwartet: eine eigene Domain geht nur mit Monatsabo. Das war nicht das Ziel, also bin ich nochmal einen Schritt zurückgetreten und habe überlegt, was nun das Sinnvollste wäre." data-en="It could have stopped there. It didn't. I had made a mistake: I was so sure I'd chosen the right path — but I hadn't. Because I hadn't thought about the fact that I also wanted to run a small blog. On top of that, Framer has become more expensive than expected for what it offers: a custom domain requires a monthly subscription. That wasn't the goal, so I stepped back and thought about what made the most sense now.">Es hätte hier aufhören können. Tat es aber nicht. Ich hatte einen Fehler gemacht: Ich war mir so sicher, den richtigen Weg gewählt zu haben, doch leider war dem nicht so. Denn ich hatte mich vorher gar nicht damit auseinandergesetzt, dass ich auch einen kleinen Blog führen möchte. Zudem ist Framer für den gebotenen Umfang teurer geworden als erwartet: eine eigene Domain geht nur mit Monatsabo. Das war nicht das Ziel, also bin ich nochmal einen Schritt zurückgetreten und habe überlegt, was nun das Sinnvollste wäre.</p>
-
-    <h2 data-de="Die spontane Entscheidung" data-en="The spontaneous decision">Die spontane Entscheidung</h2>
-
-    <p data-de="In meinem Bootcamp gab es eine Person, die ich sehr interessant fand und der ich dann auf LinkedIn geschrieben habe. Wir sprachen über unsere Portfolios, und er erzählte mir, dass er Vibe Coding ganz interessant fand und damit versucht, seine Website zu bauen. Mein erster Gedanke war ehrlich gesagt: Langweilig. Die Person steckt selbst keine Arbeit rein und lässt einfach eine KI werkeln. Dass ich es selbst ausprobieren würde, hätte ich nicht gedacht. Aber nach einer Woche Stillstand fragte ich mich: Was, wenn ich das einfach mal ausprobiere? Was, wenn ich meine fertige Figma-Idee einfach beschreibe und schaue, was passiert? Nur aus Neugier, mein Framer-Prototyp lag ja sicher daneben." data-en="At the bootcamp there was someone I found really interesting, so I reached out to them on LinkedIn. We talked about our portfolios, and they told me they found vibe coding interesting and were trying to build their site that way. My first thought, honestly, was: boring. Just letting an AI do all the work. I never thought I'd try it myself. But after a week of standstill I asked myself: what if I just give it a go? What if I just described my finished Figma idea and saw what happened? Just out of curiosity, my Framer prototype was safely sitting right next to it.">In meinem Bootcamp gab es eine Person, die ich sehr interessant fand und der ich dann auf LinkedIn geschrieben habe. Wir sprachen über unsere Portfolios, und er erzählte mir, dass er Vibe Coding ganz interessant fand und damit versucht, seine Website zu bauen. Mein erster Gedanke war ehrlich gesagt: Langweilig. Die Person steckt selbst keine Arbeit rein und lässt einfach eine KI werkeln. Dass ich es selbst ausprobieren würde, hätte ich nicht gedacht. Aber nach einer Woche Stillstand fragte ich mich: Was, wenn ich das einfach mal ausprobiere? Was, wenn ich meine fertige Figma-Idee einfach beschreibe und schaue, was passiert? Nur aus Neugier, mein Framer-Prototyp lag ja sicher daneben.</p>
-
-    <blockquote data-de="Mein Vorteil war nicht, dass ich coden kann. Mein Vorteil war, dass ich genau wusste, wie das Ergebnis aussehen und sich anfühlen soll." data-en="My advantage wasn't that I can code. My advantage was that I knew exactly how the result should look and feel.">Mein Vorteil war nicht, dass ich coden kann. Mein Vorteil war, dass ich genau wusste, wie das Ergebnis aussehen und sich anfühlen soll.</blockquote>
-
-    <p data-de="Und genau das war der Punkt, an dem mir mein Designhintergrund mehr geholfen hat als jede Programmierkenntnis. Ich konnte nicht den Code beurteilen, aber ich konnte sofort sagen: „Der Abstand ist zu groß", „das Grün sticht zu sehr raus", „auf dem Handy bricht das um". Ich habe nicht programmiert. Ich habe Design-Entscheidungen getroffen und sie so präzise wie möglich beschrieben. Mir wurde wirklich Arbeit abgenommen, weil ich mich auf das fokussieren konnte, was mir am Herzen liegt: das Gefühl, das die Website rüberbringt. Ich habe gemerkt, dass ich so viel mehr Zeit und Energie in die kleinsten Details legen konnte, auf jeden noch so kleinen Pixel. Das hat mich ehrlich sehr begeistert." data-en="And that was exactly where my design background helped me more than any coding skill. I couldn't judge the code, but I could immediately say: &quot;that spacing is too big&quot;, &quot;that green stands out too much&quot;, &quot;this breaks on mobile&quot;. I didn't program. I made design decisions and described them as precisely as I could. Work was genuinely taken off my plate, because I could focus on what actually matters to me: the feeling the website conveys. I noticed I could put so much more time and energy into the smallest details — every last pixel. That honestly excited me a lot.">Und genau das war der Punkt, an dem mir mein Designhintergrund mehr geholfen hat als jede Programmierkenntnis. Ich konnte nicht den Code beurteilen, aber ich konnte sofort sagen: „Der Abstand ist zu groß", „das Grün sticht zu sehr raus", „auf dem Handy bricht das um". Ich habe nicht programmiert. Ich habe Design-Entscheidungen getroffen und sie so präzise wie möglich beschrieben. Mir wurde wirklich Arbeit abgenommen, weil ich mich auf das fokussieren konnte, was mir am Herzen liegt: das Gefühl, das die Website rüberbringt. Ich habe gemerkt, dass ich so viel mehr Zeit und Energie in die kleinsten Details legen konnte, auf jeden noch so kleinen Pixel. Das hat mich ehrlich sehr begeistert.</p>
-
-    <h2 data-de="Was ich dabei gelernt habe" data-en="What I learned along the way">Was ich dabei gelernt habe</h2>
-
-    <p data-de="Ein paar Dinge nehme ich aus dem Prozess mit, die weit über diese eine Website hinausgehen:" data-en="A few things I'm taking away from this process that go well beyond this one website:">Ein paar Dinge nehme ich aus dem Prozess mit, die weit über diese eine Website hinausgehen:</p>
-
-    <ul>
-      <li data-de="&lt;strong&gt;Klarheit schlägt Code.&lt;/strong&gt; Je genauer ich beschreiben konnte, was ich wollte, desto besser das Ergebnis. Vage Wünsche führten zu vagem Output." data-en="&lt;strong&gt;Clarity beats code.&lt;/strong&gt; The more precisely I could describe what I wanted, the better the result. Vague wishes led to vague output."><strong>Klarheit schlägt Code.</strong> Je genauer ich beschreiben konnte, was ich wollte, desto besser das Ergebnis. Vage Wünsche führten zu vagem Output.</li>
-      <li data-de="&lt;strong&gt;Mein Auge war das Werkzeug.&lt;/strong&gt; Das Gespür für Hierarchie, Abstände und Konsistenz aus der Mediengestaltung war wichtiger als technisches Wissen." data-en="&lt;strong&gt;My eye was the tool.&lt;/strong&gt; The sense for hierarchy, spacing and consistency from media design mattered more than technical knowledge."><strong>Mein Auge war das Werkzeug.</strong> Das Gespür für Hierarchie, Abstände und Konsistenz aus der Mediengestaltung war wichtiger als technisches Wissen.</li>
-      <li data-de="&lt;strong&gt;Iterieren ist alles.&lt;/strong&gt; Es war nie beim ersten Versuch richtig. Es war ein ständiges Hin und Her aus Ausprobieren, Anschauen, Korrigieren. Genau wie Design eben ist." data-en="&lt;strong&gt;Iterating is everything.&lt;/strong&gt; It was never right on the first try. It was a constant back and forth of trying, looking, correcting. Exactly how design works."><strong>Iterieren ist alles.</strong> Es war nie beim ersten Versuch richtig. Es war ein ständiges Hin und Her aus Ausprobieren, Anschauen, Korrigieren. Genau wie Design eben ist.</li>
-    </ul>
-
-    <h2 data-de="Würde ich es wieder so machen?" data-en="Would I do it this way again?">Würde ich es wieder so machen?</h2>
-
-    <p data-de="Ja. Nicht, weil Vibe Coding klassisches Lernen ersetzt, das tut es nicht, und ich verstehe den Code, der dabei entsteht, noch lange nicht vollständig. Sondern weil es mir gezeigt hat, dass ich Ideen umsetzen kann, auch wenn mir ein Werkzeug fehlt. Ich musste nur lernen, mein Werkzeug anders einzusetzen." data-en="Yes. Not because vibe coding replaces classic learning, it doesn't, and I'm far from fully understanding the code it produces. But because it showed me I can realise ideas even when I'm missing a tool. I just had to learn to use my tool differently.">Ja. Nicht, weil Vibe Coding klassisches Lernen ersetzt, das tut es nicht, und ich verstehe den Code, der dabei entsteht, noch lange nicht vollständig. Sondern weil es mir gezeigt hat, dass ich Ideen umsetzen kann, auch wenn mir ein Werkzeug fehlt. Ich musste nur lernen, mein Werkzeug anders einzusetzen.</p>
-
-    <p data-de="Diese ganze Seite ist letztlich genau das: ein Experiment, das gehalten hat. Und wenn du bis hierhin gelesen hast, danke. Schön, dass du hier bist. :)" data-en="This whole site is ultimately exactly that: an experiment that held up. And if you've read this far, thank you. Glad you're here. :)">Diese ganze Seite ist letztlich genau das: ein Experiment, das gehalten hat. Und wenn du bis hierhin gelesen hast, danke. Schön, dass du hier bist. :)</p>
-
-  </div>
-
-  <footer class="ba-author">
-    <img src="/ich/bild2.jpg" alt="Lina Melissa" class="ba-author-img">
     <div>
-      <span class="ba-author-name">Lina Melissa</span>
-      <span class="ba-author-role" data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span>
+    <p data-de="Ich kann nicht programmieren. Das muss ich gleich am Anfang sagen, damit klar ist, woher ich komme. Mein Hintergrund ist Mediengestaltung Digital &amp; Print, und in den letzten Monaten UX und Product Design im Bootcamp. HTML, CSS, JavaScript, das kenne ich alles von meiner Ausbildung, zumindest war mein Abschlussprojekt eine Website, wo ich diese drei Sprachen verwendet habe. Ich würde also sagen, dass ich mir der Grundstruktur auf jeden Fall bewusst bin... aber mehr auch nicht." data-en="I can't code. I need to say that right at the start so it's clear where I'm coming from. My background is media design, digital &amp; print, and over the last months UX and product design at the bootcamp. HTML, CSS, JavaScript, I know all of that from my training, at least my final project was a website where I used those three languages. I'd say I'm aware of the basic structure, but not much more than that." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Ich kann nicht programmieren. Das muss ich gleich am Anfang sagen, damit klar ist, woher ich komme. Mein Hintergrund ist Mediengestaltung Digital &amp; Print, und in den letzten Monaten UX und Product Design im Bootcamp. HTML, CSS, JavaScript, das kenne ich alles von meiner Ausbildung, zumindest war mein Abschlussprojekt eine Website, wo ich diese drei Sprachen verwendet habe. Ich würde also sagen, dass ich mir der Grundstruktur auf jeden Fall bewusst bin... aber mehr auch nicht.</p>
+    <p data-de="Trotzdem siehst du hier nun eine fertige Website. Wie das kam, erzähle ich hier ehrlich, inklusive der Stellen, an denen ich kurz davor war, es wieder zu lassen." data-en="And yet here you are on exactly that kind of site. How that happened is what I want to tell you honestly here, including the moments I almost gave up." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Trotzdem siehst du hier nun eine fertige Website. Wie das kam, erzähle ich hier ehrlich, inklusive der Stellen, an denen ich kurz davor war, es wieder zu lassen.</p>
+    <h2 data-de="Der eigentliche Plan" data-en="The original plan" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Der eigentliche Plan</h2>
+    <p data-de="Mein Weg war eigentlich vorgezeichnet und sauber: Erst die Informationsarchitektur, also welche Informationen ich wirklich zeigen möchte, welche wichtig sind und was ein Portfolio rausstechen lässt. Ich wusste natürlich die Antwort darauf: Persönlichkeit zeigen. Nur wie zeige ich meine? Als ich mir dessen bewusst war, habe ich angefangen die Low-Fidelity-Wireframes in Figma zu bauen, anschließend die Systeme (sprich Farb-, Typo- und Component-Systeme) zu definieren. Als das stand, bin ich zu Framer umgezogen und habe dort die Website gebaut, responsiv auf drei Devices ausgelegt. Nach vier Tagen hatte ich eine funktionierende, nutzbare Seite, alles in den Tools, mit denen ich mich auskenne." data-en="My path was actually mapped out and clean: first the information architecture, which information I really want to show, what matters, and what makes a portfolio stand out. The answer I already knew: showing personality. But how do I show mine? Once I'd figured that out, I started building low-fidelity wireframes in Figma, then defined the systems (colour, typography, and component systems). Once that was in place, I moved to Framer and built the site, responsive across three devices. After four days I had a working, usable site, all in the tools I know." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Mein Weg war eigentlich vorgezeichnet und sauber: Erst die Informationsarchitektur, also welche Informationen ich wirklich zeigen möchte, welche wichtig sind und was ein Portfolio rausstechen lässt. Ich wusste natürlich die Antwort darauf: Persönlichkeit zeigen. Nur wie zeige ich meine? Als ich mir dessen bewusst war, habe ich angefangen die Low-Fidelity-Wireframes in Figma zu bauen, anschließend die Systeme (sprich Farb-, Typo- und Component-Systeme) zu definieren. Als das stand, bin ich zu Framer umgezogen und habe dort die Website gebaut, responsiv auf drei Devices ausgelegt. Nach vier Tagen hatte ich eine funktionierende, nutzbare Seite, alles in den Tools, mit denen ich mich auskenne.</p>
+    <p data-de="Es hätte hier aufhören können. Tat es aber nicht. Ich hatte einen Fehler gemacht: Ich war mir so sicher, den richtigen Weg gewählt zu haben, doch leider war dem nicht so. Denn ich hatte mich vorher gar nicht damit auseinandergesetzt, dass ich auch einen kleinen Blog führen möchte. Zudem ist Framer für den gebotenen Umfang teurer geworden als erwartet: eine eigene Domain geht nur mit Monatsabo. Das war nicht das Ziel, also bin ich nochmal einen Schritt zurückgetreten und habe überlegt, was nun das Sinnvollste wäre." data-en="It could have stopped there. It didn't. I had made a mistake: I was so sure I'd chosen the right path, but I hadn't. Because I hadn't thought about the fact that I also wanted to run a small blog. On top of that, Framer became more expensive than expected for what it offers: a custom domain requires a monthly subscription. That wasn't the goal, so I stepped back and thought about what made the most sense now." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Es hätte hier aufhören können. Tat es aber nicht. Ich hatte einen Fehler gemacht: Ich war mir so sicher, den richtigen Weg gewählt zu haben, doch leider war dem nicht so. Denn ich hatte mich vorher gar nicht damit auseinandergesetzt, dass ich auch einen kleinen Blog führen möchte. Zudem ist Framer für den gebotenen Umfang teurer geworden als erwartet: eine eigene Domain geht nur mit Monatsabo. Das war nicht das Ziel, also bin ich nochmal einen Schritt zurückgetreten und habe überlegt, was nun das Sinnvollste wäre.</p>
+    <h2 data-de="Die spontane Entscheidung" data-en="The spontaneous decision" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Die spontane Entscheidung</h2>
+    <p data-de="In meinem Bootcamp gab es eine Person, die ich sehr interessant fand und der ich dann auf LinkedIn geschrieben habe. Wir sprachen über unsere Portfolios, und er erzählte mir, dass er Vibe Coding ganz interessant fand und damit versucht, seine Website zu bauen. Mein erster Gedanke war ehrlich gesagt: Langweilig. Die Person steckt selbst keine Arbeit rein und lässt einfach eine KI werkeln. Dass ich es selbst ausprobieren würde, hätte ich nicht gedacht. Aber nach einer Woche Stillstand fragte ich mich: Was, wenn ich das einfach mal ausprobiere? Was, wenn ich meine fertige Figma-Idee einfach beschreibe und schaue, was passiert? Nur aus Neugier, mein Framer-Prototyp lag ja sicher daneben." data-en="At the bootcamp there was someone I found really interesting, so I reached out to them on LinkedIn. We talked about our portfolios, and they told me they found vibe coding interesting and were trying to build their site that way. My first thought, honestly, was: boring. Just letting an AI do all the work. I never thought I'd try it myself. But after a week of standstill I asked myself: what if I just give it a go? Just out of curiosity, my Framer prototype was safely sitting right next to it." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">In meinem Bootcamp gab es eine Person, die ich sehr interessant fand und der ich dann auf LinkedIn geschrieben habe. Wir sprachen über unsere Portfolios, und er erzählte mir, dass er Vibe Coding ganz interessant fand und damit versucht, seine Website zu bauen. Mein erster Gedanke war ehrlich gesagt: Langweilig. Die Person steckt selbst keine Arbeit rein und lässt einfach eine KI werkeln. Dass ich es selbst ausprobieren würde, hätte ich nicht gedacht. Aber nach einer Woche Stillstand fragte ich mich: Was, wenn ich das einfach mal ausprobiere? Was, wenn ich meine fertige Figma-Idee einfach beschreibe und schaue, was passiert? Nur aus Neugier, mein Framer-Prototyp lag ja sicher daneben.</p>
+    <blockquote data-de="Mein Vorteil war nicht, dass ich coden kann. Mein Vorteil war, dass ich genau wusste, wie das Ergebnis aussehen und sich anfühlen soll." data-en="My advantage wasn't that I can code. My advantage was that I knew exactly how the result should look and feel." style="margin:36px 0;padding:22px 26px;border-left:3px solid #2E9E63;background:#F5F5F7;border-radius:0 16px 16px 0;font-size:19px;line-height:1.55;color:#14562F;font-style:italic">Mein Vorteil war nicht, dass ich coden kann. Mein Vorteil war, dass ich genau wusste, wie das Ergebnis aussehen und sich anfühlen soll.</blockquote>
+    <p data-de="Und genau das war der Punkt, an dem mir mein Designhintergrund mehr geholfen hat als jede Programmierkenntnis. Ich konnte nicht den Code beurteilen, aber ich konnte sofort sagen: „Der Abstand ist zu groß“, „das Grün sticht zu sehr raus“, „auf dem Handy bricht das um“. Ich habe nicht programmiert. Ich habe Design-Entscheidungen getroffen und sie so präzise wie möglich beschrieben. Mir wurde wirklich Arbeit abgenommen, weil ich mich auf das fokussieren konnte, was mir am Herzen liegt: das Gefühl, das die Website rüberbringt." data-en="And that was exactly where my design background helped me more than any coding skill. I couldn't judge the code, but I could immediately say: &quot;that spacing is too big&quot;, &quot;that green stands out too much&quot;, &quot;this breaks on mobile&quot;. I didn't program. I made design decisions and described them as precisely as I could. Work was genuinely taken off my plate, because I could focus on what actually matters to me: the feeling the website conveys." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Und genau das war der Punkt, an dem mir mein Designhintergrund mehr geholfen hat als jede Programmierkenntnis. Ich konnte nicht den Code beurteilen, aber ich konnte sofort sagen: „Der Abstand ist zu groß“, „das Grün sticht zu sehr raus“, „auf dem Handy bricht das um“. Ich habe nicht programmiert. Ich habe Design-Entscheidungen getroffen und sie so präzise wie möglich beschrieben. Mir wurde wirklich Arbeit abgenommen, weil ich mich auf das fokussieren konnte, was mir am Herzen liegt: das Gefühl, das die Website rüberbringt.</p>
+    <h2 data-de="Was ich dabei gelernt habe" data-en="What I learned along the way" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Was ich dabei gelernt habe</h2>
+    <p data-de="Ein paar Dinge nehme ich aus dem Prozess mit, die weit über diese eine Website hinausgehen:" data-en="A few things I'm taking away from this process that go well beyond this one website:" style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Ein paar Dinge nehme ich aus dem Prozess mit, die weit über diese eine Website hinausgehen:</p>
+    <ul style="padding-left:22px;font-size:17px;margin:0 0 24px">
+      <li data-de="<strong>Klarheit schlägt Code.</strong> Je genauer ich beschreiben konnte, was ich wollte, desto besser das Ergebnis." data-en="<strong>Clarity beats code.</strong> The more precisely I could describe what I wanted, the better the result." style="margin-top:10px;color:#6E6E73;line-height:1.65"><strong>Klarheit schlägt Code.</strong> Je genauer ich beschreiben konnte, was ich wollte, desto besser das Ergebnis.</li>
+      <li data-de="<strong>Mein Auge war das Werkzeug.</strong> Das Gespür für Hierarchie, Abstände und Konsistenz aus der Mediengestaltung war wichtiger als technisches Wissen." data-en="<strong>My eye was the tool.</strong> The sense for hierarchy, spacing and consistency from media design mattered more than technical knowledge." style="margin-top:10px;color:#6E6E73;line-height:1.65"><strong>Mein Auge war das Werkzeug.</strong> Das Gespür für Hierarchie, Abstände und Konsistenz aus der Mediengestaltung war wichtiger als technisches Wissen.</li>
+      <li data-de="<strong>Iterieren ist alles.</strong> Es war nie beim ersten Versuch richtig. Genau wie Design eben ist." data-en="<strong>Iterating is everything.</strong> It was never right on the first try. Exactly how design works." style="margin-top:10px;color:#6E6E73;line-height:1.65"><strong>Iterieren ist alles.</strong> Es war nie beim ersten Versuch richtig. Genau wie Design eben ist.</li>
+    </ul>
+    <h2 data-de="Würde ich es wieder so machen?" data-en="Would I do it this way again?" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Würde ich es wieder so machen?</h2>
+    <p data-de="Ja. Nicht, weil Vibe Coding klassisches Lernen ersetzt, das tut es nicht, und ich verstehe den Code, der dabei entsteht, noch lange nicht vollständig. Sondern weil es mir gezeigt hat, dass ich Ideen umsetzen kann, auch wenn mir ein Werkzeug fehlt. Ich musste nur lernen, mein Werkzeug anders einzusetzen." data-en="Yes. Not because vibe coding replaces classic learning, it doesn't, and I'm far from fully understanding the code it produces. But because it showed me I can realise ideas even when I'm missing a tool. I just had to learn to use my tool differently." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Ja. Nicht, weil Vibe Coding klassisches Lernen ersetzt, das tut es nicht, und ich verstehe den Code, der dabei entsteht, noch lange nicht vollständig. Sondern weil es mir gezeigt hat, dass ich Ideen umsetzen kann, auch wenn mir ein Werkzeug fehlt. Ich musste nur lernen, mein Werkzeug anders einzusetzen.</p>
+    <p data-de="Diese ganze Seite ist letztlich genau das: ein Experiment, das gehalten hat. Und wenn du bis hierhin gelesen hast, danke. Schön, dass du hier bist. :)" data-en="This whole site is ultimately exactly that: an experiment that held up. And if you've read this far, thank you. Glad you're here. :)" style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Diese ganze Seite ist letztlich genau das: ein Experiment, das gehalten hat. Und wenn du bis hierhin gelesen hast, danke. Schön, dass du hier bist. :)</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.08)">
+      <img src="../ich/bild2.jpg" alt="Lina Melissa Arndt" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #E1E1E4">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-size:14px;font-weight:600;color:#0A0A0A">Lina Melissa Arndt</span>
+        <span data-de="UX/UI Designerin" data-en="UX/UI Designer" style="font-size:13px;color:#8E8E93">UX/UI Designerin</span>
+      </div>
+    </div>
+
+  </article>
+
+  <section style="max-width:1080px;margin:80px auto 0;padding:0 clamp(20px,5vw,40px) clamp(72px,9vw,120px)">
+    <h2 data-de="Weitere Gedanken" data-en="More thoughts" style="font-size:24px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:24px">Weitere Gedanken</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
+    <a href="blog-artikel-02.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+      <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
+        <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
+<rect x="164" y="46" width="72" height="20" rx="6" fill="#0A0A0A"></rect>
+<path d="M200 66 V90 M120 110 H280 M120 110 V90 M280 110 V90 M120 110 V132 M200 110 V132 M280 110 V132" stroke="#C7C7CB" stroke-width="2" fill="none"></path>
+<rect x="82" y="132" width="76" height="18" rx="5" fill="#2E9E63"></rect>
+<rect x="162" y="132" width="76" height="18" rx="5" fill="#E1E1E4"></rect>
+<rect x="242" y="132" width="76" height="18" rx="5" fill="#E1E1E4"></rect>
+<path d="M100 150 V172 M118 150 V172 M100 172 H118" stroke="#C7C7CB" stroke-width="2" fill="none"></path>
+<rect x="82" y="172" width="42" height="14" rx="4" fill="#EDEDEF"></rect>
+<rect x="130" y="172" width="42" height="14" rx="4" fill="#EDEDEF"></rect>
+<rect x="196" y="200" width="118" height="66" rx="10" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="212" y="216" width="86" height="8" rx="4" fill="#2E9E63"></rect>
+<rect x="212" y="234" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="212" y="250" width="70" height="8" rx="4" fill="#C7C7CB"></rect>
+<path d="M162 186 Q180 195 196 216" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
+            </svg>
+        <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">UX Design</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
+        <span style="font-size:11.5px;font-weight:500;color:#8E8E93" data-de="Juni 2026" data-en="June 2026&quot;>Juni 2026</span>
+        <h3 style=&quot;font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping&quot;>Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3>
+        <p style=&quot;font-size:13.5px;color:#6E6E73;line-height:1.55" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen." data-en="How to build a structure people don't get lost in.&quot;>Wie man eine Struktur baut, in der sich Menschen nicht verlaufen.</p>
+      </div>
+    </a>
+    <a href=&quot;blog-artikel-03.html&quot; class=&quot;blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+      <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
+        <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
+<rect x="110" y="60" width="180" height="180" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="126" y="76" width="148" height="26" rx="7" fill="#0A0A0A"></rect>
+<rect x="126" y="114" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
+<circle cx="132" cy="140" r="6" fill="none" stroke="#2E9E63" stroke-width="2"></circle>
+<path d="M129 140 l2 3 5-6" stroke="#2E9E63" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+<rect x="146" y="136" width="100" height="8" rx="4" fill="#C7C7CB"></rect>
+<circle cx="132" cy="164" r="6" fill="none" stroke="#C7C7CB" stroke-width="2"></circle>
+<rect x="146" y="160" width="80" height="8" rx="4" fill="#EDEDEF"></rect>
+<rect x="126" y="188" width="148" height="30" rx="9" fill="#0A0A0A"></rect>
+<path d="M126 60 L294 240 M294 60 L126 240" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round"></path>
+            </svg>
+        <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">Haltung</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
+        <span style="font-size:11.5px;font-weight:500;color:#8E8E93" data-de="Juni 2026" data-en="June 2026&quot;>Juni 2026</span>
+        <h3 style=&quot;font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A" data-de="Dark Patterns und warum ich sie ablehne" data-en="Dark patterns and why I reject them&quot;>Dark Patterns und warum ich sie ablehne</h3>
+        <p style=&quot;font-size:13.5px;color:#6E6E73;line-height:1.55" data-de="Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made. They're deliberately built against you.&quot;>Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut.</p>
+      </div>
+    </a>
+    <a href=&quot;blog-artikel-04.html&quot; class=&quot;blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+      <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
+        <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
+<circle cx="112" cy="90" r="8" fill="#2E9E63"></circle>
+<rect x="132" y="78" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="148" y="86" width="100" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="150" y="120" width="150" height="24" rx="12" fill="#EDEDEF"></rect>
+<rect x="166" y="128" width="90" height="8" rx="4" fill="#8E8E93"></rect>
+<circle cx="112" cy="174" r="8" fill="#2E9E63"></circle>
+<rect x="132" y="162" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="148" y="170" width="70" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="150" y="204" width="150" height="24" rx="12" fill="#2E9E63"></rect>
+<rect x="166" y="212" width="90" height="8" rx="4" fill="#fff" opacity="0.85"></rect>
+<path d="M300 132 Q320 110 300 88" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
+            </svg>
+        <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">KI &amp; Tools</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
+        <span style="font-size:11.5px;font-weight:500;color:#8E8E93" data-de="Juni 2026" data-en="June 2026&quot;>Juni 2026</span>
+        <h3 style=&quot;font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill&quot;>Prompten als neue Designfähigkeit</h3>
+        <p style=&quot;font-size:13.5px;color:#6E6E73;line-height:1.55" data-de="Warum gutes Prompten nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is close to what I do as a designer anyway.&quot;>Warum gutes Prompten nah an dem ist, was ich als Designerin sowieso tue.</p>
+      </div>
+    </a>
+    </div>
+  </section>
+
+  <footer style=&quot;background:#0A0A0A;padding:clamp(48px,6vw,68px) clamp(20px,5vw,40px) 28px&quot;>
+    <div style=&quot;max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap&quot;>
+      <div style=&quot;display:flex;flex-direction:column;gap:7px&quot;>
+        <span style=&quot;font-size:18px;color:#fff;font-weight:600;letter-spacing:-0.025em&quot;>Lina Melissa Arndt</span>
+        <span style=&quot;font-size:13.5px;color:#8E8E93&quot;>UX/UI Design · Schwarzenbek</span>
+        <a href=&quot;mailto:Lina-Melissa@web.de" style="font-size:13.5px;color:#8E8E93;margin-top:4px;transition:color .18s ease" style-hover="color:#fff">Lina-Melissa@web.de</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" aria-label="Behance" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"></path><path d="M3 12h5"></path><path d="M15 7h4"></path></svg>
+        </a>
+        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" aria-label="Dribbble" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path></svg>
+        </a>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:clamp(36px,4.5vw,52px) auto 0;padding-top:22px;border-top:0.5px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap">
+      <span style="font-size:12.5px;color:#6E6E73">© Lina Melissa Arndt</span>
+      <a href="../impressum.html" data-de="Impressum &amp; Datenschutz" data-en="Legal Notice &amp; Privacy" style="font-size:12.5px;color:#8E8E93;transition:color .18s ease" style-hover="color:#fff">Impressum &amp; Datenschutz</a>
     </div>
   </footer>
 
-</article>
+</div>
 
-<section class="ba-more">
-  <h2 class="ba-more-heading" data-de="Weitere Gedanken" data-en="More thoughts">Weitere Gedanken</h2>
-  <div class="ba-more-grid">
-    <a class="blog-card" href="/Blog/blog-artikel-02.html"><div class="blog-thumb blog-thumb-2"><img class="blog-thumb-img" src="/Blog/blog-bild-02.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="UX Design" data-en="UX Design">UX Design</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3><p class="blog-text" data-de="Wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und sie zum Leben erweckt." data-en="How to build a structure people don't get lost in, and bring it to life.">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und sie zum Leben erweckt.</p></div></a>
-    <a class="blog-card" href="/Blog/blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="/Blog/blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made — they're deliberately built against you.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut.</p></div></a>
-    <a class="blog-card" href="/Blog/blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><img class="blog-thumb-img" src="/Blog/blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="KI &amp; Tools" data-en="AI &amp; Tools">KI &amp; Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div class="site-footer-brand">
-      <span class="site-footer-name-text">Lina Melissa</span>
-      <span class="site-footer-sub" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span>
-      <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
-    </div>
-    <div class="site-footer-socials">
-      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
-      <a href="https://www.behance.net/linamelissa" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
-      <a href="https://dribbble.com/linamelissade" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
-      <a href="https://www.instagram.com/linamelissa.de/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
-    </div>
-  </div>
-  <div class="site-footer-bottom">
-    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
-    <a href="/impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
-  </div>
-</footer>
-
-<script src="/script.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>
