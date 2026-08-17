@@ -19,18 +19,38 @@ document.querySelectorAll('video').forEach(function (v) {
 (function () {
   var current = 'de';
 
+  function getRoot() {
+    var xdc = document.querySelector('x-dc');
+    if (xdc && xdc.shadowRoot) return xdc.shadowRoot;
+    return document;
+  }
+
   function apply(lang) {
-    document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
+    var root = getRoot();
+    var found = root.querySelectorAll('[data-' + lang + ']');
+    found.forEach(function (el) {
       el.innerHTML = el.getAttribute('data-' + lang);
     });
+    return found.length;
+  }
+
+  function handleToggle(btn) {
+    current = current === 'de' ? 'en' : 'de';
+    var count = apply(current);
+    btn.textContent = current === 'de' ? 'EN' : 'DE';
+    document.documentElement.setAttribute('lang', current);
+    if (count === 0) {
+      current = current === 'de' ? 'en' : 'de';
+    }
   }
 
   document.addEventListener('click', function (e) {
-    var btn = e.target.closest ? e.target.closest('#lang-toggle') : null;
+    var path = e.composedPath ? e.composedPath() : [e.target];
+    var btn = null;
+    for (var i = 0; i < path.length; i++) {
+      if (path[i] && path[i].id === 'lang-toggle') { btn = path[i]; break; }
+    }
     if (!btn) return;
-    current = current === 'de' ? 'en' : 'de';
-    apply(current);
-    btn.textContent = current === 'de' ? 'EN' : 'DE';
-    document.documentElement.setAttribute('lang', current);
+    handleToggle(btn);
   });
 })();
