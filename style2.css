@@ -19,3 +19,7 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 @media (max-width:640px){.hero-title{white-space:normal}}
 .stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:640px){.stats-grid{grid-template-columns:1fr}}
+@keyframes panVertical{0%,8%{object-position:center top}46%,54%{object-position:center bottom}92%,100%{object-position:center top}}
+.pan-tile{animation:panVertical 13s ease-in-out infinite}
+@keyframes slideCycle{0%,28%{opacity:1}36%,100%{opacity:0}}
+.slide-img{animation:slideCycle 9s infinite}
