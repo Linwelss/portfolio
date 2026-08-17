@@ -16,6 +16,10 @@
 
 <div style="background:#fff;padding-top:92px">
 
+  <div aria-hidden="true" style="position:fixed;top:0;left:0;right:0;height:3px;z-index:210;background:rgba(0,0,0,0.06)">
+    <div id="scroll-progress" style="height:100%;width:100%;transform-origin:left;transform:scaleX(0);transition:transform .1s linear;background:linear-gradient(90deg,#2E9E63,#14562F)"></div>
+  </div>
+
   <nav aria-label="Hauptnavigation" style="position:fixed;left:50%;top:18px;transform:translateX(-50%) scale({{ navScale }});transition:transform .32s cubic-bezier(.22,1,.36,1),box-shadow .32s ease,background .32s ease;z-index:200;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,0.62);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);box-shadow:0 1px 0 rgba(255,255,255,0.8) inset,0 0 0 1px rgba(0,0,0,0.06),0 14px 40px -14px rgba(0,0,0,0.26);max-width:calc(100vw - 24px)">
     <div style="display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
       <ul style="display:flex;align-items:center;gap:2px">
@@ -79,7 +83,7 @@
         <dd data-de="Mediengestaltung, Druck,<br>Product Design" data-en="Media design, print,<br>product design" style="font-size:13px;color:#6E6E73;line-height:1.4;text-wrap:pretty">Mediengestaltung, Druck,<br>Product Design</dd>
       </div>
       <div style="background:#fff;padding:18px 18px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center">
-        <dt data-de="2 Case Studies" data-en="2 case studies" style="font-weight:700;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">2 Case Studies</dt>
+        <dt data-de="2 Cases" data-en="2 cases" style="font-weight:700;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">2 Cases</dt>
         <dd data-de="vom Interview<br>bis zum Prototyp" data-en="from interview<br>to prototype" style="font-size:13px;color:#6E6E73;line-height:1.4;text-wrap:pretty">vom Interview<br>bis zum Prototyp</dd>
       </div>
     </dl>
@@ -189,11 +193,11 @@
               </div>
             </div>
             <div style="display:flex;flex-wrap:nowrap;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">Research</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">User Flows</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">UI Design</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">Prototyping</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">Usability Testing</span>
+              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="transform:scale(1.06);background:rgba(255,255,255,0.18)">Research</span>
+              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="transform:scale(1.06);background:rgba(255,255,255,0.18)">User Flows</span>
+              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="transform:scale(1.06);background:rgba(255,255,255,0.18)">UI Design</span>
+              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="transform:scale(1.06);background:rgba(255,255,255,0.18)">Prototyping</span>
+              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="transform:scale(1.06);background:rgba(255,255,255,0.18)">Usability Testing</span>
             </div>
             <a href="samespot.html" style="display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:8px;padding:13px 24px;border-radius:999px;background:#FF5B3A;color:#fff;font-size:15px;font-weight:550;box-shadow:0 6px 20px rgba(255,91,58,0.32);transition:transform .2s cubic-bezier(.22,1,.36,1)" style-active="transform:scale(.96)" style-hover="color:#fff;filter:brightness(1.06)">Case Study öffnen<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></a>
           </div>
@@ -251,32 +255,32 @@
       <p style="text-align:center;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:#6E6E73;margin:0 auto 56px;max-width:620px;letter-spacing:-0.012em;text-wrap:pretty">Sechs Prinzipien, die meine Arbeit prägen.</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,22px)">
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
+        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Verbinden</p>
           <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Verständnis schaffen</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich bringe unterschiedliche Perspektiven zusammen, damit aus guten Ideen großartige Produkte werden.</p>
         </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
+        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Verstehen</p>
           <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Den Kern erkennen</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich suche nicht nach schnellen Lösungen, sondern nach dem eigentlichen Problem, das es zu lösen gilt.</p>
         </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
+        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Gestalten</p>
           <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Design mit Charakter</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich entwickle Produkte, die nicht nur funktionieren, sondern Vertrauen schaffen und gerne genutzt werden.</p>
         </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
+        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Skalieren</p>
           <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">In Systemen denken</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich denke Design über einzelne Screens hinaus – als Grundlage für konsistente Produkte und effiziente Teams.</p>
         </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
+        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Hinterfragen</p>
           <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Neues möglich machen</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich hinterfrage Gewohntes und suche nach besseren Wegen – auch wenn sie zunächst unbequemer erscheinen.</p>
         </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
+        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Bewirken</p>
           <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Erfolg sichtbar machen</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Für mich ist Design dann erfolgreich, wenn Menschen ein Produkt lieben und Business-Ziele messbar unterstützt werden.</p>
@@ -298,48 +302,48 @@
       <h2 style="text-align:center;font-size:clamp(26px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:56px">Von der Frage zum Interface.</h2>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
+        <div style="background:#F5F5F7;border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m20 20-4.35-4.35"></path></svg></span>
           <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Verstehen</h3>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Nutzerinterviews</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Umfragen</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Wettbewerbsanalyse</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Persona Mapping</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Usability Testing</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Nutzerinterviews</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Umfragen</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Wettbewerbsanalyse</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Persona Mapping</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Usability Testing</span>
           </div>
         </div>
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
+        <div style="background:#F5F5F7;border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1.6"></rect><rect x="14" y="4" width="7" height="7" rx="1.6"></rect><rect x="8.5" y="14" width="7" height="7" rx="1.6"></rect><path d="M6.5 11v3M17.5 11v3M6.5 14h11"></path></svg></span>
           <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Strukturieren</h3>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Card Sorting</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">User Journeys</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Informationsarchitektur</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Storyboarding</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Card Sorting</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">User Journeys</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Informationsarchitektur</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Storyboarding</span>
           </div>
         </div>
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
+        <div style="background:#F5F5F7;border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 3 7 7-9.5 9.5H4v-7.5z"></path><path d="m14 3-2.5 2.5"></path></svg></span>
           <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Gestalten</h3>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Wireframing</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">UI Design</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Design Systems</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Components</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Style Guides</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Branding</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Wireframing</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">UI Design</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Design Systems</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Components</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Style Guides</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Branding</span>
           </div>
         </div>
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
+        <div style="background:#F5F5F7;border-radius:26px;padding:30px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="7"></rect></svg></span>
           <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Umsetzen</h3>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Prototyping</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Interaction Design</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Responsive Design</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Reinzeichnung</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Druckproduktion</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Prototyping</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Interaction Design</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Responsive Design</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Reinzeichnung</span>
+            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-hover="transform:scale(1.06)">Druckproduktion</span>
           </div>
         </div>
       </div>
@@ -396,9 +400,9 @@
       <p style="text-align:center;font-size:17px;color:#6E6E73;line-height:1.6;max-width:620px;margin:0 auto 52px;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und die Fragen, die mich nicht loslassen.</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
-        <a href="Blog/blog-artikel-01.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+        <a href="Blog/blog-artikel-01.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
           <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <svg class="blog-cover" viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
               <rect x="40" y="70" width="140" height="150" rx="10" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
               <rect x="58" y="92" width="104" height="8" rx="4" fill="#C7C7CB"></rect>
@@ -424,9 +428,9 @@
             <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Vier Tage Figma-Design. Und dann spontan über Bord geworfen.</p>
           </div>
         </a>
-        <a href="Blog/blog-artikel-02.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+        <a href="Blog/blog-artikel-02.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
           <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <svg class="blog-cover" viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
               <rect x="164" y="46" width="72" height="20" rx="6" fill="#0A0A0A"></rect>
               <path d="M200 66 V90 M120 110 H280 M120 110 V90 M280 110 V90 M120 110 V132 M200 110 V132 M280 110 V132" stroke="#C7C7CB" stroke-width="2" fill="none"></path>
@@ -450,9 +454,9 @@
             <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen.</p>
           </div>
         </a>
-        <a href="Blog/blog-artikel-03.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+        <a href="Blog/blog-artikel-03.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
           <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <svg class="blog-cover" viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
               <rect x="110" y="60" width="180" height="180" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
               <rect x="126" y="76" width="148" height="26" rx="7" fill="#0A0A0A"></rect>
@@ -473,9 +477,9 @@
             <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut.</p>
           </div>
         </a>
-        <a href="Blog/blog-artikel-04.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+        <a href="Blog/blog-artikel-04.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
           <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <svg class="blog-cover" viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
               <circle cx="112" cy="90" r="8" fill="#2E9E63"></circle>
               <rect x="132" y="78" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
@@ -548,10 +552,6 @@
         <img class="pan-tile" src="zwischendurch/zd-tara.jpg" alt="App-Design für Tara" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Projekt</span>
       </div>
-      <figure style="break-inside:avoid;margin:0 0 20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;border-radius:24px;padding:28px 24px;background:#0A0A0A;height:260px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:14px" style-hover="transform:translateY(-6px)">
-        <span aria-hidden="true" style="font-size:36px;line-height:.6;color:#2E9E63;font-weight:700;font-family:Georgia,serif">&ldquo;</span>
-        <blockquote style="margin:0;font-size:18px;line-height:1.4;letter-spacing:-0.02em;color:#fff">The things we do, do things for us.</blockquote>
-      </figure>
       <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:320px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <img src="zwischendurch/zd-freunde.jpg" alt="Mit Freund:innen unterwegs" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Persönlich</span>
@@ -679,7 +679,7 @@
           <span style="display:block;font-size:11.5px;color:#6E6E73;margin-top:6px">Lina · Mai 2026</span>
         </button>
       </sc-if>
-      <button type="button" onClick="{{ openChat }}" aria-label="Nachrichten von Lina öffnen" style="position:relative;width:62px;height:62px;border-radius:50%;border:none;padding:3px;overflow:visible;cursor:pointer;background:linear-gradient(135deg,#248453 0%,#14562F 100%);box-shadow:0 10px 28px rgba(0,0,0,0.22)" style-hover="box-shadow:0 14px 34px rgba(0,0,0,0.3)">
+      <button type="button" onClick="{{ openChat }}" aria-label="Nachrichten von Lina öffnen" class="float-slow" style="position:relative;width:62px;height:62px;border-radius:50%;border:none;padding:3px;overflow:visible;cursor:pointer;background:linear-gradient(135deg,#248453 0%,#14562F 100%);box-shadow:0 10px 28px rgba(0,0,0,0.22)" style-hover="box-shadow:0 14px 34px rgba(0,0,0,0.3)">
         <img src="ich/bild1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%">
         <sc-if value="{{ badge }}" hint-placeholder-val="{{ false }}">
           <span aria-hidden="true" style="position:absolute;top:-1px;right:-1px;width:16px;height:16px;border-radius:50%;background:#FF3B30;border:2.5px solid #fff;animation:pulseDot 2.2s ease-in-out infinite"></span>
@@ -801,9 +801,15 @@ class Component extends DCLogic {
 
     const ids = ['projekte','antrieb','expertise','ueber-mich','blog','zwischendurch','kontakt'];
     const px = Array.from(document.querySelectorAll('[data-px]')).map(el => ({ el, base: el.style.transform || '' }));
+    const progressBar = document.getElementById('scroll-progress');
     this._scroll = () => {
       const y = window.scrollY || 0;
       const scrolled = y > 40;
+      if (progressBar) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+        progressBar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
+      }
       let active = '';
       for (const id of ids) {
         const el = document.getElementById(id);
