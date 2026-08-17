@@ -32,3 +32,5 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 .blog-cover{transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .blog-card:hover .blog-cover{transform:scale(1.07)}
 .tag-pill{transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.is-visible{opacity:1;transform:none}
