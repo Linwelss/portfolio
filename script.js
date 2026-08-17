@@ -17,8 +17,6 @@ document.querySelectorAll('video').forEach(function (v) {
 });
 
 (function () {
-  var btn = document.getElementById('lang-toggle');
-  if (!btn) return;
   var current = 'de';
 
   function apply(lang) {
@@ -27,7 +25,9 @@ document.querySelectorAll('video').forEach(function (v) {
     });
   }
 
-  btn.addEventListener('click', function () {
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('#lang-toggle') : null;
+    if (!btn) return;
     current = current === 'de' ? 'en' : 'de';
     apply(current);
     btn.textContent = current === 'de' ? 'EN' : 'DE';
