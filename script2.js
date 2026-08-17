@@ -7,6 +7,15 @@ window.addEventListener('load', function () {
   }
 });
 
+document.querySelectorAll('video').forEach(function (v) {
+  v.loop = true;
+  v.muted = true;
+  v.addEventListener('ended', function () { v.currentTime = 0; v.play().catch(function () {}); });
+  var tryPlay = function () { v.play().catch(function () {}); };
+  tryPlay();
+  document.addEventListener('click', tryPlay, { once: true });
+});
+
 (function () {
   var btn = document.getElementById('lang-toggle');
   if (!btn) return;
