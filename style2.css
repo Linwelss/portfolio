@@ -24,3 +24,11 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 @keyframes slideTrack{0%,28%{transform:translateX(0%)}33%,61%{transform:translateX(-33.3333%)}66%,94%{transform:translateX(-66.6666%)}100%{transform:translateX(0%)}}
 .slide-track{position:absolute;inset:0;display:flex;width:300%;height:100%;animation:slideTrack 9s cubic-bezier(.65,0,.35,1) infinite}
 .slide-track img{width:33.3333%;height:100%;object-fit:cover;flex-shrink:0}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float-slow{animation:floatY 5s ease-in-out infinite}
+.float-slow-delay{animation:floatY 5s ease-in-out infinite;animation-delay:-1.6s}
+.float-slow-delay2{animation:floatY 5s ease-in-out infinite;animation-delay:-3.2s}
+.blog-card{overflow:hidden}
+.blog-cover{transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.blog-card:hover .blog-cover{transform:scale(1.07)}
+.tag-pill{transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease}
