@@ -1,4 +1,5 @@
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
 body{background:#fff;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;color:#0A0A0A;-webkit-font-smoothing:antialiased;letter-spacing:-0.011em}
 a{color:#1F7A45;text-decoration:none}
 a:hover{color:#0A0A0A}
