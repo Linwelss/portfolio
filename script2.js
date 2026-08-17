@@ -1,9 +1,9 @@
-(function(){
+(function () {
   var words = ["Interfaces", "Nutzererlebnisse", "digitale Produkte", "Case Studies"];
   var i = 0;
   var el = document.getElementById('rotating-word');
   if (!el) return;
-  setInterval(function(){
+  setInterval(function () {
     i = (i + 1) % words.length;
     el.style.animation = 'none';
     void el.offsetWidth;
