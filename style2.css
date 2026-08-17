@@ -12,4 +12,5 @@ ul{list-style:none}
 @keyframes islandIn{0%{transform:scaleX(.28) scaleY(.7);opacity:0;filter:blur(6px)}60%{transform:scaleX(1.03) scaleY(1);opacity:1;filter:blur(0)}100%{transform:scale(1);opacity:1}}
 @keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-4px);opacity:1}}
 @keyframes rotateWordIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmerSweep{0%{background-position:200% 0}100%{background-position:-200% 0}}
 sc-if[hint-placeholder-val="{{ false }}"]{display:none}
