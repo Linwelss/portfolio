@@ -1,124 +1,197 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navigationsarchitektur und Prototyping — Lina Melissa</title>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping · Lina Melissa Arndt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/Blog/blog-artikel.css">
-<style>body{ cursor:auto; } a, button{ cursor:pointer; }</style>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<nav class="blog-nav">
-  <div class="blog-nav-inner">
-    <a href="/#blog" class="blog-nav-back">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-      <span data-de="Zum Blog" data-en="Back to Blog">Zum Blog</span>
-    </a>
-    <a href="/" class="blog-nav-logo">Lina Melissa</a>
-    <div class="blog-nav-right">
-      <a href="/#kontakt" class="blog-nav-contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
-      <button type="button" class="nav-lang" onclick="toggleLang()" id="lang-btn" aria-label="Sprache wechseln zu Englisch">EN</button>
+<div style="background:#fff;padding-top:92px">
+
+  <nav aria-label="Hauptnavigation" style="position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:200;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,0.62);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);box-shadow:0 1px 0 rgba(255,255,255,0.8) inset,0 0 0 1px rgba(0,0,0,0.06),0 14px 40px -14px rgba(0,0,0,0.26);max-width:calc(100vw - 24px)">
+    <div style="display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+      <ul style="display:flex;align-items:center;gap:2px">
+        <li style="position:relative">
+          <a href="../index.html" aria-label="Start · Lina Melissa Arndt" style="display:flex;align-items:center;gap:9px;height:46px;padding:0 14px 0 11px;border-radius:16px;color:#0A0A0A;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-active="transform:scale(.94)" style-hover="background:#F0F0F2;color:#0A0A0A">
+            <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:-0.02em;flex-shrink:0">LA</span>
+            <span style="font-size:14.5px;font-weight:600;letter-spacing:-0.025em;white-space:nowrap">Lina Melissa Arndt</span>
+          </a>
+        </li>
+        <li aria-hidden="true" style="width:1px;height:22px;background:rgba(0,0,0,0.09);margin:0 5px"></li>
+        <li style="position:relative">
+          <a href="../index.html#blog" data-de="Zum Blog" data-en="Back to blog" style="display:flex;align-items:center;gap:8px;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;color:#6E6E73;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+            <span>Zum Blog</span>
+          </a>
+        </li>
+        <li style="position:relative">
+          <a href="../index.html#kontakt" data-de="Kontakt" data-en="Contact" style="display:flex;align-items:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;color:#6E6E73;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Kontakt</a>
+        </li>
+        <li aria-hidden="true" style="width:1px;height:22px;background:rgba(0,0,0,0.09);margin:0 5px"></li>
+        <li style="position:relative">
+          <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;cursor:pointer;font-family:inherit;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">EN</button>
+        </li>
+      </ul>
     </div>
-  </div>
-</nav>
-<div class="blog-nav-spacer" aria-hidden="true"></div>
+  </nav>
 
-<article class="blog-article">
+  <article style="max-width:720px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(20px,5vw,40px) 0">
 
-  <header class="ba-header">
-    <div class="ba-meta">
-      <span class="ba-category" data-de="UX Design" data-en="UX Design">UX Design</span>
-      <span class="ba-dot">·</span>
-      <time data-de="Juni 2026" data-en="June 2026">Juni 2026</time>
-      <span class="ba-dot">·</span>
-      <span data-de="7 Min. Lesezeit" data-en="7 min read">7 Min. Lesezeit</span>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:#8E8E93;letter-spacing:.04em;margin-bottom:22px">
+      <span data-de="UX Design" data-en="UX Design" style="color:#1F7A45;font-weight:600">UX Design</span>
+      <span aria-hidden="true" style="opacity:.5">·</span>
+      <time data-de="Juni 2026" data-en="June 2026&quot;>Juni 2026</time>
+      <span aria-hidden=&quot;true" style="opacity:.5">·</span>
+      <span data-de="7 Min. Lesezeit" data-en="7 min read&quot;>7 Min. Lesezeit</span>
     </div>
-    <h1 class="ba-title" data-de="Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h1>
-    <p class="ba-lead" data-de="Zwei Dinge faszinieren mich an UX besonders: wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und wie man diese Struktur zum Leben erweckt, bevor eine einzige Zeile Code geschrieben oder eine No-Code-Plattform genutzt wurde. Über beide möchte ich hier schreiben, weil sie für mich untrennbar zusammengehören." data-en="Two things fascinate me about UX in particular: how to build a structure people don't get lost in, and how to bring that structure to life before a single line of code is written or a no-code platform is used. I want to write about both here, because to me they're inseparable.">Zwei Dinge faszinieren mich an UX besonders: wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und wie man diese Struktur zum Leben erweckt, bevor eine einzige Zeile Code geschrieben oder eine No-Code-Plattform genutzt wurde. Über beide möchte ich hier schreiben, weil sie für mich untrennbar zusammengehören.</p>
-  </header>
 
-  <div class="ba-body">
+    <h1 data-de=&quot;Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping" data-en="First the plan, then the feeling: navigation architecture and prototyping" style="font-size:clamp(30px,4.6vw,46px);line-height:1.12;letter-spacing:-0.03em;font-weight:700;color:#0A0A0A;margin-bottom:22px">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h1>
 
-    <p data-de="Wenn ich an einem Produkt arbeite, fange ich nie mit dem an, was schön aussieht. Ich fange mit der Frage an: Wo will der Mensch eigentlich hin, und findet er den Weg dorthin, ohne nachzudenken? Manche kommen mit einem klaren Ziel, andere wollen sich erstmal umschauen und dann geführt werden. Genau das ist Navigationsarchitektur. Sie ist das unsichtbare Gerüst, auf dem alles andere steht, das, was kein Laie bewusst wahrnimmt." data-en="When I work on a product, I never start with what looks pretty. I start with the question: where does the person actually want to go, and can they find the way there without thinking? Some come with a clear goal, others want to browse first and then be guided. That's exactly what navigation architecture is. It's the invisible framework everything else stands on, the thing no layperson consciously notices.">Wenn ich an einem Produkt arbeite, fange ich nie mit dem an, was schön aussieht. Ich fange mit der Frage an: Wo will der Mensch eigentlich hin, und findet er den Weg dorthin, ohne nachzudenken? Manche kommen mit einem klaren Ziel, andere wollen sich erstmal umschauen und dann geführt werden. Genau das ist Navigationsarchitektur. Sie ist das unsichtbare Gerüst, auf dem alles andere steht, das, was kein Laie bewusst wahrnimmt.</p>
+    <p data-de="Zwei Dinge faszinieren mich an UX besonders: wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und wie man diese Struktur zum Leben erweckt, bevor eine einzige Zeile Code geschrieben wurde. Über beide möchte ich hier schreiben." data-en="Two things fascinate me about UX in particular: how to build a structure people don't get lost in, and how to bring that structure to life before a single line of code is written. I want to write about both here." style="font-size:19px;line-height:1.6;color:#6E6E73;margin-bottom:48px">Zwei Dinge faszinieren mich an UX besonders: wie man eine Struktur baut, in der sich Menschen nicht verlaufen, und wie man diese Struktur zum Leben erweckt, bevor eine einzige Zeile Code geschrieben wurde. Über beide möchte ich hier schreiben.</p>
 
-    <h2 data-de="Warum Struktur vor Schönheit kommt" data-en="Why structure comes before beauty">Warum Struktur vor Schönheit kommt</h2>
-
-    <p data-de="Eine wunderschöne Oberfläche rettet keine schlechte Struktur. Wenn jemand nicht versteht, wo er ist, wie er hierher kam und wie er weiterkommt, hilft kein noch so gutes Visual Design. Deshalb beginne ich mit der Informationsarchitektur: Welche Inhalte gibt es, wie gehören sie zusammen, und in welcher Hierarchie?" data-en="A beautiful interface doesn't save a bad structure. If someone doesn't understand where they are, how they got here and how to move on, no amount of good visual design helps. That's why I start with information architecture: what content exists, how does it belong together, and in what hierarchy?">Eine wunderschöne Oberfläche rettet keine schlechte Struktur. Wenn jemand nicht versteht, wo er ist, wie er hierher kam und wie er weiterkommt, hilft kein noch so gutes Visual Design. Deshalb beginne ich mit der Informationsarchitektur: Welche Inhalte gibt es, wie gehören sie zusammen, und in welcher Hierarchie?</p>
-
-    <p data-de="Ein Werkzeug, das ich dafür liebe, ist Card Sorting. Man gibt Menschen die einzelnen Inhalte in die Hand und lässt sie selbst gruppieren. Oft sortieren sie ganz anders, als ich es als Designerin getan hätte, und genau das ist Gold wert. Denn die Struktur soll ja für sie funktionieren, nicht für mich." data-en="A tool I love for this is card sorting. You hand people the individual pieces of content and let them group them themselves. They often sort quite differently than I would have as a designer, and that's worth gold. Because the structure is meant to work for them, not for me.">Ein Werkzeug, das ich dafür liebe, ist Card Sorting. Man gibt Menschen die einzelnen Inhalte in die Hand und lässt sie selbst gruppieren. Oft sortieren sie ganz anders, als ich es als Designerin getan hätte, und genau das ist Gold wert. Denn die Struktur soll ja für sie funktionieren, nicht für mich.</p>
-
-    <blockquote data-de="Gute Navigation merkt man nicht. Man merkt nur, wenn sie fehlt." data-en="Good navigation goes unnoticed. You only notice it when it's missing.">Gute Navigation merkt man nicht. Man merkt nur, wenn sie fehlt.</blockquote>
-
-    <p data-de="Aus dieser Struktur entstehen dann User Flows, die konkreten Wege, die jemand durch das Produkt nimmt. „Ich will von hier nach dort, welche Schritte liegen dazwischen?" Je weniger Schritte, je klarer jeder einzelne, desto besser. Hier entscheidet sich, ob ein Produkt sich leicht oder anstrengend anfühlt. Wenn Letzteres eintritt, kannst du dich schonmal vom Nutzer verabschieden." data-en="From this structure, user flows emerge: the concrete paths someone takes through the product. &quot;I want to get from here to there, what steps lie between?&quot; The fewer steps, the clearer each one, the better. This is where it's decided whether a product feels effortless or exhausting. If it's the latter, you can say goodbye to your user.">Aus dieser Struktur entstehen dann User Flows, die konkreten Wege, die jemand durch das Produkt nimmt. „Ich will von hier nach dort, welche Schritte liegen dazwischen?" Je weniger Schritte, je klarer jeder einzelne, desto besser. Hier entscheidet sich, ob ein Produkt sich leicht oder anstrengend anfühlt. Wenn Letzteres eintritt, kannst du dich schonmal vom Nutzer verabschieden.</p>
-
-    <h2 data-de="Und dann: das Gefühl testen" data-en="And then: testing the feeling">Und dann: das Gefühl testen</h2>
-
-    <p data-de="Eine Struktur auf Papier kann perfekt aussehen und sich trotzdem falsch anfühlen, sobald man sie benutzt. Genau dafür ist Prototyping da. Für mich ist ein Prototyp kein hübsches Endprodukt, sondern ein Werkzeug zum Fragenstellen: Funktioniert dieser Weg? Verstehen Menschen diesen Button? Wo zögern sie? Finden sie ihr Ziel direkt? Wo suchen sie nach Informationen?" data-en="A structure on paper can look perfect and still feel wrong the moment you use it. That's exactly what prototyping is for. To me, a prototype isn't a pretty end product, it's a tool for asking questions: does this path work? Do people understand this button? Where do they hesitate? Do they find their goal straight away? Where do they look for information?">Eine Struktur auf Papier kann perfekt aussehen und sich trotzdem falsch anfühlen, sobald man sie benutzt. Genau dafür ist Prototyping da. Für mich ist ein Prototyp kein hübsches Endprodukt, sondern ein Werkzeug zum Fragenstellen: Funktioniert dieser Weg? Verstehen Menschen diesen Button? Wo zögern sie? Finden sie ihr Ziel direkt? Wo suchen sie nach Informationen?</p>
-
-    <p data-de="Ich arbeite mich dabei bewusst in Stufen vor:" data-en="I deliberately work my way up in stages:">Ich arbeite mich dabei bewusst in Stufen vor:</p>
-
-    <ol>
-      <li data-de="&lt;strong&gt;Lo-Fi zuerst.&lt;/strong&gt; Graue Kästen, keine Farben, keine Details. So testet man die Struktur, ohne dass sich jemand am Design aufhängt, und ohne dass ich mich in Pixel verliebe, die vielleicht wieder fliegen. Was ich im Bootcamp gelernt habe: Gar nicht erst damit anfangen, einen einzelnen Button einzufärben, denn dann ist der Schritt nicht weit, die größeren Flächen gleich mit einzufärben. So ist man als Designerin, oder wenn man den Lo-Fi an ein Design-Team gibt, bereits voreingenommen." data-en="&lt;strong&gt;Lo-fi first.&lt;/strong&gt; Grey boxes, no colours, no details. This lets you test the structure without anyone fixating on the design, and without me falling in love with pixels that might get cut. What I learned at the bootcamp: don't even start colouring in a single button, because then it's not a big step to start filling in the larger areas too. That way you're already biased as a designer, or when you hand the lo-fi to a design team."><strong>Lo-Fi zuerst.</strong> Graue Kästen, keine Farben, keine Details. So testet man die Struktur, ohne dass sich jemand am Design aufhängt, und ohne dass ich mich in Pixel verliebe, die vielleicht wieder fliegen. Was ich im Bootcamp gelernt habe: Gar nicht erst damit anfangen, einen einzelnen Button einzufärben, denn dann ist der Schritt nicht weit, die größeren Flächen gleich mit einzufärben. So ist man als Designerin, oder wenn man den Lo-Fi an ein Design-Team gibt, bereits voreingenommen.</li>
-      <li data-de="&lt;strong&gt;Dann Hi-Fi.&lt;/strong&gt; Erst wenn die Struktur sitzt, kommen Farbe, Typografie und echte Inhalte dazu. Jetzt teste ich nicht mehr den Weg, sondern das Gefühl. Hierbei achte ich stark darauf, dass die Brand-Palette bewusst in saubere Farbprozente eingeteilt wird, so behält sie ihre Markenidentität." data-en="&lt;strong&gt;Then hi-fi.&lt;/strong&gt; Only once the structure holds do colour, typography and real content come in. Now I'm no longer testing the path, but the feeling. I pay close attention to dividing the brand palette into clean colour percentages, so it keeps its brand identity."><strong>Dann Hi-Fi.</strong> Erst wenn die Struktur sitzt, kommen Farbe, Typografie und echte Inhalte dazu. Jetzt teste ich nicht mehr den Weg, sondern das Gefühl. Hierbei achte ich stark darauf, dass die Brand-Palette bewusst in saubere Farbprozente eingeteilt wird, so behält sie ihre Markenidentität.</li>
-      <li data-de="&lt;strong&gt;Testen, nicht raten.&lt;/strong&gt; Ich gebe den Prototyp echten Menschen und schaue zu, ohne zu helfen. Das Schweigen, wenn jemand einen Button nicht findet, sagt mehr als jede Meinung. Wissen die Menschen sofort, wo sie sich befinden? Was sie auf dem jeweiligen Screen tun sollen? Wenn das nicht sicher ist: nochmal eine Runde drehen." data-en="&lt;strong&gt;Test, don't guess.&lt;/strong&gt; I hand the prototype to real people and watch, without helping. The silence when someone can't find a button says more than any opinion. Do people immediately know where they are? What they're supposed to do on each screen? If that's not clear: go around again."><strong>Testen, nicht raten.</strong> Ich gebe den Prototyp echten Menschen und schaue zu, ohne zu helfen. Das Schweigen, wenn jemand einen Button nicht findet, sagt mehr als jede Meinung. Wissen die Menschen sofort, wo sie sich befinden? Was sie auf dem jeweiligen Screen tun sollen? Wenn das nicht sicher ist: nochmal eine Runde drehen.</li>
-    </ol>
-
-    <h2 data-de="Warum beides zusammengehört" data-en="Why the two belong together">Warum beides zusammengehört</h2>
-
-    <p data-de="Navigationsarchitektur ist der Plan, Prototyping ist die Probe. Das eine ohne das andere ist riskant: Eine Struktur, die nie getestet wurde, ist nur eine Vermutung. Und ein Prototyp ohne durchdachte Struktur ist eine schöne Hülle ohne Fundament. Erst zusammen ergeben sie ein Produkt, das sich richtig anfühlt." data-en="Navigation architecture is the plan, prototyping is the rehearsal. One without the other is risky: a structure that was never tested is just an assumption. And a prototype without a thought-through structure is a pretty shell with no foundation. Only together do they make a product that feels right.">Navigationsarchitektur ist der Plan, Prototyping ist die Probe. Das eine ohne das andere ist riskant: Eine Struktur, die nie getestet wurde, ist nur eine Vermutung. Und ein Prototyp ohne durchdachte Struktur ist eine schöne Hülle ohne Fundament. Erst zusammen ergeben sie ein Produkt, das sich richtig anfühlt.</p>
-
-    <p data-de="Und ehrlich gesagt: Es ist genau dieser Teil, das Gerüst bauen und es dann erwachen sehen, der mich an UX immer wieder begeistert und wirklich mein absolut liebster Part ist. :)" data-en="And honestly: it's exactly this part, building the framework and then watching it come alive, that excites me about UX again and again and is genuinely my absolute favourite part. :)">Und ehrlich gesagt: Es ist genau dieser Teil, das Gerüst bauen und es dann erwachen sehen, der mich an UX immer wieder begeistert und wirklich mein absolut liebster Part ist. :)</p>
-
-  </div>
-
-  <footer class="ba-author">
-    <img src="/ich/bild2.jpg" alt="Lina Melissa" class="ba-author-img">
     <div>
-      <span class="ba-author-name">Lina Melissa</span>
-      <span class="ba-author-role" data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span>
+    <p data-de="Wenn ich an einem Produkt arbeite, fange ich nie mit dem an, was schön aussieht. Ich fange mit der Frage an: Wo will der Mensch eigentlich hin, und findet er den Weg dorthin, ohne nachzudenken? Genau das ist Navigationsarchitektur. Sie ist das unsichtbare Gerüst, auf dem alles andere steht, das, was kein Laie bewusst wahrnimmt." data-en="When I work on a product, I never start with what looks pretty. I start with the question: where does the person actually want to go, and can they find the way there without thinking? That's exactly what navigation architecture is. It's the invisible framework everything else stands on, the thing no layperson consciously notices." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Wenn ich an einem Produkt arbeite, fange ich nie mit dem an, was schön aussieht. Ich fange mit der Frage an: Wo will der Mensch eigentlich hin, und findet er den Weg dorthin, ohne nachzudenken? Genau das ist Navigationsarchitektur. Sie ist das unsichtbare Gerüst, auf dem alles andere steht, das, was kein Laie bewusst wahrnimmt.</p>
+    <h2 data-de="Warum Struktur vor Schönheit kommt" data-en="Why structure comes before beauty" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Warum Struktur vor Schönheit kommt</h2>
+    <p data-de="Eine wunderschöne Oberfläche rettet keine schlechte Struktur. Wenn jemand nicht versteht, wo er ist, wie er hierher kam und wie er weiterkommt, hilft kein noch so gutes Visual Design. Deshalb beginne ich mit der Informationsarchitektur: Welche Inhalte gibt es, wie gehören sie zusammen, und in welcher Hierarchie?" data-en="A beautiful interface doesn't save a bad structure. If someone doesn't understand where they are, how they got here and how to move on, no amount of good visual design helps. That's why I start with information architecture: what content exists, how does it belong together, and in what hierarchy?" style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Eine wunderschöne Oberfläche rettet keine schlechte Struktur. Wenn jemand nicht versteht, wo er ist, wie er hierher kam und wie er weiterkommt, hilft kein noch so gutes Visual Design. Deshalb beginne ich mit der Informationsarchitektur: Welche Inhalte gibt es, wie gehören sie zusammen, und in welcher Hierarchie?</p>
+    <p data-de="Ein Werkzeug, das ich dafür liebe, ist Card Sorting. Man gibt Menschen die einzelnen Inhalte in die Hand und lässt sie selbst gruppieren. Oft sortieren sie ganz anders, als ich es als Designerin getan hätte, und genau das ist Gold wert." data-en="A tool I love for this is card sorting. You hand people the individual pieces of content and let them group them themselves. They often sort quite differently than I would have as a designer, and that's worth gold." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Ein Werkzeug, das ich dafür liebe, ist Card Sorting. Man gibt Menschen die einzelnen Inhalte in die Hand und lässt sie selbst gruppieren. Oft sortieren sie ganz anders, als ich es als Designerin getan hätte, und genau das ist Gold wert.</p>
+    <blockquote data-de="Gute Navigation merkt man nicht. Man merkt nur, wenn sie fehlt." data-en="Good navigation goes unnoticed. You only notice it when it's missing." style="margin:36px 0;padding:22px 26px;border-left:3px solid #2E9E63;background:#F5F5F7;border-radius:0 16px 16px 0;font-size:19px;line-height:1.55;color:#14562F;font-style:italic">Gute Navigation merkt man nicht. Man merkt nur, wenn sie fehlt.</blockquote>
+    <p data-de="Aus dieser Struktur entstehen dann User Flows, die konkreten Wege, die jemand durch das Produkt nimmt. Je weniger Schritte, je klarer jeder einzelne, desto besser. Hier entscheidet sich, ob ein Produkt sich leicht oder anstrengend anfühlt." data-en="From this structure, user flows emerge: the concrete paths someone takes through the product. The fewer steps, the clearer each one, the better. This is where it's decided whether a product feels effortless or exhausting." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Aus dieser Struktur entstehen dann User Flows, die konkreten Wege, die jemand durch das Produkt nimmt. Je weniger Schritte, je klarer jeder einzelne, desto besser. Hier entscheidet sich, ob ein Produkt sich leicht oder anstrengend anfühlt.</p>
+    <h2 data-de="Und dann: das Gefühl testen" data-en="And then: testing the feeling" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Und dann: das Gefühl testen</h2>
+    <p data-de="Eine Struktur auf Papier kann perfekt aussehen und sich trotzdem falsch anfühlen, sobald man sie benutzt. Genau dafür ist Prototyping da. Für mich ist ein Prototyp kein hübsches Endprodukt, sondern ein Werkzeug zum Fragenstellen: Funktioniert dieser Weg? Verstehen Menschen diesen Button? Wo zögern sie?" data-en="A structure on paper can look perfect and still feel wrong the moment you use it. That's exactly what prototyping is for. To me, a prototype isn't a pretty end product, it's a tool for asking questions: does this path work? Do people understand this button? Where do they hesitate?" style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Eine Struktur auf Papier kann perfekt aussehen und sich trotzdem falsch anfühlen, sobald man sie benutzt. Genau dafür ist Prototyping da. Für mich ist ein Prototyp kein hübsches Endprodukt, sondern ein Werkzeug zum Fragenstellen: Funktioniert dieser Weg? Verstehen Menschen diesen Button? Wo zögern sie?</p>
+    <p data-de="Ich arbeite mich dabei bewusst in Stufen vor:" data-en="I deliberately work my way up in stages:" style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Ich arbeite mich dabei bewusst in Stufen vor:</p>
+    <ol style="padding-left:22px;font-size:17px;margin:0 0 24px">
+      <li data-de="<strong>Lo-Fi zuerst.</strong> Graue Kästen, keine Farben, keine Details. So testet man die Struktur, ohne dass sich jemand am Design aufhängt." data-en="<strong>Lo-fi first.</strong> Grey boxes, no colours, no details. This lets you test the structure without anyone fixating on the design." style="margin-top:10px;color:#6E6E73;line-height:1.65"><strong>Lo-Fi zuerst.</strong> Graue Kästen, keine Farben, keine Details. So testet man die Struktur, ohne dass sich jemand am Design aufhängt.</li>
+      <li data-de="<strong>Dann Hi-Fi.</strong> Erst wenn die Struktur sitzt, kommen Farbe, Typografie und echte Inhalte dazu. Jetzt teste ich nicht mehr den Weg, sondern das Gefühl." data-en="<strong>Then hi-fi.</strong> Only once the structure holds do colour, typography and real content come in. Now I'm no longer testing the path, but the feeling." style="margin-top:10px;color:#6E6E73;line-height:1.65"><strong>Dann Hi-Fi.</strong> Erst wenn die Struktur sitzt, kommen Farbe, Typografie und echte Inhalte dazu. Jetzt teste ich nicht mehr den Weg, sondern das Gefühl.</li>
+      <li data-de="<strong>Testen, nicht raten.</strong> Ich gebe den Prototyp echten Menschen und schaue zu, ohne zu helfen. Das Schweigen, wenn jemand einen Button nicht findet, sagt mehr als jede Meinung." data-en="<strong>Test, don't guess.</strong> I hand the prototype to real people and watch, without helping. The silence when someone can't find a button says more than any opinion." style="margin-top:10px;color:#6E6E73;line-height:1.65"><strong>Testen, nicht raten.</strong> Ich gebe den Prototyp echten Menschen und schaue zu, ohne zu helfen. Das Schweigen, wenn jemand einen Button nicht findet, sagt mehr als jede Meinung.</li>
+    </ol>
+    <h2 data-de="Warum beides zusammengehört" data-en="Why the two belong together" style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin:44px 0 18px">Warum beides zusammengehört</h2>
+    <p data-de="Navigationsarchitektur ist der Plan, Prototyping ist die Probe. Eine Struktur, die nie getestet wurde, ist nur eine Vermutung. Und ein Prototyp ohne durchdachte Struktur ist eine schöne Hülle ohne Fundament. Erst zusammen ergeben sie ein Produkt, das sich richtig anfühlt." data-en="Navigation architecture is the plan, prototyping is the rehearsal. A structure that was never tested is just an assumption. And a prototype without a thought-through structure is a pretty shell with no foundation. Only together do they make a product that feels right." style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Navigationsarchitektur ist der Plan, Prototyping ist die Probe. Eine Struktur, die nie getestet wurde, ist nur eine Vermutung. Und ein Prototyp ohne durchdachte Struktur ist eine schöne Hülle ohne Fundament. Erst zusammen ergeben sie ein Produkt, das sich richtig anfühlt.</p>
+    <p data-de="Und ehrlich gesagt: Es ist genau dieser Teil, der mich an UX immer wieder begeistert und wirklich mein absolut liebster Part ist. :)" data-en="And honestly: it's exactly this part that excites me about UX again and again and is genuinely my absolute favourite part. :)" style="font-size:17px;line-height:1.75;color:#6E6E73;margin:0 0 24px">Und ehrlich gesagt: Es ist genau dieser Teil, der mich an UX immer wieder begeistert und wirklich mein absolut liebster Part ist. :)</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.08)">
+      <img src="../ich/bild2.jpg" alt="Lina Melissa Arndt" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #E1E1E4">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-size:14px;font-weight:600;color:#0A0A0A">Lina Melissa Arndt</span>
+        <span data-de="UX/UI Designerin" data-en="UX/UI Designer" style="font-size:13px;color:#8E8E93">UX/UI Designerin</span>
+      </div>
+    </div>
+
+  </article>
+
+  <section style="max-width:1080px;margin:80px auto 0;padding:0 clamp(20px,5vw,40px) clamp(72px,9vw,120px)">
+    <h2 data-de="Weitere Gedanken" data-en="More thoughts" style="font-size:24px;font-weight:700;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:24px">Weitere Gedanken</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
+    <a href="blog-artikel-01.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+      <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
+        <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
+<rect x="40" y="70" width="140" height="150" rx="10" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="58" y="92" width="104" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="58" y="112" width="80" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="58" y="140" width="104" height="46" rx="6" fill="#EDEDEF"></rect>
+<rect x="58" y="196" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="220" y="55" width="150" height="180" rx="12" fill="#0A0A0A"></rect>
+<circle cx="238" cy="72" r="3" fill="#4A4A4E"></circle>
+<circle cx="250" cy="72" r="3" fill="#4A4A4E"></circle>
+<rect x="236" y="92" width="118" height="8" rx="4" fill="#2E9E63"></rect>
+<rect x="236" y="112" width="90" height="8" rx="4" fill="#3A3A3E"></rect>
+<rect x="236" y="140" width="118" height="8" rx="4" fill="#3A3A3E"></rect>
+<rect x="236" y="158" width="70" height="8" rx="4" fill="#3A3A3E"></rect>
+<rect x="236" y="192" width="118" height="22" rx="8" fill="#2E9E63"></rect>
+<path d="M182 150 Q200 150 218 150" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
+<circle cx="182" cy="150" r="4" fill="#2E9E63"></circle>
+            </svg>
+        <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">Prozess</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
+        <span style="font-size:11.5px;font-weight:500;color:#8E8E93" data-de="Mai 2026" data-en="May 2026&quot;>Mai 2026</span>
+        <h3 style=&quot;font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding&quot;>Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3>
+        <p style=&quot;font-size:13.5px;color:#6E6E73;line-height:1.55" data-de="Vier Tage Figma-Design. Und dann spontan über Bord geworfen." data-en="Four days of Figma design. Then spontaneously thrown overboard.&quot;>Vier Tage Figma-Design. Und dann spontan über Bord geworfen.</p>
+      </div>
+    </a>
+    <a href=&quot;blog-artikel-03.html&quot; class=&quot;blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+      <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
+        <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
+<rect x="110" y="60" width="180" height="180" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="126" y="76" width="148" height="26" rx="7" fill="#0A0A0A"></rect>
+<rect x="126" y="114" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
+<circle cx="132" cy="140" r="6" fill="none" stroke="#2E9E63" stroke-width="2"></circle>
+<path d="M129 140 l2 3 5-6" stroke="#2E9E63" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+<rect x="146" y="136" width="100" height="8" rx="4" fill="#C7C7CB"></rect>
+<circle cx="132" cy="164" r="6" fill="none" stroke="#C7C7CB" stroke-width="2"></circle>
+<rect x="146" y="160" width="80" height="8" rx="4" fill="#EDEDEF"></rect>
+<rect x="126" y="188" width="148" height="30" rx="9" fill="#0A0A0A"></rect>
+<path d="M126 60 L294 240 M294 60 L126 240" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round"></path>
+            </svg>
+        <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">Haltung</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
+        <span style="font-size:11.5px;font-weight:500;color:#8E8E93" data-de="Juni 2026" data-en="June 2026&quot;>Juni 2026</span>
+        <h3 style=&quot;font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A" data-de="Dark Patterns und warum ich sie ablehne" data-en="Dark patterns and why I reject them&quot;>Dark Patterns und warum ich sie ablehne</h3>
+        <p style=&quot;font-size:13.5px;color:#6E6E73;line-height:1.55" data-de="Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made. They're deliberately built against you.&quot;>Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut.</p>
+      </div>
+    </a>
+    <a href=&quot;blog-artikel-04.html&quot; class=&quot;blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
+      <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
+        <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
+<circle cx="112" cy="90" r="8" fill="#2E9E63"></circle>
+<rect x="132" y="78" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="148" y="86" width="100" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="150" y="120" width="150" height="24" rx="12" fill="#EDEDEF"></rect>
+<rect x="166" y="128" width="90" height="8" rx="4" fill="#8E8E93"></rect>
+<circle cx="112" cy="174" r="8" fill="#2E9E63"></circle>
+<rect x="132" y="162" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
+<rect x="148" y="170" width="70" height="8" rx="4" fill="#C7C7CB"></rect>
+<rect x="150" y="204" width="150" height="24" rx="12" fill="#2E9E63"></rect>
+<rect x="166" y="212" width="90" height="8" rx="4" fill="#fff" opacity="0.85"></rect>
+<path d="M300 132 Q320 110 300 88" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
+            </svg>
+        <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">KI &amp; Tools</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
+        <span style="font-size:11.5px;font-weight:500;color:#8E8E93" data-de="Juni 2026" data-en="June 2026&quot;>Juni 2026</span>
+        <h3 style=&quot;font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill&quot;>Prompten als neue Designfähigkeit</h3>
+        <p style=&quot;font-size:13.5px;color:#6E6E73;line-height:1.55" data-de="Warum gutes Prompten nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is close to what I do as a designer anyway.&quot;>Warum gutes Prompten nah an dem ist, was ich als Designerin sowieso tue.</p>
+      </div>
+    </a>
+    </div>
+  </section>
+
+  <footer style=&quot;background:#0A0A0A;padding:clamp(48px,6vw,68px) clamp(20px,5vw,40px) 28px&quot;>
+    <div style=&quot;max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap&quot;>
+      <div style=&quot;display:flex;flex-direction:column;gap:7px&quot;>
+        <span style=&quot;font-size:18px;color:#fff;font-weight:600;letter-spacing:-0.025em&quot;>Lina Melissa Arndt</span>
+        <span style=&quot;font-size:13.5px;color:#8E8E93&quot;>UX/UI Design · Schwarzenbek</span>
+        <a href=&quot;mailto:Lina-Melissa@web.de" style="font-size:13.5px;color:#8E8E93;margin-top:4px;transition:color .18s ease" style-hover="color:#fff">Lina-Melissa@web.de</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" aria-label="Behance" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"></path><path d="M3 12h5"></path><path d="M15 7h4"></path></svg>
+        </a>
+        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" aria-label="Dribbble" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path></svg>
+        </a>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:clamp(36px,4.5vw,52px) auto 0;padding-top:22px;border-top:0.5px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap">
+      <span style="font-size:12.5px;color:#6E6E73">© Lina Melissa Arndt</span>
+      <a href="../impressum.html" data-de="Impressum &amp; Datenschutz" data-en="Legal Notice &amp; Privacy" style="font-size:12.5px;color:#8E8E93;transition:color .18s ease" style-hover="color:#fff">Impressum &amp; Datenschutz</a>
     </div>
   </footer>
 
-</article>
+</div>
 
-<section class="ba-more">
-  <h2 class="ba-more-heading" data-de="Weitere Gedanken" data-en="More thoughts">Weitere Gedanken</h2>
-  <div class="ba-more-grid">
-    <a class="blog-card" href="/Blog/blog-artikel-01.html"><div class="blog-thumb blog-thumb-1"><img class="blog-thumb-img" src="/Blog/blog-bild-01.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Prozess" data-en="Process">Prozess</span></div><div class="blog-body"><div class="blog-meta" data-de="Mai 2026" data-en="May 2026">Mai 2026</div><h3 class="blog-title" data-de="Wie ich dieses Portfolio mit Vibe Coding gebaut habe" data-en="How I built this portfolio with vibe coding">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3><p class="blog-text" data-de="Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist." data-en="Four days of Figma design, then spontaneously thrown overboard. How this site came to be.">Vier Tage Figma-Design, und dann spontan über Bord geworfen. Wie diese Seite entstanden ist.</p></div></a>
-    <a class="blog-card" href="/Blog/blog-artikel-03.html"><div class="blog-thumb blog-thumb-3"><img class="blog-thumb-img" src="/Blog/blog-bild-03.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="Haltung" data-en="Stance">Haltung</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Dark Patterns — und warum ich sie ablehne" data-en="Dark patterns — and why I reject them">Dark Patterns — und warum ich sie ablehne</h3><p class="blog-text" data-de="Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut." data-en="Some designs aren't badly made — they're deliberately built against you.">Manche Designs sind nicht schlecht gemacht — sie sind absichtlich gegen dich gebaut.</p></div></a>
-    <a class="blog-card" href="/Blog/blog-artikel-04.html"><div class="blog-thumb blog-thumb-4"><img class="blog-thumb-img" src="/Blog/blog-bild-04.jpg" alt="" onerror="this.style.display='none'"><span class="blog-tag-pill" data-de="KI &amp; Tools" data-en="AI &amp; Tools">KI &amp; Tools</span></div><div class="blog-body"><div class="blog-meta" data-de="Juni 2026" data-en="June 2026">Juni 2026</div><h3 class="blog-title" data-de="Prompten als neue Designfähigkeit" data-en="Prompting as a new design skill">Prompten als neue Designfähigkeit</h3><p class="blog-text" data-de="Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue." data-en="Why good prompting is surprisingly close to what I do as a designer anyway.">Warum gutes Prompten erstaunlich nah an dem ist, was ich als Designerin sowieso tue.</p></div></a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div class="site-footer-brand">
-      <span class="site-footer-name-text">Lina Melissa</span>
-      <span class="site-footer-sub" data-de="UX/UI Design · Lüneburg" data-en="UX/UI Design · Lüneburg">UX/UI Design · Lüneburg</span>
-      <span class="site-footer-status"><span class="site-footer-dot"></span><span data-de="Verfügbar ab August 2026" data-en="Available from August 2026">Verfügbar ab August 2026</span></span>
-    </div>
-    <div class="site-footer-socials">
-      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" class="site-footer-link" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a>
-      <a href="https://www.behance.net/linamelissa" target="_blank" class="site-footer-link" aria-label="Behance"><span class="icon" data-icon="behance"></span></a>
-      <a href="https://dribbble.com/linamelissade" target="_blank" class="site-footer-link" aria-label="Dribbble"><span class="icon" data-icon="dribbble"></span></a>
-      <a href="https://www.instagram.com/linamelissa.de/" target="_blank" class="site-footer-link" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a>
-    </div>
-  </div>
-  <div class="site-footer-bottom">
-    <span class="site-footer-copy">© 2026 Lina Melissa Arndt</span>
-    <a href="/impressum.html" class="site-footer-impressum">Impressum &amp; Datenschutz</a>
-  </div>
-</footer>
-
-<script src="/script.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>
