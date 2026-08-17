@@ -34,23 +34,29 @@ document.querySelectorAll('video').forEach(function (v) {
     return found.length;
   }
 
-  function handleToggle(btn) {
-    current = current === 'de' ? 'en' : 'de';
-    var count = apply(current);
-    btn.textContent = current === 'de' ? 'EN' : 'DE';
-    document.documentElement.setAttribute('lang', current);
-    if (count === 0) {
-      current = current === 'de' ? 'en' : 'de';
+  function toggle(btn) {
+    var next = current === 'de' ? 'en' : 'de';
+    var count = apply(next);
+    if (count > 0) {
+      current = next;
+      btn.textContent = current === 'de' ? 'EN' : 'DE';
+      document.documentElement.setAttribute('lang', current);
     }
   }
 
-  document.addEventListener('click', function (e) {
-    var path = e.composedPath ? e.composedPath() : [e.target];
+  function handler(e) {
     var btn = null;
-    for (var i = 0; i < path.length; i++) {
-      if (path[i] && path[i].id === 'lang-toggle') { btn = path[i]; break; }
+    if (e.composedPath) {
+      var path = e.composedPath();
+      for (var i = 0; i < path.length; i++) {
+        if (path[i] && path[i].id === 'lang-toggle') { btn = path[i]; break; }
+      }
     }
+    if (!btn && e.target && e.target.id === 'lang-toggle') btn = e.target;
     if (!btn) return;
-    handleToggle(btn);
-  });
+    toggle(btn);
+  }
+
+  document.addEventListener('click', handler, true);
+  window.addEventListener('click', handler, true);
 })();
