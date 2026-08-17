@@ -1,900 +1,1098 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sameSpot Case Study</title>
+<link rel="stylesheet" href="samespot.css">
 </head>
 <body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style2.css">
-</helmet>
 
-<div style="background:#fff;padding-top:92px">
+<div class="scroll-progress" id="scrollProgress"></div>
 
-  <nav aria-label="Hauptnavigation" style="position:fixed;left:50%;top:18px;transform:translateX(-50%) scale({{ navScale }});transition:transform .32s cubic-bezier(.22,1,.36,1),box-shadow .32s ease,background .32s ease;z-index:200;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,0.62);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);box-shadow:0 1px 0 rgba(255,255,255,0.8) inset,0 0 0 1px rgba(0,0,0,0.06),0 14px 40px -14px rgba(0,0,0,0.26);max-width:calc(100vw - 24px)">
-    <div style="display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
-      <ul style="display:flex;align-items:center;gap:2px">
-        <li style="position:relative" title="Start">
-          <a href="#top" aria-label="Start · Lina Melissa Arndt" style="display:flex;align-items:center;gap:9px;height:46px;padding:0 14px 0 11px;border-radius:16px;color:#0A0A0A;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-active="transform:scale(.94)" style-hover="background:#F0F0F2;color:#0A0A0A">
-            <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:-0.02em;flex-shrink:0">LA</span>
-            <span style="font-size:14.5px;font-weight:600;letter-spacing:-0.025em;white-space:nowrap">Lina Melissa Arndt</span>
-          </a>
-        </li>
-        <li aria-hidden="true" style="width:1px;height:22px;background:rgba(0,0,0,0.09);margin:0 5px"></li>
-        <li style="position:relative">
-          <a href="#projekte" data-de="Projekte" data-en="Projects" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease;color:{{ navFgProjekte }};background:{{ navBgProjekte }}" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Projekte</a>
-        </li>
-        <li style="position:relative">
-          <a href="#antrieb" data-de="Antrieb" data-en="Drive" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease;color:{{ navFgAntrieb }};background:{{ navBgAntrieb }}" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Antrieb</a>
-        </li>
-        <li style="position:relative">
-          <a href="#expertise" data-de="Expertise" data-en="Expertise" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease;color:{{ navFgExpertise }};background:{{ navBgExpertise }}" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Expertise</a>
-        </li>
-        <li style="position:relative">
-          <a href="#ueber-mich" data-de="Über mich" data-en="About me" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease;color:{{ navFgUeberMich }};background:{{ navBgUeberMich }}" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Über mich</a>
-        </li>
-        <li style="position:relative">
-          <a href="#blog" data-de="Blog" data-en="Blog" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease;color:{{ navFgBlog }};background:{{ navBgBlog }}" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Blog</a>
-        </li>
-        <li style="position:relative">
-          <a href="#zwischendurch" data-de="Zwischendurch" data-en="In between" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 16px;border-radius:16px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1),background .25s ease,color .25s ease;color:{{ navFgMehr }};background:{{ navBgMehr }}" style-active="transform:scale(.94)" style-hover="color:#0A0A0A;background:#F0F0F2">Zwischendurch</a>
-        </li>
-        <li aria-hidden="true" style="width:1px;height:22px;background:rgba(0,0,0,0.09);margin:0 5px"></li>
-        <li style="position:relative">
-          <a href="#kontakt" data-de="Kontakt" data-en="Contact" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#248453 0%,#14562F 100%);box-shadow:0 2px 8px rgba(46,139,87,0.3);font-size:14.5px;font-weight:600;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-active="transform:scale(.94)" style-hover="color:#fff;filter:brightness(1.08)">Kontakt</a>
-        </li>
-        <li style="position:relative">
-          <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;cursor:pointer;font-family:inherit;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">EN</button>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <header id="top" style="max-width:1500px;margin:0 auto;min-height:100vh;min-height:calc(100dvh - 92px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:clamp(14px,2vw,28px) clamp(20px,5vw,40px) clamp(28px,3.4vw,44px);text-align:center;animation:riseIn .8s cubic-bezier(.22,1,.36,1) both">
-    <div style="display:inline-flex;align-items:center;gap:9px;padding:9px 18px 9px 14px;background:#0A0A0A;border-radius:999px;margin-bottom:24px;box-shadow:0 8px 24px -8px rgba(0,0,0,0.5);animation:islandIn .9s cubic-bezier(.22,1,.36,1) both;transform-origin:center">
-      <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#7FE0A8 0%,#3FBE77 100%);animation:pulseDot 2.2s ease-in-out infinite;flex-shrink:0"></span>
-      <span data-de="Verfügbar ab sofort · Hamburg / Remote" data-en="Available immediately · Hamburg / Remote" style="font-size:13px;font-weight:500;color:#fff">Verfügbar ab sofort · Hamburg / Remote</span>
-    </div>
-
-    <p data-de="UX/UI Designerin" data-en="UX/UI Designer" style="font-size:clamp(16px,1.6vw,19px);font-weight:600;color:#0A0A0A;margin-bottom:12px;letter-spacing:-0.02em">UX/UI Designerin</p>
-
-    <h1 class="hero-title" style="font-weight:700;line-height:1.03;letter-spacing:-0.048em;margin-bottom:24px;font-size:clamp(26px,5.4vw,84px)">
-      <span style="color:#0A0A0A">Soft edges in a </span><span style="background:linear-gradient(100deg,#2E9E63 0%,#2E9E63 42%,#B9F2D3 50%,#2E9E63 58%,#2E9E63 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2E8B57;padding-bottom:.06em;animation:shimmerSweep 4.5s ease-in-out infinite">sharp world.</span>
-    </h1>
-
-    <p data-de="Ich validiere Annahmen, bevor sie zu Pixeln werden; deshalb lässt sich jede meiner Design-Entscheidungen auf ein Nutzergespräch zurückführen." data-en="I validate assumptions before they become pixels; that's why every design decision I make can be traced back to a user conversation." style="max-width:780px;margin:0 auto 32px;font-size:clamp(16px,1.5vw,20px);line-height:1.5;color:#6E6E73;letter-spacing:-0.015em;text-wrap:balance">Ich validiere Annahmen, bevor sie zu Pixeln werden; deshalb lässt sich jede meiner Design-Entscheidungen auf ein Nutzergespräch zurückführen.</p>
-
-    <dl class="stats-grid" style="display:grid;gap:1px;max-width:820px;margin:0 auto 32px;background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.08);border-radius:22px;overflow:hidden">
-      <div style="background:#fff;padding:18px 18px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center">
-        <dt data-de="6 Jahre" data-en="6 years" style="font-weight:700;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">6 Jahre</dt>
-        <dd data-de="von der Ausbildung<br>bis ins Product Design" data-en="from training<br>to product design" style="font-size:13px;color:#6E6E73;line-height:1.4;text-wrap:pretty">von der Ausbildung<br>bis ins Product Design</dd>
-      </div>
-      <div style="background:#fff;padding:18px 18px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center">
-        <dt data-de="3 Rollen" data-en="3 roles" style="font-weight:700;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">3 Rollen</dt>
-        <dd data-de="Mediengestaltung, Druck,<br>Product Design" data-en="Media design, print,<br>product design" style="font-size:13px;color:#6E6E73;line-height:1.4;text-wrap:pretty">Mediengestaltung, Druck,<br>Product Design</dd>
-      </div>
-      <div style="background:#fff;padding:18px 18px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center">
-        <dt data-de="2 Case Studies" data-en="2 case studies" style="font-weight:700;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">2 Case Studies</dt>
-        <dd data-de="vom Interview<br>bis zum Prototyp" data-en="from interview<br>to prototype" style="font-size:13px;color:#6E6E73;line-height:1.4;text-wrap:pretty">vom Interview<br>bis zum Prototyp</dd>
-      </div>
-    </dl>
-
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:40px">
-      <a href="CV/CV_Lina-Melissa-Arndt.pdf" download style="display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:999px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;font-weight:550;font-size:16px;box-shadow:0 4px 14px rgba(46,139,87,0.28)" style-hover="color:#fff;filter:brightness(1.06);box-shadow:0 8px 24px rgba(46,139,87,0.34)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
-        <span data-de="CV herunterladen" data-en="Download CV">CV herunterladen</span>
-      </a>
-      <a href="#ueber-mich" style="display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:999px;background:#F5F5F7;color:#0A0A0A;font-weight:550;font-size:16px" style-hover="background:#EBEBED;color:#0A0A0A">
-        <span data-de="Über mich" data-en="About me">Über mich</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </a>
-    </div>
-
-    <a href="#projekte" aria-label="Zum Inhalt scrollen" style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:auto;padding-top:24px;padding-bottom:8px;width:fit-content;opacity:.5" style-hover="opacity:1;color:#0A0A0A">
-      <span style="font-size:10px;letter-spacing:.16em;color:#6E6E73;font-weight:600">SCROLL</span>
-      <span style="width:19px;height:29px;border:1.5px solid rgba(0,0,0,0.3);border-radius:12px;display:flex;justify-content:center;padding-top:6px">
-        <span aria-hidden="true" style="width:3px;height:7px;border-radius:2px;background:#0A0A0A;animation:scrollDot 1.6s ease-in-out infinite"></span>
-      </span>
+<!-- ============ TOP NAVBAR ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-left" href="#">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Alle Projekte
     </a>
-  </header>
+    <span class="topbar-div" aria-hidden="true"></span>
+    <a class="topbar-brand" href="/">
+      <span class="topbar-mark" aria-hidden="true">LA</span>
+      <span class="topbar-name">Lina Melissa Arndt</span>
+    </a>
+    <span class="topbar-div" aria-hidden="true"></span>
+    <div class="topbar-lang">EN</div>
+  </div>
+</header>
 
-  <div style="background:#0A0A0A;overflow:hidden;padding:18px 0;user-select:none">
-    <div style="display:flex;width:max-content;animation:marquee 44s linear infinite">
-      <div style="display:flex;flex-shrink:0">
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Figma</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Miro</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Blender</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Framer</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Notion</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Photoshop</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Illustrator</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">InDesign</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Claude</span>
-      </div>
-      <div style="display:flex;flex-shrink:0">
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Figma</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Miro</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Blender</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Framer</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Notion</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Photoshop</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Illustrator</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">InDesign</span>
-        <span style="padding:0 26px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.68);white-space:nowrap">Claude</span>
-      </div>
+<div class="page-wrap">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="nav">
+      <a href="#ueberblick" class="active" data-nav>Überblick</a>
+      <a href="#ueberblick" data-nav>Der Loop</a>
+
+      <div class="chapter" data-chapter-for="widerspruch"><span class="num">01</span><span>Widerspruch</span></div>
+      <a href="#ausgangslage" class="sub" data-nav>Ausgangslage</a>
+      <a href="#auswertung" class="sub" data-nav>Auswertung</a>
+      <a href="#persona" class="sub" data-nav>Persona</a>
+      <a href="#marktluecke" class="sub" data-nav>Marktlücke</a>
+
+      <div class="chapter" data-chapter-for="mechanik"><span class="num">02</span><span>Mechanik</span></div>
+      <a href="#optionen" class="sub" data-nav>Optionen</a>
+      <a href="#loop" class="sub" data-nav>Der Loop</a>
+      <a href="#fidelity" class="sub" data-nav>Vom Sketch zum Screen</a>
+      <a href="#scope" class="sub" data-nav>Scope</a>
+
+      <div class="chapter" data-chapter-for="rueckschlag"><span class="num">03</span><span>Rückschlag</span></div>
+      <a href="#im-interface" class="sub" data-nav>Im Interface</a>
+      <a href="#priorisierung" class="sub" data-nav>Priorisierung</a>
+
+      <div class="chapter" data-chapter-for="loesung"><span class="num">04</span><span>Lösung</span></div>
+      <a href="#sicherheit" class="sub" data-nav>Sicherheit</a>
+      <a href="#ui-system" class="sub" data-nav>UI-System</a>
+      <a href="#arbeit-mit-ki" class="sub" data-nav>Arbeit mit KI</a>
+      <a href="#learnings" class="sub" data-nav>Learnings</a>
+
+      <div class="chapter" data-chapter-for="werkstatt"><span class="num">05</span><span>Werkstatt</span></div>
+      <a href="#walkthrough" class="sub" data-nav>Walkthrough</a>
+      <a href="#figma-einblick" class="sub" data-nav>In Figma</a>
+      <a href="#prototyp" class="sub" data-nav>Selbst klicken</a>
+      <a href="#constraints" class="sub" data-nav>Constraints</a>
+    </nav>
+
+    <div class="nav-figma">
+      <span class="dot"></span>
+      <a href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener">
+        Figma
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
+    <div class="sidebar-footer">UX-Konzept 2026</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <section id="ueberblick" class="hero-scroll">
+      <div class="hero-stage" id="heroStage">
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="kategorie">UX/UI Design</span>
+            <h1 class="hero-title"><span class="same">same</span><span class="spot">Spot</span></h1>
+            <div class="hero-sub-wrap">
+              <p class="hero-desc">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel — für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps abgeschreckt werden.</p>
+              <p class="hero-principle">Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
+              <div class="hero-meta">
+                <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Product Designer</span>
+                <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>4 Monate</span>
+                <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Figma, Miro</span>
+              </div>
+            </div>
+            <div class="hero-stats">
+              <div class="hs"><b>71<span>%</span></b><span class="hs-l">warten passiv, statt anzusprechen</span></div>
+              <div class="hs"><b>1<span>:52</span></b><span class="hs-l">hat sich je getraut</span></div>
+              <div class="hs"><b>3</b><span class="hs-l">blockierende Test-Probleme, alle behoben</span></div>
+              <div class="hs"><b>≥15<span>%</span></b><span class="hs-l">der Wiederbegegnungen sollen zu einem Austausch führen</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="loop-head" id="loopHead">
+          <span class="eyebrow">Das Ergebnis zuerst</span>
+          <h2>Der Loop, <span class="accent-italic">in drei Schritten.</span></h2>
+          <p class="loop-desc">Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen.</p>
+          <a href="#prototyp" class="btn-outline-dark">Prototyp selbst klicken</a>
+        </div>
+
+        <div class="hp-layer" id="hpLayer">
+          <div class="hp-glow" id="hpGlow"></div>
+
+          <div class="hp-slot s-mid" id="slotMid">
+            <div class="hero-phone" id="heroPhone">
+              <div class="hp-viewport">
+                <div class="hp-springboard" id="hpBoard"><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon is-app"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span><span class="hp-icon"></span></div>
+                <img class="hp-shot s3" src="samespot/1-spotbesuchen.png" alt="Spot besuchen">
+                <div class="hp-island"></div>
+                <div class="hp-gloss" id="hpGloss"></div>
+              </div>
+              <img class="hp-frame" src="samespot/Phone-Rahmen.png" alt="">
+            </div>
+            <div class="hp-cap">
+              <span class="hc-head"><span class="hc-num">01</span><span class="hc-name">Spot besuchen</span></span>
+              <p class="hc-note">Die App gibt eine kleine Aufgabe an einem konkreten Ort. Man geht hin, weil die Aufgabe reizt — nicht, um jemanden zu treffen.</p>
+            </div>
+          </div>
+
+          <div class="hp-slot s-wl" id="slotWL">
+            <div class="hp-wing">
+              <div class="hp-wing-screen"><img src="samespot/2-erneutsehen.png" alt="Erneut sehen"></div>
+              <img class="hp-frame" src="samespot/Phone-Rahmen.png" alt="">
+            </div>
+            <div class="hp-cap">
+              <span class="hc-head"><span class="hc-num">02</span><span class="hc-name">Erneut sehen</span></span>
+              <p class="hc-note">War jemand am selben Ort, erscheint das später im Feed. Passiv, ohne Namen, ohne Anschreiben — niemand muss den ersten Schritt machen.</p>
+            </div>
+          </div>
+
+          <div class="hp-slot s-wr" id="slotWR">
+            <div class="hp-wing">
+              <div class="hp-wing-screen"><img src="samespot/3-codeaustausch.png" alt="Code tauschen"></div>
+              <img class="hp-frame" src="samespot/Phone-Rahmen.png" alt="">
+            </div>
+            <div class="hp-cap">
+              <span class="hc-head"><span class="hc-num">03</span><span class="hc-name">Code tauschen</span></span>
+              <p class="hc-note">Erst wenn beide wollen, entsteht Kontakt: ein Code, den man teilt. Verbindung als Nebenprodukt, nicht als Ziel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-beats" id="heroBeats">
+          <span class="hb" data-beat="0">App startet</span>
+          <span class="hb" data-beat="1">Im Screen</span>
+          <span class="hb" data-beat="2">Der Loop</span>
+        </div>
+        <div class="hero-hint" id="heroHint"><span></span>scrollen</div>
+      </div>
+    </section>
+
+
+
+    <!-- ============ SCREENS MARQUEE (full-bleed) ============ -->
+    <section class="section full-bleed reveal">
+      <div class="screens-inner-head">
+        <span class="eyebrow">Alle 14 Screens</span>
+        <span class="hint">Hover zum Anhalten</span>
+      </div>
+
+      <div class="marquee-wrap">
+        <div class="marquee-row dir-left">
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgabe abgeschlossen.png" alt="Aufgabe abgeschlossen.png"></div><span class="phone-name">Aufgabe abgeschlossen</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgaben-Detail.png" alt="Aufgaben-Detail.png"></div><span class="phone-name">Aufgaben-Detail</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgaben-Story.png" alt="Aufgaben-Story.png"></div><span class="phone-name">Aufgaben-Story</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgabenübersicht.png" alt="Aufgabenübersicht.png"></div><span class="phone-name">Aufgabenübersicht</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Beendete Aufgabe.png" alt="Beendete Aufgabe.png"></div><span class="phone-name">Beendete Aufgabe</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Chat.png" alt="Chat.png"></div><span class="phone-name">Chat</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Offene Aufgabe.png" alt="Offene Aufgabe.png"></div><span class="phone-name">Offene Aufgabe</span></div>
+          <!-- duplicate for seamless loop -->
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgabe abgeschlossen.png" alt="Aufgabe abgeschlossen.png"></div><span class="phone-name">Aufgabe abgeschlossen</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgaben-Detail.png" alt="Aufgaben-Detail.png"></div><span class="phone-name">Aufgaben-Detail</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgaben-Story.png" alt="Aufgaben-Story.png"></div><span class="phone-name">Aufgaben-Story</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Aufgabenübersicht.png" alt="Aufgabenübersicht.png"></div><span class="phone-name">Aufgabenübersicht</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Beendete Aufgabe.png" alt="Beendete Aufgabe.png"></div><span class="phone-name">Beendete Aufgabe</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Chat.png" alt="Chat.png"></div><span class="phone-name">Chat</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Offene Aufgabe.png" alt="Offene Aufgabe.png"></div><span class="phone-name">Offene Aufgabe</span></div>
+        </div>
+      </div>
+
+      <div class="marquee-wrap">
+        <div class="marquee-row dir-right">
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Onboarding.png" alt="Onboarding.png"></div><span class="phone-name">Onboarding</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Onboarding_ Profilbild.png" alt="Onboarding_ Profilbild.png"></div><span class="phone-name">Onboarding_ Profilbild</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Onboarding_ Stadt.png" alt="Onboarding_ Stadt.png"></div><span class="phone-name">Onboarding_ Stadt</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Realer Austausch.png" alt="Realer Austausch.png"></div><span class="phone-name">Realer Austausch</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Realer Moment.png" alt="Realer Moment.png"></div><span class="phone-name">Realer Moment</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Spot gestartet.png" alt="Spot gestartet.png"></div><span class="phone-name">Spot gestartet</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Stufe 3.png" alt="Stufe 3.png"></div><span class="phone-name">Stufe 3</span></div>
+          <!-- duplicate for seamless loop -->
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Onboarding.png" alt="Onboarding.png"></div><span class="phone-name">Onboarding</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Onboarding_ Profilbild.png" alt="Onboarding_ Profilbild.png"></div><span class="phone-name">Onboarding_ Profilbild</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Onboarding_ Stadt.png" alt="Onboarding_ Stadt.png"></div><span class="phone-name">Onboarding_ Stadt</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Realer Austausch.png" alt="Realer Austausch.png"></div><span class="phone-name">Realer Austausch</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Realer Moment.png" alt="Realer Moment.png"></div><span class="phone-name">Realer Moment</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Spot gestartet.png" alt="Spot gestartet.png"></div><span class="phone-name">Spot gestartet</span></div>
+          <div class="phone-card"><div class="phone-frame"><img src="samespot/Stufe 3.png" alt="Stufe 3.png"></div><span class="phone-name">Stufe 3</span></div>
+        </div>
+      </div>
+    </section>
+
+  <div class="content-col">
+    <!-- ============ 01 WIDERSPRUCH ============ -->
+    <section id="widerspruch" class="section reveal">
+      <div class="chapter-head">
+        <span class="chapter-num">01</span>
+        <span class="chapter-rule" aria-hidden="true"></span>
+        <div>
+          <span class="eyebrow">Der Widerspruch</span>
+          <h2 class="h2-oneline" style="margin-top:6px;">„Ich würde ja gerne, <span class="accent-italic">aber nicht so.“</span></h2>
+        </div>
+      </div>
+
+      <div class="chain sub-gap" id="ausgangslage" style="margin-top:52px;">
+        <div class="chain-step">
+          <div class="chain-rail"><span class="chain-num">01</span><span class="chain-line"></span></div>
+          <div class="chain-body">
+            <span class="chain-kicker">Die Frage, mit der ich gestartet bin</span>
+            <p class="say">Warum lernen sich Menschen, die sich <span class="accent-italic">täglich sehen,</span> nie kennen?</p>
+            <p class="after">Ich hatte eine bequeme Antwort im Kopf: keine Zeit, kein Interesse, alle sind mit sich beschäftigt. 52 Antworten und vier Interviews später war klar, dass keine davon stimmt.</p>
+          </div>
+        </div>
+
+        <div class="chain-step">
+          <div class="chain-rail"><span class="chain-num">02</span><span class="chain-line"></span></div>
+          <div class="chain-body">
+            <span class="chain-kicker">Was die Umfrage sagt</span>
+            <p class="say">Der Wunsch ist da. Er ist sogar <span class="accent-italic">größer als die Zufriedenheit</span> mit dem eigenen Umfeld.</p>
+            <div class="figrow">
+              <div class="fig"><b>63 %</b><span>wünschen sich neue Kontakte am eigenen Wohnort</span></div>
+              <div class="fig"><b>2,9<u> / 4</u></b><span>Wunsch nach Verbindung</span></div>
+              <div class="fig"><b>2,7<u> / 4</u></b><span>Frustration darüber, dass nichts passiert</span></div>
+            </div>
+            <p class="after">Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war die erste echte Überraschung.</p>
+          </div>
+        </div>
+
+        <div class="chain-step">
+          <div class="chain-rail"><span class="chain-num">03</span><span class="chain-line"></span></div>
+          <div class="chain-body">
+            <span class="chain-kicker">Was trotzdem passiert</span>
+            <p class="say"><span class="accent-italic">Eine</span> von 52 Personen hat je jemanden Neues angesprochen.</p>
+            <div class="dot-grid" id="dotGrid"></div>
+            <div class="pull">
+              <q>Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen.</q>
+              <span class="src">Interviewperson 2 · Kernzielgruppe</span>
+            </div>
+            <p class="after">Auffällig war nicht das Zögern, sondern die Selbstzuschreibung: Alle vier Interviewten suchten den Grund bei sich, keiner in der Situation.</p>
+          </div>
+        </div>
+
+        <div class="chain-step">
+          <div class="chain-rail"><span class="chain-num">04</span></div>
+          <div class="chain-body">
+            <span class="chain-kicker">Der Widerspruch</span>
+            <div class="verdict">
+              <p>Es fehlt nicht an Gelegenheiten und nicht an Interesse. Es fehlt an einer Situation, in der <em>niemand den ersten Schritt machen muss.</em></p>
+              <div class="foot">Umfrage: 52 Antworten · 4 Tage · 4 vertiefende Interviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Muster: vom Zitat zum Cluster -->
+      <div class="sub-gap" id="auswertung">
+        <div class="ia-head block-head">
+          <span class="eyebrow">Auswertung</span>
+          <span class="hint">52 Antworten · 4 Interviews · 3 Motive</span>
+        </div>
+        <h3>Drei Motive — und darunter <span class="accent-italic">immer dieselbe Ursache.</span></h3>
+        <p class="lede motiv-lede">Ich habe die Aussagen so lange sortiert, bis sich Gruppen gebildet haben. Drei blieben übrig. Sie klingen unterschiedlich, laufen aber auf denselben Punkt hinaus.</p>
+
+        <div class="motive">
+          <div class="motiv-band">
+            <span class="motiv-ghost" aria-hidden="true">A</span>
+            <div class="motiv-head">
+              <h4>Passives Warten</h4>
+              <span class="motiv-count">71 % der Antworten</span>
+            </div>
+            <p class="motiv-say">Der Wunsch existiert, aber immer als Erwartung an jemand anderen. Niemand beschreibt sich selbst als die Person, die anfängt.</p>
+            <div class="motiv-ev">
+              <span>„…kann nicht über meinen Schatten springen.“<i>Interview 2</i></span>
+              <span>wartet darauf, angesprochen zu werden<i>Umfrage, offenes Feld</i></span>
+              <span>macht Dinge lieber allein als sie abzusagen<i>Interview 4</i></span>
+            </div>
+          </div>
+
+          <div class="motiv-band">
+            <span class="motiv-ghost" aria-hidden="true">B</span>
+            <div class="motiv-head">
+              <h4>Ablehnung vorweggenommen</h4>
+              <span class="motiv-count">in allen 4 Interviews</span>
+            </div>
+            <p class="motiv-say">Die Absage wird durchgespielt, bevor überhaupt etwas passiert ist. Bewertet wird ein Risiko, das nie eingetreten ist.</p>
+            <div class="motiv-ev">
+              <span>rechnet mit einer abweisenden Reaktion<i>Interview 1</i></span>
+              <span>will nicht störend wirken<i>Interview 3</i></span>
+              <span>nennt Ansprechen „unangenehm“, nicht „unmöglich“<i>Umfrage</i></span>
+            </div>
+          </div>
+
+          <div class="motiv-band">
+            <span class="motiv-ghost" aria-hidden="true">C</span>
+            <div class="motiv-head">
+              <h4>Selbstzuschreibung</h4>
+              <span class="motiv-count">1 von 52 hat es je versucht</span>
+            </div>
+            <p class="motiv-say">Der Grund wird bei sich selbst gesucht, nie in der Situation. Damit wird aus einer Hürde ein Charakterzug — und der lässt sich nicht ändern.</p>
+            <div class="motiv-ev">
+              <span>sucht den Grund bei sich, nicht in der Situation<i>Interview 2</i></span>
+              <span>nimmt an, für andere sei es leichter<i>Interview 1</i></span>
+              <span>hat den Wunsch, aber keinen Anlass<i>Umfrage</i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="converge">
+          <div class="converge-lines" aria-hidden="true">
+            <span class="cl-tick a"></span><span class="cl-tick b"></span><span class="cl-tick c"></span>
+            <span class="cl-bar"></span>
+            <span class="cl-drop"></span>
+          </div>
+          <div class="converge-out">
+            <span class="converge-kick">Gemeinsame Ursache</span>
+            <p>Alle drei setzen voraus, dass <span class="accent-italic">jemand den ersten Schritt sichtbar macht.</span> Keins davon löst sich mit besserer Suche oder mehr Profilen — sie verschwinden erst, wenn der erste Schritt niemandem zugeordnet wird.</p>
+          </div>
+        </div>
+
+        <div class="belege-open">
+          <span class="belege-kick">Belege</span>
+          <div class="proof-grid slots-2">
+            <figure class="proof-shot">
+              <img src="samespot/clustering.png" alt="Clustering der Antworten" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
+              <span class="proof-missing">samespot/clustering.png</span>
+              <figcaption><b>Clustering im Board</b> — die Rohantworten, bevor daraus Motive wurden.</figcaption>
+            </figure>
+            <figure class="proof-shot">
+              <img src="samespot/umfrage.png" alt="Auswertung der Umfrage" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
+              <span class="proof-missing">samespot/umfrage.png</span>
+              <figcaption><b>Umfrage-Auswertung</b> — 52 Antworten, wie sie aus dem Formular kamen.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona -->
+      <div class="sub-gap" id="persona">
+        <span class="eyebrow">Persona</span>
+        <h3>Hanna ist keine Annahme, sondern <span class="accent-italic">eine Verdichtung.</span></h3>
+        <p class="lede" style="max-width:64ch;">Vier Interviews und 52 Umfrage-Antworten in einer Person. Sie merkt das Problem in den kleinen, unverabredeten Momenten — nicht abends in einer App.</p>
+
+        <div class="pers">
+          <figure class="pers-shot">
+            <img src="samespot/Hanna.jpg" alt="Hanna Polm" loading="lazy">
+            <figcaption>
+              <span class="pers-role">Die Blockierte</span>
+              <span class="pers-name">Hanna Polm</span>
+              <span class="pers-meta">23 · lebt allein · neu in der Stadt</span>
+            </figcaption>
+          </figure>
+
+          <div class="pers-body">
+            <blockquote class="pers-quote">
+              <q>Ich sehe die gleichen Leute jeden Tag. Und trotzdem ist es, als wären wir uns nie begegnet.</q>
+              <cite>Verdichtet aus Interview 1, 2 und 4</cite>
+            </blockquote>
+
+            <div class="pers-tension">
+              <div class="pt-side pt-want">
+                <span class="pt-kick">Was sie will</span>
+                <ul>
+                  <li>Verbindung ohne Druck</li>
+                  <li>dass sich ihr Leben wieder echter anfühlt</li>
+                  <li>Menschen, die sowieso da sind</li>
+                </ul>
+              </div>
+              <div class="pt-vs" aria-hidden="true"><span></span><b>steht gegen</b><span></span></div>
+              <div class="pt-side pt-block">
+                <span class="pt-kick">Was sie hindert</span>
+                <ul>
+                  <li>zerdenkt Momente, bevor sie passieren</li>
+                  <li>rechnet mit Ablehnung</li>
+                  <li>sucht den Fehler bei sich selbst</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pers-need">
+              <span class="pn-kick">Woran die Lösung sich messen lassen muss</span>
+              <p>Hanna darf <span class="accent-italic">nicht diejenige sein müssen, die anfängt.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Markt -->
+      <div class="sub-gap" id="marktluecke">
+        <span class="eyebrow">Markt</span>
+        <h3>Vier Apps im Detail. Und eine <span class="accent-italic">leere Ecke gefunden.</span></h3>
+        <p class="lede">Vier Apps, die Teile meiner Idee schon können: Bumble BFF (Kontakt ohne Dating-Druck), Meetup (gemeinsamer Anlass), nebenan.de (Nachbarschaft) und Pokémon GO (Orte als Spielfeld). Sortiert nach Ortsbindung und danach, wie viel Eigeninitiative der erste Kontakt kostet.</p>
+
+        <div class="field" id="marktfeld">
+          <div class="field-plot">
+            <div class="field-quadrant q-tl"></div>
+            <div class="field-quadrant q-tr is-gap">
+              <span class="gap-label">unbesetzt</span>
+            </div>
+            <div class="field-quadrant q-bl"></div>
+            <div class="field-quadrant q-br"></div>
+
+            <span class="field-axis y-top">ortsgebunden</span>
+            <span class="field-axis y-bot">ortsunabhängig</span>
+            <span class="field-axis x-left">aktiv anschreiben</span>
+            <span class="field-axis x-right">passiv, ohne Ansprache</span>
+
+            <div class="dot" style="--x:46%;--y:22%;"><i></i><b>Pokémon GO</b></div>
+            <div class="dot" style="--x:41%;--y:46%;"><i></i><b>Meetup</b></div>
+            <div class="dot" style="--x:33%;--y:63%;"><i></i><b>nebenan.de</b></div>
+            <div class="dot" style="--x:28%;--y:73%;"><i></i><b>Bumble BFF</b></div>
+
+            <div class="dot is-us" style="--x:73%;--y:20%;">
+              <span class="ping" aria-hidden="true"></span><span class="ping p2" aria-hidden="true"></span>
+              <i></i><b>sameSpot</b>
+            </div>
+          </div>
+
+          <div class="field-legend">
+            <div><span class="lg-num">01</span><p><b>Ortsbezug</b> ist überall nur ein Filter, nie der Anlass.</p></div>
+            <div><span class="lg-num">02</span><p><b>Wiederholung</b> nutzt keine der vier als Signal — Pokémon GO bindet Orte, aber keine Menschen.</p></div>
+            <div><span class="lg-num">03</span><p><b>Die leere Ecke</b> ist kein Zufall: ortsgebunden <i>und</i> passiv verlangt eine andere Mechanik.</p></div>
+          </div>
+        </div>
+      </div>
+
+    <!-- ============ 02 DIE MECHANIK ============ -->
+    <section id="mechanik" class="section reveal">
+      <div class="chapter-head">
+        <span class="chapter-num">02</span>
+        <span class="chapter-rule" aria-hidden="true"></span>
+        <div>
+          <span class="eyebrow">Die Mechanik</span>
+          <h2 style="margin-top:6px;">Also habe ich das Ansprechen <span class="accent-italic">weggenommen.</span></h2>
+        </div>
+      </div>
+
+      <!-- Optionen -->
+      <div class="sub-gap" id="optionen">
+        <span class="eyebrow">Optionen</span>
+        <h3>Drei Wege waren möglich, <span class="accent-italic">zwei habe ich verworfen.</span></h3>
+        <p class="lede">Alle drei traten mit vergleichbarem Aufwand und vergleichbarer Relevanz an, die Bewertung allein entschied also nichts. Ausschlaggebend war das Kriterium aus Kapitel 01: Verbindung darf keinen aktiven ersten Schritt verlangen.</p>
+        <div class="concept-grid">
+          <div class="concept-card discard">
+            <span class="concept-tag">Verworfen</span>
+            <h4>Wöchentliches Stadtspiel</h4>
+            <p>Ortsgebundene Rätsel und Challenges, die Hanna wöchentlich an reale Orte in der Stadt schicken. Verbindung zu anderen entsteht nur, wenn beide es aktiv wollen.</p>
+            <div class="concept-scores">
+              <span>Importance 4/4</span><span>Effort 4/4</span><span>Impact 3/4</span>
+            </div>
+            <div class="concept-why"><b>Warum nicht:</b> Das Rätsel bringt sie an den Ort, die Verbindung verlangt danach trotzdem ein aktives Zugehen. Die eigentliche Hürde bleibt unberührt, nur verlagert.</div>
+          </div>
+
+          <div class="concept-card discard">
+            <span class="concept-tag">Verworfen</span>
+            <h4>Stille Stadtkarte</h4>
+            <p>Eine Karte, die sich durch Hannas eigene Alltagsorte füllt und still zeigt, wo andere regelmäßig sind, ganz ohne Profile, Namen oder Feed.</p>
+            <div class="concept-scores">
+              <span>Importance 3/4</span><span>Effort 4/4</span><span>Impact 3/4</span>
+            </div>
+            <div class="concept-why"><b>Warum nicht:</b> Passiv genug, aber ohne Anlass. Eine Karte zeigt nur, wo Menschen sind. Wiederholung entsteht nicht von selbst, und ohne Wiederholung fehlt das Signal.</div>
+          </div>
+
+          <div class="concept-card chosen">
+            <span class="concept-tag">Gewählt</span>
+            <h4>Alltagsaufgaben mit passivem Feed</h4>
+            <p>Wöchentliche Alltagsaufgaben. Verbindung entsteht als Nebenprodukt durch geteilte Orte und einen passiven Feed, nicht durch aktives Suchen.</p>
+            <div class="concept-scores">
+              <span>Importance 4/4</span><span>Effort 4/4</span><span>Impact 4/4</span>
+            </div>
+            <div class="concept-why"><b>Warum diese:</b> Die einzige Variante, die den Anlass liefert <i>und</i> passiv bleibt. Die Aufgabe erzeugt die Wiederholung, die Wiederholung ersetzt das Ansprechen.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Der Loop -->
+      <div class="sub-gap" id="loop">
+        <span class="eyebrow">Der Loop</span>
+        <h3>Aus der gewählten Option wurden <span class="accent-italic">drei Schritte.</span></h3>
+        <p class="lede" style="max-width:660px;">Kein Profil, kein Wischen, keine erste Nachricht. Was in der Option noch eine Idee war, ist hier der Mechanismus, an dem alles Weitere hängt.</p>
+
+        <div class="loop-rail">
+          <div class="loop-node">
+            <div class="loop-marker"><span class="loop-dot">01</span></div>
+            <h4>Aufgabe an einem Ort</h4>
+            <p>Eine kleine Alltagsaufgabe schickt Hanna an einen realen Spot. Sie geht hin wegen der Aufgabe, nicht wegen der Menschen.</p>
+          </div>
+          <div class="loop-node">
+            <div class="loop-marker"><span class="loop-dot">02</span></div>
+            <h4>Wiedersehen im Feed</h4>
+            <p>Wer dreimal am selben Spot war, taucht passiv im Feed auf. Keine Benachrichtigung, keine Aufforderung, kein Ranking.</p>
+          </div>
+          <div class="loop-node is-goal">
+            <div class="loop-marker"><span class="loop-dot">03</span></div>
+            <h4>Code-Austausch</h4>
+            <p>Erst wenn beide Seiten wollen, wird ein Code getauscht. Das ist der einzige Weg zu Kontakt.</p>
+          </div>
+        </div>
+        <p class="loop-caption">Die Hürde stand am Anfang. Jetzt steht sie am Ende.</p>
+      </div>
+
+      <!-- Informationsarchitektur -->
+      <div class="sub-gap">
+        <div class="ia-head">
+          <span class="eyebrow">Informationsarchitektur</span>
+          <span class="hint">jede Kernfunktion in maximal 2 Klicks</span>
+        </div>
+
+        <div class="ia-grid">
+          <div class="ia-card">
+            <div class="ia-dot-title">Aufgaben</div>
+            <ul><li>Spot-Detail</li><li>Aufgabe starten</li><li>Code-Exchange</li></ul>
+          </div>
+          <div class="ia-card">
+            <div class="ia-dot-title">Entdecken</div>
+            <ul><li>Feed</li><li>Beitrag</li><li>Wiedersehen</li></ul>
+          </div>
+          <div class="ia-card">
+            <div class="ia-dot-title">Austausch</div>
+            <ul><li>Begegnungen</li><li>Chat</li></ul>
+          </div>
+          <div class="ia-card">
+            <div class="ia-dot-title">Profil</div>
+            <ul><li>Meine Spots</li><li>Einstellungen</li><li>Sichtbarkeit</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vom Sketch zum Screen -->
+      <div class="sub-gap" id="fidelity">
+        <div class="ia-head">
+          <span class="eyebrow">Vom Sketch zum Screen</span>
+        </div>
+        <h3>Was auf jeder Stufe dazukam <span class="accent-italic">und was wieder rausflog.</span></h3>
+        <p class="lede" style="max-width:660px;">Die Aufgabenübersicht ist der Screen, der den Loop tragen muss. Deshalb habe ich ihn dreimal neu gebaut, bevor er in den Test ging.</p>
+
+        <div class="fidelity">
+          <div class="fid-step">
+            <div class="fid-stage"><b>01</b> Papier</div>
+            <div class="fid-shot"><img src="samespot/sketches.png" alt="Sketches auf Papier"></div>
+            <div class="fid-title">Sketches</div>
+            <p class="fid-note">Zwei Tage nur die Frage: welcher Screen trägt den Loop? Sieben Varianten der Aufgabenübersicht, sechs verworfen.</p>
+          </div>
+          <div class="fid-step">
+            <div class="fid-stage"><b>02</b> Struktur</div>
+            <div class="fid-shot"><img src="samespot/wireframe.png" alt="Wireframe"></div>
+            <div class="fid-title">Wireframe</div>
+            <p class="fid-note">Vier Bereiche, eine Ebene tief. Hier ist der Feed vom Profil weggezogen, damit Wiedersehen nicht wie eine Benachrichtigung wirkt.</p>
+          </div>
+          <div class="fid-step is-tested">
+            <div class="fid-stage"><b>03</b> Klickbar</div>
+            <div class="fid-shot"><img src="samespot/midfi.png" alt="Mid-Fi-Prototyp"></div>
+            <div class="fid-title">Mid-Fi <span class="fid-flag">ging in den Test</span></div>
+            <p class="fid-note">Hannas kompletter Weg von der Aufgabe bis zum Code, klickbar. Mit dieser Version bin ich in die Testsitzungen gegangen.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scope -->
+      <div class="sub-gap" id="scope">
+        <span class="eyebrow">Scope</span>
+        <h3>Was ich bewusst <span class="accent-italic">weggelassen habe.</span></h3>
+        <p class="lede" style="max-width:640px;">Der Kern-Loop musste ohne Beiwerk funktionieren. Alles, was ihn erklärt oder monetarisiert hätte, ist für diese Version rausgeflogen.</p>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h4>Kein Matching-Algorithmus</h4>
+            <p>Die Wiederholung am Ort ist das Signal. Ein Score hätte genau das ersetzt, was die App besonders macht.</p>
+          </div>
+          <div class="uebersicht-divider"></div>
+          <div class="feature-item">
+            <h4>Premium raus aus dem Kernflow</h4>
+            <p>Im Test hat jede Bezahl-Schwelle den Loop unterbrochen, bevor er verstanden wurde.</p>
+          </div>
+          <div class="uebersicht-divider"></div>
+          <div class="feature-item">
+            <h4>Kein Chat-Ausbau</h4>
+            <p>Der Code-Austausch ist eine „Sidequest“ innerhalb der Aufgabe, kein Abschluss. Die Aufgabe selbst beendet man weiterhin manuell. Was danach im Chat passiert, war nicht mehr Teil des Scopes.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
   </div>
 
-  <div aria-label="Arbeiten im Überblick" style="background:#F5F5F7;overflow:hidden;padding:22px 0;user-select:none;border-bottom:0.5px solid rgba(0,0,0,0.12)">
-    <div style="display:flex;width:max-content;gap:14px;animation:marqueeBack 52s linear infinite">
-      <div style="display:flex;gap:14px;flex-shrink:0;padding-right:14px">
-        <img data-px="1" src="loop/loop01.jpg" alt="sameSpot Feed-Screen" style="width:280px;height:180px;object-fit:cover;object-position:top;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img data-px="1" src="loop/loop02.jpg" alt="sameSpot Dark Mode" style="width:280px;height:180px;object-fit:cover;object-position:top;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img data-px="1" src="loop/loop03.jpg" alt="sameSpot Detailansicht" style="width:280px;height:180px;object-fit:cover;object-position:top;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop04.jpg" alt="Yumi Projekt" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop05.jpg" alt="Projektarbeit Trademark" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop06.jpg" alt="PR Druck Arbeiten" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop07.jpg" alt="3D-Arbeit in Blender" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
+    <!-- ============ 03 DER RÜCKSCHLAG (dark, full-bleed) ============ -->
+    <section id="rueckschlag" class="section full-bleed reveal">
+      <div class="ergebnis-wrap dark-chapter">
+        <div class="dark-chapter-inner">
+          <div class="chapter-head">
+            <span class="chapter-num">03</span>
+            <span class="chapter-rule" aria-hidden="true"></span>
+            <div>
+              <span class="eyebrow on-dark">Der Rückschlag</span>
+              <h2>Im Gespräch verstanden, <span class="accent-italic">im Interface nicht.</span></h2>
+            </div>
+          </div>
+          <p class="lede" style="color:rgba(245,248,245,.72);">Beide Testpersonen haben das Konzept im Gespräch verstanden und im Interface nicht wiedererkannt. Getestet habe ich nicht die Idee, sondern ob sie ohne meine Erklärung trägt. Sie trug nicht.</p>
+
+
+          <div class="method-strip">
+            <div><span>Methode</span><b>Think-Aloud, moderiert</b></div>
+            <div><span>Material</span><b>Klickbarer Mid-Fi-Prototyp</b></div>
+            <div><span>Teilnehmende</span><b>2 Personen aus der Zielgruppe</b></div>
+            <div><span>Aufgaben</span><b>Aufgabe starten, abschließen, Wiedersehen finden, Kontakt aufnehmen</b></div>
+          </div>
+        </div>
       </div>
-      <div style="display:flex;gap:14px;flex-shrink:0;padding-right:14px">
-        <img data-px="1" src="loop/loop01.jpg" alt="" style="width:280px;height:180px;object-fit:cover;object-position:top;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img data-px="1" src="loop/loop02.jpg" alt="" style="width:280px;height:180px;object-fit:cover;object-position:top;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img data-px="1" src="loop/loop03.jpg" alt="" style="width:280px;height:180px;object-fit:cover;object-position:top;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop04.jpg" alt="" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop05.jpg" alt="" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop06.jpg" alt="" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
-        <img src="loop/loop07.jpg" alt="" style="width:280px;height:180px;object-fit:cover;border-radius:18px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)">
+    </section>
+
+  <div class="content-col">
+      <!-- Was im Test passiert ist -->
+      <div class="section sub-gap reveal" id="im-interface">
+        <span class="eyebrow">Was passiert ist</span>
+        <h3>Drei Beobachtungen, <span class="accent-italic">und was ich daraus geschlossen habe.</span></h3>
+        <p class="lede" style="max-width:680px;">Links steht, was die Testpersonen getan und gesagt haben. Rechts, was ich daraus gemacht habe. Die Trennung ist Absicht: das eine ist beobachtet, das andere ist meine Deutung.</p>
+
+        <div class="findings">
+          <div class="finding">
+            <span class="finding-num">01</span>
+            <div class="finding-obs">
+              <span class="finding-label">Beobachtet</span>
+              <p class="finding-quote">Warum sehe ich ständig die gleiche Person? Würde die blockieren wollen.</p>
+              <p>Beide Testpersonen lasen „Du warst schon 3x am selben Ort wie Mara“ als Meldung über eine fremde Person, nicht über sich selbst. Eine wollte die Funktion sofort abschalten.</p>
+            </div>
+            <div class="finding-read">
+              <span class="finding-label">Gedeutet</span>
+              <p>Der Satz stellt die Beobachtung in den Vordergrund statt den gemeinsamen Ort. Damit fiel die Mechanik in genau die Kategorie zurück, aus der sie herauswollte: etwas, das mit einem passiert.</p>
+              <span class="finding-fix">gelöst in Kapitel 04: gemeinsamer Ort als Gesprächseinstieg</span>
+            </div>
+          </div>
+
+          <div class="finding">
+            <span class="finding-num">02</span>
+            <div class="finding-obs">
+              <span class="finding-label">Beobachtet</span>
+              <p>Nach dem Onboarding scrollten beide durch die Aufgabenübersicht, ohne etwas anzutippen. Eine fragte, was sie jetzt tun solle.</p>
+            </div>
+            <div class="finding-read">
+              <span class="finding-label">Gedeutet</span>
+              <p>Die Übersicht zeigte drei gleichwertige Aufgaben und keinen ersten Schritt. Ohne sichtbaren Einstieg beginnt der Loop nicht, und ohne Loop trägt das ganze Konzept nicht.</p>
+              <span class="finding-fix">gelöst in Kapitel 04: eine Aufgabe führt, mit klarem Einstieg</span>
+            </div>
+          </div>
+
+          <div class="finding">
+            <span class="finding-num">03</span>
+            <div class="finding-obs">
+              <span class="finding-label">Beobachtet</span>
+              <p>Beide suchten Chat und Begegnungen in der unteren Navigation. Dort lagen sie nicht, sie lagen im Profil. Gefunden hat sie keine der beiden.</p>
+            </div>
+            <div class="finding-read">
+              <span class="finding-label">Gedeutet</span>
+              <p>Was nicht in der Hauptnavigation steht, existiert im Test nicht. Ich hatte den Austausch als Nebenfunktion einsortiert, obwohl er das Ziel des Loops ist.</p>
+              <span class="finding-fix">gelöst in Kapitel 04: eigener Bereich in der Tab-Bar</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
+
+      <!-- Mein Denkfehler -->
+      <div class="sub-gap reveal" id="denkfehler">
+        <span class="eyebrow">Mein Denkfehler</span>
+        <h3>Alle drei Findings hatten <span class="accent-italic">dieselbe Ursache.</span></h3>
+
+        <div class="admission">
+          <p class="admission-line">Ich war überzeugt, das Wiedersehen sei der Wow-Moment. <span class="accent-italic">Es war das größte Risiko.</span></p>
+          <p class="admission-note">Der Fehler lag nicht im Detail, sondern in meiner Annahme: Ich hatte den Moment gebaut, den ich mir gewünscht habe, und nicht den, den jemand ohne meine Erklärung versteht. Erst als ich den Ablauf im Gespräch erzählt habe, nickten beide.</p>
+          <p class="admission-limit">Grenze dieser Erkenntnis: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
+        </div>
+
+      </div>
+
+      <!-- Konsequenz -->
+      <div class="sub-gap reveal" id="konsequenz">
+        <span class="eyebrow">Konsequenz</span>
+        <h3>Kein aufpolierter Mid-Fi, sondern <span class="accent-italic">ein zweiter Entwurf.</span></h3>
+
+        <div class="jump">
+          <div class="jump-text">
+            <p>Der Test hat nicht die Mechanik widerlegt, sondern die Ebene darüber: Reihenfolge, Benennung, Navigation, Tonfall. Genau die Dinge, die ein Interface ausmachen. Wenn alle drei Findings dieselbe Ursache haben, reicht kein Nachbessern an einzelnen Stellen.</p>
+            <p>Deshalb ist die finale Version kein aufpolierter Mid-Fi, sondern ein zweiter Entwurf auf derselben Mechanik. Der Loop aus Kapitel 02 ist unverändert geblieben, alles, was ihn erzählt, ist neu.</p>
+          </div>
+          <div class="jump-pair">
+            <figure>
+              <img src="samespot/midfi.png" alt="Mid-Fi-Version" loading="lazy">
+              <figcaption>Mid-Fi, getestet</figcaption>
+            </figure>
+            <span class="jump-arrow" aria-hidden="true">&#8594;</span>
+            <figure>
+              <img src="samespot/Aufgabenübersicht.png" alt="Finale Version" loading="lazy">
+              <figcaption>Final, nach dem Test</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Priorisierung -->
+      <div class="section sub-gap reveal" id="priorisierung">
+        <span class="eyebrow">Priorisierung</span>
+        <h3>Nicht alles Gefundene war <span class="accent-italic">gleich wichtig.</span></h3>
+        <p class="lede" style="max-width:660px;">Aus dem Test kamen mehr Findings als Zeit. Ich habe sie danach sortiert, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen. Nur die erste Gruppe habe ich umgesetzt.</p>
+
+        <div class="priority-grid">
+          <div class="priority-col done">
+            <span class="eyebrow">Jetzt gelöst, blockiert den Loop</span>
+            <ul>
+              <li>Wiedersehen positiv framen</li>
+              <li>Shared Spots als gemeinsamer Bezugspunkt eingeführt</li>
+              <li>Austausch in die Hauptnavigation</li>
+              <li>Ortsbezug der Aufgabe klarer machen</li>
+            </ul>
+          </div>
+          <div class="priority-col later">
+            <span class="eyebrow muted">Vertagt, nice to have</span>
+            <ul>
+              <li>Begegnungs-Kennzahl schärfen</li>
+              <li>Streak-Bedeutung erklären</li>
+              <li>Code-Austausch angenehmer gestalten</li>
+              <li>Entdecken-Bereich weiter vereinfachen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <div class="chapter-divider"></div>
+
+    <!-- ============ 04 DIE LÖSUNG ============ -->
+    <section id="loesung" class="section">
+      <div class="reveal">
+      <div class="chapter-head">
+        <span class="chapter-num">04</span>
+        <span class="chapter-rule" aria-hidden="true"></span>
+        <div>
+          <span class="eyebrow">Die Lösung</span>
+          <h2 class="h2-xl" style="margin-top:6px;">Ich habe nicht die Mechanik geändert, sondern <span class="accent-italic accent-signal">ihre Erzählung.</span></h2>
+        </div>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-col before">
+          <span class="eyebrow muted">Vorher</span>
+          <div class="mockup-phone" style="width:216px;margin:0 auto;"><img src="samespot/phone.jpg" alt="Screen vorher"></div>
+          <div class="ba-caption">
+            <p>„Du warst schon 3x am selben Ort wie Mara.“</p>
+            <p>Onboarding endet im leeren Feed.</p>
+            <p>Nachrichten liegen im Profil.</p>
+          </div>
+        </div>
+        <div class="ba-col after">
+          <span class="eyebrow">Nachher · Stufe 04</span>
+          <div class="mockup-phone" style="width:216px;margin:0 auto;"><img src="samespot/Realer Moment.png" alt="Screen nachher"></div>
+          <div class="ba-caption">
+            <p>„Ihr wart beide schon hier, dann hättet ihr ja schon ein Thema.“</p>
+            <p>Shared Spots statt Beobachtung: ein gemeinsamer Ort als Gesprächseinstieg.</p>
+            <p>Austausch als eigener Bereich unten.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="loop-caption" style="margin-top:26px;">Damit schließt die Kette aus Kapitel 02: Papier, Struktur, Mid-Fi in den Test, High-Fi aus dem Test heraus.</p>
+
+      <div class="kpi-card">
+        <div class="kpi-num"><span class="pfx-inner">≥15%</span></div>
+        <div>
+          <span class="eyebrow">Ziel-KPI, nicht gemessen</span>
+          <p>der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch. Daran würde ich messen, ob der Kernmechanismus trägt, wöchentlich, verantwortet von UX, UI und Dev.</p>
+        </div>
+      </div>
+      </div>
+
+      <!-- Sicherheit -->
+      <div class="sub-gap reveal" id="sicherheit">
+        <span class="eyebrow">Sicherheit</span>
+        <h3>Eine App, die Orte kennt, <span class="accent-italic">muss sich das verdienen.</span></h3>
+        <p class="lede" style="max-width:640px;">Das „creepy" aus dem Test war kein Copy-Problem, sondern eine berechtigte Frage nach Kontrolle. Drei Regeln stehen deshalb über der Mechanik.</p>
+
+        <div class="safety-grid">
+          <div class="safety-item">
+            <h4>Der Code ist die Grenze</h4>
+            <p>Ohne Austausch kein Kontakt. Es gibt keinen Weg, jemanden ungefragt anzuschreiben.</p>
+          </div>
+          <div class="uebersicht-divider"></div>
+          <div class="safety-item">
+            <h4>Blockieren und Ausblenden</h4>
+            <p>Wer eine Person nicht mehr sehen möchte, blendet sie einfach aus. Still, ohne Erklärung, ohne dass die andere Person etwas davon merkt.</p>
+          </div>
+          <div class="uebersicht-divider"></div>
+          <div class="safety-item">
+            <h4>Geschlechtsfilter, opt-in</h4>
+            <p>Vorab einschaltbar, damit zum Beispiel Frauen aus Sicherheitsgründen gar nicht erst Männer in ihren Begegnungen sehen, wenn sie das nicht wollen.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UI-System -->
+      <div class="sub-gap reveal" id="ui-system">
+        <span class="eyebrow">UI-System</span>
+        <h3>Ein kleines System, <span class="accent-italic">damit 16 Screens zusammengehören.</span></h3>
+        <p class="lede" style="max-width:700px;">Vier Farben, zwei Schriften, eine Handvoll Bausteine. Der Umfang ist kein Understatement, sondern Konsequenz aus dem Test: Wenn drei Findings dieselbe Ursache haben, braucht es keine Vielfalt, sondern Wiederholung.</p>
+
+        <!-- Farbe -->
+        <span class="uisys-label">Farbe</span>
+        <p class="uisys-why">Eine Palette, in der nur eine Farbe laut sein darf. Alles, was nicht die Aktion ist, bleibt Untergrund.</p>
+        <div class="main-swatch-grid">
+          <div class="main-swatch">
+            <div class="main-chip" style="background:#FF5B3A;"></div>
+            <span class="ms-name">Signal</span><span class="ms-hex">#FF5B3A</span>
+            <span class="ms-use">Genau ein Element pro Screen: der nächste Schritt. Aus Finding 02 — ohne sichtbaren Einstieg beginnt der Loop nicht.</span>
+          </div>
+          <div class="main-swatch">
+            <div class="main-chip" style="background:#161311;"></div>
+            <span class="ms-name">Ink</span><span class="ms-hex">#161311</span>
+            <span class="ms-use">Text und Navigation. Warmes Schwarz statt reinem, damit es neben dem Signal nicht kippt.</span>
+          </div>
+          <div class="main-swatch">
+            <div class="main-chip" style="background:#A79E92;"></div>
+            <span class="ms-name">Stein</span><span class="ms-hex">#A79E92</span>
+            <span class="ms-use">Zweite Ebene: Metadaten, Zeitangaben, inaktive Zustände. Lesbar, aber nie im Vordergrund.</span>
+          </div>
+          <div class="main-swatch">
+            <div class="main-chip" style="background:#F5F2EC;border:1px solid var(--ink-08);"></div>
+            <span class="ms-name">Papier</span><span class="ms-hex">#F5F2EC</span>
+            <span class="ms-use">Grundfläche und Karten. Gebrochen statt weiß, damit Fotos von Orten nicht ausgeschnitten wirken.</span>
+          </div>
+        </div>
+
+        <!-- Typografie -->
+        <span class="uisys-label">Typografie</span>
+        <p class="uisys-why">Fraunces für die wenigen Momente, in denen die App spricht. DM Sans für alles, was sie erklärt.</p>
+        <div class="type-specimen">
+          <div class="ts-row">
+            <p class="ts-line" style="font-family:'Fraunces',serif;font-size:34px;line-height:1.18;">Ihr wart beide schon hier.</p>
+            <span class="ts-meta">Fraunces · Display · 32/40</span>
+          </div>
+          <div class="ts-row">
+            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:20px;line-height:1.3;">Kaffee an einem Ort, an dem du noch nie warst</p>
+            <span class="ts-meta">DM Sans Medium · Title · 20/26</span>
+          </div>
+          <div class="ts-row">
+            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.4;">Aufgaben laufen 24 Stunden. Wer sie abschließt, taucht am Ort auf, nicht im Feed.</p>
+            <span class="ts-meta">DM Sans Regular · Body · 15/21</span>
+          </div>
+          <div class="ts-row">
+            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-size:11px;line-height:1.27;color:var(--ink-55);">Noch 6 Stunden · 3 Personen waren hier</p>
+            <span class="ts-meta">DM Sans Regular · Caption · 11/14</span>
+          </div>
+        </div>
+
+        <!-- Bausteine -->
+        <span class="uisys-label">Bausteine</span>
+        <p class="uisys-why">Neun Bausteine tragen alle 16 Screens. Jeder ist einmal definiert und überall gleich eingesetzt.</p>
+
+        <div class="baustein-strip">
+          <figure class="wide"><div class="b-shot-wrap"><img src="samespot/Aufgaben.jpg" alt="Aufgaben-Karte" loading="lazy"></div><figcaption>Aufgaben-Karte</figcaption></figure>
+          <figure class="wide"><div class="b-shot-wrap"><img src="samespot/Navigation.jpg" alt="Navigation" loading="lazy"></div><figcaption>Navigation</figcaption></figure>
+          <figure class="wide"><div class="b-shot-wrap"><img src="samespot/Buttons.jpg" alt="Buttons" loading="lazy"></div><figcaption>Buttons</figcaption></figure>
+          <figure class="wide"><div class="b-shot-wrap"><img src="samespot/Austausch.jpg" alt="Austausch" loading="lazy"></div><figcaption>Austausch</figcaption></figure>
+          <figure><div class="b-shot-wrap"><img src="samespot/Spot.jpg" alt="Geöffneter Spot" loading="lazy"></div><figcaption>Spot</figcaption></figure>
+          <figure><div class="b-shot-wrap"><img src="samespot/Profilbilder.jpg" alt="Profilbilder" loading="lazy"></div><figcaption>Profilbilder</figcaption></figure>
+          <figure class="wide"><div class="b-shot-wrap"><img src="samespot/Icons.jpg" alt="Icon-Set" loading="lazy"></div><figcaption>Icons</figcaption></figure>
+          <figure><div class="b-shot-wrap"><img src="samespot/Tag.jpg" alt="Tag, Badge und Chip" loading="lazy"></div><figcaption>Tag, Badge, Chip</figcaption></figure>
+          <figure><div class="b-shot-wrap"><img src="samespot/Segmented.jpg" alt="Segmented Control" loading="lazy"></div><figcaption>Segmented Control</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Arbeit mit KI -->
+      <div class="sub-gap reveal" id="arbeit-mit-ki">
+        <span class="eyebrow">Arbeitsweise</span>
+        <h3>Wie ich mit KI gearbeitet habe, <span class="accent-italic">und wo nicht.</span></h3>
+        <p class="lede" style="max-width:700px;">KI war kein Werkzeug für den Entwurf, sondern für alles davor und daneben: Recherche, Sortierung, Sparring, Formulierungsvarianten. Sie hat mir Zeit verschafft, die ich in Testen und Zeichnen gesteckt habe.</p>
+
+        <div class="ki-split">
+          <div class="ki-split-head">
+            <span></span>
+            <span class="ki-col-label ai">Die KI hat</span>
+            <span class="ki-col-label me">Ich habe</span>
+          </div>
+          <div class="ki-row">
+            <div class="ki-row-head"><span class="ki-num">01</span><h4>Desk Research</h4><span class="ki-tool">Perplexity</span></div>
+            <div class="ki-side ai"><p>Marktüberblick und Studienlage zusammengetragen, mit Quellen zum Nachlesen.</p></div>
+            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Jede übernommene Zahl an der Primärquelle geprüft.</p></div>
+          </div>
+          <div class="ki-row">
+            <div class="ki-row-head"><span class="ki-num">01</span><h4>Antworten clustern</h4><span class="ki-tool">Claude</span></div>
+            <div class="ki-side ai"><p>Umfrage- und Interviewantworten nach Motiven sortiert.</p></div>
+            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Den entscheidenden Schnitt aus den Originalzitaten gezogen.</p></div>
+          </div>
+          <div class="ki-row">
+            <div class="ki-row-head"><span class="ki-num">02</span><h4>Sparring zur Mechanik</h4><span class="ki-tool">Claude</span></div>
+            <div class="ki-side ai"><p>Gegen den Loop argumentiert: Abbruchstellen, leerer Umkreis, Sicherheit.</p></div>
+            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Zwei Optionen daraufhin verworfen und die dritte gewählt.</p></div>
+          </div>
+          <div class="ki-row">
+            <div class="ki-row-head"><span class="ki-num">03</span><h4>Testmitschriften</h4><span class="ki-tool">Google-Modell</span></div>
+            <div class="ki-side ai"><p>Beide Think-Aloud-Sitzungen auf Übereinstimmungen abgeglichen.</p></div>
+            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Beobachtung und Deutung strikt getrennt gehalten.</p></div>
+          </div>
+          <div class="ki-row">
+            <div class="ki-row-head"><span class="ki-num">04</span><h4>Microcopy</h4><span class="ki-tool">Claude</span></div>
+            <div class="ki-side ai"><p>Mehrere Tonalitäten für die Wiederbegegnung durchgespielt.</p></div>
+            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Die Variante gegen das Finding aus Kapitel 03 ausgewählt.</p></div>
+          </div>
+        </div>
+
+        <div class="ki-not">
+          <span class="eyebrow">Wo nicht</span>
+          <p>Kein Screen und kein Icon ist generiert, alle 16 Screens sind in Figma gebaut. Interviews und Usability-Test habe ich selbst geführt, die Persona aus echten Antworten verdichtet. Und was den Loop blockiert und was warten kann, ist eine Designentscheidung — die stammt aus keinem Prompt.</p>
+        </div>
+      </div>
+
+      <div class="chapter-divider"></div>
+
+      <!-- ============ 05 WERKSTATT ============ -->
+      <div class="sub-gap reveal" id="werkstatt">
+        <div class="chapter-head">
+          <span class="chapter-num">05</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow">Werkstatt</span>
+            <h2 class="h2-xl" style="margin-top:6px;">Nicht beschrieben, sondern <span class="accent-italic accent-signal">nachprüfbar.</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="max-width:660px;margin-top:18px;">Drei Wege hinein, je nachdem wie viel Zeit du hast: eine Minute Video, ein Blick in die Datei, oder selbst durchklicken.</p>
+
+        <!-- 60-Sekunden-Walkthrough -->
+        <div class="sub-block" id="walkthrough">
+          <div class="ia-head block-head">
+            <span class="eyebrow">Walkthrough</span>
+            <span class="hint">60 Sekunden, mit Ton</span>
+          </div>
+          <h3>Ich gehe einmal durch die App <span class="accent-italic">und erkläre, warum sie so aufgebaut ist.</span></h3>
+          <div class="video-frame">
+            <video controls preload="metadata" playsinline poster="samespot/Aufgabenübersicht.png">
+              <source src="samespot/walkthrough.mp4" type="video/mp4" onerror="this.closest('.video-frame').classList.add('is-empty');">
+            </video>
+            <span class="proof-missing">samespot/walkthrough.mp4</span>
+          </div>
+        </div>
+
+        <!-- In Figma -->
+        <div class="sub-block" id="figma-einblick">
+          <div class="ia-head block-head">
+            <span class="eyebrow">In Figma</span>
+            <span class="hint">unaufgeräumt, absichtlich</span>
+          </div>
+          <h3>Wie die Datei wirklich aussieht, <span class="accent-italic">Verlinkungen inklusive.</span></h3>
+          <div class="proof-grid">
+          <figure class="proof-shot wide">
+            <img src="samespot/figma-prototyp.png" alt="Prototyp-Verlinkungen im Kernflow" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
+            <span class="proof-missing">samespot/figma-prototyp.png</span>
+            <figcaption><b>Prototyp-Verlinkungen im Kernflow</b> — jede Verbindung vom Spot bis zum Code-Austausch.</figcaption>
+          </figure>
+          <figure class="proof-shot ">
+            <img src="samespot/figma-komponenten.png" alt="Komponenten und Varianten" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
+            <span class="proof-missing">samespot/figma-komponenten.png</span>
+            <figcaption><b>Komponenten und Varianten</b> — die Bausteine, aus denen alle 16 Screens bestehen.</figcaption>
+          </figure>
+          <figure class="proof-shot ">
+            <img src="samespot/figma-flow.png" alt="Nutzerflow" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
+            <span class="proof-missing">samespot/figma-flow.png</span>
+            <figcaption><b>Nutzerflow</b> — der Kernflow, wie er vor den Screens entstanden ist.</figcaption>
+          </figure>
+          </div>
+          <a class="btn-ghost" href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener">Datei in Figma öffnen
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Klickbarer Prototyp -->
+        <div class="sub-block" id="prototyp">
+          <div class="ia-head block-head">
+            <span class="eyebrow">Selbst klicken</span>
+            <span class="hint">6 Schritte, keine Anmeldung</span>
+          </div>
+          <h3>Der Kern-Loop, <span class="accent-italic">direkt hier auf der Seite.</span></h3>
+
+          <div class="proto">
+            <div class="proto-stage">
+              <button class="proto-phone" id="protoPhone" aria-label="Weiter zum nächsten Schritt">
+                <img class="proto-shot" id="protoShot" src="samespot/Aufgabenübersicht.png" alt="">
+                <img class="proto-frame" src="samespot/Phone-Rahmen.png" alt="">
+                <span class="proto-tap" id="protoTap"></span>
+              </button>
+            </div>
+            <div class="proto-side">
+              <div class="proto-counter"><span id="protoNum">01</span><span class="of">/ 06</span></div>
+              <p class="proto-caption" id="protoCaption">Drei Aufgaben für diese Woche</p>
+              <ol class="proto-steps" id="protoSteps">
+                <li><button type="button" data-step="0" class="is-current"><span class="ps-num">01</span><span class="ps-label">Drei Aufgaben für diese Woche</span></button></li>
+                <li><button type="button" data-step="1"><span class="ps-num">02</span><span class="ps-label">Die Aufgabe hängt an einem echten Ort</span></button></li>
+                <li><button type="button" data-step="2"><span class="ps-num">03</span><span class="ps-label">Du bist da, die Aufgabe läuft</span></button></li>
+                <li><button type="button" data-step="3"><span class="ps-num">04</span><span class="ps-label">Erledigt, ohne jemanden anzusprechen</span></button></li>
+                <li><button type="button" data-step="4"><span class="ps-num">05</span><span class="ps-label">Im Feed: jemand war am selben Spot</span></button></li>
+                <li><button type="button" data-step="5"><span class="ps-num">06</span><span class="ps-label">Beide wollen: Code-Austausch</span></button></li>
+              </ol>
+              <div class="proto-actions">
+                <span class="proto-next" id="protoNext">Aufgabe öffnen</span>
+                <button type="button" class="btn-ghost sm" id="protoReset">Von vorn</button>
+              </div>
+            </div>
+          </div>
+          <script id="protoData" type="application/json">[["samespot/Aufgabenübersicht.png","Drei Aufgaben für diese Woche","Aufgabe öffnen","cta"],["samespot/Offene Aufgabe.png","Die Aufgabe hängt an einem echten Ort","Spot starten","cta"],["samespot/Spot gestartet.png","Du bist da, die Aufgabe läuft","Abschließen","cta"],["samespot/Aufgabe abgeschlossen.png","Erledigt, ohne jemanden anzusprechen","Zum Feed","nav"],["samespot/Realer Moment.png","Im Feed: jemand war am selben Spot","Wiedersehen ansehen","mid"],["samespot/Realer Austausch.png","Beide wollen: Code-Austausch","Von vorn","cta"]]</script>
+        </div>
+      </div>
+
+      <!-- Learnings -->
+      <div class="sub-gap reveal" id="learnings">
+        <span class="eyebrow">Learnings</span>
+        <h3>Was ich <span class="accent-italic">beim nächsten Mal anders mache.</span></h3>
+        <ul class="intro-bullets">
+          <li>Ich würde schon mit dem Low-Fi-Prototyp testen, nicht erst ab Mid-Fi.</li>
+          <li>Sicherheit war für mich anfangs kein eigenständiges Thema, sondern in der Mechanik mitgedacht. Erst die Feedback-Schleifen haben gezeigt, dass es eigene Antworten braucht: was, wenn jemand eine Person nicht mehr sehen möchte, oder ein Geschlecht komplett ausschließen will? Daraus sind die Sicherheitsregeln entstanden, das Blockieren/Ausblenden und der Geschlechtsfilter.</li>
+        </ul>
+      </div>
+
+      <!-- Constraints -->
+      <div class="sub-gap reveal" id="constraints">
+        <div class="limits">
+          <span class="eyebrow">Constraints</span>
+          <h3 class="limits-title">Was diese Case Study <span class="accent-italic">nicht beweist.</span></h3>
+          <p class="limits-lede">Drei Grenzen, unter denen dieses Projekt entstanden ist. Jede hat etwas gekostet, und jede hat etwas erzwungen, das sonst nicht passiert wäre.</p>
+
+          <div class="limit-rail">
+            <div class="limit">
+              <span class="limit-num">01</span>
+              <div class="limit-body">
+                <h4>Allein gearbeitet, ohne Entwicklung</h4>
+                <p class="limit-cost">Die Mechanik, um die sich alles dreht, ist im Prototyp simuliert. Es gibt kein echtes Standort-Tracking, also auch keinen Test unter realen Bedingungen. Ob Menschen tatsächlich hingehen, weiß ich schlicht nicht.</p>
+                <p class="limit-gain"><span>Was es dem Ergebnis gebracht hat</span>Weil nichts messbar war, musste jede Entscheidung begründet sein statt belegt. Das hat die Argumentation härter gemacht, als eine Kennzahl es getan hätte.</p>
+              </div>
+            </div>
+
+            <div class="limit">
+              <span class="limit-num">02</span>
+              <div class="limit-body">
+                <h4>Nur zwei Testpersonen</h4>
+                <p class="limit-cost">Zwei Personen sind keine Stichprobe. Gefunden habe ich Verständnisprobleme, keine Verhaltensmuster. Jede Prozentzahl, die ich daraus ableiten würde, wäre erfunden.</p>
+                <p class="limit-gain"><span>Was es dem Ergebnis gebracht hat</span>Zwei Personen haben gereicht, um den Kernfehler zu finden, und zwar früh. Hätte ich auf eine große Runde am Ende gewartet, wäre der Rückschlag zu spät gekommen, um noch etwas zu ändern.</p>
+              </div>
+            </div>
+
+            <div class="limit">
+              <span class="limit-num">03</span>
+              <div class="limit-body">
+                <h4>Keine echten Nutzungsdaten</h4>
+                <p class="limit-cost">Es gibt keinen Beleg dafür, dass der Loop trägt. Der KPI ist eine Behauptung mit Zielwert, kein Ergebnis, und als solcher hier auch gekennzeichnet.</p>
+                <p class="limit-gain"><span>Was es dem Ergebnis gebracht hat</span>Er ist so formuliert, dass er das Konzept widerlegen kann. Damit ist das Projekt überprüfbar statt schöngerechnet.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="limits-close">Bewiesen habe ich hier nichts. Ich kann nur begründen, warum ich es so gebaut habe, und sagen, was fehlt, um es zu prüfen.</p>
+        </div>
+      </div>
+    </section>
+
   </div>
-
-  <section id="projekte" data-noreveal="1" data-screen-label="Projekte" style="background:#F5F5F7;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
-    <div style="max-width:1080px;margin:0 auto">
-      <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Ausgewählte Projekte</p>
-      <h2 style="text-align:center;font-size:clamp(24px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:16px">Echte Probleme, echte Lösungen.</h2>
-      <p style="text-align:center;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:#6E6E73;margin:0 auto 56px;max-width:820px;letter-spacing:-0.012em;text-wrap:balance">Jede Studie zeigt den Teil, den die meisten Portfolios überspringen: das Audit, die Interviews, die Irrwege. Und die Entscheidung, die ich am Ende getroffen habe.</p>
-
-      <div style="display:flex;flex-direction:column">
-
-        <article style="position:sticky;top:104px;margin-bottom:28px;border-radius:32px;overflow:hidden;background:#0A0A0A;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 26px 70px -32px rgba(0,0,0,0.4);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
-          <div style="padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:center;gap:16px;order:1">
-            <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.6)">
-              <span aria-hidden="true" style="font-variant-numeric:tabular-nums">01</span>
-              <span aria-hidden="true" style="width:14px;height:0.5px;background:currentColor"></span>
-              Mobile App
-            </span>
-            <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;white-space:nowrap"><span style="color:#F5F2EC">same</span><span style="color:#FF5B3A">Spot</span></h3>
-            <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,.62);max-width:46ch;text-wrap:pretty">Eine App, in der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Von den ersten Interviews bis zum klickbaren Prototyp.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:18px 12px;padding:20px 0;border-top:0.5px solid rgba(255,255,255,.16);border-bottom:0.5px solid rgba(255,255,255,.16)">
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#fff">52</span>
-                <span style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.35">Umfrage-<br>Antworten</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#fff">4</span>
-                <span style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.35">Nutzer-<br>interviews</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#fff">4</span>
-                <span style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.35">Konkurrenz-<br>Apps</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#fff">≥15 %</span>
-                <span style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.35">Ziel-KPI<br>Wiederkehr</span>
-              </div>
-            </div>
-            <div style="display:flex;flex-wrap:nowrap;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">Research</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">User Flows</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">UI Design</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">Prototyping</span>
-              <span style="flex-shrink:0;font-size:11.5px;color:rgba(255,255,255,.72);background:rgba(255,255,255,0.09);border-radius:999px;padding:5px 10px;white-space:nowrap">Usability Testing</span>
-            </div>
-            <a href="samespot.html" style="display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:8px;padding:13px 24px;border-radius:999px;background:#FF5B3A;color:#fff;font-size:15px;font-weight:550;box-shadow:0 6px 20px rgba(255,91,58,0.32);transition:transform .2s cubic-bezier(.22,1,.36,1)" style-active="transform:scale(.96)" style-hover="color:#fff;filter:brightness(1.06)">Case Study öffnen<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div style="position:relative;min-height:clamp(280px,32vw,420px);overflow:hidden;order:2"><div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 10%,#1C1C1E 0%,#0A0A0A 70%)"></div>
-            <img data-px="1" src="samespot-mocks/samespot-mock-feed.png" alt="sameSpot Feed-Screen" style="position:absolute;bottom:-10%;left:50%;width:clamp(140px,15vw,190px);border-radius:26px;box-shadow:0 26px 54px -16px rgba(0,0,0,.42);transform:translateX(-108%) rotate(-10deg);z-index:1;">
-            <img data-px="1" src="samespot-mocks/samespot-mock-dark.png" alt="" style="position:absolute;bottom:-10%;left:50%;width:clamp(150px,16vw,204px);border-radius:26px;box-shadow:0 26px 54px -16px rgba(0,0,0,.42);transform:translateX(-50%) rotate(0deg);z-index:3;">
-            <img data-px="1" src="samespot-mocks/samespot-mock-detail.png" alt="" style="position:absolute;bottom:-10%;left:50%;width:clamp(140px,15vw,190px);border-radius:26px;box-shadow:0 26px 54px -16px rgba(0,0,0,.42);transform:translateX(8%) rotate(10deg);z-index:1;"></div>
-        </article>
-
-        <article style="position:sticky;top:120px;margin-bottom:0px;border-radius:32px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 26px 70px -32px rgba(0,0,0,0.4);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
-          <div style="padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:center;gap:16px;order:1">
-            <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#6E6E73">
-              <span aria-hidden="true" style="font-variant-numeric:tabular-nums">02</span>
-              <span aria-hidden="true" style="width:14px;height:0.5px;background:currentColor"></span>
-              Branding · Webdesign
-            </span>
-            <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;color:#0A0A0A;white-space:nowrap">ArtisanCraft</h3>
-            <p style="font-size:16px;line-height:1.6;color:#6E6E73;max-width:46ch;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Markenauftritt für ein Handwerks-Label: Logo, Farbsystem und ein Web-Layout, das das Produkt sprechen lässt statt die Dekoration.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:18px 12px;padding:20px 0;border-top:0.5px solid rgba(0,0,0,0.14);border-bottom:0.5px solid rgba(0,0,0,0.14)">
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">1</span>
-                <span style="font-size:12px;color:#6E6E73;line-height:1.35">Wortmarke</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">6</span>
-                <span style="font-size:12px;color:#6E6E73;line-height:1.35">Seiten-Layouts</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">2</span>
-                <span style="font-size:12px;color:#6E6E73;line-height:1.35">Farbwelten</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.03em;line-height:1;color:#0A0A0A">3 Wo.</span>
-                <span style="font-size:12px;color:#6E6E73;line-height:1.35">Projektdauer</span>
-              </div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
-              <span style="font-size:12px;color:#6E6E73;background:#F0F0F2;border-radius:999px;padding:6px 12px">Identity</span>
-              <span style="font-size:12px;color:#6E6E73;background:#F0F0F2;border-radius:999px;padding:6px 12px">Layout</span>
-              <span style="font-size:12px;color:#6E6E73;background:#F0F0F2;border-radius:999px;padding:6px 12px">Typografie</span>
-            </div>
-            <a href="#projekte" style="display:inline-flex;align-items:center;gap:9px;align-self:flex-start;margin-top:8px;padding:13px 24px;border-radius:999px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;font-size:15px;font-weight:550;box-shadow:0 6px 20px rgba(46,139,87,0.28);transition:transform .2s cubic-bezier(.22,1,.36,1)" style-active="transform:scale(.96)" style-hover="color:#fff;filter:brightness(1.06)">Projekt ansehen<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div style="position:relative;min-height:clamp(280px,32vw,420px);overflow:hidden;order:2"><div style="position:absolute;inset:0;background:#EDEDF0"></div>
-            <img data-px="1" src="Weitere%20Projekte/tm.jpg" alt="ArtisanCraft Markenauftritt" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="antrieb" data-screen-label="Antrieb" style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
-    <div style="max-width:1080px;margin:0 auto">
-      <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Was mich antreibt</p>
-      <h2 style="text-align:center;font-size:clamp(24px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:16px">So arbeite ich.</h2>
-      <p style="text-align:center;font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:#6E6E73;margin:0 auto 56px;max-width:620px;letter-spacing:-0.012em;text-wrap:pretty">Sechs Prinzipien, die meine Arbeit prägen.</p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,22px)">
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
-          <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Verbinden</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Verständnis schaffen</h3>
-          <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich bringe unterschiedliche Perspektiven zusammen, damit aus guten Ideen großartige Produkte werden.</p>
-        </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
-          <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Verstehen</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Den Kern erkennen</h3>
-          <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich suche nicht nach schnellen Lösungen, sondern nach dem eigentlichen Problem, das es zu lösen gilt.</p>
-        </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
-          <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Gestalten</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Design mit Charakter</h3>
-          <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich entwickle Produkte, die nicht nur funktionieren, sondern Vertrauen schaffen und gerne genutzt werden.</p>
-        </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
-          <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Skalieren</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">In Systemen denken</h3>
-          <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich denke Design über einzelne Screens hinaus – als Grundlage für konsistente Produkte und effiziente Teams.</p>
-        </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
-          <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Hinterfragen</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Neues möglich machen</h3>
-          <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich hinterfrage Gewohntes und suche nach besseren Wegen – auch wenn sie zunächst unbequemer erscheinen.</p>
-        </div>
-        <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px">
-          <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Bewirken</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0">Erfolg sichtbar machen</h3>
-          <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Für mich ist Design dann erfolgreich, wenn Menschen ein Produkt lieben und Business-Ziele messbar unterstützt werden.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section data-screen-label="Statement" style="background:#0A0A0A;padding:clamp(88px,11vw,150px) clamp(20px,5vw,40px)">
-    <blockquote style="max-width:900px;margin:0 auto;text-align:center">
-      <p style="font-size:clamp(30px,5.2vw,68px);font-weight:700;letter-spacing:-0.04em;line-height:1.05;color:#fff;margin-bottom:28px;text-wrap:balance">Wenn etwas erklärt werden muss, ist es noch nicht <span style="background:linear-gradient(135deg,#2E9E63 0%,#166237 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#2E9E63">fertig.</span></p>
-      <footer style="font-size:15px;color:rgba(255,255,255,.5)">Meine Messlatte, in jedem Projekt</footer>
-    </blockquote>
-  </section>
-
-  <section id="expertise" data-screen-label="Expertise" style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
-    <div style="max-width:1080px;margin:0 auto">
-      <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Expertise</p>
-      <h2 style="text-align:center;font-size:clamp(26px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:56px">Von der Frage zum Interface.</h2>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
-          <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m20 20-4.35-4.35"></path></svg></span>
-          <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Verstehen</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Nutzerinterviews</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Umfragen</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Wettbewerbsanalyse</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Persona Mapping</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Usability Testing</span>
-          </div>
-        </div>
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
-          <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1.6"></rect><rect x="14" y="4" width="7" height="7" rx="1.6"></rect><rect x="8.5" y="14" width="7" height="7" rx="1.6"></rect><path d="M6.5 11v3M17.5 11v3M6.5 14h11"></path></svg></span>
-          <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Strukturieren</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Card Sorting</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">User Journeys</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Informationsarchitektur</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Storyboarding</span>
-          </div>
-        </div>
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
-          <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 3 7 7-9.5 9.5H4v-7.5z"></path><path d="m14 3-2.5 2.5"></path></svg></span>
-          <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Gestalten</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Wireframing</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">UI Design</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Design Systems</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Components</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Style Guides</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Branding</span>
-          </div>
-        </div>
-        <div style="background:#F5F5F7;border-radius:26px;padding:30px">
-          <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#fff;color:#0A0A0A;margin-bottom:16px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="7"></rect></svg></span>
-          <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A;margin-bottom:18px">Umsetzen</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Prototyping</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Interaction Design</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Responsive Design</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Reinzeichnung</span>
-            <span style="font-size:12.5px;color:#6E6E73;background:#fff;border-radius:999px;padding:7px 14px">Druckproduktion</span>
-          </div>
-        </div>
-      </div>
-      </div>
-  </section>
-
-  <section id="ueber-mich" data-screen-label="Über mich" style="background:#F5F5F7;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
-    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(min(100%,320px),1.55fr) minmax(min(100%,240px),1fr);gap:clamp(32px,5vw,64px);align-items:stretch">
-      <div style="display:flex;flex-direction:column;justify-content:center">
-        <p style="font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Über mich</p>
-        <h2 style="font-size:clamp(32px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:24px">Hi, ich bin Lina.</h2>
-        <p style="font-size:17px;color:#1D1D1F;line-height:1.65;margin-bottom:16px;text-wrap:pretty">Ich bin UX/UI Designerin und komme aus der Mediengestaltung Digital &amp; Print. Irgendwann habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt.</p>
-        <p style="font-size:17px;color:#6E6E73;line-height:1.65;margin-bottom:32px;text-wrap:pretty">Heute arbeite ich am liebsten dort, wo Research und Interface zusammenkommen: erst verstehen, dann gestalten, dann testen und wieder ändern.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:9px">
-          <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.94)">LinkedIn</a>
-          <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.94)">Behance</a>
-          <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.94)">Dribbble</a>
-          <a href="CV/CV_Lina-Melissa-Arndt.pdf" download style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#fff;background:#1F7A45;border-radius:999px;padding:10px 18px;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.94)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>Lebenslauf</a>
-        </div>
-      </div>
-      <div style="border-radius:28px;overflow:hidden;background:#E8E8ED;align-self:stretch;position:relative">
-        <img src="ich/bild2.jpg" alt="Lina Melissa Arndt im Portrait" data-px="14" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
-      </div>
-    </div>
-
-    <div style="max-width:1080px;margin:clamp(44px,5.5vw,72px) auto 0;padding-top:clamp(28px,3.4vw,40px);border-top:1px solid rgba(0,0,0,0.1);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,168px),1fr));gap:clamp(20px,2.6vw,32px)">
-      <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">2 Jahre</div>
-        <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Fachhochschulreife Gestaltung</div>
-      </div>
-      <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">3 Jahre</div>
-        <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Ausbildung Mediengestaltung Digital &amp; Print</div>
-      </div>
-      <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">4 Monate</div>
-        <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Product Design Bootcamp</div>
-      </div>
-      <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#1F7A45;line-height:1.02">1 Jahr</div>
-        <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Berufserfahrung im Design</div>
-      </div>
-      <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">2</div>
-        <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Zertifikate</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="blog" data-screen-label="Gedanken" style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
-    <div style="max-width:1080px;margin:0 auto">
-      <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Gedanken</p>
-      <h2 style="text-align:center;font-size:clamp(27px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:16px">Gedanken aus dem Prozess.</h2>
-      <p style="text-align:center;font-size:17px;color:#6E6E73;line-height:1.6;max-width:620px;margin:0 auto 52px;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und die Fragen, die mich nicht loslassen.</p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
-        <a href="Blog/blog-artikel-01.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
-          <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
-              <rect x="40" y="70" width="140" height="150" rx="10" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
-              <rect x="58" y="92" width="104" height="8" rx="4" fill="#C7C7CB"></rect>
-              <rect x="58" y="112" width="80" height="8" rx="4" fill="#C7C7CB"></rect>
-              <rect x="58" y="140" width="104" height="46" rx="6" fill="#EDEDEF"></rect>
-              <rect x="58" y="196" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
-              <rect x="220" y="55" width="150" height="180" rx="12" fill="#0A0A0A"></rect>
-              <circle cx="238" cy="72" r="3" fill="#4A4A4E"></circle>
-              <circle cx="250" cy="72" r="3" fill="#4A4A4E"></circle>
-              <rect x="236" y="92" width="118" height="8" rx="4" fill="#2E9E63"></rect>
-              <rect x="236" y="112" width="90" height="8" rx="4" fill="#3A3A3E"></rect>
-              <rect x="236" y="140" width="118" height="8" rx="4" fill="#3A3A3E"></rect>
-              <rect x="236" y="158" width="70" height="8" rx="4" fill="#3A3A3E"></rect>
-              <rect x="236" y="192" width="118" height="22" rx="8" fill="#2E9E63"></rect>
-              <path d="M182 150 Q200 150 218 150" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
-              <circle cx="182" cy="150" r="4" fill="#2E9E63"></circle>
-            </svg>
-            <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">Prozess</span>
-          </div>
-          <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
-            <span style="font-size:11.5px;font-weight:500;color:#8E8E93">Mai 2026</span>
-            <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A">Wie ich dieses Portfolio mit Vibe Coding gebaut habe</h3>
-            <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Vier Tage Figma-Design. Und dann spontan über Bord geworfen.</p>
-          </div>
-        </a>
-        <a href="Blog/blog-artikel-02.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
-          <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
-              <rect x="164" y="46" width="72" height="20" rx="6" fill="#0A0A0A"></rect>
-              <path d="M200 66 V90 M120 110 H280 M120 110 V90 M280 110 V90 M120 110 V132 M200 110 V132 M280 110 V132" stroke="#C7C7CB" stroke-width="2" fill="none"></path>
-              <rect x="82" y="132" width="76" height="18" rx="5" fill="#2E9E63"></rect>
-              <rect x="162" y="132" width="76" height="18" rx="5" fill="#E1E1E4"></rect>
-              <rect x="242" y="132" width="76" height="18" rx="5" fill="#E1E1E4"></rect>
-              <path d="M100 150 V172 M118 150 V172 M100 172 H118" stroke="#C7C7CB" stroke-width="2" fill="none"></path>
-              <rect x="82" y="172" width="42" height="14" rx="4" fill="#EDEDEF"></rect>
-              <rect x="130" y="172" width="42" height="14" rx="4" fill="#EDEDEF"></rect>
-              <rect x="196" y="200" width="118" height="66" rx="10" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
-              <rect x="212" y="216" width="86" height="8" rx="4" fill="#2E9E63"></rect>
-              <rect x="212" y="234" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
-              <rect x="212" y="250" width="70" height="8" rx="4" fill="#C7C7CB"></rect>
-              <path d="M162 186 Q180 195 196 216" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
-            </svg>
-            <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">UX Design</span>
-          </div>
-          <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
-            <span style="font-size:11.5px;font-weight:500;color:#8E8E93">Juni 2026</span>
-            <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A">Erst der Plan, dann das Gefühl: Navigationsarchitektur und Prototyping</h3>
-            <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Wie man eine Struktur baut, in der sich Menschen nicht verlaufen.</p>
-          </div>
-        </a>
-        <a href="Blog/blog-artikel-03.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
-          <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
-              <rect x="110" y="60" width="180" height="180" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
-              <rect x="126" y="76" width="148" height="26" rx="7" fill="#0A0A0A"></rect>
-              <rect x="126" y="114" width="60" height="8" rx="4" fill="#C7C7CB"></rect>
-              <circle cx="132" cy="140" r="6" fill="none" stroke="#2E9E63" stroke-width="2"></circle>
-              <path d="M129 140 l2 3 5-6" stroke="#2E9E63" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
-              <rect x="146" y="136" width="100" height="8" rx="4" fill="#C7C7CB"></rect>
-              <circle cx="132" cy="164" r="6" fill="none" stroke="#C7C7CB" stroke-width="2"></circle>
-              <rect x="146" y="160" width="80" height="8" rx="4" fill="#EDEDEF"></rect>
-              <rect x="126" y="188" width="148" height="30" rx="9" fill="#0A0A0A"></rect>
-              <path d="M126 60 L294 240 M294 60 L126 240" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round"></path>
-            </svg>
-            <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">Haltung</span>
-          </div>
-          <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
-            <span style="font-size:11.5px;font-weight:500;color:#8E8E93">Juni 2026</span>
-            <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A">Dark Patterns und warum ich sie ablehne</h3>
-            <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Manche Designs sind nicht schlecht gemacht. Sie sind absichtlich gegen dich gebaut.</p>
-          </div>
-        </a>
-        <a href="Blog/blog-artikel-04.html" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
-          <div style="position:relative;aspect-ratio:4/3;background:#F5F5F7;overflow:hidden">
-            <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect x="0" y="0" width="400" height="300" fill="#F5F5F7"></rect>
-              <circle cx="112" cy="90" r="8" fill="#2E9E63"></circle>
-              <rect x="132" y="78" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
-              <rect x="148" y="86" width="100" height="8" rx="4" fill="#C7C7CB"></rect>
-              <rect x="150" y="120" width="150" height="24" rx="12" fill="#EDEDEF"></rect>
-              <rect x="166" y="128" width="90" height="8" rx="4" fill="#8E8E93"></rect>
-              <circle cx="112" cy="174" r="8" fill="#2E9E63"></circle>
-              <rect x="132" y="162" width="150" height="24" rx="12" fill="#fff" stroke="#E1E1E4" stroke-width="1.5"></rect>
-              <rect x="148" y="170" width="70" height="8" rx="4" fill="#C7C7CB"></rect>
-              <rect x="150" y="204" width="150" height="24" rx="12" fill="#2E9E63"></rect>
-              <rect x="166" y="212" width="90" height="8" rx="4" fill="#fff" opacity="0.85"></rect>
-              <path d="M300 132 Q320 110 300 88" stroke="#2E9E63" stroke-width="2" stroke-dasharray="4 5" fill="none"></path>
-            </svg>
-            <span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;color:#0A0A0A">KI &amp; Tools</span>
-          </div>
-          <div style="padding:20px;display:flex;flex-direction:column;gap:7px;flex:1">
-            <span style="font-size:11.5px;font-weight:500;color:#8E8E93">Juni 2026</span>
-            <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.015em;line-height:1.35;color:#0A0A0A">Prompten als neue Designfähigkeit</h3>
-            <p style="font-size:13.5px;color:#6E6E73;line-height:1.55">Warum gutes Prompten nah an dem ist, was ich als Designerin sowieso tue.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="zwischendurch" data-screen-label="Zwischendurch" style="background:#F5F5F7;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
-    <div style="max-width:1080px;margin:0 auto">
-      <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Zwischendurch</p>
-      <h3 style="text-align:center;font-size:clamp(24px,3.6vw,38px);font-weight:700;letter-spacing:-0.035em;line-height:1.1;color:#0A0A0A;margin-bottom:14px">Blick hinter die Kulissen.</h3>
-      <p style="text-align:center;font-size:16px;line-height:1.55;color:#6E6E73;margin:0 auto 40px;max-width:560px;letter-spacing:-0.012em;text-wrap:pretty">Prozess, Skills und ein bisschen Privates, damit du auch den Menschen hinter den Case Studies siehst.</p>
-    </div>
-
-    <div style="column-width:220px;column-gap:16px;max-width:1600px;margin:0 auto">
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:320px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-ausbildung.jpg" alt="Abschluss der Ausbildung" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Persönlich</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:220px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img class="pan-tile" src="zwischendurch/zd-prdruck.jpg" alt="Website für pr.druck" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Projekt</span>
-      </div>
-      <button type="button" onClick="{{ openIllu1 }}" style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border:none;border-radius:24px;overflow:hidden;height:300px;padding:0;cursor:pointer;font-family:inherit;text-align:left;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <div class="slide-track">
-          <img src="zwischendurch/zd-set1-1.jpg" alt="Illustrationen, Set 1, Bild 1">
-          <img src="zwischendurch/zd-set1-2.jpg" alt="Illustrationen, Set 1, Bild 2">
-          <img src="zwischendurch/zd-set1-3.jpg" alt="Illustrationen, Set 1, Bild 3">
-        </div>
-        <span style="position:absolute;top:12px;left:12px;z-index:2;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Skill</span>
-        <span style="position:absolute;top:12px;right:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(10,10,10,0.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">1/3</span>
-        <span style="position:absolute;bottom:0;left:0;right:0;z-index:2;padding:34px 16px 14px;font-size:13.5px;font-weight:600;color:#fff;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%)">Illustrationen, Set 1</span>
-      </button>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:300px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-cafe.jpg" alt="Skizzieren im Café" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Prozess</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <video src="zwischendurch/greensip.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="width:100%;height:auto;display:block"></video>
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Video</span>
-        <span style="position:absolute;bottom:12px;left:12px;font-size:12.5px;font-weight:600;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.5)">GreenSip</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:280px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-familie.jpg" alt="Mit Familie" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Persönlich</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:220px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-wireframe.jpg" alt="Wireframe-Skizzen von Hand" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Prozess</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:220px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img class="pan-tile" src="zwischendurch/zd-tara.jpg" alt="App-Design für Tara" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Projekt</span>
-      </div>
-      <figure style="break-inside:avoid;margin:0 0 20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;border-radius:24px;padding:28px 24px;background:#0A0A0A;height:260px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:14px" style-hover="transform:translateY(-6px)">
-        <span aria-hidden="true" style="font-size:36px;line-height:.6;color:#2E9E63;font-weight:700;font-family:Georgia,serif">&ldquo;</span>
-        <blockquote style="margin:0;font-size:18px;line-height:1.4;letter-spacing:-0.02em;color:#fff">The things we do, do things for us.</blockquote>
-      </figure>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:320px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-freunde.jpg" alt="Mit Freund:innen unterwegs" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Persönlich</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:260px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-procreate.jpg" alt="Digitale Illustration in Procreate" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Skill</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:260px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-blender.jpg" alt="3D-Illustration in Blender" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Projekt</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <video src="zwischendurch/zodiac.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="width:100%;height:auto;display:block"></video>
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Video</span>
-        <span style="position:absolute;bottom:12px;left:12px;font-size:12.5px;font-weight:600;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.5)">Zodiac</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:280px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-start.jpg" alt="Der Anfang meiner UX/UI-Journey" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Persönlich</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:240px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-desk.jpg" alt="Arbeitsplatz-Setup" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Prozess</span>
-      </div>
-      <button type="button" onClick="{{ openIllu2 }}" style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border:none;border-radius:24px;overflow:hidden;height:260px;padding:0;cursor:pointer;font-family:inherit;text-align:left;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <div class="slide-track">
-          <img src="zwischendurch/zd-set2-1.jpg" alt="Illustrationen, Set 2, Bild 1">
-          <img src="zwischendurch/zd-set2-2.jpg" alt="Illustrationen, Set 2, Bild 2">
-          <img src="zwischendurch/zd-set2-3.jpg" alt="Illustrationen, Set 2, Bild 3">
-        </div>
-        <span style="position:absolute;top:12px;left:12px;z-index:2;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Skill</span>
-        <span style="position:absolute;top:12px;right:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(10,10,10,0.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">1/3</span>
-        <span style="position:absolute;bottom:0;left:0;right:0;z-index:2;padding:34px 16px 14px;font-size:13.5px;font-weight:600;color:#fff;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%)">Illustrationen, Set 2</span>
-      </button>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:320px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-yumi.jpg" alt="App-Design für yumi" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Projekt</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:300px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-ich.jpg" alt="Ich" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Persönlich</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <video src="zwischendurch/memorycapsule.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="width:100%;height:auto;display:block"></video>
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Video</span>
-        <span style="position:absolute;bottom:12px;left:12px;font-size:12.5px;font-weight:600;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.5)">Memory Capsule</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:300px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-work.jpg" alt="Unterwegs sketchen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Prozess</span>
-      </div>
-      <div style="break-inside:avoid;margin-bottom:20px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:220px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
-        <img src="zwischendurch/zd-plentymarkets.jpg" alt="Event für plentymarkets" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-        <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Projekt</span>
-      </div>
-    </div>
-  </section>
-
-  <div id="kontakt" data-screen-label="Kontakt" style="background:#fff;padding:clamp(80px,10vw,140px) clamp(20px,5vw,40px);text-align:center">
-    <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;align-items:center">
-      <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(31,122,69,0.09);border-radius:999px;padding:8px 16px;margin-bottom:22px">
-        <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#1F7A45;box-shadow:0 0 0 4px rgba(31,122,69,0.18)"></span>
-        <span style="font-size:13.5px;font-weight:600;color:#1F7A45;letter-spacing:-0.005em">Offen für neue Möglichkeiten</span>
-      </div>
-      <h2 style="font-size:clamp(26px,4.4vw,46px);line-height:1.1;font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;margin-bottom:20px;white-space:nowrap">Ich freue mich auf dein Hallo :)</h2>
-      <p style="font-size:clamp(16px,1.6vw,20px);line-height:1.55;color:#6E6E73;margin-bottom:30px;letter-spacing:-0.012em;max-width:520px;text-wrap:pretty">Ich bin offen für Gespräche über offene Stellen, Projekte oder einfach einen Austausch.</p>
-
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-bottom:38px">
-        <span style="display:flex;align-items:center;gap:8px;font-size:14.5px;color:#1D1D1F">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-          Ab sofort verfügbar
-        </span>
-        <span style="display:flex;align-items:center;gap:8px;font-size:14.5px;color:#1D1D1F">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Hamburg
-        </span>
-      </div>
-
-      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px">
-        <a href="mailto:Lina-Melissa@web.de" style="display:inline-flex;align-items:center;gap:11px;background:#1F7A45;color:#fff;border-radius:999px;padding:16px 30px;font-size:16.5px;font-weight:600;letter-spacing:-0.015em;box-shadow:0 14px 34px -14px rgba(31,122,69,0.7);transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="background:#0A0A0A;color:#fff;transform:translateY(-2px)" style-active="transform:scale(.96)">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-          Mail me
-        </a>
-        <a href="CV/CV_Lina-Melissa-Arndt.pdf" download style="display:inline-flex;align-items:center;gap:9px;background:#F5F5F7;color:#1D1D1F;border-radius:999px;padding:16px 26px;font-size:16.5px;font-weight:500;letter-spacing:-0.015em;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.96)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>CV herunterladen</a>
-        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#F5F5F7;color:#1D1D1F;border-radius:999px;padding:16px 26px;font-size:16.5px;font-weight:500;letter-spacing:-0.015em;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.96)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>LinkedIn</a>
-      </div>
-
-    </div>
-  </div>
-
-  <footer style="background:#0A0A0A;padding:clamp(48px,6vw,68px) clamp(20px,5vw,40px) 28px">
-    <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap">
-      <div style="display:flex;flex-direction:column;gap:7px">
-        <span style="font-size:18px;color:#fff;font-weight:600;letter-spacing:-0.025em">Lina Melissa Arndt</span>
-        <span style="font-size:13.5px;color:#8E8E93">UX/UI Design · Lüneburg</span>
-        <a href="mailto:Lina-Melissa@web.de" style="font-size:13.5px;color:#8E8E93;margin-top:4px;transition:color .18s ease" style-hover="color:#fff">Lina-Melissa@web.de</a>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px">
-        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" aria-label="Behance" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"></path><path d="M3 12h5"></path><path d="M15 7h4"></path></svg>
-        </a>
-        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" aria-label="Dribbble" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:transform .18s cubic-bezier(.22,1,.36,1),background .18s ease" style-hover="background:#fff;color:#0A0A0A" style-active="transform:scale(.92)">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path></svg>
-        </a>
-      </div>
-    </div>
-    <div style="max-width:1080px;margin:clamp(36px,4.5vw,52px) auto 0;padding-top:22px;border-top:0.5px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap">
-      <span style="font-size:12.5px;color:#6E6E73">© 2026 Lina Melissa Arndt · Design und Code von mir · mit KI als Werkzeug</span>
-      <div style="display:flex;align-items:center;gap:20px">
-        <span style="font-size:12.5px;color:#6E6E73">Zuletzt aktualisiert: August 2026</span>
-        <a href="impressum.html" style="font-size:12.5px;color:#8E8E93;transition:color .18s ease" style-hover="color:#fff">Impressum &amp; Datenschutz</a>
-      </div>
-    </div>
-  </footer>
-
-  <sc-if value="{{ chatClosed }}" hint-placeholder-val="{{ true }}">
-    <div style="position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px">
-      <sc-if value="{{ nudge }}" hint-placeholder-val="{{ false }}">
-        <button type="button" onClick="{{ openChat }}" style="max-width:min(280px,calc(100vw - 48px));text-align:left;background:rgba(255,255,255,0.86);backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(0,0,0,0.12);border-radius:20px 20px 6px 20px;padding:14px 16px;box-shadow:0 12px 34px rgba(0,0,0,0.16);cursor:pointer;font-family:inherit;animation:bubbleIn .35s ease both">
-          <span style="display:block;font-size:14px;line-height:1.5;color:#0A0A0A">Portfolio ist online 👀 Gefällt's dir?</span>
-          <span style="display:block;font-size:11.5px;color:#6E6E73;margin-top:6px">Lina · Mai 2026</span>
-        </button>
-      </sc-if>
-      <button type="button" onClick="{{ openChat }}" aria-label="Nachrichten von Lina öffnen" style="position:relative;width:62px;height:62px;border-radius:50%;border:none;padding:3px;overflow:visible;cursor:pointer;background:linear-gradient(135deg,#248453 0%,#14562F 100%);box-shadow:0 10px 28px rgba(0,0,0,0.22)" style-hover="box-shadow:0 14px 34px rgba(0,0,0,0.3)">
-        <img src="ich/bild1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%">
-        <sc-if value="{{ badge }}" hint-placeholder-val="{{ false }}">
-          <span aria-hidden="true" style="position:absolute;top:-1px;right:-1px;width:16px;height:16px;border-radius:50%;background:#FF3B30;border:2.5px solid #fff;animation:pulseDot 2.2s ease-in-out infinite"></span>
-        </sc-if>
-      </button>
-    </div>
-  </sc-if>
-
-  <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
-    <div role="dialog" aria-label="Was gerade bei mir läuft" style="position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:500;width:min(370px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 40px));display:flex;flex-direction:column;background:rgba(255,255,255,0.9);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border:0.5px solid rgba(0,0,0,0.14);border-radius:28px;box-shadow:0 30px 70px rgba(0,0,0,0.24);overflow:hidden;animation:bubbleIn .28s ease both">
-      <div style="display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:0.5px solid rgba(0,0,0,0.14)">
-        <span style="width:40px;height:40px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);flex-shrink:0">
-          <img src="ich/bild1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%">
-        </span>
-        <span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0">
-          <span style="font-size:15px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A">Was gerade bei mir läuft</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#1F7A45"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#248453 0%,#14562F 100%)"></span>Lina, kein Support-Bot</span>
-        </span>
-        <button type="button" onClick="{{ closeChat }}" aria-label="Chat schließen" style="width:32px;height:32px;border-radius:50%;border:none;background:#F5F5F7;color:#0A0A0A;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0" style-hover="background:#0A0A0A;color:#fff">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-        </button>
-      </div>
-
-      <div style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px">
-        <p style="font-size:11.5px;color:#6E6E73;text-align:center">Nach oben scrollen fürs Archiv</p>
-
-        <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-start">
-          <div style="background:#F0F0F2;border-radius:20px 20px 20px 6px;padding:12px 15px;max-width:92%">
-            <p style="font-size:14.5px;line-height:1.5;color:#0A0A0A;letter-spacing:-0.012em">Nebenbei zum Job das Google UX Certificate durchgezogen 😅 und dabei gemerkt: genau DAS will ich machen.</p>
-          </div>
-          <span style="font-size:11px;color:#6E6E73;padding-left:6px">November 2025</span>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-start">
-          <div style="background:#F0F0F2;border-radius:20px 20px 20px 6px;padding:12px 15px;max-width:92%">
-            <p style="font-size:14.5px;line-height:1.5;color:#0A0A0A;letter-spacing:-0.012em">Bootcamp läuft! Mein Case war eigentlich sofort klar: sameSpot. Das Thema beschäftigt mich schon seit Jahren</p>
-          </div>
-          <span style="font-size:11px;color:#6E6E73;padding-left:6px">April 2026</span>
-        </div>
-
-        <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
-          <div style="background:#F0F0F2;border-radius:20px 20px 20px 6px;padding:14px 16px;width:fit-content;display:flex;gap:5px;align-items:center">
-            <span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#6E6E73;animation:typingDot 1.1s ease-in-out infinite"></span>
-            <span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#6E6E73;animation:typingDot 1.1s ease-in-out .15s infinite"></span>
-            <span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#6E6E73;animation:typingDot 1.1s ease-in-out .3s infinite"></span>
-          </div>
-        </sc-if>
-
-        <sc-if value="{{ showLatest }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-start;animation:bubbleIn .3s ease both">
-            <div style="background:linear-gradient(135deg,#248453 0%,#14562F 100%);border-radius:20px 20px 20px 6px;padding:12px 15px;max-width:92%">
-              <p style="font-size:14.5px;line-height:1.5;color:#fff;letter-spacing:-0.012em">Portfolio ist online 👀 4 Tage Figma-Wireframe gebaut, dann spontan Vibe Coding mit Claude probiert. Ergebnis siehst du hier gerade. Gefällt's dir?</p>
-            </div>
-            <span style="font-size:11px;color:#6E6E73;padding-left:6px">Mai 2026</span>
-          </div>
-        </sc-if>
-      </div>
-
-      <a href="#blog" onClick="{{ closeChat }}" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;border-top:0.5px solid rgba(0,0,0,0.14);font-size:14.5px;font-weight:550;color:#1F7A45" style-hover="background:#F5F5F7;color:#1F7A45">→ mehr im Blog lesen</a>
-      <form action="mailto:Lina-Melissa@web.de" method="get" style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-top:0.5px solid rgba(0,0,0,0.14);background:rgba(255,255,255,0.6)">
-        <input type="text" name="subject" placeholder="Antworten…" aria-label="Nachricht" style="flex:1;min-width:0;border:0.5px solid rgba(0,0,0,0.16);background:#fff;border-radius:999px;padding:10px 16px;font-family:inherit;font-size:14.5px;color:#0A0A0A;outline:none" style-focus="border-color:#248453">
-        <button type="submit" aria-label="Senden" style="width:34px;height:34px;flex-shrink:0;border:none;border-radius:50%;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .18s ease" style-active="transform:scale(.88)">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
-        </button>
-      </form>
-    </div>
-  </sc-if>
-
-  <sc-if value="{{ lightbox }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.72);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px)">
-      <button type="button" onClick="{{ closeLightbox }}" aria-label="Schließen" style="position:fixed;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-      </button>
-      <div style="width:min(900px,90vw);max-height:86vh;overflow-y:auto;border-radius:22px;box-shadow:0 40px 90px rgba(0,0,0,0.5);background:#fff">
-        <sc-if value="{{ lbIllu1 }}" hint-placeholder-val="{{ false }}">
-          <img src="zwischendurch/zd-set1-1.jpg" alt="Illustration, Set 1, Bild 1" style="width:100%;height:auto;display:block">
-          <img src="zwischendurch/zd-set1-2.jpg" alt="Illustration, Set 1, Bild 2" style="width:100%;height:auto;display:block">
-          <img src="zwischendurch/zd-set1-3.jpg" alt="Illustration, Set 1, Bild 3" style="width:100%;height:auto;display:block">
-        </sc-if>
-        <sc-if value="{{ lbIllu2 }}" hint-placeholder-val="{{ false }}">
-          <img src="zwischendurch/zd-set2-1.jpg" alt="Illustration, Set 2, Bild 1" style="width:100%;height:auto;display:block">
-          <img src="zwischendurch/zd-set2-2.jpg" alt="Illustration, Set 2, Bild 2" style="width:100%;height:auto;display:block">
-          <img src="zwischendurch/zd-set2-3.jpg" alt="Illustration, Set 2, Bild 3" style="width:100%;height:auto;display:block">
-        </sc-if>
-      </div>
-    </div>
-  </sc-if>
-
+  </main>
 </div>
 
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showVideoSlot&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Über mich&quot;},&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Über mich&quot;}}">
-class Component extends DCLogic {
-  state = { c: [0, 0, 0], scrolled: false, active: '', chatOpen: false, nudge: false, badge: false, typing: false, opened: false, cvOpen: false, lb: null };
+<!-- Custom cursor -->
+<div id="customCursor" class="custom-cursor"></div>
 
-  componentDidMount() {
-    const targets = [1, 4, 7];
-    let start = null;
-    const step = (ts) => {
-      if (start === null) start = ts;
-      const p = Math.min(1, (ts - start) / 1100);
-      const e = 1 - Math.pow(1 - p, 3);
-      this.setState({ c: targets.map(t => Math.round(t * e)) });
-      if (p < 1) this._raf = requestAnimationFrame(step);
-    };
-    this._raf = requestAnimationFrame(step);
+<!-- Lightbox for phone screens -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
+  <img id="lightboxImg" alt="">
+</div>
 
-    this._t1 = setTimeout(() => {
-      if (!this.state.chatOpen) this.setState({ nudge: true, badge: true });
-    }, 3800);
-    this._t2 = setTimeout(() => this.setState({ nudge: false }), 10500);
+<!-- Back to top -->
+<button id="backToTop" class="back-to-top" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
-    this._esc = (e) => {
-      if (e.key !== 'Escape') return;
-      if (this.state.lb) this.setState({ lb: null });
-      else if (this.state.chatOpen) this.setState({ chatOpen: false });
-    };
-    document.addEventListener('keydown', this._esc);
-
-    const ids = ['projekte','antrieb','expertise','ueber-mich','blog','zwischendurch','kontakt'];
-    const px = Array.from(document.querySelectorAll('[data-px]')).map(el => ({ el, base: el.style.transform || '' }));
-    this._scroll = () => {
-      const y = window.scrollY || 0;
-      const scrolled = y > 40;
-      let active = '';
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-        const r = el.getBoundingClientRect();
-        if (r.top <= window.innerHeight * 0.42 && r.bottom > window.innerHeight * 0.42) active = id;
-      }
-      if (scrolled !== this.state.scrolled || active !== this.state.active) this.setState({ scrolled, active });
-      for (let i = 0; i < px.length; i++) {
-        const el = px[i].el;
-        const r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > window.innerHeight + 200) continue;
-        const rel = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
-        el.style.transform = px[i].base + ' translateY(' + (rel * (i % 3 === 1 ? -26 : -14)).toFixed(1) + 'px)';
-      }
-    };
-    window.addEventListener('scroll', this._scroll, { passive: true });
-    this._scroll();
-
-    if ('IntersectionObserver' in window) {
-      const nodes = Array.from(document.querySelectorAll('section, footer, #kontakt')).filter(n => !n.closest('[role="dialog"]') && !n.hasAttribute('data-noreveal'));
-      nodes.forEach(n => {
-        n.style.opacity = '0';
-        n.style.transform = 'translateY(22px)';
-        n.style.transition = 'opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)';
-      });
-      this._io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
-          this._io.unobserve(e.target);
-        });
-      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.04 });
-      nodes.forEach(n => this._io.observe(n));
-    }
-  }
-
-  componentWillUnmount() {
-    cancelAnimationFrame(this._raf);
-    clearTimeout(this._t1);
-    clearTimeout(this._t2);
-    clearTimeout(this._t3);
-    document.removeEventListener('keydown', this._esc);
-    window.removeEventListener('scroll', this._scroll);
-    if (this._io) this._io.disconnect();
-  }
-
-  openChat = () => {
-    const first = !this.state.opened;
-    this.setState({ chatOpen: true, opened: true, nudge: false, badge: false, typing: first });
-    if (first) this._t3 = setTimeout(() => this.setState({ typing: false }), 1200);
-  };
-
-  renderVals() {
-    const c = this.state.c;
-    const a = this.state.active;
-    const nav = {};
-    [['projekte','Projekte'],['antrieb','Antrieb'],['expertise','Expertise'],['ueber-mich','UeberMich'],['blog','Blog'],['zwischendurch','Mehr']].forEach(([id, key]) => {
-      const on = a === id;
-      nav['navFg' + key] = on ? '#0A0A0A' : '#6E6E73';
-      nav['navBg' + key] = on ? '#EDEDF0' : 'transparent';
-    });
-    return {
-      ...nav,
-      navScale: this.state.scrolled ? 0.94 : 1,
-      c1: String(c[0]), c2: String(c[1]), c3: String(c[2]),
-      chatOpen: this.state.chatOpen,
-      chatClosed: !this.state.chatOpen,
-      nudge: this.state.nudge && !this.state.chatOpen,
-      badge: this.state.badge,
-      typing: this.state.typing,
-      showLatest: !this.state.typing,
-      openChat: this.openChat,
-      closeChat: () => this.setState({ chatOpen: false }),
-      cvOpen: this.state.cvOpen,
-      cvClosed: !this.state.cvOpen,
-      toggleCv: () => this.setState(s => ({ cvOpen: !s.cvOpen })),
-      openIllu1: () => this.setState({ lb: 'illu1' }),
-      openIllu2: () => this.setState({ lb: 'illu2' }),
-      closeLightbox: () => this.setState({ lb: null }),
-      lightbox: !!this.state.lb,
-      lbIllu1: this.state.lb === 'illu1',
-      lbIllu2: this.state.lb === 'illu2',
-      showVideo: this.props.showVideoSlot ?? true,
-      showTestimonials: this.props.showTestimonials ?? true
-    };
-  }
-}
-
-</script>
-<script src="script2.js"></script>
+<script src="samespot.js"></script>
 </body>
 </html>
