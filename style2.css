@@ -16,3 +16,5 @@ ul{list-style:none}
 sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 .hero-title{white-space:nowrap}
 @media (max-width:640px){.hero-title{white-space:normal}}
+.stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.stats-grid{grid-template-columns:1fr}}
