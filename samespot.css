@@ -2914,7 +2914,7 @@ main{padding-left:var(--nav-gutter);}
 .sidebar{
   max-height:none;
   height:auto;
-  padding:clamp(9px,1.5vh,14px) 12px clamp(8px,1.3vh,12px);
+  padding:clamp(9px,1.5vh,14px) 12px clamp(8px,1.3vh,12px) 24px;
   overflow:visible;
 }
 .nav{
