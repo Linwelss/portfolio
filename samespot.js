@@ -649,3 +649,28 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', toggle, { passive: true });
   toggle();
 })();
+
+/* ================= DE/EN Umschalter ================= */
+(function () {
+  var current = 'de';
+  function apply(lang) {
+    var found = document.querySelectorAll('[data-' + lang + ']');
+    found.forEach(function (el) {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+    return found.length;
+  }
+  function toggle(btn) {
+    var next = current === 'de' ? 'en' : 'de';
+    var count = apply(next);
+    if (count > 0) {
+      current = next;
+      btn.textContent = current === 'de' ? 'EN' : 'DE';
+      document.documentElement.setAttribute('lang', current);
+    }
+  }
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('#lang-toggle');
+    if (btn) toggle(btn);
+  });
+})();
