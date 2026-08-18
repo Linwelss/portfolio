@@ -1436,9 +1436,6 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
 @media (hover:none), (pointer:coarse){
   .custom-cursor{display:none;}
 }
-  right:-6px;
-  width:4px;
-  height:4px;
 /* ================= Back to top ================= */
 .back-to-top{
   position:fixed;
@@ -3952,3 +3949,11 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{
   .ki-log-row{gap:6px 10px;}
   .ki-log-line{flex-basis:100%;}
 }
+
+
+/* ================= Über mich + Footer (Startseiten-Stil) ================= */
+.lp-pill:hover{background:#0A0A0A;color:#fff;}
+.lp-pill-solid:hover{background:#0A0A0A;color:#fff;}
+.lp-social:hover{background:#fff;color:#0A0A0A;}
+.lp-imprint:hover{color:#fff;}
+.sidebar.is-hidden{opacity:0 !important;pointer-events:none !important;transition:opacity .25s ease;}
