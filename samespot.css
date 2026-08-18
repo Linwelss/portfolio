@@ -1894,23 +1894,26 @@ body{background:var(--bg);}
 .proto-phone{
   position:relative;
   width:252px;
-  aspect-ratio:1469/2205;
+  aspect-ratio:337/681;
   background:none;border:0;padding:0;margin:0;
   cursor:pointer;
   filter:drop-shadow(0 18px 38px rgba(74,59,49,.26));
   transition:transform .25s var(--ease-ios);
 }
 .proto-phone:active{transform:scale(.985);}
-.proto-shot{
+.proto-screen{
   position:absolute;
-  left:25.66%;top:20%;
-  width:43.64%;height:60.45%;
+  inset:var(--pf-inset-y) var(--pf-inset-x);
+  overflow:hidden;
+  border-radius:var(--pf-radius);
+}
+.proto-shot{
+  display:block;width:100%;height:100%;
   object-fit:cover;object-position:top center;
-  border-radius:9px;
   transition:opacity .22s ease;
 }
 .proto-phone.is-turning .proto-shot{opacity:.35;}
-.proto-frame{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;}
+.proto-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;}
 .proto-tap{
   position:absolute;
   width:34px;height:34px;border-radius:50%;
@@ -2543,27 +2546,23 @@ main{overflow-x:clip;overflow-y:visible;}
   /* doppelte Basisgroesse: die Slots werden immer HERUNTER skaliert,
      dadurch rastert der Browser die Screens scharf statt pixelig */
   --slot-w:clamp(236px,43vh,476px);
-  width:var(--slot-w);aspect-ratio:720/1456;
+  width:var(--slot-w);aspect-ratio:337/681;
 }
 .hp-slot .hp-frame{
-  position:absolute;
-  left:-46.66%;top:-24.17%;
-  width:204.04%;height:151.44%;
-  object-fit:fill;
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:contain;
 }
 .hp-slot .hp-viewport,
 .hp-slot .hp-wing-screen{
   position:absolute;
-  inset:auto;
-  right:auto;bottom:auto;
-  left:5.69%;top:6.12%;width:89.04%;height:91.55%;
-  border-radius:9%/4.4%;overflow:hidden;background:#f4f1ec;
+  inset:var(--pf-inset-y) var(--pf-inset-x);
+  border-radius:var(--pf-radius);overflow:hidden;background:#f4f1ec;
 }
-/* Screens exakt in die Glasflaeche: nichts wird abgeschnitten
-   (Seitenverhaeltnis weicht nur ~4% ab, das faellt nicht auf) */
+/* Screens exakt in die Glasflaeche, echtes Seitenverhaeltnis, kein Verzerren */
 .hp-slot .hp-shot,
 .hp-slot .hp-wing-screen img{
-  width:100%;height:100%;object-fit:fill;object-position:center;
+  width:100%;height:100%;object-fit:cover;object-position:top center;
 }
 .hp-slot .hp-island{top:7%;}
 .hp-slot .hp-island{top:1.1%;width:30%;height:1.9%;}
