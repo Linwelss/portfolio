@@ -60,7 +60,6 @@
       <div class="chapter" data-chapter-for="werkstatt"><span class="num">05</span><span>Werkstatt</span></div>
       <a href="#walkthrough" class="sub" data-nav>Walkthrough</a>
       <a href="#figma-einblick" class="sub" data-nav>In Figma</a>
-      <a href="#prototyp" class="sub" data-nav>Selbst klicken</a>
       <a href="#constraints" class="sub" data-nav>Constraints</a>
     </nav>
 
@@ -105,7 +104,7 @@
           <span class="eyebrow">Das Ergebnis zuerst</span>
           <h2>Der Loop, <span class="accent-italic">in drei Schritten.</span></h2>
           <p class="loop-desc">Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen.</p>
-          <a href="#prototyp" class="btn-outline-dark">Prototyp selbst klicken</a>
+          <a href="#walkthrough" class="btn-outline-dark">Walkthrough ansehen</a>
         </div>
 
         <div class="hp-layer" id="hpLayer">
@@ -890,31 +889,30 @@
         <h3>Wie ich mit KI gearbeitet habe, <span class="accent-italic">und wo nicht.</span></h3>
         <p class="lede" style="max-width:700px;">KI war kein Werkzeug für den Entwurf, sondern für alles davor und daneben. Sie hat mir Zeit für Testen und Zeichnen verschafft.</p>
 
-        <div class="ki-split">
-          <div class="ki-split-head">
-            <span></span>
-            <span class="ki-col-label ai">Die KI hat</span>
-            <span class="ki-col-label me">Ich habe</span>
+        <div class="ki-log">
+          <div class="ki-log-row">
+            <span class="ki-log-num">01</span>
+            <b class="ki-log-title">Research & Auswertung</b>
+            <span class="ki-tool">Perplexity, Claude</span>
+            <span class="ki-log-line">Marktüberblick zusammengetragen, Antworten sortiert <span class="ki-log-arrow">→</span> Zahlen an der Quelle geprüft, Schnitt selbst gezogen</span>
           </div>
-          <div class="ki-row">
-            <div class="ki-row-head"><span class="ki-num">01</span><h4>Research & Auswertung</h4><span class="ki-tool">Perplexity, Claude</span></div>
-            <div class="ki-side ai"><p>Marktüberblick zusammengetragen, Antworten nach Motiven sortiert.</p></div>
-            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Zahlen an der Primärquelle geprüft, den Schnitt aus den Originalzitaten selbst gezogen.</p></div>
+          <div class="ki-log-row">
+            <span class="ki-log-num">02</span>
+            <b class="ki-log-title">Sparring zur Mechanik</b>
+            <span class="ki-tool">Claude</span>
+            <span class="ki-log-line">Gegen den Loop argumentiert <span class="ki-log-arrow">→</span> zwei Optionen verworfen, dritte gewählt</span>
           </div>
-          <div class="ki-row">
-            <div class="ki-row-head"><span class="ki-num">02</span><h4>Sparring zur Mechanik</h4><span class="ki-tool">Claude</span></div>
-            <div class="ki-side ai"><p>Gegen den Loop argumentiert: Abbruchstellen, leerer Umkreis, Sicherheit.</p></div>
-            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Zwei Optionen daraufhin verworfen und die dritte gewählt.</p></div>
+          <div class="ki-log-row">
+            <span class="ki-log-num">03</span>
+            <b class="ki-log-title">Testmitschriften</b>
+            <span class="ki-tool">Google-Modell</span>
+            <span class="ki-log-line">Sitzungen auf Übereinstimmungen abgeglichen <span class="ki-log-arrow">→</span> Beobachtung und Deutung getrennt gehalten</span>
           </div>
-          <div class="ki-row">
-            <div class="ki-row-head"><span class="ki-num">03</span><h4>Testmitschriften</h4><span class="ki-tool">Google-Modell</span></div>
-            <div class="ki-side ai"><p>Beide Think-Aloud-Sitzungen auf Übereinstimmungen abgeglichen.</p></div>
-            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Beobachtung und Deutung strikt getrennt gehalten.</p></div>
-          </div>
-          <div class="ki-row">
-            <div class="ki-row-head"><span class="ki-num">04</span><h4>Microcopy</h4><span class="ki-tool">Claude</span></div>
-            <div class="ki-side ai"><p>Mehrere Tonalitäten für die Wiederbegegnung durchgespielt.</p></div>
-            <div class="ki-side me"><span class="ki-side-label">Ich</span><p>Die Variante gegen das Finding aus Kapitel 03 ausgewählt.</p></div>
+          <div class="ki-log-row">
+            <span class="ki-log-num">04</span>
+            <b class="ki-log-title">Microcopy</b>
+            <span class="ki-tool">Claude</span>
+            <span class="ki-log-line">Mehrere Tonalitäten durchgespielt <span class="ki-log-arrow">→</span> Variante gegen Finding aus Kapitel 03 gewählt</span>
           </div>
         </div>
 
@@ -936,10 +934,11 @@
             <h2 class="h2-xl" style="margin-top:6px;">Nicht beschrieben, sondern <span class="accent-italic accent-signal">nachprüfbar.</span></h2>
           </div>
         </div>
-        <p class="lede" style="max-width:660px;margin-top:18px;">Drei Wege hinein, je nachdem wie viel Zeit du hast: eine Minute Video, ein Blick in die Datei, oder selbst durchklicken.</p>
+        </div>
 
         <!-- 60-Sekunden-Walkthrough -->
         <div class="sub-block" id="walkthrough">
+          <div class="coral-rule" aria-hidden="true"></div>
           <div class="ia-head block-head">
             <span class="eyebrow">Walkthrough</span>
             <span class="hint">60 Sekunden, mit Ton</span>
@@ -980,42 +979,6 @@
           <a class="btn-ghost" href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener">Datei in Figma öffnen
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-        </div>
-
-        <!-- Klickbarer Prototyp -->
-        <div class="sub-block" id="prototyp">
-          <div class="ia-head block-head">
-            <span class="eyebrow">Selbst klicken</span>
-            <span class="hint">6 Schritte, keine Anmeldung</span>
-          </div>
-          <h3>Der Kern-Loop, <span class="accent-italic">direkt hier auf der Seite.</span></h3>
-
-          <div class="proto">
-            <div class="proto-stage">
-              <button class="proto-phone" id="protoPhone" aria-label="Weiter zum nächsten Schritt">
-                <div class="proto-screen"><img class="proto-shot" id="protoShot" src="samespot/screen04.jpg" alt=""></div>
-                <img class="proto-frame" src="samespot/Phone-Rahmen.png" alt="">
-                <span class="proto-tap" id="protoTap"></span>
-              </button>
-            </div>
-            <div class="proto-side">
-              <div class="proto-counter"><span id="protoNum">01</span><span class="of">/ 06</span></div>
-              <p class="proto-caption" id="protoCaption">Drei Aufgaben für diese Woche</p>
-              <ol class="proto-steps" id="protoSteps">
-                <li><button type="button" data-step="0" class="is-current"><span class="ps-num">01</span><span class="ps-label">Drei Aufgaben für diese Woche</span></button></li>
-                <li><button type="button" data-step="1"><span class="ps-num">02</span><span class="ps-label">Die Aufgabe hängt an einem echten Ort</span></button></li>
-                <li><button type="button" data-step="2"><span class="ps-num">03</span><span class="ps-label">Du bist da, die Aufgabe läuft</span></button></li>
-                <li><button type="button" data-step="3"><span class="ps-num">04</span><span class="ps-label">Erledigt, ohne jemanden anzusprechen</span></button></li>
-                <li><button type="button" data-step="4"><span class="ps-num">05</span><span class="ps-label">Im Feed: jemand war am selben Spot</span></button></li>
-                <li><button type="button" data-step="5"><span class="ps-num">06</span><span class="ps-label">Beide wollen: Code-Austausch</span></button></li>
-              </ol>
-              <div class="proto-actions">
-                <span class="proto-next" id="protoNext">Aufgabe öffnen</span>
-                <button type="button" class="btn-ghost sm" id="protoReset">Von vorn</button>
-              </div>
-            </div>
-          </div>
-          <script id="protoData" type="application/json">[["samespot/screen04.jpg","Drei Aufgaben für diese Woche","Aufgabe öffnen","cta"],["samespot/screen07.jpg","Die Aufgabe hängt an einem echten Ort","Spot starten","cta"],["samespot/screen13.jpg","Du bist da, die Aufgabe läuft","Abschließen","cta"],["samespot/screen01.jpg","Erledigt, ohne jemanden anzusprechen","Zum Feed","nav"],["samespot/screen12.jpg","Im Feed: jemand war am selben Spot","Wiedersehen ansehen","mid"],["samespot/screen11.jpg","Beide wollen: Code-Austausch","Von vorn","cta"]]</script>
         </div>
       </div>
 
