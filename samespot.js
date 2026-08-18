@@ -636,3 +636,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {threshold:.2});
   steps.forEach((el,i)=>{ el.style.transitionDelay = (i*.06)+'s'; io.observe(el); });
 })();
+
+/* ================= Sidebar in Über-mich/Footer ausblenden ================= */
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  var boundary = document.getElementById('ueber-mich-cs');
+  if(!sidebar || !boundary) return;
+  function toggle(){
+    var rect = boundary.getBoundingClientRect();
+    sidebar.classList.toggle('is-hidden', rect.top < window.innerHeight * 0.5);
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+})();
