@@ -932,11 +932,19 @@ h3{font-family:var(--body);font-weight:800;font-size:19.47px;letter-spacing:-.00
   gap:32px;
   margin-top:40px;
 }
+.ba-grid.staffel{grid-template-columns:1fr 1fr 1fr;}
 .ba-col .eyebrow{display:block;margin-bottom:16px;text-align:center;}
 .ba-col.before .mockup-phone{border:1.5px dashed var(--ink-14);}
 .ba-col.after .mockup-phone{border:1.5px solid var(--ink);}
+.ba-col.step .mockup-phone{border:1.5px dashed var(--ink-14);}
+.ba-col.step-now .mockup-phone{border:1.5px solid var(--ink);}
 .ba-caption{margin-top:18px;display:flex;flex-direction:column;gap:6px;text-align:center;}
 .ba-caption p{font-size:13px;color:var(--ink-70);}
+
+@media (max-width:860px){
+  .ba-grid{grid-template-columns:1fr;}
+  .ba-grid.staffel{grid-template-columns:1fr;}
+}
 
 .kpi-card{
   margin-top:56px;
