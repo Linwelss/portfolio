@@ -13,17 +13,18 @@
 <!-- ============ TOP NAVBAR ============ -->
 <header class="topbar">
   <div class="topbar-inner">
-    <a class="topbar-left" href="#">
+    <a class="topbar-left" href="/#projekte">
       <svg viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Alle Projekte
+      <span data-de="Alle Projekte" data-en="All Projects">Alle Projekte</span>
     </a>
     <span class="topbar-div" aria-hidden="true"></span>
     <a class="topbar-brand" href="/">
       <span class="topbar-mark" aria-hidden="true">LA</span>
-      <span class="topbar-name">Lina Melissa Arndt</span>
+      <span class="topbar-name" data-de="Lina Melissa Arndt" data-en="Lina Melissa Arndt">Lina Melissa Arndt</span>
     </a>
     <span class="topbar-div" aria-hidden="true"></span>
-    <div class="topbar-lang">EN</div>
+    <a class="topbar-kontakt" href="/#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    <button type="button" class="topbar-lang" id="lang-toggle">EN</button>
   </div>
 </header>
 
@@ -32,44 +33,44 @@
   <!-- ============ SIDEBAR ============ -->
   <aside class="sidebar">
     <nav class="nav">
-      <a href="#ueberblick" class="active nav-top" data-nav>Überblick</a>
+      <a href="#ueberblick" class="active nav-top" data-nav data-de="Überblick" data-en="Overview">Überblick</a>
 
-      <a href="#widerspruch" class="chapter" data-nav data-chapter-for="widerspruch"><span class="num">01</span><span>Widerspruch</span></a>
-      <a href="#ausgangslage" class="sub" data-nav>Ausgangslage</a>
-      <a href="#auswertung" class="sub" data-nav>Auswertung</a>
-      <a href="#persona" class="sub" data-nav>Persona</a>
-      <a href="#marktluecke" class="sub" data-nav>Marktlücke</a>
+      <a href="#widerspruch" class="chapter" data-nav data-chapter-for="widerspruch"><span class="num">01</span><span data-de="Widerspruch" data-en="Contradiction">Widerspruch</span></a>
+      <a href="#ausgangslage" class="sub" data-nav data-de="Ausgangslage" data-en="Starting point">Ausgangslage</a>
+      <a href="#auswertung" class="sub" data-nav data-de="Auswertung" data-en="Analysis">Auswertung</a>
+      <a href="#persona" class="sub" data-nav data-de="Persona" data-en="Persona">Persona</a>
+      <a href="#marktluecke" class="sub" data-nav data-de="Marktlücke" data-en="Market gap">Marktlücke</a>
 
-      <a href="#mechanik" class="chapter" data-nav data-chapter-for="mechanik"><span class="num">02</span><span>Mechanik</span></a>
-      <a href="#optionen" class="sub" data-nav>Optionen</a>
-      <a href="#loop" class="sub" data-nav>Der Loop</a>
-      <a href="#fidelity" class="sub" data-nav>Vom Sketch zum Screen</a>
-      <a href="#scope" class="sub" data-nav>Scope</a>
+      <a href="#mechanik" class="chapter" data-nav data-chapter-for="mechanik"><span class="num">02</span><span data-de="Mechanik" data-en="Mechanic">Mechanik</span></a>
+      <a href="#optionen" class="sub" data-nav data-de="Optionen" data-en="Options">Optionen</a>
+      <a href="#loop" class="sub" data-nav data-de="Der Loop" data-en="The Loop">Der Loop</a>
+      <a href="#fidelity" class="sub" data-nav data-de="Vom Sketch zum Screen" data-en="From Sketch to Screen">Vom Sketch zum Screen</a>
+      <a href="#scope" class="sub" data-nav data-de="Scope" data-en="Scope">Scope</a>
 
-      <a href="#rueckschlag" class="chapter" data-nav data-chapter-for="rueckschlag"><span class="num">03</span><span>Rückschlag</span></a>
-      <a href="#im-interface" class="sub" data-nav>Im Interface</a>
-      <a href="#denkfehler" class="sub" data-nav>Mein Denkfehler</a>
-      <a href="#priorisierung" class="sub" data-nav>Priorisierung</a>
+      <a href="#rueckschlag" class="chapter" data-nav data-chapter-for="rueckschlag"><span class="num">03</span><span data-de="Rückschlag" data-en="Setback">Rückschlag</span></a>
+      <a href="#im-interface" class="sub" data-nav data-de="Im Interface" data-en="In the Interface">Im Interface</a>
+      <a href="#denkfehler" class="sub" data-nav data-de="Mein Denkfehler" data-en="My Wrong Assumption">Mein Denkfehler</a>
+      <a href="#priorisierung" class="sub" data-nav data-de="Priorisierung" data-en="Prioritization">Priorisierung</a>
 
-      <a href="#loesung" class="chapter" data-nav data-chapter-for="loesung"><span class="num">04</span><span>Lösung</span></a>
-      <a href="#sicherheit" class="sub" data-nav>Sicherheit</a>
-      <a href="#ui-system" class="sub" data-nav>UI-System</a>
-      <a href="#arbeit-mit-ki" class="sub" data-nav>Arbeit mit KI</a>
-      <a href="#learnings" class="sub" data-nav>Learnings</a>
+      <a href="#loesung" class="chapter" data-nav data-chapter-for="loesung"><span class="num">04</span><span data-de="Lösung" data-en="Solution">Lösung</span></a>
+      <a href="#sicherheit" class="sub" data-nav data-de="Sicherheit" data-en="Safety">Sicherheit</a>
+      <a href="#ui-system" class="sub" data-nav data-de="UI-System" data-en="UI System">UI-System</a>
+      <a href="#arbeit-mit-ki" class="sub" data-nav data-de="Arbeit mit KI" data-en="Working with AI">Arbeit mit KI</a>
+      <a href="#learnings" class="sub" data-nav data-de="Learnings" data-en="Learnings">Learnings</a>
 
-      <a href="#werkstatt" class="chapter" data-nav data-chapter-for="werkstatt"><span class="num">05</span><span>Vertiefung</span></a>
-      <a href="#walkthrough" class="sub" data-nav>Walkthrough</a>
-      <a href="#figma-einblick" class="sub" data-nav>In Figma</a>
-      <a href="#constraints" class="sub" data-nav>Constraints</a>
+      <a href="#werkstatt" class="chapter" data-nav data-chapter-for="werkstatt"><span class="num">05</span><span data-de="Vertiefung" data-en="Going Deeper">Vertiefung</span></a>
+      <a href="#walkthrough" class="sub" data-nav data-de="Walkthrough" data-en="Walkthrough">Walkthrough</a>
+      <a href="#figma-einblick" class="sub" data-nav data-de="In Figma" data-en="In Figma">In Figma</a>
+      <a href="#constraints" class="sub" data-nav data-de="Constraints" data-en="Constraints">Constraints</a>
     </nav>
 
     <div class="nav-figma">
       <a href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener">
-        Figma
+        <span data-de="Figma" data-en="Figma">Figma</span>
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
-    <div class="sidebar-footer">UX-Konzept 2026</div>
+    <div class="sidebar-footer" data-de="UX-Konzept 2026" data-en="UX Concept 2026">UX-Konzept 2026</div>
   </aside>
 
   <!-- ============ MAIN ============ -->
@@ -79,31 +80,31 @@
 
         <div class="hero-grid">
           <div class="hero-copy">
-            <span class="kategorie">UX/UI Design</span>
-            <h1 class="hero-title"><span class="same">same</span><span class="spot">Spot</span></h1>
+            <span class="kategorie" data-de="UX/UI Design" data-en="UX/UI Design">UX/UI Design</span>
+            <h1 class="hero-title"><span class="same" data-de="same" data-en="same">same</span><span class="spot" data-de="Spot" data-en="Spot">Spot</span></h1>
             <div class="hero-sub-wrap">
-              <p class="hero-desc">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel: für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps abgeschreckt werden.</p>
-              <p class="hero-principle">Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
+              <p class="hero-desc" data-de="Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel: für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps abgeschreckt werden." data-en="An app where local connection happens as a byproduct, not a goal: for people who want closeness but are put off by typical social apps.">Eine App, bei der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel: für Menschen, die sich Nähe wünschen, aber von klassischen Sozial-Apps abgeschreckt werden.</p>
+              <p class="hero-principle" data-de="Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?" data-en="Guiding question: Would my persona use it even if she knew she'd never meet anyone?">Leitgedanke: Würde meine Persona sie nutzen, selbst wenn sie wüsste, dass sie nie jemanden trifft?</p>
               <div class="hero-meta">
-                <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Product Designer</span>
-                <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>4 Monate</span>
-                <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Figma, Miro</span>
+                <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="Product Designer" data-en="Product Designer">Product Designer</span></span>
+                <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span data-de="4 Monate" data-en="4 months">4 Monate</span></span>
+                <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="Figma, Miro" data-en="Figma, Miro">Figma, Miro</span></span>
               </div>
             </div>
             <div class="hero-stats">
-              <div class="hs"><b>71<span>%</span></b><span class="hs-l">warten passiv, statt anzusprechen</span></div>
-              <div class="hs"><b>1<span>:52</span></b><span class="hs-l">hat sich je getraut</span></div>
-              <div class="hs"><b>3</b><span class="hs-l">blockierende Test-Probleme, alle behoben</span></div>
-              <div class="hs"><b>≥15<span>%</span></b><span class="hs-l">der Wiederbegegnungen sollen zu einem Austausch führen</span></div>
+              <div class="hs"><b>71<span>%</span></b><span class="hs-l" data-de="warten passiv, statt anzusprechen" data-en="wait passively instead of reaching out">warten passiv, statt anzusprechen</span></div>
+              <div class="hs"><b>1<span>:52</span></b><span class="hs-l" data-de="hat sich je getraut" data-en="ever actually did">hat sich je getraut</span></div>
+              <div class="hs"><b>3</b><span class="hs-l" data-de="blockierende Test-Probleme, alle behoben" data-en="blocking test issues, all resolved">blockierende Test-Probleme, alle behoben</span></div>
+              <div class="hs"><b>≥15<span>%</span></b><span class="hs-l" data-de="der Wiederbegegnungen sollen zu einem Austausch führen" data-en="of re-encounters should lead to an exchange">der Wiederbegegnungen sollen zu einem Austausch führen</span></div>
             </div>
           </div>
         </div>
 
         <div class="loop-head" id="loopHead">
-          <span class="eyebrow">Das Ergebnis zuerst</span>
-          <h2>Der Loop, <span class="accent-italic">in drei Schritten.</span></h2>
-          <p class="loop-desc">Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen.</p>
-          <a href="#walkthrough" class="btn-outline-dark">Walkthrough ansehen</a>
+          <span class="eyebrow" data-de="Das Ergebnis zuerst" data-en="The result, first">Das Ergebnis zuerst</span>
+          <h2 data-de="Der Loop, <span class=&quot;accent-italic&quot;>in drei Schritten.</span>" data-en="The loop, <span class=&quot;accent-italic&quot;>in three steps.</span>">Der Loop, <span class="accent-italic">in drei Schritten.</span></h2>
+          <p class="loop-desc" data-de="Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen." data-en="A task at a place, a passive re-encounter, an exchange only if both people want it.">Eine Aufgabe an einem Ort, ein passives Wiedersehen, ein Austausch nur bei beidseitigem Wollen.</p>
+          <a href="#walkthrough" class="btn-outline-dark" data-de="Walkthrough ansehen" data-en="Watch the walkthrough">Walkthrough ansehen</a>
         </div>
 
         <div class="hp-layer" id="hpLayer">
@@ -120,8 +121,8 @@
               <img class="hp-frame" src="samespot/Phone-Rahmen.png" alt="">
             </div>
             <div class="hp-cap">
-              <span class="hc-head"><span class="hc-num">01</span><span class="hc-name">Spot besuchen</span></span>
-              <p class="hc-note">Die App gibt eine kleine Aufgabe an einem konkreten Ort. Man geht hin, weil die Aufgabe reizt und nicht, um jemanden zu treffen.</p>
+              <span class="hc-head"><span class="hc-num">01</span><span class="hc-name" data-de="Spot besuchen" data-en="Visit a spot">Spot besuchen</span></span>
+              <p class="hc-note" data-de="Die App gibt eine kleine Aufgabe an einem konkreten Ort. Man geht hin, weil die Aufgabe reizt und nicht, um jemanden zu treffen." data-en="The app gives you a small task at a specific place. You go because the task is appealing, not to meet anyone.">Die App gibt eine kleine Aufgabe an einem konkreten Ort. Man geht hin, weil die Aufgabe reizt und nicht, um jemanden zu treffen.</p>
             </div>
           </div>
 
@@ -131,8 +132,8 @@
               <img class="hp-frame" src="samespot/Phone-Rahmen.png" alt="">
             </div>
             <div class="hp-cap">
-              <span class="hc-head"><span class="hc-num">02</span><span class="hc-name">Erneut sehen</span></span>
-              <p class="hc-note">War jemand am selben Ort, erscheint das später im Feed. Passiv, ohne Namen, ohne Anschreiben: niemand muss den ersten Schritt machen.</p>
+              <span class="hc-head"><span class="hc-num">02</span><span class="hc-name" data-de="Erneut sehen" data-en="See again">Erneut sehen</span></span>
+              <p class="hc-note" data-de="War jemand am selben Ort, erscheint das später im Feed. Passiv, ohne Namen, ohne Anschreiben: niemand muss den ersten Schritt machen." data-en="If someone was at the same place, it shows up later in the feed. Passive, no name, no message: nobody has to make the first move.">War jemand am selben Ort, erscheint das später im Feed. Passiv, ohne Namen, ohne Anschreiben: niemand muss den ersten Schritt machen.</p>
             </div>
           </div>
 
@@ -142,18 +143,18 @@
               <img class="hp-frame" src="samespot/Phone-Rahmen.png" alt="">
             </div>
             <div class="hp-cap">
-              <span class="hc-head"><span class="hc-num">03</span><span class="hc-name">Code tauschen</span></span>
-              <p class="hc-note">Erst wenn beide wollen, entsteht Kontakt: ein Code, den man teilt. Verbindung als Nebenprodukt, nicht als Ziel.</p>
+              <span class="hc-head"><span class="hc-num">03</span><span class="hc-name" data-de="Code tauschen" data-en="Exchange a code">Code tauschen</span></span>
+              <p class="hc-note" data-de="Erst wenn beide wollen, entsteht Kontakt: ein Code, den man teilt. Verbindung als Nebenprodukt, nicht als Ziel." data-en="Only if both want to does contact happen: a code you share. Connection as a byproduct, not a goal.">Erst wenn beide wollen, entsteht Kontakt: ein Code, den man teilt. Verbindung als Nebenprodukt, nicht als Ziel.</p>
             </div>
           </div>
         </div>
 
         <div class="hero-beats" id="heroBeats">
-          <span class="hb" data-beat="0">App startet</span>
-          <span class="hb" data-beat="1">Im Screen</span>
-          <span class="hb" data-beat="2">Der Loop</span>
+          <span class="hb" data-beat="0" data-de="App startet" data-en="App starts">App startet</span>
+          <span class="hb" data-beat="1" data-de="Im Screen" data-en="In screen">Im Screen</span>
+          <span class="hb" data-beat="2" data-de="Der Loop" data-en="The loop">Der Loop</span>
         </div>
-        <div class="hero-hint" id="heroHint"><span></span>scrollen</div>
+        <div class="hero-hint" id="heroHint"><span></span><span data-de="scrollen" data-en="scroll">scrollen</span></div>
       </div>
     </section>
 
@@ -162,47 +163,47 @@
     <!-- ============ SCREENS MARQUEE (full-bleed) ============ -->
     <section class="section full-bleed reveal">
       <div class="screens-inner-head">
-        <span class="eyebrow">Alle 14 Screens</span>
-        <span class="hint">Hover zum Anhalten</span>
+        <span class="eyebrow" data-de="Alle 14 Screens" data-en="All 14 Screens">Alle 14 Screens</span>
+        <span class="hint" data-de="Hover zum Anhalten" data-en="Hover to pause">Hover zum Anhalten</span>
       </div>
 
       <div class="marquee-wrap">
         <div class="marquee-row dir-left">
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen01.jpg" alt="Aufgabe abgeschlossen"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgabe abgeschlossen</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen02.jpg" alt="Aufgaben-Detail"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgaben-Detail</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen03.jpg" alt="Aufgaben-Story"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgaben-Story</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen04.jpg" alt="Aufgabenübersicht"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgabenübersicht</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen05.jpg" alt="Beendete Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Beendete Aufgabe</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen06.jpg" alt="Chat"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Chat</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen07.jpg" alt="Offene Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Offene Aufgabe</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen01.jpg" alt="Aufgabe abgeschlossen"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgabe abgeschlossen" data-en="Task Completed">Aufgabe abgeschlossen</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen02.jpg" alt="Aufgaben-Detail"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgaben-Detail" data-en="Task Detail">Aufgaben-Detail</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen03.jpg" alt="Aufgaben-Story"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgaben-Story" data-en="Task Story">Aufgaben-Story</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen04.jpg" alt="Aufgabenübersicht"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgabenübersicht" data-en="Task Overview">Aufgabenübersicht</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen05.jpg" alt="Beendete Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Beendete Aufgabe" data-en="Finished Task">Beendete Aufgabe</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen06.jpg" alt="Chat"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Chat" data-en="Chat">Chat</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen07.jpg" alt="Offene Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Offene Aufgabe" data-en="Open Task">Offene Aufgabe</span></div>
           <!-- duplicate for seamless loop -->
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen01.jpg" alt="Aufgabe abgeschlossen"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgabe abgeschlossen</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen02.jpg" alt="Aufgaben-Detail"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgaben-Detail</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen03.jpg" alt="Aufgaben-Story"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgaben-Story</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen04.jpg" alt="Aufgabenübersicht"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Aufgabenübersicht</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen05.jpg" alt="Beendete Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Beendete Aufgabe</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen06.jpg" alt="Chat"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Chat</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen07.jpg" alt="Offene Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Offene Aufgabe</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen01.jpg" alt="Aufgabe abgeschlossen"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgabe abgeschlossen" data-en="Task Completed">Aufgabe abgeschlossen</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen02.jpg" alt="Aufgaben-Detail"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgaben-Detail" data-en="Task Detail">Aufgaben-Detail</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen03.jpg" alt="Aufgaben-Story"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgaben-Story" data-en="Task Story">Aufgaben-Story</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen04.jpg" alt="Aufgabenübersicht"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Aufgabenübersicht" data-en="Task Overview">Aufgabenübersicht</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen05.jpg" alt="Beendete Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Beendete Aufgabe" data-en="Finished Task">Beendete Aufgabe</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen06.jpg" alt="Chat"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Chat" data-en="Chat">Chat</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen07.jpg" alt="Offene Aufgabe"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Offene Aufgabe" data-en="Open Task">Offene Aufgabe</span></div>
         </div>
       </div>
 
       <div class="marquee-wrap">
         <div class="marquee-row dir-right">
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen08.jpg" alt="Onboarding"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Onboarding</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen09.jpg" alt="Onboarding_ Profilbild"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Onboarding_ Profilbild</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen10.jpg" alt="Onboarding_ Stadt"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Onboarding_ Stadt</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen11.jpg" alt="Realer Austausch"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Realer Austausch</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen12.jpg" alt="Realer Moment"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Realer Moment</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen13.jpg" alt="Spot gestartet"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Spot gestartet</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen14.jpg" alt="Stufe 3"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Stufe 3</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen08.jpg" alt="Onboarding"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Onboarding" data-en="Onboarding">Onboarding</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen09.jpg" alt="Onboarding_ Profilbild"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Onboarding_ Profilbild" data-en="Onboarding_ Profile Picture">Onboarding_ Profilbild</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen10.jpg" alt="Onboarding_ Stadt"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Onboarding_ Stadt" data-en="Onboarding_ City">Onboarding_ Stadt</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen11.jpg" alt="Realer Austausch"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Realer Austausch" data-en="Real Exchange">Realer Austausch</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen12.jpg" alt="Realer Moment"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Realer Moment" data-en="Real Moment">Realer Moment</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen13.jpg" alt="Spot gestartet"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Spot gestartet" data-en="Spot Started">Spot gestartet</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen14.jpg" alt="Stufe 3"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Stufe 3" data-en="Level 3">Stufe 3</span></div>
           <!-- duplicate for seamless loop -->
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen08.jpg" alt="Onboarding"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Onboarding</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen09.jpg" alt="Onboarding_ Profilbild"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Onboarding_ Profilbild</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen10.jpg" alt="Onboarding_ Stadt"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Onboarding_ Stadt</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen11.jpg" alt="Realer Austausch"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Realer Austausch</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen12.jpg" alt="Realer Moment"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Realer Moment</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen13.jpg" alt="Spot gestartet"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Spot gestartet</span></div>
-          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen14.jpg" alt="Stufe 3"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name">Stufe 3</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen08.jpg" alt="Onboarding"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Onboarding" data-en="Onboarding">Onboarding</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen09.jpg" alt="Onboarding_ Profilbild"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Onboarding_ Profilbild" data-en="Onboarding_ Profile Picture">Onboarding_ Profilbild</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen10.jpg" alt="Onboarding_ Stadt"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Onboarding_ Stadt" data-en="Onboarding_ City">Onboarding_ Stadt</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen11.jpg" alt="Realer Austausch"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Realer Austausch" data-en="Real Exchange">Realer Austausch</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen12.jpg" alt="Realer Moment"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Realer Moment" data-en="Real Moment">Realer Moment</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen13.jpg" alt="Spot gestartet"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Spot gestartet" data-en="Spot Started">Spot gestartet</span></div>
+          <div class="phone-card"><div class="phone-frame"><div class="phone-screen"><img src="samespot/screen14.jpg" alt="Stufe 3"></div><img class="phone-real-frame" src="samespot/Phone-Rahmen.png" alt=""></div><span class="phone-name" data-de="Stufe 3" data-en="Level 3">Stufe 3</span></div>
         </div>
       </div>
     </section>
@@ -214,8 +215,8 @@
         <span class="chapter-num">01</span>
         <span class="chapter-rule" aria-hidden="true"></span>
         <div>
-          <span class="eyebrow">Der Widerspruch</span>
-          <h2 class="h2-oneline" style="margin-top:6px;">„Ich würde ja gerne, <span class="accent-italic">aber nicht so.“</span></h2>
+          <span class="eyebrow" data-de="Der Widerspruch" data-en="The Contradiction">Der Widerspruch</span>
+          <h2 class="h2-oneline" style="margin-top:6px;" data-de="„Ich würde ja gerne, <span class=&quot;accent-italic&quot;>aber nicht so.“</span>" data-en="&quot;I'd love to, <span class=&quot;accent-italic&quot;>just not like this.&quot;</span>">„Ich würde ja gerne, <span class="accent-italic">aber nicht so.“</span></h2>
         </div>
       </div>
 
@@ -223,47 +224,47 @@
         <div class="chain-step">
           <div class="chain-rail"><span class="chain-num">01</span><span class="chain-line"></span></div>
           <div class="chain-body">
-            <span class="chain-kicker">Die Frage, mit der ich gestartet bin</span>
-            <p class="say">Warum lernen sich Menschen, die sich <span class="accent-italic">täglich sehen,</span> nie kennen?</p>
-            <p class="after">Ich hatte eine bequeme Antwort im Kopf: keine Zeit, kein Interesse, alle sind mit sich beschäftigt. 52 Antworten und vier Interviews später war klar, dass keine davon stimmt.</p>
+            <span class="chain-kicker" data-de="Die Frage, mit der ich gestartet bin" data-en="The question I started with">Die Frage, mit der ich gestartet bin</span>
+            <p class="say" data-de="Warum lernen sich Menschen, die sich <span class=&quot;accent-italic&quot;>täglich sehen,</span> nie kennen?" data-en="Why do people who <span class=&quot;accent-italic&quot;>see each other daily</span> never get to know each other?">Warum lernen sich Menschen, die sich <span class="accent-italic">täglich sehen,</span> nie kennen?</p>
+            <p class="after" data-de="Ich hatte eine bequeme Antwort im Kopf: keine Zeit, kein Interesse, alle sind mit sich beschäftigt. 52 Antworten und vier Interviews später war klar, dass keine davon stimmt." data-en="I had a convenient answer in mind: no time, no interest, everyone's busy with themselves. 52 responses and four interviews later, it was clear none of that was true.">Ich hatte eine bequeme Antwort im Kopf: keine Zeit, kein Interesse, alle sind mit sich beschäftigt. 52 Antworten und vier Interviews später war klar, dass keine davon stimmt.</p>
           </div>
         </div>
 
         <div class="chain-step">
           <div class="chain-rail"><span class="chain-num">02</span><span class="chain-line"></span></div>
           <div class="chain-body">
-            <span class="chain-kicker">Was die Umfrage sagt</span>
-            <p class="say">Der Wunsch ist da. Er ist sogar <span class="accent-italic">größer als die Zufriedenheit</span> mit dem eigenen Umfeld.</p>
+            <span class="chain-kicker" data-de="Was die Umfrage sagt" data-en="What the survey says">Was die Umfrage sagt</span>
+            <p class="say" data-de="Der Wunsch ist da. Er ist sogar <span class=&quot;accent-italic&quot;>größer als die Zufriedenheit</span> mit dem eigenen Umfeld." data-en="The desire is there. It's even <span class=&quot;accent-italic&quot;>bigger than the satisfaction</span> with one's own surroundings.">Der Wunsch ist da. Er ist sogar <span class="accent-italic">größer als die Zufriedenheit</span> mit dem eigenen Umfeld.</p>
             <div class="figrow">
-              <div class="fig"><b>63 %</b><span>wünschen sich neue Kontakte am eigenen Wohnort</span></div>
-              <div class="fig"><b>2,9<u> / 4</u></b><span>Wunsch nach Verbindung</span></div>
-              <div class="fig"><b>2,7<u> / 4</u></b><span>Frustration darüber, dass nichts passiert</span></div>
+              <div class="fig"><b>63 %</b><span data-de="wünschen sich neue Kontakte am eigenen Wohnort" data-en="want new contacts near where they live">wünschen sich neue Kontakte am eigenen Wohnort</span></div>
+              <div class="fig"><b>2,9<u> / 4</u></b><span data-de="Wunsch nach Verbindung" data-en="desire for connection">Wunsch nach Verbindung</span></div>
+              <div class="fig"><b>2,7<u> / 4</u></b><span data-de="Frustration darüber, dass nichts passiert" data-en="frustration that nothing happens">Frustration darüber, dass nichts passiert</span></div>
             </div>
-            <p class="after">Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war die erste echte Überraschung.</p>
+            <p class="after" data-de="Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war die erste echte Überraschung." data-en="Feeling connected to a place and feeling connected to people are two different things. That was the first real surprise.">Verbundenheit mit dem Ort und Verbundenheit mit Menschen sind zwei verschiedene Dinge. Das war die erste echte Überraschung.</p>
           </div>
         </div>
 
         <div class="chain-step">
           <div class="chain-rail"><span class="chain-num">03</span><span class="chain-line"></span></div>
           <div class="chain-body">
-            <span class="chain-kicker">Was trotzdem passiert</span>
-            <p class="say"><span class="accent-italic">Eine</span> von 52 Personen hat je jemanden Neues angesprochen.</p>
+            <span class="chain-kicker" data-de="Was trotzdem passiert" data-en="What happens anyway">Was trotzdem passiert</span>
+            <p class="say" data-de="<span class=&quot;accent-italic&quot;>Eine</span> von 52 Personen hat je jemanden Neues angesprochen." data-en="<span class=&quot;accent-italic&quot;>One</span> out of 52 people ever approached someone new."><span class="accent-italic">Eine</span> von 52 Personen hat je jemanden Neues angesprochen.</p>
             <div class="dot-grid" id="dotGrid"></div>
             <div class="pull">
-              <q>Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen.</q>
-              <span class="src">Interviewperson 2 · Kernzielgruppe</span>
+              <q data-de="Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen." data-en="I guess I'm just too shy for that, I can't get past it.">Ich bin wohl einfach zu schüchtern dafür und kann nicht über meinen Schatten springen.</q>
+              <span class="src" data-de="Interviewperson 2 · Kernzielgruppe" data-en="Interviewee 2 · Core target group">Interviewperson 2 · Kernzielgruppe</span>
             </div>
-            <p class="after">Auffällig war nicht das Zögern, sondern die Selbstzuschreibung: Alle vier Interviewten suchten den Grund bei sich, keiner in der Situation.</p>
+            <p class="after" data-de="Auffällig war nicht das Zögern, sondern die Selbstzuschreibung: Alle vier Interviewten suchten den Grund bei sich, keiner in der Situation." data-en="What stood out wasn't the hesitation, but the self-blame: all four interviewees looked for the reason in themselves, none in the situation.">Auffällig war nicht das Zögern, sondern die Selbstzuschreibung: Alle vier Interviewten suchten den Grund bei sich, keiner in der Situation.</p>
           </div>
         </div>
 
         <div class="chain-step">
           <div class="chain-rail"><span class="chain-num">04</span></div>
           <div class="chain-body">
-            <span class="chain-kicker">Der Widerspruch</span>
+            <span class="chain-kicker" data-de="Der Widerspruch" data-en="The contradiction">Der Widerspruch</span>
             <div class="verdict">
-              <p>Es fehlt nicht an Gelegenheiten und nicht an Interesse. Es fehlt an einer Situation, in der <em>niemand den ersten Schritt machen muss.</em></p>
-              <div class="foot">Umfrage: 52 Antworten · 4 Tage · 4 vertiefende Interviews</div>
+              <p data-de="Es fehlt nicht an Gelegenheiten und nicht an Interesse. Es fehlt an einer Situation, in der <em>niemand den ersten Schritt machen muss.</em>" data-en="It's not a lack of opportunity or interest. What's missing is a situation where <em>no one has to make the first move.</em>">Es fehlt nicht an Gelegenheiten und nicht an Interesse. Es fehlt an einer Situation, in der <em>niemand den ersten Schritt machen muss.</em></p>
+              <div class="foot" data-de="Umfrage: 52 Antworten · 4 Tage · 4 vertiefende Interviews" data-en="Survey: 52 responses · 4 days · 4 in-depth interviews">Umfrage: 52 Antworten · 4 Tage · 4 vertiefende Interviews</div>
             </div>
           </div>
         </div>
@@ -272,52 +273,52 @@
       <!-- Muster: vom Zitat zum Cluster -->
       <div class="sub-gap" id="auswertung">
         <div class="ia-head block-head">
-          <span class="eyebrow">Auswertung</span>
-          <span class="hint">52 Antworten · 4 Interviews · 3 Motive</span>
+          <span class="eyebrow" data-de="Auswertung" data-en="Analysis">Auswertung</span>
+          <span class="hint" data-de="52 Antworten · 4 Interviews · 3 Motive" data-en="52 responses · 4 interviews · 3 motives">52 Antworten · 4 Interviews · 3 Motive</span>
         </div>
-        <h3>Drei Motive, und darunter <span class="accent-italic">immer dieselbe Ursache.</span></h3>
-        <p class="lede motiv-lede">Ich habe die Aussagen so lange sortiert, bis sich Gruppen gebildet haben. Drei blieben übrig. Sie klingen unterschiedlich, laufen aber auf denselben Punkt hinaus.</p>
+        <h3 data-de="Drei Motive, und darunter <span class=&quot;accent-italic&quot;>immer dieselbe Ursache.</span>" data-en="Three motives, and underneath, <span class=&quot;accent-italic&quot;>always the same cause.</span>">Drei Motive, und darunter <span class="accent-italic">immer dieselbe Ursache.</span></h3>
+        <p class="lede motiv-lede" data-de="Ich habe die Aussagen so lange sortiert, bis sich Gruppen gebildet haben. Drei blieben übrig. Sie klingen unterschiedlich, laufen aber auf denselben Punkt hinaus." data-en="I sorted the statements until groups formed. Three remained. They sound different, but lead to the same point.">Ich habe die Aussagen so lange sortiert, bis sich Gruppen gebildet haben. Drei blieben übrig. Sie klingen unterschiedlich, laufen aber auf denselben Punkt hinaus.</p>
 
         <div class="motive">
           <div class="motiv-band">
             <span class="motiv-ghost" aria-hidden="true">A</span>
             <div class="motiv-head">
-              <h4>Passives Warten</h4>
-              <span class="motiv-count">71 % der Antworten</span>
+              <h4 data-de="Passives Warten" data-en="Passive Waiting">Passives Warten</h4>
+              <span class="motiv-count" data-de="71 % der Antworten" data-en="71% of responses">71 % der Antworten</span>
             </div>
-            <p class="motiv-say">Der Wunsch existiert, aber immer als Erwartung an jemand anderen. Niemand beschreibt sich selbst als die Person, die anfängt.</p>
+            <p class="motiv-say" data-de="Der Wunsch existiert, aber immer als Erwartung an jemand anderen. Niemand beschreibt sich selbst als die Person, die anfängt." data-en="The desire exists, but always as an expectation of someone else. No one describes themselves as the person who starts.">Der Wunsch existiert, aber immer als Erwartung an jemand anderen. Niemand beschreibt sich selbst als die Person, die anfängt.</p>
             <div class="motiv-ev">
-              <span>„…kann nicht über meinen Schatten springen.“<i>Interview 2</i></span>
-              <span>wartet darauf, angesprochen zu werden<i>Umfrage, offenes Feld</i></span>
-              <span>macht Dinge lieber allein als sie abzusagen<i>Interview 4</i></span>
+              <span data-de="„…kann nicht über meinen Schatten springen.“<i>Interview 2</i>" data-en="&quot;…can't get past that.&quot;<i>Interview 2</i>">„…kann nicht über meinen Schatten springen.“<i>Interview 2</i></span>
+              <span data-de="wartet darauf, angesprochen zu werden<i>Umfrage, offenes Feld</i>" data-en="waits to be approached<i>Survey, open field</i>">wartet darauf, angesprochen zu werden<i>Umfrage, offenes Feld</i></span>
+              <span data-de="macht Dinge lieber allein als sie abzusagen<i>Interview 4</i>" data-en="prefers doing things alone over cancelling<i>Interview 4</i>">macht Dinge lieber allein als sie abzusagen<i>Interview 4</i></span>
             </div>
           </div>
 
           <div class="motiv-band">
             <span class="motiv-ghost" aria-hidden="true">B</span>
             <div class="motiv-head">
-              <h4>Ablehnung vorweggenommen</h4>
-              <span class="motiv-count">in allen 4 Interviews</span>
+              <h4 data-de="Ablehnung vorweggenommen" data-en="Anticipated Rejection">Ablehnung vorweggenommen</h4>
+              <span class="motiv-count" data-de="in allen 4 Interviews" data-en="in all 4 interviews">in allen 4 Interviews</span>
             </div>
-            <p class="motiv-say">Die Absage wird durchgespielt, bevor überhaupt etwas passiert ist. Bewertet wird ein Risiko, das nie eingetreten ist.</p>
+            <p class="motiv-say" data-de="Die Absage wird durchgespielt, bevor überhaupt etwas passiert ist. Bewertet wird ein Risiko, das nie eingetreten ist." data-en="The rejection gets played out before anything has even happened. What's being judged is a risk that never occurred.">Die Absage wird durchgespielt, bevor überhaupt etwas passiert ist. Bewertet wird ein Risiko, das nie eingetreten ist.</p>
             <div class="motiv-ev">
-              <span>rechnet mit einer abweisenden Reaktion<i>Interview 1</i></span>
-              <span>will nicht störend wirken<i>Interview 3</i></span>
-              <span>nennt Ansprechen „unangenehm“, nicht „unmöglich“<i>Umfrage</i></span>
+              <span data-de="rechnet mit einer abweisenden Reaktion<i>Interview 1</i>" data-en="expects a dismissive reaction<i>Interview 1</i>">rechnet mit einer abweisenden Reaktion<i>Interview 1</i></span>
+              <span data-de="will nicht störend wirken<i>Interview 3</i>" data-en="doesn't want to seem intrusive<i>Interview 3</i>">will nicht störend wirken<i>Interview 3</i></span>
+              <span data-de="nennt Ansprechen „unangenehm“, nicht „unmöglich“<i>Umfrage</i>" data-en="calls approaching &quot;uncomfortable,&quot; not &quot;impossible&quot;<i>Survey</i>">nennt Ansprechen „unangenehm“, nicht „unmöglich“<i>Umfrage</i></span>
             </div>
           </div>
 
           <div class="motiv-band">
             <span class="motiv-ghost" aria-hidden="true">C</span>
             <div class="motiv-head">
-              <h4>Selbstzuschreibung</h4>
-              <span class="motiv-count">1 von 52 hat es je versucht</span>
+              <h4 data-de="Selbstzuschreibung" data-en="Self-Attribution">Selbstzuschreibung</h4>
+              <span class="motiv-count" data-de="1 von 52 hat es je versucht" data-en="1 of 52 ever tried it">1 von 52 hat es je versucht</span>
             </div>
-            <p class="motiv-say">Der Grund wird bei sich selbst gesucht, nie in der Situation. Damit wird aus einer Hürde ein Charakterzug, und der lässt sich nicht ändern.</p>
+            <p class="motiv-say" data-de="Der Grund wird bei sich selbst gesucht, nie in der Situation. Damit wird aus einer Hürde ein Charakterzug, und der lässt sich nicht ändern." data-en="The reason is sought in oneself, never in the situation. That turns a hurdle into a character trait, and character traits don't change.">Der Grund wird bei sich selbst gesucht, nie in der Situation. Damit wird aus einer Hürde ein Charakterzug, und der lässt sich nicht ändern.</p>
             <div class="motiv-ev">
-              <span>sucht den Grund bei sich, nicht in der Situation<i>Interview 2</i></span>
-              <span>nimmt an, für andere sei es leichter<i>Interview 1</i></span>
-              <span>hat den Wunsch, aber keinen Anlass<i>Umfrage</i></span>
+              <span data-de="sucht den Grund bei sich, nicht in der Situation<i>Interview 2</i>" data-en="looks for the reason in themselves, not the situation<i>Interview 2</i>">sucht den Grund bei sich, nicht in der Situation<i>Interview 2</i></span>
+              <span data-de="nimmt an, für andere sei es leichter<i>Interview 1</i>" data-en="assumes it's easier for others<i>Interview 1</i>">nimmt an, für andere sei es leichter<i>Interview 1</i></span>
+              <span data-de="hat den Wunsch, aber keinen Anlass<i>Umfrage</i>" data-en="has the desire, but no occasion<i>Survey</i>">hat den Wunsch, aber keinen Anlass<i>Umfrage</i></span>
             </div>
           </div>
         </div>
@@ -329,23 +330,23 @@
             <span class="cl-drop"></span>
           </div>
           <div class="converge-out">
-            <span class="converge-kick">Gemeinsame Ursache</span>
-            <p>Alle drei setzen voraus, dass <span class="accent-italic">jemand den ersten Schritt sichtbar macht.</span> Keins davon löst sich mit besserer Suche oder mehr Profilen: sie verschwinden erst, wenn der erste Schritt niemandem zugeordnet wird.</p>
+            <span class="converge-kick" data-de="Gemeinsame Ursache" data-en="Shared Root Cause">Gemeinsame Ursache</span>
+            <p data-de="Alle drei setzen voraus, dass <span class=&quot;accent-italic&quot;>jemand den ersten Schritt sichtbar macht.</span> Keins davon löst sich mit besserer Suche oder mehr Profilen: sie verschwinden erst, wenn der erste Schritt niemandem zugeordnet wird." data-en="All three assume that <span class=&quot;accent-italic&quot;>someone visibly makes the first move.</span> None of them are solved by better search or more profiles: they only disappear once the first step isn't attributed to anyone.">Alle drei setzen voraus, dass <span class="accent-italic">jemand den ersten Schritt sichtbar macht.</span> Keins davon löst sich mit besserer Suche oder mehr Profilen: sie verschwinden erst, wenn der erste Schritt niemandem zugeordnet wird.</p>
           </div>
         </div>
 
         <div class="belege-open">
-          <span class="belege-kick">Belege</span>
+          <span class="belege-kick" data-de="Belege" data-en="Evidence">Belege</span>
           <div class="proof-grid slots-2">
             <figure class="proof-shot">
               <img src="samespot/clustering.jpg" alt="Clustering der Antworten" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
               <span class="proof-missing">samespot/clustering.jpg</span>
-              <figcaption><b>Clustering im Board</b>: die Rohantworten, bevor daraus Motive wurden.</figcaption>
+              <figcaption data-de="<b>Clustering im Board</b>: die Rohantworten, bevor daraus Motive wurden." data-en="<b>Clustering on the board</b>: the raw answers, before they became motives."><b>Clustering im Board</b>: die Rohantworten, bevor daraus Motive wurden.</figcaption>
             </figure>
             <figure class="proof-shot">
               <img src="samespot/umfrage.jpg" alt="Auswertung der Umfrage" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
               <span class="proof-missing">samespot/umfrage.jpg</span>
-              <figcaption><b>Umfrage-Auswertung</b>: 52 Antworten, wie sie aus dem Formular kamen.</figcaption>
+              <figcaption data-de="<b>Umfrage-Auswertung</b>: 52 Antworten, wie sie aus dem Formular kamen." data-en="<b>Survey analysis</b>: 52 responses, as they came in from the form."><b>Umfrage-Auswertung</b>: 52 Antworten, wie sie aus dem Formular kamen.</figcaption>
             </figure>
           </div>
         </div>
@@ -353,49 +354,49 @@
 
       <!-- Persona -->
       <div class="sub-gap" id="persona">
-        <span class="eyebrow">Persona</span>
-        <h3>Hanna ist keine Annahme, sondern <span class="accent-italic">eine Verdichtung.</span></h3>
-        <p class="lede" style="max-width:64ch;">Vier Interviews und 52 Umfrage-Antworten in einer Person. Sie merkt das Problem in den kleinen, unverabredeten Momenten, nicht abends in einer App.</p>
+        <span class="eyebrow" data-de="Persona" data-en="Persona">Persona</span>
+        <h3 data-de="Hanna ist keine Annahme, sondern <span class=&quot;accent-italic&quot;>eine Verdichtung.</span>" data-en="Hanna isn't an assumption, she's <span class=&quot;accent-italic&quot;>a composite.</span>">Hanna ist keine Annahme, sondern <span class="accent-italic">eine Verdichtung.</span></h3>
+        <p class="lede" style="max-width:64ch;" data-de="Vier Interviews und 52 Umfrage-Antworten in einer Person. Sie merkt das Problem in den kleinen, unverabredeten Momenten, nicht abends in einer App." data-en="Four interviews and 52 survey responses in one person. She notices the problem in small, unplanned moments, not in the evening on an app.">Vier Interviews und 52 Umfrage-Antworten in einer Person. Sie merkt das Problem in den kleinen, unverabredeten Momenten, nicht abends in einer App.</p>
 
         <div class="pers">
           <figure class="pers-shot">
             <img src="samespot/Hanna.jpg" alt="Hanna Polm" loading="lazy">
             <figcaption>
-              <span class="pers-role">Die Blockierte</span>
-              <span class="pers-name">Hanna Polm</span>
-              <span class="pers-meta">23 · lebt allein · neu in der Stadt</span>
+              <span class="pers-role" data-de="Die Blockierte" data-en="The Blocked One">Die Blockierte</span>
+              <span class="pers-name" data-de="Hanna Polm" data-en="Hanna Polm">Hanna Polm</span>
+              <span class="pers-meta" data-de="23 · lebt allein · neu in der Stadt" data-en="23 · lives alone · new to the city">23 · lebt allein · neu in der Stadt</span>
             </figcaption>
           </figure>
 
           <div class="pers-body">
             <blockquote class="pers-quote">
-              <q>Ich sehe die gleichen Leute jeden Tag. Und trotzdem ist es, als wären wir uns nie begegnet.</q>
-              <cite>Verdichtet aus Interview 1, 2 und 4</cite>
+              <q data-de="Ich sehe die gleichen Leute jeden Tag. Und trotzdem ist es, als wären wir uns nie begegnet." data-en="I see the same people every day. And yet it's as if we'd never crossed paths.">Ich sehe die gleichen Leute jeden Tag. Und trotzdem ist es, als wären wir uns nie begegnet.</q>
+              <cite data-de="Verdichtet aus Interview 1, 2 und 4" data-en="Composited from interviews 1, 2 and 4">Verdichtet aus Interview 1, 2 und 4</cite>
             </blockquote>
 
             <div class="pers-tension">
               <div class="pt-side pt-want">
-                <span class="pt-kick">Was sie will</span>
+                <span class="pt-kick" data-de="Was sie will" data-en="What she wants">Was sie will</span>
                 <ul>
-                  <li>Verbindung ohne Druck</li>
-                  <li>dass sich ihr Leben wieder echter anfühlt</li>
-                  <li>Menschen, die sowieso da sind</li>
+                  <li data-de="Verbindung ohne Druck" data-en="Connection without pressure">Verbindung ohne Druck</li>
+                  <li data-de="dass sich ihr Leben wieder echter anfühlt" data-en="for her life to feel real again">dass sich ihr Leben wieder echter anfühlt</li>
+                  <li data-de="Menschen, die sowieso da sind" data-en="people who are already there">Menschen, die sowieso da sind</li>
                 </ul>
               </div>
-              <div class="pt-vs" aria-hidden="true"><span></span><b>steht gegen</b><span></span></div>
+              <div class="pt-vs" aria-hidden="true"><span></span><b data-de="steht gegen" data-en="stands against">steht gegen</b><span></span></div>
               <div class="pt-side pt-block">
-                <span class="pt-kick">Was sie hindert</span>
+                <span class="pt-kick" data-de="Was sie hindert" data-en="What holds her back">Was sie hindert</span>
                 <ul>
-                  <li>zerdenkt Momente, bevor sie passieren</li>
-                  <li>rechnet mit Ablehnung</li>
-                  <li>sucht den Fehler bei sich selbst</li>
+                  <li data-de="zerdenkt Momente, bevor sie passieren" data-en="overthinks moments before they happen">zerdenkt Momente, bevor sie passieren</li>
+                  <li data-de="rechnet mit Ablehnung" data-en="expects rejection">rechnet mit Ablehnung</li>
+                  <li data-de="sucht den Fehler bei sich selbst" data-en="looks for the fault in herself">sucht den Fehler bei sich selbst</li>
                 </ul>
               </div>
             </div>
 
             <div class="pers-need">
-              <span class="pn-kick">Woran die Lösung sich messen lassen muss</span>
-              <p>Hanna darf <span class="accent-italic">nicht diejenige sein müssen, die anfängt.</span></p>
+              <span class="pn-kick" data-de="Woran die Lösung sich messen lassen muss" data-en="What the solution has to be measured against">Woran die Lösung sich messen lassen muss</span>
+              <p data-de="Hanna darf <span class=&quot;accent-italic&quot;>nicht diejenige sein müssen, die anfängt.</span>" data-en="Hanna must <span class=&quot;accent-italic&quot;>never have to be the one who starts.</span>">Hanna darf <span class="accent-italic">nicht diejenige sein müssen, die anfängt.</span></p>
             </div>
           </div>
         </div>
@@ -403,39 +404,39 @@
 
       <!-- Markt -->
       <div class="sub-gap" id="marktluecke">
-        <span class="eyebrow">Markt</span>
-        <h3>Vier Apps im Detail. Und eine <span class="accent-italic">leere Ecke gefunden.</span></h3>
-        <p class="lede">Vier Apps, die Teile meiner Idee schon können: Bumble BFF (Kontakt ohne Dating-Druck), Meetup (gemeinsamer Anlass), nebenan.de (Nachbarschaft) und Pokémon GO (Orte als Spielfeld). Sortiert nach Ortsbindung und danach, wie viel Eigeninitiative der erste Kontakt kostet.</p>
+        <span class="eyebrow" data-de="Markt" data-en="Market">Markt</span>
+        <h3 data-de="Vier Apps im Detail. Und eine <span class=&quot;accent-italic&quot;>leere Ecke gefunden.</span>" data-en="Four apps, in detail. And <span class=&quot;accent-italic&quot;>one empty corner found.</span>">Vier Apps im Detail. Und eine <span class="accent-italic">leere Ecke gefunden.</span></h3>
+        <p class="lede" data-de="Vier Apps, die Teile meiner Idee schon können: Bumble BFF (Kontakt ohne Dating-Druck), Meetup (gemeinsamer Anlass), nebenan.de (Nachbarschaft) und Pokémon GO (Orte als Spielfeld). Sortiert nach Ortsbindung und danach, wie viel Eigeninitiative der erste Kontakt kostet." data-en="Four apps that already do parts of my idea: Bumble BFF (contact without dating pressure), Meetup (shared occasion), nebenan.de (neighborhood), and Pokémon GO (places as a playing field). Sorted by place-boundedness and by how much initiative first contact costs.">Vier Apps, die Teile meiner Idee schon können: Bumble BFF (Kontakt ohne Dating-Druck), Meetup (gemeinsamer Anlass), nebenan.de (Nachbarschaft) und Pokémon GO (Orte als Spielfeld). Sortiert nach Ortsbindung und danach, wie viel Eigeninitiative der erste Kontakt kostet.</p>
 
         <div class="field" id="marktfeld">
           <div class="field-plot">
             <div class="field-quadrant q-tl"></div>
             <div class="field-quadrant q-tr is-gap">
-              <span class="gap-label">unbesetzt</span>
+              <span class="gap-label" data-de="unbesetzt" data-en="unclaimed">unbesetzt</span>
             </div>
             <div class="field-quadrant q-bl"></div>
             <div class="field-quadrant q-br"></div>
 
-            <span class="field-axis y-top">ortsgebunden</span>
-            <span class="field-axis y-bot">ortsunabhängig</span>
-            <span class="field-axis x-left">aktiv anschreiben</span>
-            <span class="field-axis x-right">passiv, ohne Ansprache</span>
+            <span class="field-axis y-top" data-de="ortsgebunden" data-en="place-bound">ortsgebunden</span>
+            <span class="field-axis y-bot" data-de="ortsunabhängig" data-en="place-independent">ortsunabhängig</span>
+            <span class="field-axis x-left" data-de="aktiv anschreiben" data-en="actively messaging">aktiv anschreiben</span>
+            <span class="field-axis x-right" data-de="passiv, ohne Ansprache" data-en="passive, no approach">passiv, ohne Ansprache</span>
 
-            <div class="dot" style="--x:46%;--y:22%;"><i></i><b>Pokémon GO</b></div>
-            <div class="dot" style="--x:41%;--y:46%;"><i></i><b>Meetup</b></div>
-            <div class="dot" style="--x:33%;--y:63%;"><i></i><b>nebenan.de</b></div>
-            <div class="dot" style="--x:28%;--y:73%;"><i></i><b>Bumble BFF</b></div>
+            <div class="dot" style="--x:46%;--y:22%;"><i></i><b data-de="Pokémon GO" data-en="Pokémon GO">Pokémon GO</b></div>
+            <div class="dot" style="--x:41%;--y:46%;"><i></i><b data-de="Meetup" data-en="Meetup">Meetup</b></div>
+            <div class="dot" style="--x:33%;--y:63%;"><i></i><b data-de="nebenan.de" data-en="nebenan.de">nebenan.de</b></div>
+            <div class="dot" style="--x:28%;--y:73%;"><i></i><b data-de="Bumble BFF" data-en="Bumble BFF">Bumble BFF</b></div>
 
             <div class="dot is-us" style="--x:73%;--y:20%;">
               <span class="ping" aria-hidden="true"></span><span class="ping p2" aria-hidden="true"></span>
-              <i></i><b>sameSpot</b>
+              <i></i><b data-de="sameSpot" data-en="sameSpot">sameSpot</b>
             </div>
           </div>
 
           <div class="field-legend">
-            <div><span class="lg-num">01</span><p><b>Ortsbezug</b> ist überall nur ein Filter, nie der Anlass.</p></div>
-            <div><span class="lg-num">02</span><p><b>Wiederholung</b> nutzt keine der vier als Signal: Pokémon GO bindet Orte, aber keine Menschen.</p></div>
-            <div><span class="lg-num">03</span><p><b>Die leere Ecke</b> ist kein Zufall: ortsgebunden <i>und</i> passiv verlangt eine andere Mechanik.</p></div>
+            <div><span class="lg-num">01</span><p data-de="<b>Ortsbezug</b> ist überall nur ein Filter, nie der Anlass." data-en="<b>Place relevance</b> is everywhere just a filter, never the occasion."><b>Ortsbezug</b> ist überall nur ein Filter, nie der Anlass.</p></div>
+            <div><span class="lg-num">02</span><p data-de="<b>Wiederholung</b> nutzt keine der vier als Signal: Pokémon GO bindet Orte, aber keine Menschen." data-en="<b>Repetition</b> isn't used as a signal by any of the four: Pokémon GO binds places, but not people."><b>Wiederholung</b> nutzt keine der vier als Signal: Pokémon GO bindet Orte, aber keine Menschen.</p></div>
+            <div><span class="lg-num">03</span><p data-de="<b>Die leere Ecke</b> ist kein Zufall: ortsgebunden <i>und</i> passiv verlangt eine andere Mechanik." data-en="<b>The empty corner</b> is no coincidence: place-bound <i>and</i> passive calls for a different mechanic."><b>Die leere Ecke</b> ist kein Zufall: ortsgebunden <i>und</i> passiv verlangt eine andere Mechanik.</p></div>
           </div>
         </div>
       </div>
@@ -446,70 +447,70 @@
         <span class="chapter-num">02</span>
         <span class="chapter-rule" aria-hidden="true"></span>
         <div>
-          <span class="eyebrow">Die Mechanik</span>
-          <h2 style="margin-top:6px;">Also habe ich das Ansprechen <span class="accent-italic">weggenommen.</span></h2>
+          <span class="eyebrow" data-de="Die Mechanik" data-en="The Mechanic">Die Mechanik</span>
+          <h2 style="margin-top:6px;" data-de="Also habe ich das Ansprechen <span class=&quot;accent-italic&quot;>weggenommen.</span>" data-en="So I took the approaching <span class=&quot;accent-italic&quot;>out of the equation.</span>">Also habe ich das Ansprechen <span class="accent-italic">weggenommen.</span></h2>
         </div>
       </div>
 
       <!-- Optionen -->
       <div class="sub-gap" id="optionen">
-        <span class="eyebrow">Optionen</span>
-        <h3>Drei Wege waren möglich, <span class="accent-italic">zwei habe ich verworfen.</span></h3>
-        <p class="lede">Alle drei traten mit vergleichbarem Aufwand und vergleichbarer Relevanz an, die Bewertung allein entschied also nichts. Ausschlaggebend war das Kriterium aus Kapitel 01: Verbindung darf keinen aktiven ersten Schritt verlangen.</p>
+        <span class="eyebrow" data-de="Optionen" data-en="Options">Optionen</span>
+        <h3 data-de="Drei Wege waren möglich, <span class=&quot;accent-italic&quot;>zwei habe ich verworfen.</span>" data-en="Three paths were possible, <span class=&quot;accent-italic&quot;>I discarded two.</span>">Drei Wege waren möglich, <span class="accent-italic">zwei habe ich verworfen.</span></h3>
+        <p class="lede" data-de="Alle drei traten mit vergleichbarem Aufwand und vergleichbarer Relevanz an, die Bewertung allein entschied also nichts. Ausschlaggebend war das Kriterium aus Kapitel 01: Verbindung darf keinen aktiven ersten Schritt verlangen." data-en="All three came with comparable effort and comparable relevance, so scoring alone decided nothing. What mattered was the criterion from chapter 01: connection must not require an active first move.">Alle drei traten mit vergleichbarem Aufwand und vergleichbarer Relevanz an, die Bewertung allein entschied also nichts. Ausschlaggebend war das Kriterium aus Kapitel 01: Verbindung darf keinen aktiven ersten Schritt verlangen.</p>
         <div class="concept-grid">
           <div class="concept-card discard">
-            <span class="concept-tag">Verworfen</span>
-            <h4>Wöchentliches Stadtspiel</h4>
-            <p>Ortsgebundene Rätsel und Challenges, die Hanna wöchentlich an reale Orte in der Stadt schicken. Verbindung zu anderen entsteht nur, wenn beide es aktiv wollen.</p>
+            <span class="concept-tag" data-de="Verworfen" data-en="Discarded">Verworfen</span>
+            <h4 data-de="Wöchentliches Stadtspiel" data-en="Weekly City Game">Wöchentliches Stadtspiel</h4>
+            <p data-de="Ortsgebundene Rätsel und Challenges, die Hanna wöchentlich an reale Orte in der Stadt schicken. Verbindung zu anderen entsteht nur, wenn beide es aktiv wollen." data-en="Place-bound puzzles and challenges that send Hanna to real spots in the city each week. Connection to others only happens if both actively want it.">Ortsgebundene Rätsel und Challenges, die Hanna wöchentlich an reale Orte in der Stadt schicken. Verbindung zu anderen entsteht nur, wenn beide es aktiv wollen.</p>
             <div class="concept-scores">
-              <span>Importance 4/4</span><span>Effort 4/4</span><span>Impact 3/4</span>
+              <span data-de="Importance 4/4" data-en="Importance 4/4">Importance 4/4</span><span data-de="Effort 4/4" data-en="Effort 4/4">Effort 4/4</span><span data-de="Impact 3/4" data-en="Impact 3/4">Impact 3/4</span>
             </div>
-            <div class="concept-why"><b>Warum nicht:</b> Das Rätsel bringt sie an den Ort, die Verbindung verlangt danach trotzdem ein aktives Zugehen. Die eigentliche Hürde bleibt unberührt, nur verlagert.</div>
+            <div class="concept-why" data-de="<b>Warum nicht:</b> Das Rätsel bringt sie an den Ort, die Verbindung verlangt danach trotzdem ein aktives Zugehen. Die eigentliche Hürde bleibt unberührt, nur verlagert." data-en="<b>Why not:</b> The puzzle gets her to the place, but the connection still requires actively approaching afterward. The real hurdle stays untouched, just relocated."><b>Warum nicht:</b> Das Rätsel bringt sie an den Ort, die Verbindung verlangt danach trotzdem ein aktives Zugehen. Die eigentliche Hürde bleibt unberührt, nur verlagert.</div>
           </div>
 
           <div class="concept-card discard">
-            <span class="concept-tag">Verworfen</span>
-            <h4>Stille Stadtkarte</h4>
-            <p>Eine Karte, die sich durch Hannas eigene Alltagsorte füllt und still zeigt, wo andere regelmäßig sind, ganz ohne Profile, Namen oder Feed.</p>
+            <span class="concept-tag" data-de="Verworfen" data-en="Discarded">Verworfen</span>
+            <h4 data-de="Stille Stadtkarte" data-en="Silent City Map">Stille Stadtkarte</h4>
+            <p data-de="Eine Karte, die sich durch Hannas eigene Alltagsorte füllt und still zeigt, wo andere regelmäßig sind, ganz ohne Profile, Namen oder Feed." data-en="A map that fills in through Hanna's own everyday places and quietly shows where others regularly are, with no profiles, names, or feed.">Eine Karte, die sich durch Hannas eigene Alltagsorte füllt und still zeigt, wo andere regelmäßig sind, ganz ohne Profile, Namen oder Feed.</p>
             <div class="concept-scores">
-              <span>Importance 3/4</span><span>Effort 4/4</span><span>Impact 3/4</span>
+              <span data-de="Importance 3/4" data-en="Importance 3/4">Importance 3/4</span><span data-de="Effort 4/4" data-en="Effort 4/4">Effort 4/4</span><span data-de="Impact 3/4" data-en="Impact 3/4">Impact 3/4</span>
             </div>
-            <div class="concept-why"><b>Warum nicht:</b> Passiv genug, aber ohne Anlass. Eine Karte zeigt nur, wo Menschen sind. Wiederholung entsteht nicht von selbst, und ohne Wiederholung fehlt das Signal.</div>
+            <div class="concept-why" data-de="<b>Warum nicht:</b> Passiv genug, aber ohne Anlass. Eine Karte zeigt nur, wo Menschen sind. Wiederholung entsteht nicht von selbst, und ohne Wiederholung fehlt das Signal." data-en="<b>Why not:</b> Passive enough, but without an occasion. A map only shows where people are. Repetition doesn't build on its own, and without repetition the signal is missing."><b>Warum nicht:</b> Passiv genug, aber ohne Anlass. Eine Karte zeigt nur, wo Menschen sind. Wiederholung entsteht nicht von selbst, und ohne Wiederholung fehlt das Signal.</div>
           </div>
 
           <div class="concept-card chosen">
-            <span class="concept-tag">Gewählt</span>
-            <h4>Alltagsaufgaben mit passivem Feed</h4>
-            <p>Wöchentliche Alltagsaufgaben. Verbindung entsteht als Nebenprodukt durch geteilte Orte und einen passiven Feed, nicht durch aktives Suchen.</p>
+            <span class="concept-tag" data-de="Gewählt" data-en="Chosen">Gewählt</span>
+            <h4 data-de="Alltagsaufgaben mit passivem Feed" data-en="Everyday Tasks with a Passive Feed">Alltagsaufgaben mit passivem Feed</h4>
+            <p data-de="Wöchentliche Alltagsaufgaben. Verbindung entsteht als Nebenprodukt durch geteilte Orte und einen passiven Feed, nicht durch aktives Suchen." data-en="Weekly everyday tasks. Connection happens as a byproduct through shared places and a passive feed, not through active searching.">Wöchentliche Alltagsaufgaben. Verbindung entsteht als Nebenprodukt durch geteilte Orte und einen passiven Feed, nicht durch aktives Suchen.</p>
             <div class="concept-scores">
-              <span>Importance 4/4</span><span>Effort 4/4</span><span>Impact 4/4</span>
+              <span data-de="Importance 4/4" data-en="Importance 4/4">Importance 4/4</span><span data-de="Effort 4/4" data-en="Effort 4/4">Effort 4/4</span><span data-de="Impact 4/4" data-en="Impact 4/4">Impact 4/4</span>
             </div>
-            <div class="concept-why"><b>Warum diese:</b> Die einzige Variante, die den Anlass liefert <i>und</i> passiv bleibt. Die Aufgabe erzeugt die Wiederholung, die Wiederholung ersetzt das Ansprechen.</div>
+            <div class="concept-why" data-de="<b>Warum diese:</b> Die einzige Variante, die den Anlass liefert <i>und</i> passiv bleibt. Die Aufgabe erzeugt die Wiederholung, die Wiederholung ersetzt das Ansprechen." data-en="<b>Why this one:</b> The only variant that provides the occasion <i>and</i> stays passive. The task creates the repetition, the repetition replaces the approaching."><b>Warum diese:</b> Die einzige Variante, die den Anlass liefert <i>und</i> passiv bleibt. Die Aufgabe erzeugt die Wiederholung, die Wiederholung ersetzt das Ansprechen.</div>
           </div>
         </div>
       </div>
 
       <!-- Der Loop -->
       <div class="sub-gap" id="loop">
-        <span class="eyebrow">Der Loop</span>
-        <h3>Aus der gewählten Option wurden <span class="accent-italic">drei Schritte.</span></h3>
-        <p class="lede" style="max-width:660px;">Kein Profil, kein Wischen, keine erste Nachricht. Was in der Option noch eine Idee war, ist hier der Mechanismus, an dem alles Weitere hängt.</p>
+        <span class="eyebrow" data-de="Der Loop" data-en="The Loop">Der Loop</span>
+        <h3 data-de="Aus der gewählten Option wurden <span class=&quot;accent-italic&quot;>drei Schritte.</span>" data-en="The chosen option became <span class=&quot;accent-italic&quot;>three steps.</span>">Aus der gewählten Option wurden <span class="accent-italic">drei Schritte.</span></h3>
+        <p class="lede" style="max-width:660px;" data-de="Kein Profil, kein Wischen, keine erste Nachricht. Was in der Option noch eine Idee war, ist hier der Mechanismus, an dem alles Weitere hängt." data-en="No profile, no swiping, no first message. What was still an idea in the option is here the mechanism everything else hangs on.">Kein Profil, kein Wischen, keine erste Nachricht. Was in der Option noch eine Idee war, ist hier der Mechanismus, an dem alles Weitere hängt.</p>
 
         <div class="loop-rail">
           <div class="loop-node">
             <div class="loop-marker"><span class="loop-dot">01</span></div>
-            <h4>Aufgabe an einem Ort</h4>
-            <p>Eine kleine Alltagsaufgabe schickt Hanna an einen realen Spot. Sie geht hin wegen der Aufgabe, nicht wegen der Menschen.</p>
+            <h4 data-de="Aufgabe an einem Ort" data-en="Task at a Place">Aufgabe an einem Ort</h4>
+            <p data-de="Eine kleine Alltagsaufgabe schickt Hanna an einen realen Spot. Sie geht hin wegen der Aufgabe, nicht wegen der Menschen." data-en="A small everyday task sends Hanna to a real spot. She goes there for the task, not for the people.">Eine kleine Alltagsaufgabe schickt Hanna an einen realen Spot. Sie geht hin wegen der Aufgabe, nicht wegen der Menschen.</p>
           </div>
           <div class="loop-node">
             <div class="loop-marker"><span class="loop-dot">02</span></div>
-            <h4>Wiedersehen im Feed</h4>
-            <p>Wer dreimal am selben Spot war, taucht passiv im Feed auf. Keine Benachrichtigung, keine Aufforderung, kein Ranking.</p>
+            <h4 data-de="Wiedersehen im Feed" data-en="Re-encounter in the Feed">Wiedersehen im Feed</h4>
+            <p data-de="Wer dreimal am selben Spot war, taucht passiv im Feed auf. Keine Benachrichtigung, keine Aufforderung, kein Ranking." data-en="Whoever has been at the same spot three times shows up passively in the feed. No notification, no prompt, no ranking.">Wer dreimal am selben Spot war, taucht passiv im Feed auf. Keine Benachrichtigung, keine Aufforderung, kein Ranking.</p>
           </div>
           <div class="loop-node is-goal">
             <div class="loop-marker"><span class="loop-dot">03</span></div>
-            <h4>Code-Austausch</h4>
-            <p>Erst wenn beide Seiten wollen, wird ein Code getauscht. Das ist der einzige Weg zu Kontakt.</p>
+            <h4 data-de="Code-Austausch" data-en="Code Exchange">Code-Austausch</h4>
+            <p data-de="Erst wenn beide Seiten wollen, wird ein Code getauscht. Das ist der einzige Weg zu Kontakt." data-en="Only once both sides want to, a code gets exchanged. That's the only path to contact.">Erst wenn beide Seiten wollen, wird ein Code getauscht. Das ist der einzige Weg zu Kontakt.</p>
           </div>
         </div>
       </div>
@@ -517,26 +518,26 @@
       <!-- Informationsarchitektur -->
       <div class="sub-gap">
         <div class="ia-head">
-          <span class="eyebrow">Informationsarchitektur</span>
-          <span class="hint">jede Kernfunktion in maximal 2 Klicks</span>
+          <span class="eyebrow" data-de="Informationsarchitektur" data-en="Information Architecture">Informationsarchitektur</span>
+          <span class="hint" data-de="jede Kernfunktion in maximal 2 Klicks" data-en="every core function within 2 clicks">jede Kernfunktion in maximal 2 Klicks</span>
         </div>
 
         <div class="ia-grid">
           <div class="ia-card">
-            <div class="ia-dot-title">Aufgaben</div>
-            <ul><li>Spot-Detail</li><li>Aufgabe starten</li><li>Code-Exchange</li></ul>
+            <div class="ia-dot-title" data-de="Aufgaben" data-en="Tasks">Aufgaben</div>
+            <ul><li data-de="Spot-Detail" data-en="Spot detail">Spot-Detail</li><li data-de="Aufgabe starten" data-en="Start task">Aufgabe starten</li><li data-de="Code-Exchange" data-en="Code exchange">Code-Exchange</li></ul>
           </div>
           <div class="ia-card">
-            <div class="ia-dot-title">Entdecken</div>
-            <ul><li>Feed</li><li>Beitrag</li><li>Wiedersehen</li></ul>
+            <div class="ia-dot-title" data-de="Entdecken" data-en="Discover">Entdecken</div>
+            <ul><li data-de="Feed" data-en="Feed">Feed</li><li data-de="Beitrag" data-en="Post">Beitrag</li><li data-de="Wiedersehen" data-en="Re-encounter">Wiedersehen</li></ul>
           </div>
           <div class="ia-card">
-            <div class="ia-dot-title">Austausch</div>
-            <ul><li>Begegnungen</li><li>Chat</li></ul>
+            <div class="ia-dot-title" data-de="Austausch" data-en="Exchange">Austausch</div>
+            <ul><li data-de="Begegnungen" data-en="Encounters">Begegnungen</li><li data-de="Chat" data-en="Chat">Chat</li></ul>
           </div>
           <div class="ia-card">
-            <div class="ia-dot-title">Profil</div>
-            <ul><li>Meine Spots</li><li>Einstellungen</li><li>Sichtbarkeit</li></ul>
+            <div class="ia-dot-title" data-de="Profil" data-en="Profile">Profil</div>
+            <ul><li data-de="Meine Spots" data-en="My spots">Meine Spots</li><li data-de="Einstellungen" data-en="Settings">Einstellungen</li><li data-de="Sichtbarkeit" data-en="Visibility">Sichtbarkeit</li></ul>
           </div>
         </div>
       </div>
@@ -544,62 +545,62 @@
       <!-- Vom Sketch zum Screen -->
       <div class="sub-gap" id="fidelity">
         <div class="ia-head">
-          <span class="eyebrow">Vom Sketch zum Screen</span>
+          <span class="eyebrow" data-de="Vom Sketch zum Screen" data-en="From Sketch to Screen">Vom Sketch zum Screen</span>
         </div>
-        <h3>Was auf jeder Stufe dazukam <span class="accent-italic">und was wieder rausflog.</span></h3>
-        <p class="lede" style="max-width:660px;">Die Aufgabenübersicht ist der Screen, der den Loop tragen muss. Deshalb habe ich ihn dreimal neu gebaut, bevor er in den Test ging.</p>
+        <h3 data-de="Was auf jeder Stufe dazukam <span class=&quot;accent-italic&quot;>und was wieder rausflog.</span>" data-en="What got added at each stage <span class=&quot;accent-italic&quot;>and what got cut again.</span>">Was auf jeder Stufe dazukam <span class="accent-italic">und was wieder rausflog.</span></h3>
+        <p class="lede" style="max-width:660px;" data-de="Die Aufgabenübersicht ist der Screen, der den Loop tragen muss. Deshalb habe ich ihn dreimal neu gebaut, bevor er in den Test ging." data-en="The task overview is the screen that has to carry the loop. That's why I rebuilt it three times before it went into testing.">Die Aufgabenübersicht ist der Screen, der den Loop tragen muss. Deshalb habe ich ihn dreimal neu gebaut, bevor er in den Test ging.</p>
 
         <div class="fidelity">
           <div class="fid-step">
-            <div class="fid-stage"><b>01</b> Papier</div>
+            <div class="fid-stage"><b>01</b> <span data-de="Papier" data-en="Paper">Papier</span></div>
             <div class="fid-shot">
               <div class="fid-screen"><img src="samespot/sketches.jpg" alt="Sketches auf Papier"></div>
               <img class="fid-frame" src="samespot/Phone-Rahmen.png" alt="">
             </div>
-            <div class="fid-title">Sketches</div>
-            <p class="fid-note">Zwei Tage nur die Frage: welcher Screen trägt den Loop? Sieben Varianten der Aufgabenübersicht, sechs verworfen.</p>
+            <div class="fid-title" data-de="Sketches" data-en="Sketches">Sketches</div>
+            <p class="fid-note" data-de="Zwei Tage nur die Frage: welcher Screen trägt den Loop? Sieben Varianten der Aufgabenübersicht, sechs verworfen." data-en="Two days with just one question: which screen carries the loop? Seven variants of the task overview, six discarded.">Zwei Tage nur die Frage: welcher Screen trägt den Loop? Sieben Varianten der Aufgabenübersicht, sechs verworfen.</p>
           </div>
           <div class="fid-step">
-            <div class="fid-stage"><b>02</b> Struktur</div>
+            <div class="fid-stage"><b>02</b> <span data-de="Struktur" data-en="Structure">Struktur</span></div>
             <div class="fid-shot">
               <div class="fid-screen"><img src="samespot/wireframe.jpg" alt="Wireframe"></div>
               <img class="fid-frame" src="samespot/Phone-Rahmen.png" alt="">
             </div>
-            <div class="fid-title">Wireframe</div>
-            <p class="fid-note">Vier Bereiche, eine Ebene tief. Hier ist der Feed vom Profil weggezogen, damit Wiedersehen nicht wie eine Benachrichtigung wirkt.</p>
+            <div class="fid-title" data-de="Wireframe" data-en="Wireframe">Wireframe</div>
+            <p class="fid-note" data-de="Vier Bereiche, eine Ebene tief. Hier ist der Feed vom Profil weggezogen, damit Wiedersehen nicht wie eine Benachrichtigung wirkt." data-en="Four areas, one level deep. Here the feed was moved away from the profile so re-encounters don't feel like a notification.">Vier Bereiche, eine Ebene tief. Hier ist der Feed vom Profil weggezogen, damit Wiedersehen nicht wie eine Benachrichtigung wirkt.</p>
           </div>
           <div class="fid-step is-tested">
-            <div class="fid-stage"><b>03</b> Klickbar</div>
+            <div class="fid-stage"><b>03</b> <span data-de="Klickbar" data-en="Clickable">Klickbar</span></div>
             <div class="fid-shot">
               <div class="fid-screen"><img src="samespot/midfi.jpg" alt="Mid-Fi-Prototyp"></div>
               <img class="fid-frame" src="samespot/Phone-Rahmen.png" alt="">
             </div>
-            <div class="fid-title">Mid-Fi</div>
-            <p class="fid-note">Hannas kompletter Weg von der Aufgabe bis zum Code, klickbar. Mit dieser Version bin ich in die Testsitzungen gegangen.</p>
+            <div class="fid-title" data-de="Mid-Fi" data-en="Mid-Fi">Mid-Fi</div>
+            <p class="fid-note" data-de="Hannas kompletter Weg von der Aufgabe bis zum Code, klickbar. Mit dieser Version bin ich in die Testsitzungen gegangen." data-en="Hanna's complete path from task to code, clickable. This is the version I went into the test sessions with.">Hannas kompletter Weg von der Aufgabe bis zum Code, klickbar. Mit dieser Version bin ich in die Testsitzungen gegangen.</p>
           </div>
         </div>
       </div>
 
       <!-- Scope -->
       <div class="sub-gap" id="scope">
-        <span class="eyebrow">Scope</span>
-        <h3>Was ich bewusst <span class="accent-italic">weggelassen habe.</span></h3>
-        <p class="lede" style="max-width:640px;">Der Kern-Loop musste ohne Beiwerk funktionieren. Alles, was ihn erklärt oder monetarisiert hätte, ist für diese Version rausgeflogen.</p>
+        <span class="eyebrow" data-de="Scope" data-en="Scope">Scope</span>
+        <h3 data-de="Was ich bewusst <span class=&quot;accent-italic&quot;>weggelassen habe.</span>" data-en="What I deliberately <span class=&quot;accent-italic&quot;>left out.</span>">Was ich bewusst <span class="accent-italic">weggelassen habe.</span></h3>
+        <p class="lede" style="max-width:640px;" data-de="Der Kern-Loop musste ohne Beiwerk funktionieren. Alles, was ihn erklärt oder monetarisiert hätte, ist für diese Version rausgeflogen." data-en="The core loop had to work without frills. Anything that would have explained or monetized it was cut for this version.">Der Kern-Loop musste ohne Beiwerk funktionieren. Alles, was ihn erklärt oder monetarisiert hätte, ist für diese Version rausgeflogen.</p>
 
         <div class="feature-grid">
           <div class="feature-item">
-            <h4>Kein Matching-Algorithmus</h4>
-            <p>Die Wiederholung am Ort ist das Signal. Ein Score hätte genau das ersetzt, was die App besonders macht.</p>
+            <h4 data-de="Kein Matching-Algorithmus" data-en="No Matching Algorithm">Kein Matching-Algorithmus</h4>
+            <p data-de="Die Wiederholung am Ort ist das Signal. Ein Score hätte genau das ersetzt, was die App besonders macht." data-en="Repetition at a place is the signal. A score would have replaced exactly what makes the app distinctive.">Die Wiederholung am Ort ist das Signal. Ein Score hätte genau das ersetzt, was die App besonders macht.</p>
           </div>
           <div class="uebersicht-divider"></div>
           <div class="feature-item">
-            <h4>Premium raus aus dem Kernflow</h4>
-            <p>Im Test hat jede Bezahl-Schwelle den Loop unterbrochen, bevor er verstanden wurde.</p>
+            <h4 data-de="Premium raus aus dem Kernflow" data-en="Premium Out of the Core Flow">Premium raus aus dem Kernflow</h4>
+            <p data-de="Im Test hat jede Bezahl-Schwelle den Loop unterbrochen, bevor er verstanden wurde." data-en="In testing, every paywall interrupted the loop before it was understood.">Im Test hat jede Bezahl-Schwelle den Loop unterbrochen, bevor er verstanden wurde.</p>
           </div>
           <div class="uebersicht-divider"></div>
           <div class="feature-item">
-            <h4>Kein Chat-Ausbau</h4>
-            <p>Der Code-Austausch ist eine „Sidequest“ innerhalb der Aufgabe, kein Abschluss. Die Aufgabe selbst beendet man weiterhin manuell. Was danach im Chat passiert, war nicht mehr Teil des Scopes.</p>
+            <h4 data-de="Kein Chat-Ausbau" data-en="No Chat Expansion">Kein Chat-Ausbau</h4>
+            <p data-de="Der Code-Austausch ist eine „Sidequest“ innerhalb der Aufgabe, kein Abschluss. Die Aufgabe selbst beendet man weiterhin manuell. Was danach im Chat passiert, war nicht mehr Teil des Scopes." data-en="The code exchange is a &quot;side quest&quot; within the task, not a conclusion. The task itself is still completed manually. What happens in chat afterward was no longer part of the scope.">Der Code-Austausch ist eine „Sidequest“ innerhalb der Aufgabe, kein Abschluss. Die Aufgabe selbst beendet man weiterhin manuell. Was danach im Chat passiert, war nicht mehr Teil des Scopes.</p>
           </div>
         </div>
       </div>
@@ -616,18 +617,18 @@
             <span class="chapter-num">03</span>
             <span class="chapter-rule" aria-hidden="true"></span>
             <div>
-              <span class="eyebrow on-dark">Der Rückschlag</span>
-              <h2>Im Gespräch verstanden, <span class="accent-italic">im Interface nicht.</span></h2>
+              <span class="eyebrow on-dark" data-de="Der Rückschlag" data-en="The Setback">Der Rückschlag</span>
+              <h2 data-de="Im Gespräch verstanden, <span class=&quot;accent-italic&quot;>im Interface nicht.</span>" data-en="Understood in conversation, <span class=&quot;accent-italic&quot;>not in the interface.</span>">Im Gespräch verstanden, <span class="accent-italic">im Interface nicht.</span></h2>
             </div>
           </div>
-          <p class="lede" style="color:rgba(245,248,245,.72);">Beide Testpersonen haben das Konzept im Gespräch verstanden und im Interface nicht wiedererkannt. Getestet habe ich nicht die Idee, sondern ob sie ohne meine Erklärung trägt. Sie trug nicht.</p>
+          <p class="lede" style="color:rgba(245,248,245,.72);" data-de="Beide Testpersonen haben das Konzept im Gespräch verstanden und im Interface nicht wiedererkannt. Getestet habe ich nicht die Idee, sondern ob sie ohne meine Erklärung trägt. Sie trug nicht." data-en="Both test participants understood the concept in conversation and didn't recognize it in the interface. I wasn't testing the idea, but whether it holds up without my explanation. It didn't.">Beide Testpersonen haben das Konzept im Gespräch verstanden und im Interface nicht wiedererkannt. Getestet habe ich nicht die Idee, sondern ob sie ohne meine Erklärung trägt. Sie trug nicht.</p>
 
 
           <div class="method-strip">
-            <div><span>Methode</span><b>Think-Aloud, moderiert</b></div>
-            <div><span>Material</span><b>Klickbarer Mid-Fi-Prototyp</b></div>
-            <div><span>Teilnehmende</span><b>2 Personen aus der Zielgruppe</b></div>
-            <div><span>Aufgaben</span><b>Aufgabe starten, abschließen, Wiedersehen finden, Kontakt aufnehmen</b></div>
+            <div><span data-de="Methode" data-en="Method">Methode</span><b data-de="Think-Aloud, moderiert" data-en="Think-aloud, moderated">Think-Aloud, moderiert</b></div>
+            <div><span data-de="Material" data-en="Material">Material</span><b data-de="Klickbarer Mid-Fi-Prototyp" data-en="Clickable mid-fi prototype">Klickbarer Mid-Fi-Prototyp</b></div>
+            <div><span data-de="Teilnehmende" data-en="Participants">Teilnehmende</span><b data-de="2 Personen aus der Zielgruppe" data-en="2 people from the target group">2 Personen aus der Zielgruppe</b></div>
+            <div><span data-de="Aufgaben" data-en="Tasks">Aufgaben</span><b data-de="Aufgabe starten, abschließen, Wiedersehen finden, Kontakt aufnehmen" data-en="Start a task, complete it, find a re-encounter, make contact">Aufgabe starten, abschließen, Wiedersehen finden, Kontakt aufnehmen</b></div>
           </div>
         </div>
       </div>
@@ -636,25 +637,25 @@
   <div class="content-col">
       <!-- Was im Test passiert ist -->
       <div class="section sub-gap reveal" id="im-interface">
-        <span class="eyebrow">Was passiert ist</span>
-        <h3>Drei Beobachtungen, <span class="accent-italic">und was ich daraus geschlossen habe.</span></h3>
-        <p class="lede" style="max-width:680px;">Was die Testpersonen getan und gesagt haben, und was ich daraus gemacht habe.</p>
+        <span class="eyebrow" data-de="Was passiert ist" data-en="What Happened">Was passiert ist</span>
+        <h3 data-de="Drei Beobachtungen, <span class=&quot;accent-italic&quot;>und was ich daraus geschlossen habe.</span>" data-en="Three observations, <span class=&quot;accent-italic&quot;>and what I concluded from them.</span>">Drei Beobachtungen, <span class="accent-italic">und was ich daraus geschlossen habe.</span></h3>
+        <p class="lede" style="max-width:680px;" data-de="Was die Testpersonen getan und gesagt haben, und was ich daraus gemacht habe." data-en="What the test participants did and said, and what I made of it.">Was die Testpersonen getan und gesagt haben, und was ich daraus gemacht habe.</p>
 
         <div class="findings-log">
           <div class="finding-row">
             <span class="fl-num">01</span>
-            <span class="fl-obs">„Du warst schon 3x am selben Ort wie Mara“ wirkte wie eine Meldung über eine fremde Person, nicht über sich selbst.</span>
-            <span class="fl-fix">gelöst in Kapitel 04: gemeinsamer Ort als Gesprächseinstieg</span>
+            <span class="fl-obs" data-de="„Du warst schon 3x am selben Ort wie Mara“ wirkte wie eine Meldung über eine fremde Person, nicht über sich selbst." data-en="&quot;You've already been at the same place as Mara 3 times&quot; read like a notification about a stranger, not about themselves.">„Du warst schon 3x am selben Ort wie Mara“ wirkte wie eine Meldung über eine fremde Person, nicht über sich selbst.</span>
+            <span class="fl-fix" data-de="gelöst in Kapitel 04: gemeinsamer Ort als Gesprächseinstieg" data-en="solved in chapter 04: shared place as a conversation starter">gelöst in Kapitel 04: gemeinsamer Ort als Gesprächseinstieg</span>
           </div>
           <div class="finding-row">
             <span class="fl-num">02</span>
-            <span class="fl-obs">Nach dem Onboarding gescrollt, ohne zu klicken, kein sichtbarer Einstieg in die Aufgabenübersicht.</span>
-            <span class="fl-fix">gelöst in Kapitel 04: eine Aufgabe führt, mit klarem Einstieg</span>
+            <span class="fl-obs" data-de="Nach dem Onboarding gescrollt, ohne zu klicken, kein sichtbarer Einstieg in die Aufgabenübersicht." data-en="Scrolled after onboarding without clicking, no visible entry point into the task overview.">Nach dem Onboarding gescrollt, ohne zu klicken, kein sichtbarer Einstieg in die Aufgabenübersicht.</span>
+            <span class="fl-fix" data-de="gelöst in Kapitel 04: eine Aufgabe führt, mit klarem Einstieg" data-en="solved in chapter 04: one task leads, with a clear entry point">gelöst in Kapitel 04: eine Aufgabe führt, mit klarem Einstieg</span>
           </div>
           <div class="finding-row">
             <span class="fl-num">03</span>
-            <span class="fl-obs">Chat und Begegnungen in der unteren Navigation gesucht, nicht gefunden. Sie lagen im Profil.</span>
-            <span class="fl-fix">gelöst in Kapitel 04: eigener Bereich in der Tab-Bar</span>
+            <span class="fl-obs" data-de="Chat und Begegnungen in der unteren Navigation gesucht, nicht gefunden. Sie lagen im Profil." data-en="Looked for chat and encounters in the bottom navigation, didn't find them. They were in the profile.">Chat und Begegnungen in der unteren Navigation gesucht, nicht gefunden. Sie lagen im Profil.</span>
+            <span class="fl-fix" data-de="gelöst in Kapitel 04: eigener Bereich in der Tab-Bar" data-en="solved in chapter 04: own area in the tab bar">gelöst in Kapitel 04: eigener Bereich in der Tab-Bar</span>
           </div>
         </div>
 
@@ -662,44 +663,44 @@
 
       <!-- Mein Denkfehler + Konsequenz -->
       <div class="sub-gap reveal" id="denkfehler">
-        <span class="eyebrow">Mein Denkfehler</span>
-        <h3>Alle drei Findings hatten <span class="accent-italic">dieselbe Ursache.</span></h3>
+        <span class="eyebrow" data-de="Mein Denkfehler" data-en="My Wrong Assumption">Mein Denkfehler</span>
+        <h3 data-de="Alle drei Findings hatten <span class=&quot;accent-italic&quot;>dieselbe Ursache.</span>" data-en="All three findings had <span class=&quot;accent-italic&quot;>the same cause.</span>">Alle drei Findings hatten <span class="accent-italic">dieselbe Ursache.</span></h3>
 
         <div class="admission">
-          <p class="admission-line">Ich war überzeugt, das Wiedersehen sei der Wow-Moment. <span class="accent-italic">Es war das größte Risiko.</span></p>
-          <p class="admission-note">Der Fehler lag nicht im Detail, sondern in meiner Annahme: Ich hatte den Moment gebaut, den ich mir gewünscht habe, und nicht den, den jemand ohne meine Erklärung versteht. Erst als ich den Ablauf im Gespräch erzählt habe, nickten beide.</p>
+          <p class="admission-line" data-de="Ich war überzeugt, das Wiedersehen sei der Wow-Moment. <span class=&quot;accent-italic&quot;>Es war das größte Risiko.</span>" data-en="I was convinced the re-encounter would be the wow moment. <span class=&quot;accent-italic&quot;>It was the biggest risk.</span>">Ich war überzeugt, das Wiedersehen sei der Wow-Moment. <span class="accent-italic">Es war das größte Risiko.</span></p>
+          <p class="admission-note" data-de="Der Fehler lag nicht im Detail, sondern in meiner Annahme: Ich hatte den Moment gebaut, den ich mir gewünscht habe, und nicht den, den jemand ohne meine Erklärung versteht. Erst als ich den Ablauf im Gespräch erzählt habe, nickten beide." data-en="The mistake wasn't in the detail, it was in my assumption: I had built the moment I wished for, not the one someone understands without my explanation. Only when I told the flow out loud did both of them nod.">Der Fehler lag nicht im Detail, sondern in meiner Annahme: Ich hatte den Moment gebaut, den ich mir gewünscht habe, und nicht den, den jemand ohne meine Erklärung versteht. Erst als ich den Ablauf im Gespräch erzählt habe, nickten beide.</p>
 
-          <div class="admission-bridge"><span></span>Deshalb<span></span></div>
+          <div class="admission-bridge"><span></span><span data-de="Deshalb" data-en="Which is why">Deshalb</span><span></span></div>
 
-          <p class="admission-consequence">Der Test hatte nicht die Mechanik widerlegt, sondern die Ebene darüber: Reihenfolge, Benennung, Navigation, Tonfall, genau die Dinge, die ein Interface ausmachen. Weil alle drei Findings dieselbe Ursache hatten, reichte kein Nachbessern an einzelnen Stellen. Deshalb gab es kein Polishing am alten Mid-Fi. Ich hab die Oberfläche neu gebaut, die Mechanik aus Kapitel 02 unangetastet gelassen.</p>
+          <p class="admission-consequence" data-de="Der Test hatte nicht die Mechanik widerlegt, sondern die Ebene darüber: Reihenfolge, Benennung, Navigation, Tonfall, genau die Dinge, die ein Interface ausmachen. Weil alle drei Findings dieselbe Ursache hatten, reichte kein Nachbessern an einzelnen Stellen. Deshalb gab es kein Polishing am alten Mid-Fi. Ich hab die Oberfläche neu gebaut, die Mechanik aus Kapitel 02 unangetastet gelassen." data-en="The test hadn't disproven the mechanic, but the layer above it: order, naming, navigation, tone, exactly the things that make up an interface. Because all three findings had the same cause, patching individual spots wasn't enough. So there was no polishing the old mid-fi. I rebuilt the surface, leaving the mechanic from chapter 02 untouched.">Der Test hatte nicht die Mechanik widerlegt, sondern die Ebene darüber: Reihenfolge, Benennung, Navigation, Tonfall, genau die Dinge, die ein Interface ausmachen. Weil alle drei Findings dieselbe Ursache hatten, reichte kein Nachbessern an einzelnen Stellen. Deshalb gab es kein Polishing am alten Mid-Fi. Ich hab die Oberfläche neu gebaut, die Mechanik aus Kapitel 02 unangetastet gelassen.</p>
 
-          <p class="admission-limit">Grenze dieser Erkenntnis: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
+          <p class="admission-limit" data-de="Grenze dieser Erkenntnis: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster." data-en="Limit of this insight: two people show comprehension problems, not behavior patterns.">Grenze dieser Erkenntnis: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
         </div>
       </div>
 
       <!-- Priorisierung -->
       <div class="section sub-gap reveal" id="priorisierung">
-        <span class="eyebrow">Priorisierung</span>
-        <h3>Nicht alles Gefundene war <span class="accent-italic">gleich wichtig.</span></h3>
-        <p class="lede" style="max-width:660px;">Aus dem Test kamen mehr Findings als Zeit. Ich habe sie danach sortiert, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen. Nur die erste Gruppe habe ich umgesetzt.</p>
+        <span class="eyebrow" data-de="Priorisierung" data-en="Prioritization">Priorisierung</span>
+        <h3 data-de="Nicht alles Gefundene war <span class=&quot;accent-italic&quot;>gleich wichtig.</span>" data-en="Not everything I found was <span class=&quot;accent-italic&quot;>equally important.</span>">Nicht alles Gefundene war <span class="accent-italic">gleich wichtig.</span></h3>
+        <p class="lede" style="max-width:660px;" data-de="Aus dem Test kamen mehr Findings als Zeit. Ich habe sie danach sortiert, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen. Nur die erste Gruppe habe ich umgesetzt." data-en="The test produced more findings than there was time for. I sorted them by whether they blocked the core loop or just made it more comfortable. I only implemented the first group.">Aus dem Test kamen mehr Findings als Zeit. Ich habe sie danach sortiert, ob sie den Kern-Loop blockieren oder ihn nur bequemer machen. Nur die erste Gruppe habe ich umgesetzt.</p>
 
         <div class="priority-grid">
           <div class="priority-col done">
-            <span class="eyebrow">Jetzt gelöst, blockiert den Loop</span>
+            <span class="eyebrow" data-de="Jetzt gelöst, blockiert den Loop" data-en="Solved now, was blocking the loop">Jetzt gelöst, blockiert den Loop</span>
             <ul>
-              <li>Wiedersehen positiv framen</li>
-              <li>Shared Spots als gemeinsamer Bezugspunkt eingeführt</li>
-              <li>Austausch in die Hauptnavigation</li>
-              <li>Ortsbezug der Aufgabe klarer machen</li>
+              <li data-de="Wiedersehen positiv framen" data-en="Frame the re-encounter positively">Wiedersehen positiv framen</li>
+              <li data-de="Shared Spots als gemeinsamer Bezugspunkt eingeführt" data-en="Introduced shared spots as a common reference point">Shared Spots als gemeinsamer Bezugspunkt eingeführt</li>
+              <li data-de="Austausch in die Hauptnavigation" data-en="Moved exchange into the main navigation">Austausch in die Hauptnavigation</li>
+              <li data-de="Ortsbezug der Aufgabe klarer machen" data-en="Make the task's place reference clearer">Ortsbezug der Aufgabe klarer machen</li>
             </ul>
           </div>
           <div class="priority-col later">
-            <span class="eyebrow muted">Vertagt, nice to have</span>
+            <span class="eyebrow muted" data-de="Vertagt, nice to have" data-en="Deferred, nice to have">Vertagt, nice to have</span>
             <ul>
-              <li>Begegnungs-Kennzahl schärfen</li>
-              <li>Streak-Bedeutung erklären</li>
-              <li>Code-Austausch angenehmer gestalten</li>
-              <li>Entdecken-Bereich weiter vereinfachen</li>
+              <li data-de="Begegnungs-Kennzahl schärfen" data-en="Sharpen the encounter metric">Begegnungs-Kennzahl schärfen</li>
+              <li data-de="Streak-Bedeutung erklären" data-en="Explain what streaks mean">Streak-Bedeutung erklären</li>
+              <li data-de="Code-Austausch angenehmer gestalten" data-en="Make the code exchange more pleasant">Code-Austausch angenehmer gestalten</li>
+              <li data-de="Entdecken-Bereich weiter vereinfachen" data-en="Simplify the discover area further">Entdecken-Bereich weiter vereinfachen</li>
             </ul>
           </div>
         </div>
@@ -714,43 +715,43 @@
         <span class="chapter-num">04</span>
         <span class="chapter-rule" aria-hidden="true"></span>
         <div>
-          <span class="eyebrow">Die Lösung</span>
-          <h2 class="h2-xl" style="margin-top:6px;">Ich habe nicht die Mechanik geändert, sondern <span class="accent-italic accent-signal">ihre Erzählung.</span></h2>
+          <span class="eyebrow" data-de="Die Lösung" data-en="The Solution">Die Lösung</span>
+          <h2 class="h2-xl" style="margin-top:6px;" data-de="Ich habe nicht die Mechanik geändert, sondern <span class=&quot;accent-italic accent-signal&quot;>ihre Erzählung.</span>" data-en="I didn't change the mechanic, I changed <span class=&quot;accent-italic accent-signal&quot;>the story around it.</span>">Ich habe nicht die Mechanik geändert, sondern <span class="accent-italic accent-signal">ihre Erzählung.</span></h2>
         </div>
       </div>
 
       <div class="ba-grid staffel">
         <div class="ba-col step">
-          <span class="eyebrow muted">1. Wiederbegegnung</span>
+          <span class="eyebrow muted" data-de="1. Wiederbegegnung" data-en="1. Re-encounter">1. Wiederbegegnung</span>
           <div class="mockup-phone" style="width:216px;margin:0 auto;">
             <div class="mockup-screen"><img src="samespot/begegnung-01.jpg" alt="Erste Wiederbegegnung, Hinweis von unten"></div>
             <img class="mockup-frame" src="samespot/Phone-Rahmen.png" alt="">
           </div>
           <div class="ba-caption">
-            <p>„Ihr lauft euch wieder über den Weg.“</p>
-            <p>Noch beiläufig: ein Hinweis von unten, keine Aufforderung.</p>
+            <p data-de="„Ihr lauft euch wieder über den Weg.“" data-en="&quot;You keep crossing paths.&quot;">„Ihr lauft euch wieder über den Weg.“</p>
+            <p data-de="Noch beiläufig: ein Hinweis von unten, keine Aufforderung." data-en="Still casual: a hint from below, not a prompt.">Noch beiläufig: ein Hinweis von unten, keine Aufforderung.</p>
           </div>
         </div>
         <div class="ba-col step">
-          <span class="eyebrow muted">2. Wiederbegegnung</span>
+          <span class="eyebrow muted" data-de="2. Wiederbegegnung" data-en="2. Re-encounter">2. Wiederbegegnung</span>
           <div class="mockup-phone" style="width:216px;margin:0 auto;">
             <div class="mockup-screen"><img src="samespot/begegnung-02.jpg" alt="Zweite Wiederbegegnung, Hinweis mit Namen"></div>
             <img class="mockup-frame" src="samespot/Phone-Rahmen.png" alt="">
           </div>
           <div class="ba-caption">
-            <p>„Ihr seid euch gerade begegnet.“</p>
-            <p>Der Hinweis wird direkter: Name und Ort sind jetzt sichtbar.</p>
+            <p data-de="„Ihr seid euch gerade begegnet.“" data-en="&quot;You just ran into each other.&quot;">„Ihr seid euch gerade begegnet.“</p>
+            <p data-de="Der Hinweis wird direkter: Name und Ort sind jetzt sichtbar." data-en="The hint gets more direct: name and place are now visible.">Der Hinweis wird direkter: Name und Ort sind jetzt sichtbar.</p>
           </div>
         </div>
         <div class="ba-col step step-now">
-          <span class="eyebrow">3. Begegnung · Jetzt</span>
+          <span class="eyebrow" data-de="3. Begegnung · Jetzt" data-en="3. Encounter · Now">3. Begegnung · Jetzt</span>
           <div class="mockup-phone" style="width:216px;margin:0 auto;">
             <div class="mockup-screen"><img src="samespot/begegnung-03.jpg" alt="Dritte Begegnung, vollflächiger Jetzt-Moment"></div>
             <img class="mockup-frame" src="samespot/Phone-Rahmen.png" alt="">
           </div>
           <div class="ba-caption">
-            <p>„Ihr seid jetzt gerade beide hier.“</p>
-            <p>Vollflächig und dunkel: der einzige Moment, der einen echten Schritt verlangt.</p>
+            <p data-de="„Ihr seid jetzt gerade beide hier.“" data-en="&quot;You're both here right now.&quot;">„Ihr seid jetzt gerade beide hier.“</p>
+            <p data-de="Vollflächig und dunkel: der einzige Moment, der einen echten Schritt verlangt." data-en="Full-screen and dark: the only moment that asks for a real step.">Vollflächig und dunkel: der einzige Moment, der einen echten Schritt verlangt.</p>
           </div>
         </div>
       </div>
@@ -758,90 +759,90 @@
       <div class="kpi-card">
         <div class="kpi-num"><span class="pfx-inner">≥15%</span></div>
         <div>
-          <span class="eyebrow">Ziel-KPI, nicht gemessen</span>
-          <p>der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch. Daran würde ich messen, ob der Kernmechanismus trägt, wöchentlich, verantwortet von UX, UI und Dev.</p>
+          <span class="eyebrow" data-de="Ziel-KPI, nicht gemessen" data-en="Target KPI, not measured">Ziel-KPI, nicht gemessen</span>
+          <p data-de="der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch. Daran würde ich messen, ob der Kernmechanismus trägt, wöchentlich, verantwortet von UX, UI und Dev." data-en="of users who see a re-encounter start a code exchange. That's what I'd use to measure whether the core mechanism holds, tracked weekly, owned by UX, UI and dev.">der Nutzer:innen, die eine Wiederbegegnung sehen, starten einen Code-Austausch. Daran würde ich messen, ob der Kernmechanismus trägt, wöchentlich, verantwortet von UX, UI und Dev.</p>
         </div>
       </div>
       </div>
 
       <!-- Sicherheit -->
       <div class="sub-gap reveal" id="sicherheit">
-        <span class="eyebrow">Sicherheit</span>
-        <h3>Eine App, die Orte kennt, <span class="accent-italic">muss sich das verdienen.</span></h3>
-        <p class="lede" style="max-width:640px;">Das „creepy" aus dem Test war kein Copy-Problem, sondern eine berechtigte Frage nach Kontrolle. Drei Regeln stehen deshalb über der Mechanik.</p>
+        <span class="eyebrow" data-de="Sicherheit" data-en="Safety">Sicherheit</span>
+        <h3 data-de="Eine App, die Orte kennt, <span class=&quot;accent-italic&quot;>muss sich das verdienen.</span>" data-en="An app that knows places <span class=&quot;accent-italic&quot;>has to earn that.</span>">Eine App, die Orte kennt, <span class="accent-italic">muss sich das verdienen.</span></h3>
+        <p class="lede" style="max-width:640px;" data-de="Das „creepy&quot; aus dem Test war kein Copy-Problem, sondern eine berechtigte Frage nach Kontrolle. Drei Regeln stehen deshalb über der Mechanik." data-en="The &quot;creepy&quot; feeling from testing wasn't a copy problem, it was a legitimate question about control. Three rules therefore sit above the mechanic.">Das „creepy" aus dem Test war kein Copy-Problem, sondern eine berechtigte Frage nach Kontrolle. Drei Regeln stehen deshalb über der Mechanik.</p>
 
         <div class="safety-grid">
           <div class="safety-item">
-            <h4>Der Code ist die Grenze</h4>
-            <p>Ohne Austausch kein Kontakt. Es gibt keinen Weg, jemanden ungefragt anzuschreiben.</p>
+            <h4 data-de="Der Code ist die Grenze" data-en="The Code Is the Boundary">Der Code ist die Grenze</h4>
+            <p data-de="Ohne Austausch kein Kontakt. Es gibt keinen Weg, jemanden ungefragt anzuschreiben." data-en="No exchange, no contact. There's no way to message someone unprompted.">Ohne Austausch kein Kontakt. Es gibt keinen Weg, jemanden ungefragt anzuschreiben.</p>
           </div>
           <div class="uebersicht-divider"></div>
           <div class="safety-item">
-            <h4>Blockieren und Ausblenden</h4>
-            <p>Wer eine Person nicht mehr sehen möchte, blendet sie einfach aus. Still, ohne Erklärung, ohne dass die andere Person etwas davon merkt.</p>
+            <h4 data-de="Blockieren und Ausblenden" data-en="Block and Hide">Blockieren und Ausblenden</h4>
+            <p data-de="Wer eine Person nicht mehr sehen möchte, blendet sie einfach aus. Still, ohne Erklärung, ohne dass die andere Person etwas davon merkt." data-en="Anyone who doesn't want to see a person anymore can just hide them. Quietly, no explanation needed, without the other person noticing.">Wer eine Person nicht mehr sehen möchte, blendet sie einfach aus. Still, ohne Erklärung, ohne dass die andere Person etwas davon merkt.</p>
           </div>
           <div class="uebersicht-divider"></div>
           <div class="safety-item">
-            <h4>Geschlechtsfilter, opt-in</h4>
-            <p>Vorab einschaltbar, damit zum Beispiel Frauen aus Sicherheitsgründen gar nicht erst Männer in ihren Begegnungen sehen, wenn sie das nicht wollen.</p>
+            <h4 data-de="Geschlechtsfilter, opt-in" data-en="Gender Filter, Opt-in">Geschlechtsfilter, opt-in</h4>
+            <p data-de="Vorab einschaltbar, damit zum Beispiel Frauen aus Sicherheitsgründen gar nicht erst Männer in ihren Begegnungen sehen, wenn sie das nicht wollen." data-en="Can be turned on in advance, so that, for example, women for safety reasons don't see men in their encounters at all if they don't want to.">Vorab einschaltbar, damit zum Beispiel Frauen aus Sicherheitsgründen gar nicht erst Männer in ihren Begegnungen sehen, wenn sie das nicht wollen.</p>
           </div>
         </div>
       </div>
 
       <!-- UI-System -->
       <div class="sub-gap reveal" id="ui-system">
-        <span class="eyebrow">UI-System</span>
-        <h3>Ein kleines System, <span class="accent-italic">damit 16 Screens zusammengehören.</span></h3>
-        <p class="lede" style="max-width:700px;">Vier Farben, zwei Schriften, eine Handvoll Bausteine. Der Umfang ist kein Understatement, sondern Konsequenz aus dem Test: Wenn drei Findings dieselbe Ursache haben, braucht es keine Vielfalt, sondern Wiederholung.</p>
+        <span class="eyebrow" data-de="UI-System" data-en="UI System">UI-System</span>
+        <h3 data-de="Ein kleines System, <span class=&quot;accent-italic&quot;>damit 16 Screens zusammengehören.</span>" data-en="A small system, <span class=&quot;accent-italic&quot;>so 16 screens belong together.</span>">Ein kleines System, <span class="accent-italic">damit 16 Screens zusammengehören.</span></h3>
+        <p class="lede" style="max-width:700px;" data-de="Vier Farben, zwei Schriften, eine Handvoll Bausteine. Der Umfang ist kein Understatement, sondern Konsequenz aus dem Test: Wenn drei Findings dieselbe Ursache haben, braucht es keine Vielfalt, sondern Wiederholung." data-en="Four colors, two typefaces, a handful of building blocks. The scope isn't an understatement, it's a consequence of the test: when three findings share the same cause, what's needed isn't variety, but repetition.">Vier Farben, zwei Schriften, eine Handvoll Bausteine. Der Umfang ist kein Understatement, sondern Konsequenz aus dem Test: Wenn drei Findings dieselbe Ursache haben, braucht es keine Vielfalt, sondern Wiederholung.</p>
 
         <!-- Farbe -->
-        <span class="uisys-label">Farbe</span>
+        <span class="uisys-label" data-de="Farbe" data-en="Color">Farbe</span>
         <div class="main-swatch-grid">
           <div class="main-swatch">
             <div class="main-chip" style="background:#FF5B3A;"></div>
-            <span class="ms-name">Signal</span><span class="ms-hex">#FF5B3A</span>
-            <span class="ms-use">Genau ein Element pro Screen: der nächste Schritt. Aus Finding 02: ohne sichtbaren Einstieg beginnt der Loop nicht.</span>
+            <span class="ms-name" data-de="Signal" data-en="Signal">Signal</span><span class="ms-hex">#FF5B3A</span>
+            <span class="ms-use" data-de="Genau ein Element pro Screen: der nächste Schritt. Aus Finding 02: ohne sichtbaren Einstieg beginnt der Loop nicht." data-en="Exactly one element per screen: the next step. From finding 02: without a visible entry point, the loop doesn't start.">Genau ein Element pro Screen: der nächste Schritt. Aus Finding 02: ohne sichtbaren Einstieg beginnt der Loop nicht.</span>
           </div>
           <div class="main-swatch">
             <div class="main-chip" style="background:#161311;"></div>
-            <span class="ms-name">Ink</span><span class="ms-hex">#161311</span>
-            <span class="ms-use">Text und Navigation. Warmes Schwarz statt reinem, damit es neben dem Signal nicht kippt.</span>
+            <span class="ms-name" data-de="Ink" data-en="Ink">Ink</span><span class="ms-hex">#161311</span>
+            <span class="ms-use" data-de="Text und Navigation. Warmes Schwarz statt reinem, damit es neben dem Signal nicht kippt." data-en="Text and navigation. Warm black instead of pure, so it doesn't fight the signal color.">Text und Navigation. Warmes Schwarz statt reinem, damit es neben dem Signal nicht kippt.</span>
           </div>
           <div class="main-swatch">
             <div class="main-chip" style="background:#A79E92;"></div>
-            <span class="ms-name">Stein</span><span class="ms-hex">#A79E92</span>
-            <span class="ms-use">Zweite Ebene: Metadaten, Zeitangaben, inaktive Zustände. Lesbar, aber nie im Vordergrund.</span>
+            <span class="ms-name" data-de="Stein" data-en="Stone">Stein</span><span class="ms-hex">#A79E92</span>
+            <span class="ms-use" data-de="Zweite Ebene: Metadaten, Zeitangaben, inaktive Zustände. Lesbar, aber nie im Vordergrund." data-en="Second layer: metadata, timestamps, inactive states. Readable, but never in the foreground.">Zweite Ebene: Metadaten, Zeitangaben, inaktive Zustände. Lesbar, aber nie im Vordergrund.</span>
           </div>
           <div class="main-swatch">
             <div class="main-chip" style="background:#F5F2EC;border:1px solid var(--ink-08);"></div>
-            <span class="ms-name">Papier</span><span class="ms-hex">#F5F2EC</span>
-            <span class="ms-use">Grundfläche und Karten. Gebrochen statt weiß, damit Fotos von Orten nicht ausgeschnitten wirken.</span>
+            <span class="ms-name" data-de="Papier" data-en="Paper">Papier</span><span class="ms-hex">#F5F2EC</span>
+            <span class="ms-use" data-de="Grundfläche und Karten. Gebrochen statt weiß, damit Fotos von Orten nicht ausgeschnitten wirken." data-en="Base surface and cards. Off-white instead of white, so photos of places don't look cut out.">Grundfläche und Karten. Gebrochen statt weiß, damit Fotos von Orten nicht ausgeschnitten wirken.</span>
           </div>
         </div>
 
         <!-- Typografie -->
-        <span class="uisys-label">Typografie</span>
+        <span class="uisys-label" data-de="Typografie" data-en="Typography">Typografie</span>
         <div class="type-specimen">
           <div class="ts-row">
-            <p class="ts-line" style="font-family:'Fraunces',serif;font-size:34px;line-height:1.18;">Ihr wart beide schon hier.</p>
-            <span class="ts-meta">Fraunces · Display · 32/40</span>
+            <p class="ts-line" style="font-family:'Fraunces',serif;font-size:34px;line-height:1.18;" data-de="Ihr wart beide schon hier." data-en="You've both already been here.">Ihr wart beide schon hier.</p>
+            <span class="ts-meta" data-de="Fraunces · Display · 32/40" data-en="Fraunces · Display · 32/40">Fraunces · Display · 32/40</span>
           </div>
           <div class="ts-row">
-            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:20px;line-height:1.3;">Kaffee an einem Ort, an dem du noch nie warst</p>
-            <span class="ts-meta">DM Sans Medium · Title · 20/26</span>
+            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:20px;line-height:1.3;" data-de="Kaffee an einem Ort, an dem du noch nie warst" data-en="Coffee at a place you've never been">Kaffee an einem Ort, an dem du noch nie warst</p>
+            <span class="ts-meta" data-de="DM Sans Medium · Title · 20/26" data-en="DM Sans Medium · Title · 20/26">DM Sans Medium · Title · 20/26</span>
           </div>
           <div class="ts-row">
-            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.4;">Aufgaben laufen 24 Stunden. Wer sie abschließt, taucht am Ort auf, nicht im Feed.</p>
-            <span class="ts-meta">DM Sans Regular · Body · 15/21</span>
+            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.4;" data-de="Aufgaben laufen 24 Stunden. Wer sie abschließt, taucht am Ort auf, nicht im Feed." data-en="Tasks run for 24 hours. Whoever completes one shows up at the place, not in the feed.">Aufgaben laufen 24 Stunden. Wer sie abschließt, taucht am Ort auf, nicht im Feed.</p>
+            <span class="ts-meta" data-de="DM Sans Regular · Body · 15/21" data-en="DM Sans Regular · Body · 15/21">DM Sans Regular · Body · 15/21</span>
           </div>
           <div class="ts-row">
-            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-size:11px;line-height:1.27;color:var(--ink-55);">Noch 6 Stunden · 3 Personen waren hier</p>
-            <span class="ts-meta">DM Sans Regular · Caption · 11/14</span>
+            <p class="ts-line" style="font-family:'DM Sans',sans-serif;font-size:11px;line-height:1.27;color:var(--ink-55);" data-de="Noch 6 Stunden · 3 Personen waren hier" data-en="6 hours left · 3 people were here">Noch 6 Stunden · 3 Personen waren hier</p>
+            <span class="ts-meta" data-de="DM Sans Regular · Caption · 11/14" data-en="DM Sans Regular · Caption · 11/14">DM Sans Regular · Caption · 11/14</span>
           </div>
         </div>
 
         <!-- Bausteine -->
-        <span class="uisys-label">Bausteine</span>
+        <span class="uisys-label" data-de="Bausteine" data-en="Components">Bausteine</span>
 
         <div class="baustein-single">
           <img src="samespot/bausteine.jpg" alt="Bausteine des UI-Systems: Aufgaben-Karte, Navigation, Buttons, Austausch, Spot, Profilbilder, Icons, Tag/Badge/Chip, Segmented Control" loading="lazy">
@@ -850,61 +851,61 @@
 
       <!-- Arbeit mit KI -->
       <div class="sub-gap reveal" id="arbeit-mit-ki">
-        <span class="eyebrow">Arbeitsweise</span>
-        <h3>Wie ich mit KI gearbeitet habe, <span class="accent-italic">und wo nicht.</span></h3>
-        <p class="lede" style="max-width:700px;">KI war kein Werkzeug für den Entwurf, sondern für alles davor und daneben. Sie hat mir Zeit für Testen und Zeichnen verschafft.</p>
+        <span class="eyebrow" data-de="Arbeitsweise" data-en="How I Worked">Arbeitsweise</span>
+        <h3 data-de="Wie ich mit KI gearbeitet habe, <span class=&quot;accent-italic&quot;>und wo nicht.</span>" data-en="How I worked with AI, <span class=&quot;accent-italic&quot;>and where I didn't.</span>">Wie ich mit KI gearbeitet habe, <span class="accent-italic">und wo nicht.</span></h3>
+        <p class="lede" style="max-width:700px;" data-de="KI war kein Werkzeug für den Entwurf, sondern für alles davor und daneben. Sie hat mir Zeit für Testen und Zeichnen verschafft." data-en="AI wasn't a tool for the design itself, but for everything before and alongside it. It bought me time for testing and drawing.">KI war kein Werkzeug für den Entwurf, sondern für alles davor und daneben. Sie hat mir Zeit für Testen und Zeichnen verschafft.</p>
 
         <div class="ki-card">
           <div class="ki-timeline">
             <div class="ki-tl-row">
               <div class="ki-tl-rail"><span class="ki-tl-dot"></span></div>
               <div class="ki-tl-body">
-                <b class="ki-log-title">Research & Auswertung</b> <span class="ki-tool">Perplexity, Claude</span>
-                <p class="ki-tl-line">Marktüberblick zusammengetragen, Antworten sortiert <span class="ki-log-arrow">→</span> Zahlen an der Quelle geprüft, Schnitt selbst gezogen</p>
+                <b class="ki-log-title" data-de="Research & Auswertung" data-en="Research & Analysis">Research & Auswertung</b> <span class="ki-tool" data-de="Perplexity, Claude" data-en="Perplexity, Claude">Perplexity, Claude</span>
+                <p class="ki-tl-line" data-de="Marktüberblick zusammengetragen, Antworten sortiert <span class=&quot;ki-log-arrow&quot;>→</span> Zahlen an der Quelle geprüft, Schnitt selbst gezogen" data-en="Compiled a market overview, sorted responses <span class=&quot;ki-log-arrow&quot;>→</span> checked numbers at the source, drew my own conclusions">Marktüberblick zusammengetragen, Antworten sortiert <span class="ki-log-arrow">→</span> Zahlen an der Quelle geprüft, Schnitt selbst gezogen</p>
               </div>
             </div>
             <div class="ki-tl-row">
               <div class="ki-tl-rail"><span class="ki-tl-dot"></span></div>
               <div class="ki-tl-body">
-                <b class="ki-log-title">Sparring zur Mechanik</b> <span class="ki-tool">Claude</span>
-                <p class="ki-tl-line">Gegen den Loop argumentiert <span class="ki-log-arrow">→</span> zwei Optionen verworfen, dritte gewählt</p>
+                <b class="ki-log-title" data-de="Sparring zur Mechanik" data-en="Sparring on the Mechanic">Sparring zur Mechanik</b> <span class="ki-tool" data-de="Claude" data-en="Claude">Claude</span>
+                <p class="ki-tl-line" data-de="Gegen den Loop argumentiert <span class=&quot;ki-log-arrow&quot;>→</span> zwei Optionen verworfen, dritte gewählt" data-en="Argued against the loop <span class=&quot;ki-log-arrow&quot;>→</span> discarded two options, chose the third">Gegen den Loop argumentiert <span class="ki-log-arrow">→</span> zwei Optionen verworfen, dritte gewählt</p>
               </div>
             </div>
             <div class="ki-tl-row">
               <div class="ki-tl-rail"><span class="ki-tl-dot"></span></div>
               <div class="ki-tl-body">
-                <b class="ki-log-title">Testmitschriften</b> <span class="ki-tool">Google-Modell</span>
-                <p class="ki-tl-line">Sitzungen auf Übereinstimmungen abgeglichen <span class="ki-log-arrow">→</span> Beobachtung und Deutung getrennt gehalten</p>
+                <b class="ki-log-title" data-de="Testmitschriften" data-en="Test Transcripts">Testmitschriften</b> <span class="ki-tool" data-de="Google-Modell" data-en="Google model">Google-Modell</span>
+                <p class="ki-tl-line" data-de="Sitzungen auf Übereinstimmungen abgeglichen <span class=&quot;ki-log-arrow&quot;>→</span> Beobachtung und Deutung getrennt gehalten" data-en="Cross-checked sessions for overlaps <span class=&quot;ki-log-arrow&quot;>→</span> kept observation and interpretation separate">Sitzungen auf Übereinstimmungen abgeglichen <span class="ki-log-arrow">→</span> Beobachtung und Deutung getrennt gehalten</p>
               </div>
             </div>
             <div class="ki-tl-row is-last">
               <div class="ki-tl-rail"><span class="ki-tl-dot"></span></div>
               <div class="ki-tl-body">
-                <b class="ki-log-title">Microcopy</b> <span class="ki-tool">Claude</span>
-                <p class="ki-tl-line">Mehrere Tonalitäten durchgespielt <span class="ki-log-arrow">→</span> Variante gegen Finding aus Kapitel 03 gewählt</p>
+                <b class="ki-log-title" data-de="Microcopy" data-en="Microcopy">Microcopy</b> <span class="ki-tool" data-de="Claude" data-en="Claude">Claude</span>
+                <p class="ki-tl-line" data-de="Mehrere Tonalitäten durchgespielt <span class=&quot;ki-log-arrow&quot;>→</span> Variante gegen Finding aus Kapitel 03 gewählt" data-en="Tried out several tones of voice <span class=&quot;ki-log-arrow&quot;>→</span> picked the variant against the finding from chapter 03">Mehrere Tonalitäten durchgespielt <span class="ki-log-arrow">→</span> Variante gegen Finding aus Kapitel 03 gewählt</p>
               </div>
             </div>
           </div>
 
           <div class="ki-not">
-            <span class="eyebrow">Wo nicht</span>
-            <p>Kein Screen und kein Icon ist generiert, alle 16 Screens sind in Figma gebaut. Interviews, Usability-Test und Priorisierung kamen von mir.</p>
+            <span class="eyebrow" data-de="Wo nicht" data-en="Where I Didn't">Wo nicht</span>
+            <p data-de="Kein Screen und kein Icon ist generiert, alle 16 Screens sind in Figma gebaut. Interviews, Usability-Test und Priorisierung kamen von mir." data-en="No screen and no icon is generated, all 16 screens were built in Figma. Interviews, usability testing and prioritization were all mine.">Kein Screen und kein Icon ist generiert, alle 16 Screens sind in Figma gebaut. Interviews, Usability-Test und Priorisierung kamen von mir.</p>
           </div>
         </div>
       </div>
 
       <!-- Learnings -->
       <div class="sub-gap reveal" id="learnings">
-        <span class="eyebrow">Learnings</span>
-        <h3>Was ich <span class="accent-italic">beim nächsten Mal anders mache.</span></h3>
+        <span class="eyebrow" data-de="Learnings" data-en="Learnings">Learnings</span>
+        <h3 data-de="Was ich <span class=&quot;accent-italic&quot;>beim nächsten Mal anders mache.</span>" data-en="What I'd do <span class=&quot;accent-italic&quot;>differently next time.</span>">Was ich <span class="accent-italic">beim nächsten Mal anders mache.</span></h3>
         <div class="learn-card">
           <div class="learn-row">
             <span class="learn-num">01</span>
-            <p>Ich würde schon mit dem Low-Fi-Prototyp testen, nicht erst ab Mid-Fi.</p>
+            <p data-de="Ich würde schon mit dem Low-Fi-Prototyp testen, nicht erst ab Mid-Fi." data-en="I'd test starting with the low-fi prototype, not only from mid-fi onward.">Ich würde schon mit dem Low-Fi-Prototyp testen, nicht erst ab Mid-Fi.</p>
           </div>
           <div class="learn-row">
             <span class="learn-num">02</span>
-            <p>Sicherheit war für mich anfangs kein eigenständiges Thema, sondern in der Mechanik mitgedacht. Erst die Feedback-Schleifen haben gezeigt, dass es eigene Antworten braucht: was, wenn jemand eine Person nicht mehr sehen möchte, oder ein Geschlecht komplett ausschließen will? Daraus sind die Sicherheitsregeln entstanden, das Blockieren/Ausblenden und der Geschlechtsfilter.</p>
+            <p data-de="Sicherheit war für mich anfangs kein eigenständiges Thema, sondern in der Mechanik mitgedacht. Erst die Feedback-Schleifen haben gezeigt, dass es eigene Antworten braucht: was, wenn jemand eine Person nicht mehr sehen möchte, oder ein Geschlecht komplett ausschließen will? Daraus sind die Sicherheitsregeln entstanden, das Blockieren/Ausblenden und der Geschlechtsfilter." data-en="At first, safety wasn't a topic of its own for me, it was just baked into the mechanic. Only the feedback loops showed that it needed its own answers: what if someone no longer wants to see a person, or wants to exclude a gender entirely? That's where the safety rules came from: block/hide and the gender filter.">Sicherheit war für mich anfangs kein eigenständiges Thema, sondern in der Mechanik mitgedacht. Erst die Feedback-Schleifen haben gezeigt, dass es eigene Antworten braucht: was, wenn jemand eine Person nicht mehr sehen möchte, oder ein Geschlecht komplett ausschließen will? Daraus sind die Sicherheitsregeln entstanden, das Blockieren/Ausblenden und der Geschlechtsfilter.</p>
           </div>
         </div>
       </div>
@@ -917,18 +918,18 @@
           <span class="chapter-num">05</span>
           <span class="chapter-rule" aria-hidden="true"></span>
           <div>
-            <span class="eyebrow">Vertiefung</span>
-            <h2 class="h2-xl" style="margin-top:6px;">Nicht beschrieben, sondern <span class="accent-italic accent-signal">nachprüfbar.</span></h2>
+            <span class="eyebrow" data-de="Vertiefung" data-en="Going Deeper">Vertiefung</span>
+            <h2 class="h2-xl" style="margin-top:6px;" data-de="Nicht beschrieben, sondern <span class=&quot;accent-italic accent-signal&quot;>nachprüfbar.</span>" data-en="Not just described, but <span class=&quot;accent-italic accent-signal&quot;>verifiable.</span>">Nicht beschrieben, sondern <span class="accent-italic accent-signal">nachprüfbar.</span></h2>
           </div>
         </div>
 
         <!-- 60-Sekunden-Walkthrough -->
         <div class="sub-block sub-gap" id="walkthrough">
           <div class="ia-head block-head">
-            <span class="eyebrow">Walkthrough</span>
-            <span class="hint">60 Sekunden, mit Ton</span>
+            <span class="eyebrow" data-de="Walkthrough" data-en="Walkthrough">Walkthrough</span>
+            <span class="hint" data-de="60 Sekunden, mit Ton" data-en="60 seconds, with sound">60 Sekunden, mit Ton</span>
           </div>
-          <h3>Ich gehe einmal durch die App <span class="accent-italic">und erkläre, warum sie so aufgebaut ist.</span></h3>
+          <h3 data-de="Ich gehe einmal durch die App <span class=&quot;accent-italic&quot;>und erkläre, warum sie so aufgebaut ist.</span>" data-en="I walk through the app once <span class=&quot;accent-italic&quot;>and explain why it's built this way.</span>">Ich gehe einmal durch die App <span class="accent-italic">und erkläre, warum sie so aufgebaut ist.</span></h3>
           <div class="video-frame">
             <video controls preload="metadata" playsinline poster="samespot/screen04.jpg">
               <source src="samespot/walkthrough.mp4" type="video/mp4" onerror="this.closest('.video-frame').classList.add('is-empty');">
@@ -940,28 +941,28 @@
         <!-- In Figma -->
         <div class="sub-block" id="figma-einblick">
           <div class="ia-head block-head">
-            <span class="eyebrow">In Figma</span>
-            <span class="hint">unaufgeräumt, absichtlich</span>
+            <span class="eyebrow" data-de="In Figma" data-en="In Figma">In Figma</span>
+            <span class="hint" data-de="unaufgeräumt, absichtlich" data-en="messy, on purpose">unaufgeräumt, absichtlich</span>
           </div>
-          <h3>Wie die Datei wirklich aussieht, <span class="accent-italic">Verlinkungen inklusive.</span></h3>
+          <h3 data-de="Wie die Datei wirklich aussieht, <span class=&quot;accent-italic&quot;>Verlinkungen inklusive.</span>" data-en="What the file actually looks like, <span class=&quot;accent-italic&quot;>links included.</span>">Wie die Datei wirklich aussieht, <span class="accent-italic">Verlinkungen inklusive.</span></h3>
           <div class="proof-grid">
           <figure class="proof-shot wide">
             <img src="samespot/figma-prototyp.png" alt="Prototyp-Verlinkungen im Kernflow" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
             <span class="proof-missing">samespot/figma-prototyp.png</span>
-            <figcaption><b>Prototyp-Verlinkungen im Kernflow</b>: jede Verbindung vom Spot bis zum Code-Austausch.</figcaption>
+            <figcaption data-de="<b>Prototyp-Verlinkungen im Kernflow</b>: jede Verbindung vom Spot bis zum Code-Austausch." data-en="<b>Prototype links across the core flow</b>: every connection from spot to code exchange."><b>Prototyp-Verlinkungen im Kernflow</b>: jede Verbindung vom Spot bis zum Code-Austausch.</figcaption>
           </figure>
           <figure class="proof-shot ">
             <img src="samespot/figma-komponenten.png" alt="Komponenten und Varianten" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
             <span class="proof-missing">samespot/figma-komponenten.png</span>
-            <figcaption><b>Komponenten und Varianten</b>: die Bausteine, aus denen alle 16 Screens bestehen.</figcaption>
+            <figcaption data-de="<b>Komponenten und Varianten</b>: die Bausteine, aus denen alle 16 Screens bestehen." data-en="<b>Components and variants</b>: the building blocks all 16 screens are made of."><b>Komponenten und Varianten</b>: die Bausteine, aus denen alle 16 Screens bestehen.</figcaption>
           </figure>
           <figure class="proof-shot ">
             <img src="samespot/figma-flow.png" alt="Nutzerflow" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
             <span class="proof-missing">samespot/figma-flow.png</span>
-            <figcaption><b>Nutzerflow</b>: der Kernflow, wie er vor den Screens entstanden ist.</figcaption>
+            <figcaption data-de="<b>Nutzerflow</b>: der Kernflow, wie er vor den Screens entstanden ist." data-en="<b>User flow</b>: the core flow, as it existed before the screens did."><b>Nutzerflow</b>: der Kernflow, wie er vor den Screens entstanden ist.</figcaption>
           </figure>
           </div>
-          <a class="btn-ghost" href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener">Datei in Figma öffnen
+          <a class="btn-ghost" href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener"><span data-de="Datei in Figma öffnen" data-en="Open file in Figma">Datei in Figma öffnen</span>
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -970,32 +971,32 @@
       <!-- Constraints -->
       <div class="sub-gap reveal" id="constraints">
         <div class="limits">
-          <span class="eyebrow">Constraints</span>
-          <h3 class="limits-title">Was diese Case Study <span class="accent-italic">nicht beweist.</span></h3>
-          <p class="limits-lede">Drei Grenzen, unter denen dieses Projekt entstanden ist. Jede hat etwas gekostet, und jede hat etwas erzwungen, das sonst nicht passiert wäre.</p>
+          <span class="eyebrow" data-de="Constraints" data-en="Constraints">Constraints</span>
+          <h3 class="limits-title" data-de="Was diese Case Study <span class=&quot;accent-italic&quot;>nicht beweist.</span>" data-en="What this case study <span class=&quot;accent-italic&quot;>doesn't prove.</span>">Was diese Case Study <span class="accent-italic">nicht beweist.</span></h3>
+          <p class="limits-lede" data-de="Drei Grenzen, unter denen dieses Projekt entstanden ist. Jede hat etwas gekostet, und jede hat etwas erzwungen, das sonst nicht passiert wäre." data-en="Three limits this project was made under. Each one cost something, and each one forced something that wouldn't otherwise have happened.">Drei Grenzen, unter denen dieses Projekt entstanden ist. Jede hat etwas gekostet, und jede hat etwas erzwungen, das sonst nicht passiert wäre.</p>
 
           <div class="limit-rail">
             <div class="limit">
               <span class="limit-num">01</span>
               <div class="limit-body">
-                <h4>Allein gearbeitet, ohne Entwicklung</h4>
-                <p class="limit-line">Mechanik im Prototyp simuliert, kein Standort-Tracking, kein Test unter realen Bedingungen. <span class="limit-arrow">→</span> Jede Entscheidung musste begründet sein statt belegt.</p>
+                <h4 data-de="Allein gearbeitet, ohne Entwicklung" data-en="Worked Alone, No Development">Allein gearbeitet, ohne Entwicklung</h4>
+                <p class="limit-line" data-de="Mechanik im Prototyp simuliert, kein Standort-Tracking, kein Test unter realen Bedingungen. <span class=&quot;limit-arrow&quot;>→</span> Jede Entscheidung musste begründet sein statt belegt." data-en="Mechanic simulated in the prototype, no location tracking, no testing under real conditions. <span class=&quot;limit-arrow&quot;>→</span> Every decision had to be reasoned instead of proven.">Mechanik im Prototyp simuliert, kein Standort-Tracking, kein Test unter realen Bedingungen. <span class="limit-arrow">→</span> Jede Entscheidung musste begründet sein statt belegt.</p>
               </div>
             </div>
 
             <div class="limit">
               <span class="limit-num">02</span>
               <div class="limit-body">
-                <h4>Nur zwei Testpersonen</h4>
-                <p class="limit-line">Zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster, keine Prozentzahl wäre echt. <span class="limit-arrow">→</span> Reichte, um den Kernfehler früh zu finden.</p>
+                <h4 data-de="Nur zwei Testpersonen" data-en="Only Two Test Participants">Nur zwei Testpersonen</h4>
+                <p class="limit-line" data-de="Zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster, keine Prozentzahl wäre echt. <span class=&quot;limit-arrow&quot;>→</span> Reichte, um den Kernfehler früh zu finden." data-en="Two people show comprehension problems, not behavior patterns, no percentage would be real. <span class=&quot;limit-arrow&quot;>→</span> Enough to catch the core mistake early.">Zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster, keine Prozentzahl wäre echt. <span class="limit-arrow">→</span> Reichte, um den Kernfehler früh zu finden.</p>
               </div>
             </div>
 
             <div class="limit">
               <span class="limit-num">03</span>
               <div class="limit-body">
-                <h4>Keine echten Nutzungsdaten</h4>
-                <p class="limit-line">Der KPI ist eine Behauptung mit Zielwert, kein Ergebnis. <span class="limit-arrow">→</span> So formuliert, dass er das Konzept widerlegen kann.</p>
+                <h4 data-de="Keine echten Nutzungsdaten" data-en="No Real Usage Data">Keine echten Nutzungsdaten</h4>
+                <p class="limit-line" data-de="Der KPI ist eine Behauptung mit Zielwert, kein Ergebnis. <span class=&quot;limit-arrow&quot;>→</span> So formuliert, dass er das Konzept widerlegen kann." data-en="The KPI is a claim with a target, not a result. <span class=&quot;limit-arrow&quot;>→</span> Worded so it can disprove the concept.">Der KPI ist eine Behauptung mit Zielwert, kein Ergebnis. <span class="limit-arrow">→</span> So formuliert, dass er das Konzept widerlegen kann.</p>
               </div>
             </div>
           </div>
@@ -1011,15 +1012,15 @@
 <section id="ueber-mich-cs" style="background:#F5F5F7;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;letter-spacing:-0.011em;">
   <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(min(100%,320px),1.55fr) minmax(min(100%,240px),1fr);gap:clamp(32px,5vw,64px);align-items:stretch;">
     <div style="display:flex;flex-direction:column;justify-content:center;">
-      <p style="font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px;">Über mich</p>
-      <h2 style="font-size:clamp(28px,4vw,46px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:24px;">Hi, ich bin Lina.</h2>
-      <p style="font-size:17px;color:#1D1D1F;line-height:1.65;margin-bottom:16px;">Ich bin UX/UI Designerin und komme aus der Mediengestaltung Digital & Print. Irgendwann habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt.</p>
-      <p style="font-size:17px;color:#6E6E73;line-height:1.65;margin-bottom:32px;">Heute arbeite ich am liebsten dort, wo Research und Interface zusammenkommen: erst verstehen, dann gestalten, dann testen und wieder ändern.</p>
+      <p style="font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px;" data-de="Über mich" data-en="About Me">Über mich</p>
+      <h2 style="font-size:clamp(28px,4vw,46px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:24px;" data-de="Hi, ich bin Lina." data-en="Hi, I'm Lina.">Hi, ich bin Lina.</h2>
+      <p style="font-size:17px;color:#1D1D1F;line-height:1.65;margin-bottom:16px;" data-de="Ich bin UX/UI Designerin und komme aus der Mediengestaltung Digital & Print. Irgendwann habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt." data-en="I'm a UX/UI designer, originally from digital & print media design. At some point I realized: I'm not just interested in how something looks, but how it feels to use.">Ich bin UX/UI Designerin und komme aus der Mediengestaltung Digital & Print. Irgendwann habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt.</p>
+      <p style="font-size:17px;color:#6E6E73;line-height:1.65;margin-bottom:32px;" data-de="Heute arbeite ich am liebsten dort, wo Research und Interface zusammenkommen: erst verstehen, dann gestalten, dann testen und wieder ändern." data-en="Today I like working best where research and interface meet: first understand, then design, then test and revise.">Heute arbeite ich am liebsten dort, wo Research und Interface zusammenkommen: erst verstehen, dann gestalten, dann testen und wieder ändern.</p>
       <div style="display:flex;flex-wrap:wrap;gap:9px;">
-        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;">LinkedIn</a>
-        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;">Behance</a>
-        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;">Dribbble</a>
-        <a href="CV/CV_Lina-Melissa-Arndt.pdf" download class="lp-pill-solid" style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#fff;background:#1F7A45;border-radius:999px;padding:10px 18px;transition:background .18s ease;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>Lebenslauf</a>
+        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;" data-de="Behance" data-en="Behance">Behance</a>
+        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;" data-de="Dribbble" data-en="Dribbble">Dribbble</a>
+        <a href="CV/CV_Lina-Melissa-Arndt.pdf" download class="lp-pill-solid" style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#fff;background:#1F7A45;border-radius:999px;padding:10px 18px;transition:background .18s ease;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span data-de="Lebenslauf" data-en="Resume">Lebenslauf</span></a>
       </div>
     </div>
     <div style="border-radius:28px;overflow:hidden;background:#E8E8ED;align-self:stretch;position:relative;min-height:260px;">
@@ -1029,24 +1030,24 @@
 
   <div style="max-width:1080px;margin:clamp(44px,5.5vw,72px) auto 0;padding-top:clamp(28px,3.4vw,40px);border-top:1px solid rgba(0,0,0,0.1);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,168px),1fr));gap:clamp(20px,2.6vw,32px);">
     <div>
-      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;">2 Jahre</div>
-      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;">Fachhochschulreife Gestaltung</div>
+      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;" data-de="2 Jahre" data-en="2 years">2 Jahre</div>
+      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;" data-de="Fachhochschulreife Gestaltung" data-en="Technical college entrance qualification, Design">Fachhochschulreife Gestaltung</div>
     </div>
     <div>
-      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;">3 Jahre</div>
-      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;">Ausbildung Mediengestaltung Digital & Print</div>
+      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;" data-de="3 Jahre" data-en="3 years">3 Jahre</div>
+      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;" data-de="Ausbildung Mediengestaltung Digital & Print" data-en="Apprenticeship in Digital & Print Media Design">Ausbildung Mediengestaltung Digital & Print</div>
     </div>
     <div>
-      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;">4 Monate</div>
-      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;">Product Design Bootcamp</div>
+      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;" data-de="4 Monate" data-en="4 months">4 Monate</div>
+      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;" data-de="Product Design Bootcamp" data-en="Product Design Bootcamp">Product Design Bootcamp</div>
     </div>
     <div>
-      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#1F7A45;line-height:1.02;">1 Jahr</div>
-      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;">Berufserfahrung im Design</div>
+      <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#1F7A45;line-height:1.02;" data-de="1 Jahr" data-en="1 year">1 Jahr</div>
+      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;" data-de="Berufserfahrung im Design" data-en="Professional experience in design">Berufserfahrung im Design</div>
     </div>
     <div>
       <div style="font-size:clamp(24px,2.4vw,32px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02;">2</div>
-      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;">Zertifikate</div>
+      <div style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;" data-de="Zertifikate" data-en="Certificates">Zertifikate</div>
     </div>
   </div>
 </section>
@@ -1055,9 +1056,9 @@
 <footer style="background:#0A0A0A;padding:clamp(48px,6vw,68px) clamp(20px,5vw,40px) 28px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;letter-spacing:-0.011em;">
   <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
     <div style="display:flex;flex-direction:column;gap:7px;">
-      <span style="font-size:18px;color:#fff;font-weight:600;letter-spacing:-0.025em;">Lina Melissa Arndt</span>
-      <span style="font-size:13.5px;color:#8E8E93;">UX/UI Design · Schwarzenbek</span>
-      <a href="mailto:Lina-Melissa@web.de" class="lp-imprint" style="font-size:13.5px;color:#8E8E93;margin-top:4px;transition:color .18s ease;">Lina-Melissa@web.de</a>
+      <span style="font-size:18px;color:#fff;font-weight:600;letter-spacing:-0.025em;" data-de="Lina Melissa Arndt" data-en="Lina Melissa Arndt">Lina Melissa Arndt</span>
+      <span style="font-size:13.5px;color:#8E8E93;" data-de="UX/UI Design · Schwarzenbek" data-en="UX/UI Design · Schwarzenbek, Germany">UX/UI Design · Schwarzenbek</span>
+      <a href="mailto:Lina-Melissa@web.de" class="lp-imprint" style="font-size:13.5px;color:#8E8E93;margin-top:4px;transition:color .18s ease;" data-de="Lina-Melissa@web.de" data-en="Lina-Melissa@web.de">Lina-Melissa@web.de</a>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
       <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" aria-label="LinkedIn" class="lp-social" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:background .18s ease;">
@@ -1072,10 +1073,10 @@
     </div>
   </div>
   <div style="max-width:1080px;margin:clamp(36px,4.5vw,52px) auto 0;padding-top:22px;border-top:0.5px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap;">
-    <span style="font-size:12.5px;color:#6E6E73;">© Lina Melissa Arndt</span>
+    <span style="font-size:12.5px;color:#6E6E73;" data-de="© Lina Melissa Arndt" data-en="© Lina Melissa Arndt">© Lina Melissa Arndt</span>
     <div style="display:flex;align-items:center;gap:20px;">
-      <span style="font-size:12.5px;color:#6E6E73;">Zuletzt aktualisiert: August 2026</span>
-      <a href="impressum.html" class="lp-imprint" style="font-size:12.5px;color:#8E8E93;transition:color .18s ease;">Impressum & Datenschutz</a>
+      <span style="font-size:12.5px;color:#6E6E73;" data-de="Zuletzt aktualisiert: August 2026" data-en="Last updated: August 2026">Zuletzt aktualisiert: August 2026</span>
+      <a href="impressum.html" class="lp-imprint" style="font-size:12.5px;color:#8E8E93;transition:color .18s ease;" data-de="Impressum & Datenschutz" data-en="Legal Notice & Privacy">Impressum & Datenschutz</a>
     </div>
   </div>
 </footer>
