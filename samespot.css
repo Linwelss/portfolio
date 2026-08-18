@@ -3803,8 +3803,7 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{
 .jump{
   margin-top:56px;padding:34px;
   border:1px solid var(--hairline);border-radius:20px;background:#fff;
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);
-  gap:36px;align-items:center;
+  max-width:68ch;
 }
 .jump-text h4{
   margin:10px 0 14px;font-family:var(--body);font-weight:700;
@@ -3836,7 +3835,6 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{
   .finding-read{grid-column:2;margin-top:22px;padding-top:22px;border-top:1px dashed var(--ink-14);}
   .evidence{grid-template-columns:1fr;}
   .evidence-shot:first-child{max-width:220px;}
-  .jump{grid-template-columns:1fr;gap:28px;}
 }
 @media (max-width:900px){
   .method-strip{grid-template-columns:1fr 1fr;gap:0;}
