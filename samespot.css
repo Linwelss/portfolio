@@ -325,7 +325,6 @@ main{flex:1;min-width:0;padding:0 0 96px;overflow-x:hidden;}
   margin:100px 0;
 }
 .chapter-divider + .section{margin-top:0;}
-.coral-rule{width:48px;height:2px;background:var(--coral);margin-bottom:18px;border-radius:2px;}
 .sub-gap{margin-top:200px;}
 #vier-zahlen{margin-top:clamp(16px,3vh,32px);}
 .eyebrow{
