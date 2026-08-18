@@ -2842,14 +2842,14 @@ body.dark-behind{background:#17140f;}
 /* Navigation aus dem Fluss nehmen -> der dunkle Block ist echt mittig */
 .sidebar{
   position:fixed;
-  left:16px;
+  left:0;
   top:50%;
   transform:translateY(-50%) translateX(-10px);
   width:204px;flex:none;
   height:auto;max-height:min(74vh,620px);
   padding:14px 12px 12px;
   border:0;border-right:0;
-  border-radius:24px;
+  border-radius:0 24px 24px 0;
   background:rgba(255,255,255,.62);
   -webkit-backdrop-filter:saturate(180%) blur(28px);
   backdrop-filter:saturate(180%) blur(28px);
@@ -2890,7 +2890,7 @@ main{padding-left:var(--nav-gutter);}
   width:calc(100% + var(--nav-gutter));
 }
 .sidebar .nav-figma{margin:8px 0 0;}
-@media (max-width:1080px){:root{--nav-gutter:200px;} .sidebar{left:10px;width:180px;}}
+@media (max-width:1080px){:root{--nav-gutter:200px;} .sidebar{left:0;width:180px;}}
 @media (max-width:860px){:root{--nav-gutter:0px;} .sidebar{display:none;}}
 @media (prefers-reduced-motion: reduce){.sidebar{transition:none;}}
 
