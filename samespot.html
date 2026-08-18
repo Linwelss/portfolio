@@ -35,36 +35,35 @@
       <a href="#ueberblick" class="active" data-nav>Überblick</a>
       <a href="#ueberblick" data-nav>Der Loop</a>
 
-      <div class="chapter" data-chapter-for="widerspruch"><span class="num">01</span><span>Widerspruch</span></div>
+      <a href="#widerspruch" class="chapter" data-nav data-chapter-for="widerspruch"><span class="num">01</span><span>Widerspruch</span></a>
       <a href="#ausgangslage" class="sub" data-nav>Ausgangslage</a>
       <a href="#auswertung" class="sub" data-nav>Auswertung</a>
       <a href="#persona" class="sub" data-nav>Persona</a>
       <a href="#marktluecke" class="sub" data-nav>Marktlücke</a>
 
-      <div class="chapter" data-chapter-for="mechanik"><span class="num">02</span><span>Mechanik</span></div>
+      <a href="#mechanik" class="chapter" data-nav data-chapter-for="mechanik"><span class="num">02</span><span>Mechanik</span></a>
       <a href="#optionen" class="sub" data-nav>Optionen</a>
       <a href="#loop" class="sub" data-nav>Der Loop</a>
       <a href="#fidelity" class="sub" data-nav>Vom Sketch zum Screen</a>
       <a href="#scope" class="sub" data-nav>Scope</a>
 
-      <div class="chapter" data-chapter-for="rueckschlag"><span class="num">03</span><span>Rückschlag</span></div>
+      <a href="#rueckschlag" class="chapter" data-nav data-chapter-for="rueckschlag"><span class="num">03</span><span>Rückschlag</span></a>
       <a href="#im-interface" class="sub" data-nav>Im Interface</a>
       <a href="#priorisierung" class="sub" data-nav>Priorisierung</a>
 
-      <div class="chapter" data-chapter-for="loesung"><span class="num">04</span><span>Lösung</span></div>
+      <a href="#loesung" class="chapter" data-nav data-chapter-for="loesung"><span class="num">04</span><span>Lösung</span></a>
       <a href="#sicherheit" class="sub" data-nav>Sicherheit</a>
       <a href="#ui-system" class="sub" data-nav>UI-System</a>
       <a href="#arbeit-mit-ki" class="sub" data-nav>Arbeit mit KI</a>
       <a href="#learnings" class="sub" data-nav>Learnings</a>
 
-      <div class="chapter" data-chapter-for="werkstatt"><span class="num">05</span><span>Werkstatt</span></div>
+      <a href="#werkstatt" class="chapter" data-nav data-chapter-for="werkstatt"><span class="num">05</span><span>Werkstatt</span></a>
       <a href="#walkthrough" class="sub" data-nav>Walkthrough</a>
       <a href="#figma-einblick" class="sub" data-nav>In Figma</a>
       <a href="#constraints" class="sub" data-nav>Constraints</a>
     </nav>
 
     <div class="nav-figma">
-      <span class="dot"></span>
       <a href="https://www.figma.com/design/vmOzSymWH7fhd1nwS3VbLT" target="_blank" rel="noopener">
         Figma
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -693,14 +692,12 @@
         <div class="admission">
           <p class="admission-line">Ich war überzeugt, das Wiedersehen sei der Wow-Moment. <span class="accent-italic">Es war das größte Risiko.</span></p>
           <p class="admission-note">Der Fehler lag nicht im Detail, sondern in meiner Annahme: Ich hatte den Moment gebaut, den ich mir gewünscht habe, und nicht den, den jemand ohne meine Erklärung versteht. Erst als ich den Ablauf im Gespräch erzählt habe, nickten beide.</p>
-          <p class="admission-limit">Grenze dieser Erkenntnis: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
-        </div>
 
-        <div class="denkfehler-konsequenz">
-          <span class="eyebrow">Konsequenz</span>
-          <h3>Kein aufpolierter Mid-Fi, sondern <span class="accent-italic">ein zweiter Entwurf.</span></h3>
-          <p>Der Test hat nicht die Mechanik widerlegt, sondern die Ebene darüber: Reihenfolge, Benennung, Navigation, Tonfall. Genau die Dinge, die ein Interface ausmachen. Wenn alle drei Findings dieselbe Ursache haben, reicht kein Nachbessern an einzelnen Stellen.</p>
-          <p>Deshalb ist die finale Version kein aufpolierter Mid-Fi, sondern ein zweiter Entwurf auf derselben Mechanik. Der Loop aus Kapitel 02 ist unverändert geblieben, alles, was ihn erzählt, ist neu.</p>
+          <div class="admission-bridge"><span></span>Deshalb<span></span></div>
+
+          <p class="admission-consequence">Der Test hatte nicht die Mechanik widerlegt, sondern die Ebene darüber: Reihenfolge, Benennung, Navigation, Tonfall, genau die Dinge, die ein Interface ausmachen. Weil alle drei Findings dieselbe Ursache hatten, reichte kein Nachbessern an einzelnen Stellen. Deshalb gab es kein Polishing am alten Mid-Fi. Ich hab die Oberfläche neu gebaut, die Mechanik aus Kapitel 02 unangetastet gelassen.</p>
+
+          <p class="admission-limit">Grenze dieser Erkenntnis: zwei Personen zeigen Verständnisprobleme, keine Verhaltensmuster.</p>
         </div>
       </div>
 
@@ -914,7 +911,7 @@
         </div>
       </div>
 
-      <div class="chapter-divider"></div>
+      <div class="chapter-divider" style="background:transparent;margin:130px 0;"></div>
 
       <!-- ============ 05 WERKSTATT ============ -->
       <div class="reveal" id="werkstatt">
@@ -1043,7 +1040,7 @@
       </div>
     </div>
     <div style="border-radius:28px;overflow:hidden;background:#E8E8ED;align-self:stretch;position:relative;min-height:260px;">
-      <img src="samespot/ueber-mich.jpg" alt="Lina Melissa Arndt im Portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+      <img src="samespot/ich.jpg" alt="Lina Melissa Arndt im Portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
     </div>
   </div>
 
