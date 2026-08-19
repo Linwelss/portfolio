@@ -43,7 +43,7 @@
 
     <span aria-hidden="true" style="width:1px;height:22px;flex:0 0 1px;background:rgba(10,10,10,.12)"></span>
 
-    <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;font-family:inherit;cursor:pointer;padding:0;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">EN</button>
+    <button type="button" class="lang-toggle-btn" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;font-family:inherit;cursor:pointer;padding:0;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">EN</button>
 
   </nav>
 
@@ -57,7 +57,7 @@
       </a>
 
       <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
-        <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="width:34px;height:34px;border-radius:50%;border:0;background:transparent;color:#6E6E73;font-size:12.5px;font-weight:600;letter-spacing:0.01em;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center">EN</button>
+        <button type="button" class="lang-toggle-btn" aria-label="Sprache wechseln" style="width:34px;height:34px;border-radius:50%;border:0;background:transparent;color:#6E6E73;font-size:12.5px;font-weight:600;letter-spacing:0.01em;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center">EN</button>
 
         <button type="button" id="mobileBurgerBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileDropdown" onclick="toggleMobileNav()" style="width:36px;height:36px;border-radius:50%;border:0;background:transparent;display:flex;align-items:center;justify-content:center;color:#0A0A0A;cursor:pointer;flex-shrink:0">
           <svg id="burgerIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -117,6 +117,34 @@
       l2.style.opacity = '1';
       l3.style.transform = 'none';
     }
+
+    (function(){
+      var current = 'de';
+      function apply(lang){
+        var found = document.querySelectorAll('[data-' + lang + ']');
+        found.forEach(function(el){
+          el.innerHTML = el.getAttribute('data-' + lang);
+        });
+        return found.length;
+      }
+      function setLabels(){
+        document.querySelectorAll('.lang-toggle-btn').forEach(function(b){
+          b.textContent = current === 'de' ? 'EN' : 'DE';
+        });
+      }
+      function toggle(){
+        var next = current === 'de' ? 'en' : 'de';
+        var count = apply(next);
+        if(count > 0){
+          current = next;
+          document.documentElement.setAttribute('lang', current);
+          setLabels();
+        }
+      }
+      document.querySelectorAll('.lang-toggle-btn').forEach(function(b){
+        b.addEventListener('click', toggle);
+      });
+    })();
   </script>
 
   <main style="max-width:720px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,40px) clamp(80px,10vw,120px)">
