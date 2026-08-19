@@ -34,3 +34,8 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 .tag-pill{transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.is-visible{opacity:1;transform:none}
+@keyframes loopScreenCycle{0%,28%{opacity:1;transform:translateY(0)}33%,100%{opacity:0;transform:translateY(6px)}}
+.loop-screen{animation:loopScreenCycle 9s ease-in-out infinite}
+.loop-screen-1{animation-delay:0s}
+.loop-screen-2{animation-delay:-3s}
+.loop-screen-3{animation-delay:-6s}
