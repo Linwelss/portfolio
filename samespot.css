@@ -2286,7 +2286,7 @@ body{background:#fff;}
 
 /* Beat-Anzeige + Hinweis */
 .hero-beats{
-  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  position:absolute;left:50%;bottom:44px;transform:translateX(-50%);
   display:flex;gap:8px;align-items:center;
 }
 .hero-beats .hb{
@@ -2297,7 +2297,7 @@ body{background:#fff;}
 }
 .hero-beats .hb.is-on{opacity:1;color:var(--coral);transform:scale(1.04);}
 .hero-hint{
-  position:absolute;right:26px;bottom:28px;display:flex;align-items:center;gap:8px;
+  position:absolute;right:26px;bottom:44px;display:flex;align-items:center;gap:8px;
   font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--stage-ink-45,rgba(255,255,255,.4));
   opacity:var(--hint-o,1);transition:opacity .3s linear;
