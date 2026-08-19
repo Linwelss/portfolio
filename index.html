@@ -22,6 +22,21 @@
 @media (min-width:641px){
   #navMobileWrap{display:none !important}
 }
+@media (max-width:640px){
+  #kontaktHeading{white-space:normal !important;font-size:clamp(24px,7vw,32px) !important;line-height:1.18 !important}
+  .antrieb-title,.proj-title{white-space:normal !important}
+  .sticky-card{position:static !important;top:auto !important}
+  .cta-row{flex-direction:column !important;align-items:stretch !important}
+  .cta-row a{justify-content:center !important;width:100% !important}
+  .contact-cta-row{flex-direction:column !important;align-items:stretch !important}
+  .contact-cta-row a{justify-content:center !important;width:100% !important}
+  .zd-col{flex:1 1 100% !important;min-width:0 !important}
+  #zwischendurch-grid{gap:14px !important}
+  .hero-badge-row{padding:8px 14px 8px 12px !important}
+}
+@media (max-width:400px){
+  .zd-col{min-width:0 !important}
+}
 </style>
 </helmet>
 
@@ -109,7 +124,7 @@
   </div>
 
   <header id="top" style="max-width:2200px;margin:0 auto;min-height:100vh;min-height:calc(100dvh - 92px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(14px,2vw,28px) clamp(20px,5vw,40px) clamp(28px,3.4vw,44px);text-align:center;animation:riseIn .8s cubic-bezier(.22,1,.36,1) both">
-    <div style="display:inline-flex;align-items:center;gap:9px;padding:9px 18px 9px 14px;background:#0A0A0A;border-radius:999px;margin-bottom:clamp(20px,3.4vh,52px);box-shadow:0 8px 24px -8px rgba(0,0,0,0.5);animation:islandIn .9s cubic-bezier(.22,1,.36,1) both;transform-origin:center">
+    <div class="hero-badge-row" style="display:inline-flex;align-items:center;gap:9px;padding:9px 18px 9px 14px;background:#0A0A0A;border-radius:999px;margin-bottom:clamp(20px,3.4vh,52px);box-shadow:0 8px 24px -8px rgba(0,0,0,0.5);animation:islandIn .9s cubic-bezier(.22,1,.36,1) both;transform-origin:center">
       <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#7FE0A8 0%,#3FBE77 100%);animation:pulseDot 2.2s ease-in-out infinite;flex-shrink:0"></span>
       <span data-de="Verfügbar ab sofort · Hamburg / Remote" data-en="Available immediately · Hamburg / Remote" style="font-size:13px;font-weight:500;color:#fff">Verfügbar ab sofort · Hamburg / Remote</span>
     </div>
@@ -137,7 +152,7 @@
       </div>
     </dl>
 
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:clamp(28px,4.6vh,84px)">
+    <div class="cta-row" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:clamp(28px,4.6vh,84px)">
       <a href="CV/CV_Lina-Melissa-Arndt.pdf" download style="display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:999px;background:linear-gradient(135deg,#248453 0%,#14562F 100%);color:#fff;font-weight:550;font-size:16px;box-shadow:0 4px 14px rgba(46,139,87,0.28)" style-hover="color:#fff;filter:brightness(1.06);box-shadow:0 8px 24px rgba(46,139,87,0.34)">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
         <span data-de="CV herunterladen" data-en="Download CV">CV herunterladen</span>
@@ -214,14 +229,14 @@
 
       <div style="display:flex;flex-direction:column">
 
-        <article style="position:sticky;top:104px;margin-bottom:28px;border-radius:32px;overflow:hidden;background:#0A0A0A;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 26px 70px -32px rgba(0,0,0,0.4);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
+        <article class="sticky-card" style="position:sticky;top:104px;margin-bottom:28px;border-radius:32px;overflow:hidden;background:#0A0A0A;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 26px 70px -32px rgba(0,0,0,0.4);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
           <div style="padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:center;gap:16px;order:1">
             <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.6)">
               <span aria-hidden="true" style="font-variant-numeric:tabular-nums">01</span>
               <span aria-hidden="true" style="width:14px;height:0.5px;background:currentColor"></span>
               Mobile App
             </span>
-            <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;white-space:nowrap"><span style="color:#F5F2EC">same</span><span style="color:#FF5B3A">Spot</span></h3>
+            <h3 class="proj-title" style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;white-space:nowrap"><span style="color:#F5F2EC">same</span><span style="color:#FF5B3A">Spot</span></h3>
             <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,.62);max-width:46ch;text-wrap:pretty">Eine App, in der lokale Verbindung als Nebenprodukt entsteht, nicht als Ziel. Von den ersten Interviews bis zum klickbaren Prototyp.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:18px 12px;padding:20px 0;border-top:0.5px solid rgba(255,255,255,.16);border-bottom:0.5px solid rgba(255,255,255,.16)">
               <div style="display:flex;flex-direction:column;gap:3px">
@@ -255,14 +270,14 @@
           </div>
         </article>
 
-        <article style="position:sticky;top:120px;margin-bottom:0px;border-radius:32px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 26px 70px -32px rgba(0,0,0,0.4);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
+        <article class="sticky-card" style="position:sticky;top:120px;margin-bottom:0px;border-radius:32px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 26px 70px -32px rgba(0,0,0,0.4);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
           <div style="padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:center;gap:16px;order:1">
             <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#6E6E73">
               <span aria-hidden="true" style="font-variant-numeric:tabular-nums">02</span>
               <span aria-hidden="true" style="width:14px;height:0.5px;background:currentColor"></span>
               Branding · Webdesign · in Arbeit
             </span>
-            <h3 style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;color:#0A0A0A;white-space:nowrap">ArtisanCraft</h3>
+            <h3 class="proj-title" style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;color:#0A0A0A;white-space:nowrap">ArtisanCraft</h3>
             <p style="font-size:16px;line-height:1.6;color:#6E6E73;max-width:46ch;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Markenauftritt für ein Handwerks-Label: Logo, Farbsystem und ein Web-Layout, das das Produkt sprechen lässt statt die Dekoration.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:18px 12px;padding:20px 0;border-top:0.5px solid rgba(0,0,0,0.14);border-bottom:0.5px solid rgba(0,0,0,0.14)">
               <div style="display:flex;flex-direction:column;gap:3px">
@@ -303,32 +318,32 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,22px)">
         <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Verbinden</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Blickwinkel zusammenführen</h3>
+          <h3 class="antrieb-title" style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Blickwinkel zusammenführen</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich bringe unterschiedliche Sichtweisen zusammen, damit aus guten Ideen starke Produkte werden.</p>
         </div>
         <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Verstehen</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Das echte Problem finden</h3>
+          <h3 class="antrieb-title" style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Das echte Problem finden</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich möchte nicht die erstbeste Lösung, sondern grabe so lange, bis das wirkliche Problem gelöst ist.</p>
         </div>
         <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Gestalten</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Vertrauen statt nur Screens</h3>
+          <h3 class="antrieb-title" style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Vertrauen statt nur Screens</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich gestalte Produkte, die nicht nur funktionieren, sondern auch Vertrauen aufbauen und gerne benutzt werden.</p>
         </div>
         <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Skalieren</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Für Wachstum mitdenken</h3>
+          <h3 class="antrieb-title" style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Für Wachstum mitdenken</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich denke über den einzelnen Screen hinaus, damit Produkte konsistent bleiben und Teams effizienter arbeiten können.</p>
         </div>
         <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Hinterfragen</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Unbequeme Fragen stellen</h3>
+          <h3 class="antrieb-title" style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Unbequeme Fragen stellen</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich stelle Gewohntes infrage und suche nach besseren Wegen, auch wenn sie zunächst unbequemer erscheinen.</p>
         </div>
         <div style="background:#F5F5F7;border-radius:24px;padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column;gap:8px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.14)">
           <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1F7A45;margin:0">Bewirken</p>
-          <h3 style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Ergebnisse, die man merkt</h3>
+          <h3 class="antrieb-title" style="font-size:clamp(18px,1.8vw,20px);font-weight:600;letter-spacing:-0.025em;color:#0A0A0A;line-height:1.2;margin:0;white-space:nowrap">Ergebnisse, die man merkt</h3>
           <p style="font-size:14.5px;color:#6E6E73;line-height:1.55;text-wrap:pretty;margin:0">Ich empfinde Design als erfolgreich, wenn Menschen das Produkt gerne nutzen und gleichzeitig die Business-Ziele messbar unterstützt werden.</p>
         </div>
       </div>
@@ -559,7 +574,7 @@
     </div>
 
     <div id="zwischendurch-grid" style="display:flex;flex-wrap:wrap;gap:16px;max-width:1600px;margin:0 auto">
-      <div style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
+      <div class="zd-col" style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
       <div style="margin-bottom:16px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:320px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <img src="zwischendurch/zd-ausbildung.jpg" alt="Abschluss der Ausbildung" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Ausbildung</span>
@@ -573,7 +588,7 @@
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Event</span>
       </div>
       </div>
-      <div style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
+      <div class="zd-col" style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
       <div style="margin-bottom:16px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:220px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <img class="pan-tile" src="zwischendurch/zd-prdruck.jpg" alt="Website für pr.druck" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Webdesign</span>
@@ -596,7 +611,7 @@
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Motion Design</span>
       </div>
       </div>
-      <div style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
+      <div class="zd-col" style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
       <button type="button" onClick="{{ openIllu1 }}" style="margin-bottom:16px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border:none;border-radius:24px;overflow:hidden;height:300px;padding:0;cursor:pointer;font-family:inherit;text-align:left;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <div class="slide-track">
           <img src="zwischendurch/zd-set1-1.jpg" alt="Illustrationen, Set 1, Bild 1">
@@ -615,7 +630,7 @@
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Anfang</span>
       </div>
       </div>
-      <div style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
+      <div class="zd-col" style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
       <div style="margin-bottom:16px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:280px;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <img src="zwischendurch/zd-venedig.jpg" alt="Venedig" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Reise</span>
@@ -632,7 +647,7 @@
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Portrait</span>
       </div>
       </div>
-      <div style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
+      <div class="zd-col" style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
       <div style="margin-bottom:16px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <video src="zwischendurch/greensip.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" style="width:100%;height:auto;display:block"></video>
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Motion Design</span>
@@ -645,7 +660,7 @@
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Reise</span>
       </div>
       </div>
-      <div style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
+      <div class="zd-col" style="display:flex;flex-direction:column;flex:1 1 220px;min-width:220px">
       <div style="margin-bottom:16px;width:100%;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;position:relative;border-radius:24px;overflow:hidden;height:220px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05)" style-hover="transform:translateY(-6px)">
         <span style="position:absolute;top:12px;left:12px;font-size:11px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);color:#0A0A0A">Wireframe</span>
       </div>
@@ -670,7 +685,7 @@
         <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#1F7A45;box-shadow:0 0 0 4px rgba(31,122,69,0.18)"></span>
         <span style="font-size:13.5px;font-weight:600;color:#1F7A45;letter-spacing:-0.005em">Offen für neue Möglichkeiten</span>
       </div>
-      <h2 style="font-size:clamp(26px,4.4vw,46px);line-height:1.1;font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;margin-bottom:20px;white-space:nowrap">Ich freue mich auf dein Hallo :)</h2>
+      <h2 id="kontaktHeading" style="font-size:clamp(26px,4.4vw,46px);line-height:1.1;font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;margin-bottom:20px;white-space:nowrap">Ich freue mich auf dein Hallo :)</h2>
       <p style="font-size:clamp(16px,1.6vw,20px);line-height:1.55;color:#6E6E73;margin-bottom:30px;letter-spacing:-0.012em;max-width:520px;text-wrap:pretty">Ich bin offen für Gespräche über offene Stellen, Projekte oder einfach einen Austausch.</p>
 
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-bottom:38px">
@@ -684,7 +699,7 @@
         </span>
       </div>
 
-      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px">
+      <div class="contact-cta-row" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px">
         <a href="mailto:Lina-Melissa@web.de" style="display:inline-flex;align-items:center;gap:11px;background:#1F7A45;color:#fff;border-radius:999px;padding:16px 30px;font-size:16.5px;font-weight:600;letter-spacing:-0.015em;box-shadow:0 14px 34px -14px rgba(31,122,69,0.7);transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="background:#0A0A0A;color:#fff;transform:translateY(-2px)" style-active="transform:scale(.96)">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
           Mail me
