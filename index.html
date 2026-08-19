@@ -921,18 +921,22 @@ class Component extends DCLogic {
       videos.forEach(v => {
         v.loop = true;
         v.muted = true;
+        v.defaultMuted = true;
         v.playsInline = true;
+        v.setAttribute('muted', '');
+        v.setAttribute('playsinline', '');
+        v.play().catch(() => {});
       });
       this._ioVideo = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           const v = e.target;
           if (e.isIntersecting) {
-            v.play().catch(() => {});
+            if (v.paused) v.play().catch(() => {});
           } else {
             v.pause();
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.1 });
       videos.forEach(v => this._ioVideo.observe(v));
 
       this._resumeVideos = () => {
@@ -944,7 +948,8 @@ class Component extends DCLogic {
         });
       };
       document.addEventListener('visibilitychange', this._resumeVideos);
-      document.addEventListener('click', this._resumeVideos, { once: true });
+      window.addEventListener('pageshow', this._resumeVideos);
+      window.addEventListener('focus', this._resumeVideos);
     }
   }
 
@@ -956,6 +961,8 @@ class Component extends DCLogic {
     document.removeEventListener('keydown', this._esc);
     window.removeEventListener('scroll', this._scroll);
     document.removeEventListener('visibilitychange', this._resumeVideos);
+    window.removeEventListener('pageshow', this._resumeVideos);
+    window.removeEventListener('focus', this._resumeVideos);
     if (this._io) this._io.disconnect();
     if (this._ioVideo) this._ioVideo.disconnect();
   }
