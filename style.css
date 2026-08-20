@@ -65,6 +65,9 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
   .hero-badge-row{padding:8px 14px 8px 12px !important}
   #uberMichGrid{grid-template-columns:1fr !important}
   #uberMichImageWrap{aspect-ratio:4/5 !important;min-height:320px !important;max-height:440px !important}
+  #uberMichStats{grid-template-columns:1fr 1fr !important}
+  #uberMichStatsLast{grid-column:1 / -1 !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important}
+  #samespotStats,#artisanStats{grid-template-columns:1fr 1fr !important}
 }
 @media (max-width:400px){
   .zd-col{min-width:0 !important}
