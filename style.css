@@ -22,8 +22,9 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 @media (max-width:640px){
   #heroStatsGrid > div{padding:12px 4px !important}
   .hero-stat-num{font-size:15px !important}
-  .hero-stat-full{display:none !important}
-  .hero-stat-short{display:block !important}
+  .hero-stat-full{display:block !important;font-size:9.5px !important;line-height:1.3 !important}
+  .hero-stat-short{display:none !important}
+  #scrollHint{display:none !important}
 }
 @keyframes panVertical{0%,8%{object-position:center top}46%,54%{object-position:center bottom}92%,100%{object-position:center top}}
 .pan-tile{animation:panVertical 13s ease-in-out infinite}
