@@ -58,6 +58,8 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
   .cta-row a{justify-content:center !important;width:100% !important}
   .contact-cta-row{flex-direction:column !important;align-items:stretch !important}
   .contact-cta-row a{justify-content:center !important;width:100% !important}
+  .contact-cta-row > span{width:100% !important;display:flex !important}
+  .contact-cta-row > span button{width:100% !important}
   .zd-col{flex:1 1 100% !important;min-width:0 !important}
   #zwischendurch-grid{gap:14px !important}
   .hero-badge-row{padding:8px 14px 8px 12px !important}
