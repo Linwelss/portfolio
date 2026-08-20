@@ -18,7 +18,13 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 .hero-title{white-space:nowrap}
 @media (max-width:640px){.hero-title{white-space:normal}}
 .stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:640px){.stats-grid{grid-template-columns:1fr}}
+.hero-stat-short{display:none}
+@media (max-width:640px){
+  #heroStatsGrid > div{padding:12px 4px !important}
+  .hero-stat-num{font-size:15px !important}
+  .hero-stat-full{display:none !important}
+  .hero-stat-short{display:block !important}
+}
 @keyframes panVertical{0%,8%{object-position:center top}46%,54%{object-position:center bottom}92%,100%{object-position:center top}}
 .pan-tile{animation:panVertical 13s ease-in-out infinite}
 @keyframes slideTrack{0%,28%{transform:translateX(0%)}33%,61%{transform:translateX(-33.3333%)}66%,94%{transform:translateX(-66.6666%)}100%{transform:translateX(0%)}}
@@ -66,7 +72,7 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
   #uberMichGrid{grid-template-columns:1fr !important}
   #uberMichImageWrap{aspect-ratio:4/5 !important;min-height:320px !important;max-height:440px !important}
   #uberMichStats{grid-template-columns:1fr 1fr !important}
-  #uberMichStatsLast{grid-column:1 / -1 !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important}
+  #uberMichStatsLast{grid-column:1 / -1 !important;padding-top:14px !important;border-top:1px dashed rgba(0,0,0,.1) !important}
   #samespotStats,#artisanStats{grid-template-columns:1fr 1fr !important}
 }
 @media (max-width:400px){
