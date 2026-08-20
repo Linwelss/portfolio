@@ -14,32 +14,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-@media (max-width:640px){
-  #navDesktop{display:none !important}
-  #navMobileWrap{display:block !important}
-}
-@media (min-width:641px){
-  #navMobileWrap{display:none !important}
-}
-@media (max-width:640px){
-  #kontaktHeading{white-space:normal !important;font-size:clamp(24px,7vw,32px) !important;line-height:1.18 !important}
-  .antrieb-title,.proj-title{white-space:normal !important}
-  .sticky-card{position:static !important;top:auto !important}
-  .cta-row{flex-direction:column !important;align-items:stretch !important}
-  .cta-row a{justify-content:center !important;width:100% !important}
-  .contact-cta-row{flex-direction:column !important;align-items:stretch !important}
-  .contact-cta-row a{justify-content:center !important;width:100% !important}
-  .zd-col{flex:1 1 100% !important;min-width:0 !important}
-  #zwischendurch-grid{gap:14px !important}
-  .hero-badge-row{padding:8px 14px 8px 12px !important}
-  #uberMichGrid{grid-template-columns:1fr !important}
-  #uberMichImageWrap{aspect-ratio:4/5 !important;min-height:320px !important;max-height:440px !important}
-}
-@media (max-width:400px){
-  .zd-col{min-width:0 !important}
-}
-</style>
 </helmet>
 
 <div style="background:#fff;padding-top:92px">
@@ -459,8 +433,7 @@
   <section id="blog" data-screen-label="Gedanken" style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
     <div style="max-width:1080px;margin:0 auto">
       <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Gedanken</p>
-      <h2 style="text-align:center;font-size:clamp(27px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:16px">Gedanken aus dem Prozess.</h2>
-      <p style="text-align:center;font-size:17px;color:#6E6E73;line-height:1.6;max-width:620px;margin:0 auto 52px;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Beobachtungen von jemandem, der gerade mitten im Prozess steckt. Über Design, KI und die Fragen, die mich nicht loslassen.</p>
+      <h2 style="text-align:center;font-size:clamp(27px,4.6vw,54px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:52px">Gedanken aus dem Prozess.</h2>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
         <a href="Blog/blog-artikel-01.html" class="blog-card" style="display:flex;flex-direction:column;background:#F5F5F7;border-radius:26px;overflow:hidden;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease" style-hover="box-shadow:0 18px 40px rgba(0,0,0,0.1);color:inherit;transform:translateY(-4px)" style-active="transform:scale(.98)">
@@ -571,8 +544,7 @@
   <section id="zwischendurch" data-screen-label="Zwischendurch" style="background:#F5F5F7;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px)">
     <div style="max-width:1080px;margin:0 auto">
       <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px">Zwischendurch</p>
-      <h3 style="text-align:center;font-size:clamp(24px,3.6vw,38px);font-weight:700;letter-spacing:-0.035em;line-height:1.1;color:#0A0A0A;margin-bottom:14px">Blick hinter die Kulissen.</h3>
-      <p style="text-align:center;font-size:16px;line-height:1.55;color:#6E6E73;margin:0 auto 40px;max-width:560px;letter-spacing:-0.012em;text-wrap:pretty">Prozess, Skills und ein bisschen Privates, damit du auch den Menschen hinter den Case Studies siehst.</p>
+      <h3 style="text-align:center;font-size:clamp(24px,3.6vw,38px);font-weight:700;letter-spacing:-0.035em;line-height:1.1;color:#0A0A0A;margin-bottom:40px">Blick hinter die Kulissen.</h3>
     </div>
 
     <div id="zwischendurch-grid" style="display:flex;flex-wrap:wrap;gap:16px;max-width:1600px;margin:0 auto">
@@ -916,40 +888,6 @@ class Component extends DCLogic {
         });
       }, { rootMargin: '0px 0px -12% 0px', threshold: 0.04 });
       nodes.forEach(n => this._io.observe(n));
-
-      const videos = Array.from(document.querySelectorAll('video'));
-      videos.forEach(v => {
-        v.loop = true;
-        v.muted = true;
-        v.defaultMuted = true;
-        v.playsInline = true;
-        v.setAttribute('muted', '');
-        v.setAttribute('playsinline', '');
-        v.play().catch(() => {});
-      });
-      this._ioVideo = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          const v = e.target;
-          if (e.isIntersecting) {
-            if (v.paused) v.play().catch(() => {});
-          } else {
-            v.pause();
-          }
-        });
-      }, { threshold: 0.1 });
-      videos.forEach(v => this._ioVideo.observe(v));
-
-      this._resumeVideos = () => {
-        if (document.visibilityState !== 'visible') return;
-        videos.forEach(v => {
-          const r = v.getBoundingClientRect();
-          const visible = r.bottom > 0 && r.top < window.innerHeight;
-          if (visible && v.paused) v.play().catch(() => {});
-        });
-      };
-      document.addEventListener('visibilitychange', this._resumeVideos);
-      window.addEventListener('pageshow', this._resumeVideos);
-      window.addEventListener('focus', this._resumeVideos);
     }
   }
 
@@ -960,11 +898,7 @@ class Component extends DCLogic {
     clearTimeout(this._t3);
     document.removeEventListener('keydown', this._esc);
     window.removeEventListener('scroll', this._scroll);
-    document.removeEventListener('visibilitychange', this._resumeVideos);
-    window.removeEventListener('pageshow', this._resumeVideos);
-    window.removeEventListener('focus', this._resumeVideos);
     if (this._io) this._io.disconnect();
-    if (this._ioVideo) this._ioVideo.disconnect();
   }
 
   openChat = () => {
