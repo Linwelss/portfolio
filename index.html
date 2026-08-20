@@ -673,7 +673,7 @@
         </span>
       </div>
 
-      <div class="contact-cta-row" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px">
+      <div class="contact-cta-row" style="position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px">
         <span style="position:relative;display:inline-flex">
           <button type="button" onClick="{{ copyMail }}" aria-label="E-Mail-Adresse Lina-Melissa@web.de kopieren" style="display:inline-flex;align-items:center;justify-content:center;gap:11px;min-width:150px;background:{{ mailBtnBg }};color:#fff;border:none;border-radius:999px;padding:16px 30px;font-size:16.5px;font-weight:600;letter-spacing:-0.015em;box-shadow:0 14px 34px -14px rgba(31,122,69,0.7);transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease;cursor:pointer;font-family:inherit" style-hover="transform:translateY(-2px)" style-active="transform:scale(.96)">
             <sc-if value="{{ mailNotCopied }}" hint-placeholder-val="{{ true }}">
@@ -688,10 +688,8 @@
         </span>
         <a href="CV/CV_Lina-Melissa-Arndt.pdf" download style="display:inline-flex;align-items:center;gap:9px;background:#F5F5F7;color:#1D1D1F;border-radius:999px;padding:16px 26px;font-size:16.5px;font-weight:500;letter-spacing:-0.015em;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.96)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>CV herunterladen</a>
         <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#F5F5F7;color:#1D1D1F;border-radius:999px;padding:16px 26px;font-size:16.5px;font-weight:500;letter-spacing:-0.015em;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease" style-hover="background:#0A0A0A;color:#fff" style-active="transform:scale(.96)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>LinkedIn</a>
-      </div>
 
-      <div style="width:100%;overflow:hidden;max-height:{{ mailNoteMaxHeight }};transition:max-height .3s cubic-bezier(.22,1,.36,1)">
-        <p aria-live="polite" style="text-align:center;margin-top:22px;font-size:13.5px;color:#6E6E73;opacity:{{ mailNoteOpacity }};transition:opacity .2s ease">Lina-Melissa [at] web.de</p>
+        <p aria-live="polite" style="position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:22px;width:max-content;text-align:center;font-size:13.5px;color:#6E6E73;opacity:{{ mailNoteOpacity }};transition:opacity .25s ease;pointer-events:none">Lina-Melissa [at] web.de</p>
       </div>
 
     </div>
@@ -994,7 +992,6 @@ class Component extends DCLogic {
       mailNotCopied: !this.state.mailCopied,
       mailBtnBg: this.state.mailCopied ? '#0A0A0A' : '#1F7A45',
       mailNoteOpacity: this.state.mailCopied ? 1 : 0,
-      mailNoteMaxHeight: this.state.mailCopied ? '50px' : '0px',
       copyMail: this.copyMail
     };
   }
