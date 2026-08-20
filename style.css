@@ -39,3 +39,31 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 .loop-screen-1{animation-delay:0s}
 .loop-screen-2{animation-delay:-3s}
 .loop-screen-3{animation-delay:-6s}
+
+/* ================= Mobile Nav (Burger, Variante A) ================= */
+@media (max-width:640px){
+  #navDesktop{display:none !important}
+  #navMobileWrap{display:block !important}
+}
+@media (min-width:641px){
+  #navMobileWrap{display:none !important}
+}
+
+/* ================= Mobile-Optimierungen Startseite ================= */
+@media (max-width:640px){
+  #kontaktHeading{white-space:normal !important;font-size:clamp(24px,7vw,32px) !important;line-height:1.18 !important}
+  .antrieb-title,.proj-title{white-space:normal !important}
+  .sticky-card{position:static !important;top:auto !important}
+  .cta-row{flex-direction:column !important;align-items:stretch !important}
+  .cta-row a{justify-content:center !important;width:100% !important}
+  .contact-cta-row{flex-direction:column !important;align-items:stretch !important}
+  .contact-cta-row a{justify-content:center !important;width:100% !important}
+  .zd-col{flex:1 1 100% !important;min-width:0 !important}
+  #zwischendurch-grid{gap:14px !important}
+  .hero-badge-row{padding:8px 14px 8px 12px !important}
+  #uberMichGrid{grid-template-columns:1fr !important}
+  #uberMichImageWrap{aspect-ratio:4/5 !important;min-height:320px !important;max-height:440px !important}
+}
+@media (max-width:400px){
+  .zd-col{min-width:0 !important}
+}
