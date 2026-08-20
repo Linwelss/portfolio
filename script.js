@@ -61,7 +61,11 @@ window.addEventListener('load', function () {
     found.forEach(function (el) {
       el.innerHTML = el.getAttribute('data-' + lang);
     });
-    return found.length;
+    var placeholders = root.querySelectorAll('[data-' + lang + '-placeholder]');
+    placeholders.forEach(function (el) {
+      el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
+    });
+    return found.length + placeholders.length;
   }
   function toggle(btn) {
     var next = current === 'de' ? 'en' : 'de';
