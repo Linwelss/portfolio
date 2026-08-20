@@ -91,19 +91,49 @@
 
     </div>
 
-    <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="margin-top:8px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px -14px rgba(0,0,0,.28),0 0 0 1px rgba(0,0,0,.05);animation:bubbleIn .22s ease both">
-      <a href="#projekte" onClick="{{ closeMobileNav }}" data-de="Projekte" data-en="Projects" style="display:flex;align-items:center;padding:12px 16px;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid #F0F0F2;color:{{ navFgProjekte }};background:{{ navBgProjekte }}">Projekte</a>
-      <a href="#antrieb" onClick="{{ closeMobileNav }}" data-de="Antrieb" data-en="Drive" style="display:flex;align-items:center;padding:12px 16px;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid #F0F0F2;color:{{ navFgAntrieb }};background:{{ navBgAntrieb }}">Antrieb</a>
-      <a href="#expertise" onClick="{{ closeMobileNav }}" data-de="Expertise" data-en="Expertise" style="display:flex;align-items:center;padding:12px 16px;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid #F0F0F2;color:{{ navFgExpertise }};background:{{ navBgExpertise }}">Expertise</a>
-      <a href="#ueber-mich" onClick="{{ closeMobileNav }}" data-de="Über mich" data-en="About me" style="display:flex;align-items:center;padding:12px 16px;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid #F0F0F2;color:{{ navFgUeberMich }};background:{{ navBgUeberMich }}">Über mich</a>
-      <a href="#blog" onClick="{{ closeMobileNav }}" data-de="Blog" data-en="Blog" style="display:flex;align-items:center;padding:12px 16px;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid #F0F0F2;color:{{ navFgBlog }};background:{{ navBgBlog }}">Blog</a>
-      <a href="#zwischendurch" onClick="{{ closeMobileNav }}" data-de="Zwischendurch" data-en="In between" style="display:flex;align-items:center;padding:12px 16px;font-size:14.5px;font-weight:500;text-decoration:none;border-bottom:1px solid #F0F0F2;color:{{ navFgMehr }};background:{{ navBgMehr }}">Zwischendurch</a>
-      <a href="#kontakt" onClick="{{ closeMobileNav }}" data-de="Kontakt" data-en="Contact" style="display:flex;align-items:center;justify-content:center;padding:12px 16px;font-size:14.5px;font-weight:600;text-decoration:none;color:#fff;background:linear-gradient(135deg,#248453 0%,#14562F 100%);margin:8px 10px;border-radius:12px">Kontakt</a>
+  </div>
+
+  <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:300;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(180%) blur(32px);backdrop-filter:saturate(180%) blur(32px);display:flex;flex-direction:column;animation:bubbleIn .25s ease both">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 20px 0;flex-shrink:0">
+      <span aria-hidden="true" style="width:38px;height:38px"></span>
+      <span style="font-size:15px;font-weight:600;letter-spacing:-0.02em;color:#0A0A0A">Lina Melissa Arndt</span>
+      <button type="button" onClick="{{ closeMobileNav }}" aria-label="Menü schließen" style="width:38px;height:38px;border-radius:50%;border:0;background:rgba(10,10,10,.06);color:#0A0A0A;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
     </div>
-    </sc-if>
+
+    <nav aria-label="Mobile Hauptnavigation" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px">
+      <a href="#projekte" onClick="{{ closeMobileNav }}" data-de="Projekte" data-en="Projects" style="font-size:23px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;padding:9px 0;color:{{ navFgProjekte }}">Projekte</a>
+      <a href="#antrieb" onClick="{{ closeMobileNav }}" data-de="Antrieb" data-en="Drive" style="font-size:23px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;padding:9px 0;color:{{ navFgAntrieb }}">Antrieb</a>
+      <a href="#expertise" onClick="{{ closeMobileNav }}" data-de="Expertise" data-en="Expertise" style="font-size:23px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;padding:9px 0;color:{{ navFgExpertise }}">Expertise</a>
+      <a href="#ueber-mich" onClick="{{ closeMobileNav }}" data-de="Über mich" data-en="About me" style="font-size:23px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;padding:9px 0;color:{{ navFgUeberMich }}">Über mich</a>
+      <a href="#blog" onClick="{{ closeMobileNav }}" data-de="Blog" data-en="Blog" style="font-size:23px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;padding:9px 0;color:{{ navFgBlog }}">Blog</a>
+      <a href="#zwischendurch" onClick="{{ closeMobileNav }}" data-de="Zwischendurch" data-en="In between" style="font-size:23px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;padding:9px 0;color:{{ navFgMehr }}">Zwischendurch</a>
+      <a href="#kontakt" onClick="{{ closeMobileNav }}" data-de="Kontakt" data-en="Contact" style="margin-top:14px;display:flex;align-items:center;justify-content:center;padding:13px 34px;border-radius:999px;font-size:16px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;color:#fff;background:linear-gradient(135deg,#248453 0%,#14562F 100%);box-shadow:0 8px 22px -8px rgba(31,122,69,.6)">Kontakt</a>
+    </nav>
+
+    <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 20px clamp(28px,6vh,44px)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(10,10,10,.06);color:#0A0A0A">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" aria-label="Behance" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(10,10,10,.06);color:#0A0A0A">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"></path><path d="M3 12h5"></path><path d="M15 7h4"></path></svg>
+        </a>
+        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" aria-label="Dribbble" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(10,10,10,.06);color:#0A0A0A">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path></svg>
+        </a>
+      </div>
+      <a href="CV/CV_Lina-Melissa-Arndt.pdf" download onClick="{{ closeMobileNav }}" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#0A0A0A;background:#F0F0F2;border-radius:999px;padding:11px 22px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+        <span data-de="CV anschauen" data-en="View CV">CV anschauen</span>
+      </a>
+    </div>
 
   </div>
+  </sc-if>
 
   <header id="top" style="max-width:2200px;margin:0 auto;min-height:100vh;min-height:calc(100dvh - 92px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(14px,2vw,28px) clamp(20px,5vw,40px) clamp(28px,3.4vw,44px);text-align:center;animation:riseIn .8s cubic-bezier(.22,1,.36,1) both">
     <div class="hero-badge-row" style="display:inline-flex;align-items:center;gap:9px;padding:9px 18px 9px 14px;background:#0A0A0A;border-radius:999px;margin-bottom:clamp(20px,3.4vh,52px);box-shadow:0 8px 24px -8px rgba(0,0,0,0.5);animation:islandIn .9s cubic-bezier(.22,1,.36,1) both;transform-origin:center">
@@ -414,23 +444,23 @@
 
     <div id="uberMichStats" style="max-width:1080px;margin:clamp(44px,5.5vw,72px) auto 0;padding-top:clamp(28px,3.4vw,40px);border-top:1px solid rgba(0,0,0,0.1);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,168px),1fr));gap:clamp(20px,2.6vw,32px)">
       <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">2 Jahre</div>
+        <div data-de="2 Jahre" data-en="2 years" style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">2 Jahre</div>
         <div data-de="Fachhochschulreife Gestaltung" data-en="Technical college entrance qualification, Design" style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Fachhochschulreife Gestaltung</div>
       </div>
       <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">3 Jahre</div>
+        <div data-de="3 Jahre" data-en="3 years" style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">3 Jahre</div>
         <div data-de="Ausbildung Mediengestaltung Digital &amp; Print" data-en="Apprenticeship in Digital &amp; Print Media Design" style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Ausbildung Mediengestaltung Digital &amp; Print</div>
       </div>
       <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">4 Monate</div>
+        <div data-de="4 Monate" data-en="4 months" style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">4 Monate</div>
         <div data-de="Product Design Bootcamp" data-en="Product Design Bootcamp" style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Product Design Bootcamp</div>
       </div>
       <div>
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">2</div>
+        <div data-de="2" data-en="2" style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#0A0A0A;line-height:1.02">2</div>
         <div data-de="Zertifikate" data-en="Certificates" style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Zertifikate</div>
       </div>
       <div id="uberMichStatsLast">
-        <div style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#1F7A45;line-height:1.02">1 Jahr</div>
+        <div data-de="1 Jahr" data-en="1 year" style="font-size:clamp(26px,2.6vw,34px);font-weight:700;letter-spacing:-0.04em;color:#1F7A45;line-height:1.02">1 Jahr</div>
         <div data-de="Berufserfahrung im Design" data-en="Professional experience in design" style="font-size:13.5px;color:#6E6E73;margin-top:7px;line-height:1.45;text-wrap:pretty">Berufserfahrung im Design</div>
       </div>
     </div>
