@@ -1,3 +1,42 @@
+function copyMailAddress() {
+  var EMAIL = 'Lina-Melissa@web.de';
+  var btn = document.getElementById('mailBtn');
+  var text = document.getElementById('mailBtnText');
+  var icon = document.getElementById('mailBtnIcon');
+  var note = document.getElementById('mailBtnNote');
+  if (!btn || !text || !icon || !note) return;
+
+  function afterCopy() {
+    btn.style.background = '#0A0A0A';
+    text.textContent = 'Kopiert!';
+    icon.innerHTML = '<path d="M20 6 9 17l-5-5"></path>';
+    note.style.opacity = '1';
+    note.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(btn._mailResetTimer);
+    btn._mailResetTimer = setTimeout(function () {
+      btn.style.background = '#1F7A45';
+      text.textContent = 'Mail me';
+      icon.innerHTML = '<rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>';
+      note.style.opacity = '0';
+      note.style.transform = 'translateX(-50%) translateY(-4px)';
+    }, 2400);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(EMAIL).then(afterCopy).catch(afterCopy);
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = EMAIL;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    afterCopy();
+  }
+}
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
