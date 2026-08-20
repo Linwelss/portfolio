@@ -55,7 +55,10 @@
           <a href="#kontakt" data-de="Kontakt" data-en="Contact" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#248453 0%,#14562F 100%);box-shadow:0 2px 8px rgba(46,139,87,0.3);font-size:14.5px;font-weight:600;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s cubic-bezier(.22,1,.36,1)" style-active="transform:scale(.94)" style-hover="color:#fff;filter:brightness(1.08)">Kontakt</a>
         </li>
         <li style="position:relative">
-          <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;cursor:pointer;font-family:inherit;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">EN</button>
+          <button type="button" onClick="{{ toggleLang }}" aria-label="Sprache wechseln" style="display:flex;align-items:center;justify-content:center;height:46px;width:46px;border:none;background:transparent;border-radius:16px;color:#6E6E73;font-size:13px;font-weight:600;letter-spacing:0.01em;cursor:pointer;font-family:inherit;transition:transform .2s cubic-bezier(.22,1,.36,1),background .2s ease,color .2s ease" style-active="transform:scale(.9)" style-hover="color:#0A0A0A;background:#F0F0F2">
+            <sc-if value="{{ isDe }}" hint-placeholder-val="{{ true }}"><span>EN</span></sc-if>
+            <sc-if value="{{ isEn }}" hint-placeholder-val="{{ false }}"><span>DE</span></sc-if>
+          </button>
         </li>
       </ul>
     </div>
@@ -71,7 +74,10 @@
       </a>
 
       <div style="display:flex;align-items:center;gap:2px;flex-shrink:0">
-        <button type="button" id="lang-toggle" aria-label="Sprache wechseln" style="width:34px;height:34px;border-radius:50%;border:0;background:transparent;color:#6E6E73;font-size:12.5px;font-weight:600;letter-spacing:0.01em;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center">EN</button>
+        <button type="button" onClick="{{ toggleLang }}" aria-label="Sprache wechseln" style="width:34px;height:34px;border-radius:50%;border:0;background:transparent;color:#6E6E73;font-size:12.5px;font-weight:600;letter-spacing:0.01em;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center">
+          <sc-if value="{{ isDe }}" hint-placeholder-val="{{ true }}"><span>EN</span></sc-if>
+          <sc-if value="{{ isEn }}" hint-placeholder-val="{{ false }}"><span>DE</span></sc-if>
+        </button>
 
         <button type="button" onClick="{{ toggleMobileNav }}" aria-label="Menü öffnen" aria-expanded="{{ mobileNavOpen }}" style="width:36px;height:36px;border-radius:50%;border:0;background:transparent;display:flex;align-items:center;justify-content:center;color:#0A0A0A;cursor:pointer;flex-shrink:0">
           <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
@@ -825,7 +831,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showVideoSlot&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Über mich&quot;},&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Über mich&quot;}}">
 class Component extends DCLogic {
-  state = { c: [0, 0, 0], scrolled: false, active: '', chatOpen: false, nudge: false, badge: false, typing: false, opened: false, cvOpen: false, lb: null, mobileNavOpen: false, mailCopied: false };
+  state = { c: [0, 0, 0], scrolled: false, active: '', chatOpen: false, nudge: false, badge: false, typing: false, opened: false, cvOpen: false, lb: null, mobileNavOpen: false, mailCopied: false, lang: 'de' };
 
   componentDidMount() {
     const targets = [1, 4, 7];
@@ -920,6 +926,18 @@ class Component extends DCLogic {
   toggleMobileNav = () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen }));
   closeMobileNav = () => this.setState({ mobileNavOpen: false });
 
+  toggleLang = () => {
+    const next = this.state.lang === 'de' ? 'en' : 'de';
+    const found = document.querySelectorAll('[data-' + next + ']');
+    found.forEach((el) => { el.innerHTML = el.getAttribute('data-' + next); });
+    const placeholders = document.querySelectorAll('[data-' + next + '-placeholder]');
+    placeholders.forEach((el) => { el.setAttribute('placeholder', el.getAttribute('data-' + next + '-placeholder')); });
+    if (found.length + placeholders.length > 0) {
+      this.setState({ lang: next });
+      document.documentElement.setAttribute('lang', next);
+    }
+  };
+
   copyMail = () => {
     const EMAIL = 'Lina-Melissa@web.de';
     const done = () => {
@@ -992,7 +1010,10 @@ class Component extends DCLogic {
       mailNotCopied: !this.state.mailCopied,
       mailBtnBg: this.state.mailCopied ? '#0A0A0A' : '#1F7A45',
       mailNoteOpacity: this.state.mailCopied ? 1 : 0,
-      copyMail: this.copyMail
+      copyMail: this.copyMail,
+      isDe: this.state.lang === 'de',
+      isEn: this.state.lang === 'en',
+      toggleLang: this.toggleLang
     };
   }
 }
