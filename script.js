@@ -10,7 +10,7 @@
     '  width: 14px; height: 14px; margin: -7px 0 0 -7px;' +
     '  border-radius: 50%; background: #0A0A0A; border: 2px solid #0A0A0A;' +
     '  pointer-events: none; z-index: 2147483647;' +
-    '  opacity: 0;' +
+    '  opacity: 100;' +
     '  transition: width .18s ease, height .18s ease, margin .18s ease, background .18s ease, border-color .18s ease, opacity .2s ease;' +
     '  will-change: transform;' +
     '}' +
