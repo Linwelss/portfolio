@@ -1,3 +1,24 @@
+(function () {
+  var cursor = document.getElementById('customCursor');
+  if (!cursor || window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+  document.addEventListener('mousemove', function (e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursor.classList.add('visible');
+  });
+  document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
+  document.addEventListener('mouseenter', function () { cursor.classList.add('visible'); });
+
+  var hoverTargets = 'a, button, .blog-card';
+  document.querySelectorAll(hoverTargets).forEach(function (el) {
+    el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
+    el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
+  });
+  document.addEventListener('mousedown', function () { cursor.classList.add('clicking'); });
+  document.addEventListener('mouseup', function () { cursor.classList.remove('clicking'); });
+})();
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
