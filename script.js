@@ -1,21 +1,44 @@
 (function () {
-  var cursor = document.getElementById('customCursor');
-  if (!cursor || window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
-  document.addEventListener('mousemove', function (e) {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    cursor.classList.add('visible');
-  });
-  document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
-  document.addEventListener('mouseenter', function () { cursor.classList.add('visible'); });
+  function initCursor() {
+    var cursor = document.getElementById('customCursor');
+    if (!cursor) return false;
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true;
 
-  var hoverTargets = 'a, button, [style-hover]';
-  document.querySelectorAll(hoverTargets).forEach(function (el) {
-    el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
-    el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
-  });
-  document.addEventListener('mousedown', function () { cursor.classList.add('clicking'); });
-  document.addEventListener('mouseup', function () { cursor.classList.remove('clicking'); });
+    document.addEventListener('mousemove', function (e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursor.classList.add('visible');
+    });
+    document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
+    document.addEventListener('mouseenter', function () { cursor.classList.add('visible'); });
+    document.addEventListener('mousedown', function () { cursor.classList.add('clicking'); });
+    document.addEventListener('mouseup', function () { cursor.classList.remove('clicking'); });
+
+    var hoverTargets = 'a, button, [style-hover]';
+    function bindHover(el) {
+      if (el.dataset.cursorBound) return;
+      el.dataset.cursorBound = '1';
+      el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
+      el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
+    }
+    document.querySelectorAll(hoverTargets).forEach(bindHover);
+
+    if ('MutationObserver' in window) {
+      var mo = new MutationObserver(function () {
+        document.querySelectorAll(hoverTargets).forEach(bindHover);
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+    }
+    return true;
+  }
+
+  if (!initCursor()) {
+    var tries = 0;
+    var poll = setInterval(function () {
+      tries++;
+      if (initCursor() || tries > 100) clearInterval(poll);
+    }, 100);
+  }
 })();
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
