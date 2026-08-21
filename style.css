@@ -77,37 +77,3 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
 @media (max-width:400px){
   .zd-col{min-width:0 !important}
 }
-
-/* ================= Custom Cursor (wie auf der sameSpot-Seite) ================= */
-@media (pointer: fine){
-  body, a, button{cursor:none}
-  .custom-cursor{
-    position:fixed;
-    top:0; left:0;
-    width:14px;
-    height:14px;
-    margin:-7px 0 0 -7px;
-    border-radius:50%;
-    background:#0A0A0A;
-    border:2px solid #0A0A0A;
-    pointer-events:none;
-    z-index:9999;
-    opacity:0;
-    transition:width .18s ease, height .18s ease, margin .18s ease, background .18s ease, border-color .18s ease, opacity .2s ease;
-    will-change:transform;
-  }
-  .custom-cursor.visible{opacity:1}
-  .custom-cursor.hovering{
-    width:40px;
-    height:40px;
-    margin:-20px 0 0 -20px;
-    background:rgba(10,10,10,.1);
-    border:2px solid #0A0A0A;
-  }
-}
-@media (pointer: fine) and (prefers-reduced-motion: reduce){
-  .custom-cursor{transition:none}
-}
-@media (hover:none), (pointer:coarse){
-  .custom-cursor{display:none}
-}
