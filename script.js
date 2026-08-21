@@ -1,43 +1,59 @@
 (function () {
-  function initCursor() {
-    var cursor = document.getElementById('customCursor');
-    if (!cursor) return false;
-    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true;
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
 
-    document.addEventListener('mousemove', function (e) {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      cursor.classList.add('visible');
-    });
-    document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
-    document.addEventListener('mouseenter', function () { cursor.classList.add('visible'); });
-    document.addEventListener('mousedown', function () { cursor.classList.add('clicking'); });
-    document.addEventListener('mouseup', function () { cursor.classList.remove('clicking'); });
+  // CSS direkt injizieren, unabhängig von externer style.css
+  var style = document.createElement('style');
+  style.textContent =
+    'html, body, a, button { cursor: none !important; }' +
+    '#customCursor {' +
+    '  position: fixed; top: 0; left: 0;' +
+    '  width: 14px; height: 14px; margin: -7px 0 0 -7px;' +
+    '  border-radius: 50%; background: #0A0A0A; border: 2px solid #0A0A0A;' +
+    '  pointer-events: none; z-index: 2147483647;' +
+    '  opacity: 0;' +
+    '  transition: width .18s ease, height .18s ease, margin .18s ease, background .18s ease, border-color .18s ease, opacity .2s ease;' +
+    '  will-change: transform;' +
+    '}' +
+    '#customCursor.visible { opacity: 1; }' +
+    '#customCursor.hovering {' +
+    '  width: 40px; height: 40px; margin: -20px 0 0 -20px;' +
+    '  background: rgba(10,10,10,.1); border: 2px solid #0A0A0A;' +
+    '}';
+  document.head.appendChild(style);
 
-    var hoverTargets = 'a, button, [style-hover]';
-    function bindHover(el) {
-      if (el.dataset.cursorBound) return;
-      el.dataset.cursorBound = '1';
-      el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
-      el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
-    }
-    document.querySelectorAll(hoverTargets).forEach(bindHover);
-
-    if ('MutationObserver' in window) {
-      var mo = new MutationObserver(function () {
-        document.querySelectorAll(hoverTargets).forEach(bindHover);
-      });
-      mo.observe(document.body, { childList: true, subtree: true });
-    }
-    return true;
+  // Cursor-Element holen oder neu erzeugen
+  var cursor = document.getElementById('customCursor');
+  if (!cursor) {
+    cursor = document.createElement('div');
+    cursor.id = 'customCursor';
+    document.body.appendChild(cursor);
   }
+  cursor.className = 'custom-cursor';
 
-  if (!initCursor()) {
-    var tries = 0;
-    var poll = setInterval(function () {
-      tries++;
-      if (initCursor() || tries > 100) clearInterval(poll);
-    }, 100);
+  document.addEventListener('mousemove', function (e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursor.classList.add('visible');
+  });
+  document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
+  document.addEventListener('mouseenter', function () { cursor.classList.add('visible'); });
+  document.addEventListener('mousedown', function () { cursor.classList.add('clicking'); });
+  document.addEventListener('mouseup', function () { cursor.classList.remove('clicking'); });
+
+  var hoverTargets = 'a, button, [style-hover]';
+  function bindHover(el) {
+    if (el.dataset.cursorBound) return;
+    el.dataset.cursorBound = '1';
+    el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
+    el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
+  }
+  document.querySelectorAll(hoverTargets).forEach(bindHover);
+
+  if ('MutationObserver' in window) {
+    var mo = new MutationObserver(function () {
+      document.querySelectorAll(hoverTargets).forEach(bindHover);
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
   }
 })();
 if ('scrollRestoration' in history) {
