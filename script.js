@@ -1,7 +1,6 @@
 (function () {
   var cursor = document.getElementById('customCursor');
   if (!cursor || window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
-
   document.addEventListener('mousemove', function (e) {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
@@ -10,7 +9,7 @@
   document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
   document.addEventListener('mouseenter', function () { cursor.classList.add('visible'); });
 
-  var hoverTargets = 'a, button, .blog-card';
+  var hoverTargets = 'a, button, [style-hover]';
   document.querySelectorAll(hoverTargets).forEach(function (el) {
     el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
     el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
@@ -18,7 +17,6 @@
   document.addEventListener('mousedown', function () { cursor.classList.add('clicking'); });
   document.addEventListener('mouseup', function () { cursor.classList.remove('clicking'); });
 })();
-
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
@@ -27,11 +25,9 @@ window.addEventListener('load', function () {
     window.scrollTo(0, 0);
   }
 });
-
 (function () {
   var videos = Array.prototype.slice.call(document.querySelectorAll('video'));
   if (!videos.length) return;
-
   videos.forEach(function (v) {
     v.loop = true;
     v.muted = true;
@@ -41,7 +37,6 @@ window.addEventListener('load', function () {
     v.setAttribute('playsinline', '');
     v.play().catch(function () {});
   });
-
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -55,7 +50,6 @@ window.addEventListener('load', function () {
     }, { threshold: 0.1 });
     videos.forEach(function (v) { io.observe(v); });
   }
-
   function resumeVideos() {
     if (document.visibilityState !== 'visible') return;
     videos.forEach(function (v) {
