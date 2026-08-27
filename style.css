@@ -65,7 +65,7 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
   .contact-cta-row a{justify-content:center !important;width:100% !important}
   .contact-cta-row > span{width:100% !important;display:flex !important}
   .contact-cta-row > span button{width:100% !important}
-  .zd-col{flex:1 1 100% !important;min-width:0 !important}
+  .zd-col{flex:1 1 100% !important;min-width:0 !important;max-width:100% !important}
   #zwischendurch-grid{gap:14px !important}
   .hero-badge-row{padding:8px 14px 8px 12px !important}
   #uberMichGrid{grid-template-columns:1fr !important}
@@ -74,6 +74,15 @@ sc-if[hint-placeholder-val="{{ false }}"]{display:none}
   #uberMichStatsLast{grid-column:1 / -1 !important;padding-top:14px !important;border-top:1px dashed rgba(0,0,0,.1) !important}
   #samespotStats{grid-template-columns:1fr 1fr !important}
 }
+
+/* ================= Zwischendurch-Grid: feste Spaltenanzahl je Breakpoint ================= */
+@media (max-width:1400px) and (min-width:901px){
+  .zd-col{flex:1 1 33.333% !important;max-width:calc(33.333% - 11px) !important}
+}
+@media (max-width:900px) and (min-width:641px){
+  .zd-col{flex:1 1 50% !important;max-width:calc(50% - 8px) !important}
+}
+
 @media (max-width:400px){
   .zd-col{min-width:0 !important}
 }
