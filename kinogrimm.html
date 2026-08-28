@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kino Grimm — UX Case Study</title>
+<link rel="stylesheet" href="kinogrimm.css">
+</head>
+<body class="side-on">
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ TOP NAVBAR ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-left" href="https://www.linamelissa.de">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-de="Zur Startseite" data-en="Back to home">Zur Startseite</span>
+    </a>
+    <span class="topbar-div" aria-hidden="true"></span>
+    <a class="topbar-brand" href="#ueberblick">
+      <span class="topbar-mark" aria-hidden="true">LA</span>
+      <span class="topbar-name" data-de="Lina Melissa Arndt" data-en="Lina Melissa Arndt">Lina Melissa Arndt</span>
+    </a>
+    <span class="topbar-div" aria-hidden="true"></span>
+    <a class="topbar-kontakt" href="https://www.linamelissa.de/#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    <button type="button" class="topbar-lang" id="lang-toggle">EN</button>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="nav">
+      <a href="#ueberblick" class="active nav-top" data-nav data-de="Überblick" data-en="Overview">Überblick</a>
+
+      <a href="#ausgangslage" class="chapter" data-nav data-chapter-for="ausgangslage"><span class="num">01</span><span data-de="Ausgangslage" data-en="Starting Point">Ausgangslage</span></a>
+      <a href="#der-fund" class="sub" data-nav data-de="Der Fund" data-en="The Discovery">Der Fund</a>
+      <a href="#heuristik" class="sub" data-nav data-de="Heuristische Analyse" data-en="Heuristic Analysis">Heuristische Analyse</a>
+      <a href="#benchmarking" class="sub" data-nav data-de="Benchmarking" data-en="Benchmarking">Benchmarking</a>
+
+      <a href="#insights" class="chapter" data-nav data-chapter-for="insights"><span class="num">02</span><span data-de="Insights" data-en="Insights">Insights</span></a>
+      <a href="#kernprobleme" class="sub" data-nav data-de="Vier Kernprobleme" data-en="Four Core Problems">Vier Kernprobleme</a>
+      <a href="#ideen" class="sub" data-nav data-de="Ideen" data-en="Ideas">Ideen</a>
+
+      <a href="#konzept" class="chapter" data-nav data-chapter-for="konzept"><span class="num">03</span><span data-de="Konzept" data-en="Concept">Konzept</span></a>
+      <a href="#sitemap" class="sub" data-nav data-de="Sitemap" data-en="Sitemap">Sitemap</a>
+      <a href="#userflow" class="sub" data-nav data-de="User Flow" data-en="User Flow">User Flow</a>
+
+      <a href="#status" class="chapter" data-nav data-chapter-for="status"><span class="num">04</span><span data-de="Status" data-en="Status">Status</span></a>
+      <a href="#naechste-schritte" class="sub" data-nav data-de="Nächste Schritte" data-en="Next Steps">Nächste Schritte</a>
+    </nav>
+
+    <div class="nav-figma">
+      <a href="https://www.figma.com/design/vttDYIrBIOUaAH8okTkzIy/Case-Studys?node-id=0-1" target="_blank" rel="noopener">
+        <span data-de="Figma" data-en="Figma">Figma</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="sidebar-footer" data-de="UX-Konzept · in Arbeit" data-en="UX concept · in progress">UX-Konzept · in Arbeit</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <section id="ueberblick" class="hero-scroll-simple">
+      <div class="content-col">
+        <div class="hero">
+          <span class="kategorie" data-de="UX/UI Design · Case Study in Arbeit" data-en="UX/UI Design · Case study in progress">UX/UI Design · Case Study in Arbeit</span>
+          <h1 class="hero-title"><span class="same" data-de="Kino" data-en="Kino">Kino</span><span class="spot" data-de="Grimm" data-en="Grimm">Grimm</span></h1>
+          <div class="hero-sub-wrap">
+            <p class="hero-desc" data-de="Ein Traditionskino seit 1950 mit einer Website, die seinen Charakter nicht zeigt. Heuristische Analyse, Competitor-Benchmarking und ein Redesign-Konzept für Kino Grimm in Schwarzenbek." data-en="A family cinema running since 1950, with a website that doesn't show its character. Heuristic analysis, competitor benchmarking, and a redesign concept for Kino Grimm in Schwarzenbek.">Ein Traditionskino seit 1950 mit einer Website, die seinen Charakter nicht zeigt. Heuristische Analyse, Competitor-Benchmarking und ein Redesign-Konzept für Kino Grimm in Schwarzenbek.</p>
+            <p class="hero-principle" data-de="Leitgedanke: Würde dieses Redesign einem kleinen Familienkino wirklich weiterhelfen, oder sieht es nur hübscher aus?" data-en="Guiding question: Would this redesign actually help a small family cinema, or does it just look nicer?">Leitgedanke: Würde dieses Redesign einem kleinen Familienkino wirklich weiterhelfen, oder sieht es nur hübscher aus?</p>
+            <div class="hero-meta">
+              <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="UX/UI Designerin" data-en="UX/UI Designer">UX/UI Designerin</span></span>
+              <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span data-de="Laufendes Projekt" data-en="Ongoing project">Laufendes Projekt</span></span>
+              <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="Figma" data-en="Figma">Figma</span></span>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="hs"><b>10</b><span class="hs-l" data-de="Nielsen-Heuristiken geprüft" data-en="Nielsen heuristics reviewed">Nielsen-Heuristiken geprüft</span></div>
+            <div class="hs"><b>2</b><span class="hs-l" data-de="Kino-Websites im Benchmarking" data-en="cinema websites benchmarked">Kino-Websites im Benchmarking</span></div>
+            <div class="hs"><b>4</b><span class="hs-l" data-de="Kernprobleme geclustert" data-en="core problems clustered">Kernprobleme geclustert</span></div>
+            <div class="hs"><b>300<span>+</span></b><span class="hs-l" data-de="Kinos nutzen denselben Ticketing-Anbieter" data-en="cinemas use the same ticketing vendor">Kinos nutzen denselben Ticketing-Anbieter</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-col">
+
+      <!-- ============ 01 AUSGANGSLAGE ============ -->
+      <section id="ausgangslage" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">01</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Ausgangslage" data-en="Starting Point">Ausgangslage</span>
+            <h2 data-de="Ein Familienkino seit 1950, <span class=&quot;accent-italic&quot;>eine Website wie aus einer anderen Zeit.</span>" data-en="A family cinema since 1950, <span class=&quot;accent-italic&quot;>a website from a different era.</span>">Ein Familienkino seit 1950, <span class="accent-italic">eine Website wie aus einer anderen Zeit.</span></h2>
+          </div>
+        </div>
+
+        <div class="chain sub-gap" id="der-fund">
+          <div class="chain-step">
+            <div class="chain-rail"><span class="chain-num">01</span><span class="chain-line"></span></div>
+            <div class="chain-body">
+              <span class="chain-kicker" data-de="Der Anlass" data-en="The Trigger">Der Anlass</span>
+              <p class="say" data-de="Ich ziehe bald nach Schwarzenbek. <span class=&quot;accent-italic&quot;>Also wollte ich wissen: wie gut ist die Website des örtlichen Kinos wirklich?</span>" data-en="I'm moving to Schwarzenbek soon. <span class=&quot;accent-italic&quot;>So I wanted to know: how good is the local cinema's website, really?</span>">Ich ziehe bald nach Schwarzenbek. <span class="accent-italic">Also wollte ich wissen: wie gut ist die Website des örtlichen Kinos wirklich?</span></p>
+              <p class="after" data-de="Kino Grimm ist ein Familienbetrieb, gegründet 1950, in der 3. Generation geführt. Genau die Art von Projekt, die sich für eine ehrliche Case Study eignet: real, lokal, mit echten Nutzer:innen und einem echten Betreiber." data-en="Kino Grimm is a family business, founded in 1950, now run by the third generation. Exactly the kind of project that makes for an honest case study: real, local, with real users and a real owner.">Kino Grimm ist ein Familienbetrieb, gegründet 1950, in der 3. Generation geführt. Genau die Art von Projekt, die sich für eine ehrliche Case Study eignet: real, lokal, mit echten Nutzer:innen und einem echten Betreiber.</p>
+            </div>
+          </div>
+
+          <div class="chain-step">
+            <div class="chain-rail"><span class="chain-num">02</span><span class="chain-line"></span></div>
+            <div class="chain-body">
+              <span class="chain-kicker" data-de="Erster Eindruck" data-en="First Impression">Erster Eindruck</span>
+              <p class="say" data-de="Der reine Text las sich schlimmer, <span class=&quot;accent-italic&quot;>als die Seite tatsächlich aussieht.</span>" data-en="The raw text read worse <span class=&quot;accent-italic&quot;>than the site actually looks.</span>">Der reine Text las sich schlimmer, <span class="accent-italic">als die Seite tatsächlich aussieht.</span></p>
+              <p class="after" data-de="Meine erste Analyse basierte auf reinem HTML-Text, ohne die Seite visuell zu sehen. Das führte zu einem echten Fehler: Ich beschrieb eine Filterleiste als überladen, die es in dieser Form gar nicht gab. Erst mit echten Screenshots wurde die Analyse belastbar." data-en="My first pass was based on raw HTML text, without actually seeing the page. That led to a real mistake: I described a filter bar as overloaded that didn't actually look that way. Only with real screenshots did the analysis become trustworthy.">Meine erste Analyse basierte auf reinem HTML-Text, ohne die Seite visuell zu sehen. Das führte zu einem echten Fehler: Ich beschrieb eine Filterleiste als überladen, die es in dieser Form gar nicht gab. Erst mit echten Screenshots wurde die Analyse belastbar.</p>
+            </div>
+          </div>
+
+          <div class="chain-step">
+            <div class="chain-rail"><span class="chain-num">03</span></div>
+            <div class="chain-body">
+              <span class="chain-kicker" data-de="Die Methode" data-en="The Method">Die Methode</span>
+              <div class="verdict" style="margin-top:20px;border-radius:26px;background:var(--ink);color:#fff;padding:34px;">
+                <p style="margin:0;font-size:22px;line-height:1.45;text-wrap:pretty;letter-spacing:-.01em;" data-de="Erst prüfen, dann urteilen: Heuristische Analyse, Competitor-Benchmarking und ein realistischer Blick auf das, was ein <em style=&quot;font-style:italic;color:#ff7a52;&quot;>Ein-Standort-Familienkino</em> sich technisch und wirtschaftlich leisten kann." data-en="Check first, judge after: heuristic analysis, competitor benchmarking, and a realistic look at what a <em style=&quot;font-style:italic;color:#ff7a52;&quot;>single-location family cinema</em> can actually afford, technically and economically.">Erst prüfen, dann urteilen: Heuristische Analyse, Competitor-Benchmarking und ein realistischer Blick auf das, was ein <em style="font-style:italic;color:#ff7a52;">Ein-Standort-Familienkino</em> sich technisch und wirtschaftlich leisten kann.</p>
+                <div class="foot" style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.03em;" data-de="schwarzenbek.cineprog.net · Kino Grimm, gegründet 1950" data-en="schwarzenbek.cineprog.net · Kino Grimm, founded 1950">schwarzenbek.cineprog.net · Kino Grimm, gegründet 1950</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heuristische Analyse -->
+        <div class="sub-gap" id="heuristik">
+          <div class="ia-head">
+            <span class="eyebrow" data-de="Heuristische Analyse" data-en="Heuristic Analysis">Heuristische Analyse</span>
+            <span class="hint" data-de="10 Nielsen-Heuristiken · anhand echter Screenshots" data-en="10 Nielsen heuristics · based on real screenshots">10 Nielsen-Heuristiken · anhand echter Screenshots</span>
+          </div>
+          <h3 data-de="Zehn Heuristiken geprüft, <span class=&quot;accent-italic&quot;>fünf Probleme priorisiert.</span>" data-en="Ten heuristics reviewed, <span class=&quot;accent-italic&quot;>five problems prioritized.</span>">Zehn Heuristiken geprüft, <span class="accent-italic">fünf Probleme priorisiert.</span></h3>
+          <p class="lede" style="max-width:680px;" data-de="Jede Seite von Start bis Kontakt wurde gegen Nielsen's 10 Usability-Heuristiken geprüft, mit Schweregrad 0–4. Die Top-5-Probleme trugen die stärksten Belege und die klarsten Vorher/Nachher-Argumente." data-en="Every page from home to contact was checked against Nielsen's 10 usability heuristics, rated by severity 0–4. The top five problems carried the strongest evidence and the clearest before/after arguments.">Jede Seite von Start bis Kontakt wurde gegen Nielsen's 10 Usability-Heuristiken geprüft, mit Schweregrad 0–4. Die Top-5-Probleme trugen die stärksten Belege und die klarsten Vorher/Nachher-Argumente.</p>
+
+          <div class="data-table">
+            <div class="t-head">
+              <span data-de="Problem" data-en="Problem">Problem</span>
+              <span data-de="Heuristik" data-en="Heuristic">Heuristik</span>
+              <span data-de="Schweregrad" data-en="Severity">Schweregrad</span>
+            </div>
+            <div class="t-row">
+              <span class="k" data-de="Buchungs-Aktion inkonsistent dargestellt" data-en="Booking action shown inconsistently">Buchungs-Aktion inkonsistent dargestellt</span>
+              <span class="v" data-de="Start zeigt reinen Text, Programm einen Button; Übergang zu kinotickets.express ohne Ankündigung, mit fremdem Header-Design." data-en="Home shows plain text, Programm shows a button; the jump to kinotickets.express happens without warning, with a completely different header design.">Start zeigt reinen Text, Programm einen Button; Übergang zu kinotickets.express ohne Ankündigung, mit fremdem Header-Design.</span>
+              <span class="sev">3</span>
+            </div>
+            <div class="t-row">
+              <span class="k" data-de="Ungleiche Informationstiefe & Platzhalter-Formulare" data-en="Uneven info depth & placeholder-only forms">Ungleiche Informationstiefe & Platzhalter-Formulare</span>
+              <span class="v" data-de="Kino 3 hat kein Foto (anders als Kino 1 & 2); Kontakt-/Newsletter-Formulare haben nur Platzhaltertext statt echter Labels." data-en="Kino 3 has no photo (unlike Kino 1 & 2); contact and newsletter forms use placeholder text instead of real labels.">Kino 3 hat kein Foto (anders als Kino 1 & 2); Kontakt-/Newsletter-Formulare haben nur Platzhaltertext statt echter Labels.</span>
+              <span class="sev">3</span>
+            </div>
+            <div class="t-row">
+              <span class="k" data-de="Film-Archiv ohne Struktur" data-en="Film archive without structure">Film-Archiv ohne Struktur</span>
+              <span class="v" data-de="Eine lange, unstrukturierte Liste vergangener Filme ohne Paginierung oder Suche." data-en="One long, unstructured list of past films with no pagination or search.">Eine lange, unstrukturierte Liste vergangener Filme ohne Paginierung oder Suche.</span>
+              <span class="sev">2</span>
+            </div>
+            <div class="t-row">
+              <span class="k" data-de="Hausordnung als Textwand" data-en="House rules as a wall of text">Hausordnung als Textwand</span>
+              <span class="v" data-de="Sieben Regeln als dichter Fließtext, teils mit hartem Ton, ohne visuelle Gliederung." data-en="Seven rules as dense running text, sometimes in a harsh tone, with no visual structure.">Sieben Regeln als dichter Fließtext, teils mit hartem Ton, ohne visuelle Gliederung.</span>
+              <span class="sev">2</span>
+            </div>
+            <div class="t-row">
+              <span class="k" data-de="Partner-Seite ohne erkennbaren Bezug" data-en="Partner page with unclear relevance">Partner-Seite ohne erkennbaren Bezug</span>
+              <span class="v" data-de="Ein American-Football-Verein steht gleichwertig neben echten Branchenpartnern, ohne Erklärung." data-en="An American football club appears alongside real industry partners, with no explanation.">Ein American-Football-Verein steht gleichwertig neben echten Branchenpartnern, ohne Erklärung.</span>
+              <span class="sev">1</span>
+            </div>
+          </div>
+
+          <details class="belege" style="margin-top:34px;border:1px solid var(--hairline);border-radius:20px;background:#fff;overflow:hidden;">
+            <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:18px 22px;">
+              <span style="font-size:14px;font-weight:600;color:var(--ink);" data-de="Belege ansehen" data-en="View evidence">Belege ansehen</span>
+              <span style="font-size:12.5px;color:var(--ink-35);flex:1;" data-de="Echte Screenshots von schwarzenbek.cineprog.net" data-en="Real screenshots from schwarzenbek.cineprog.net">Echte Screenshots von schwarzenbek.cineprog.net</span>
+            </summary>
+            <div style="padding:0 22px 22px;">
+              <div class="proof-grid">
+                <figure class="proof-shot">
+                  <img src="assets/kg-start.png" alt="Kino Grimm Startseite" loading="lazy">
+                  <figcaption data-de="<b>Startseite</b>: heutiges Programm, Trailer-Einbindung und die GRETA/STARKS-Barrierefreiheits-Promo." data-en="<b>Homepage</b>: today's program, an embedded trailer, and the GRETA/STARKS accessibility promo."><b>Startseite</b>: heutiges Programm, Trailer-Einbindung und die GRETA/STARKS-Barrierefreiheits-Promo.</figcaption>
+                </figure>
+                <figure class="proof-shot">
+                  <img src="assets/kg-programm.png" alt="Kino Grimm Programm-Übersicht" loading="lazy">
+                  <figcaption data-de="<b>Programm-Übersicht</b>: solides Karten-Grid, aber nur Heute/Wochenende/Alle statt Tages-Navigation." data-en="<b>Program overview</b>: a solid card grid, but only Today/Weekend/All instead of day-by-day navigation."><b>Programm-Übersicht</b>: solides Karten-Grid, aber nur Heute/Wochenende/Alle statt Tages-Navigation.</figcaption>
+                </figure>
+                <figure class="proof-shot">
+                  <img src="assets/kg-saele.png" alt="Kino Grimm Unsere Säle" loading="lazy">
+                  <figcaption data-de="<b>Unsere Säle</b>: Kino 1 und 2 mit großformatigem Foto, Kino 3 ganz ohne Bild." data-en="<b>Our screens</b>: Kino 1 and 2 come with a large photo, Kino 3 has none at all."><b>Unsere Säle</b>: Kino 1 und 2 mit großformatigem Foto, Kino 3 ganz ohne Bild.</figcaption>
+                </figure>
+                <figure class="proof-shot">
+                  <img src="assets/kg-kontakt.png" alt="Kino Grimm Kontaktseite" loading="lazy">
+                  <figcaption data-de="<b>Kontakt</b>: gut ausgestattet mit Formular, Karte und 4,6-Sterne-Bewertung — besser als der erste Eindruck vermuten ließ." data-en="<b>Contact</b>: well equipped with a form, a map, and a 4.6-star rating — better than the first impression suggested."><b>Kontakt</b>: gut ausgestattet mit Formular, Karte und 4,6-Sterne-Bewertung — besser als der erste Eindruck vermuten ließ.</figcaption>
+                </figure>
+                <figure class="proof-shot wide">
+                  <img src="assets/kg-expressticket-flow.png" alt="ExpressTicket Flow" loading="lazy">
+                  <figcaption data-de="<b>ExpressTicket-Flow</b>: sauberes Akkordeon (Film → Tag → Uhrzeit → Buchen) — funktioniert gut, bricht aber danach ins Fremdsystem um." data-en="<b>ExpressTicket flow</b>: a clean accordion (film → day → time → book) — works well, but then jumps into a third-party system."><b>ExpressTicket-Flow</b>: sauberes Akkordeon (Film → Tag → Uhrzeit → Buchen) — funktioniert gut, bricht aber danach ins Fremdsystem um.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Competitor-Benchmarking -->
+        <div class="sub-gap" id="benchmarking">
+          <span class="eyebrow" data-de="Competitor-Benchmarking" data-en="Competitor Benchmarking">Competitor-Benchmarking</span>
+          <h3 data-de="CinemaxX und Yorck als zwei <span class=&quot;accent-italic&quot;>sehr unterschiedliche Vorbilder.</span>" data-en="CinemaxX and Yorck as two <span class=&quot;accent-italic&quot;>very different role models.</span>">CinemaxX und Yorck als zwei <span class="accent-italic">sehr unterschiedliche Vorbilder.</span></h3>
+          <p class="lede" style="max-width:700px;" data-de="Verglichen wurden CinemaxX (große Multiplex-Kette) und Yorck Kinogruppe (kuratierter Programmkino-Verbund in Berlin) gegen Kino Grimm. Nur einer der beiden passt wirklich zur Größe und zum Charakter eines Ein-Standort-Familienkinos." data-en="I compared CinemaxX (a large multiplex chain) and Yorck Kinogruppe (a curated art-house cinema group in Berlin) against Kino Grimm. Only one of the two actually fits the size and character of a single-location family cinema.">Verglichen wurden CinemaxX (große Multiplex-Kette) und Yorck Kinogruppe (kuratierter Programmkino-Verbund in Berlin) gegen Kino Grimm. Nur einer der beiden passt wirklich zur Größe und zum Charakter eines Ein-Standort-Familienkinos.</p>
+
+          <div class="concept-grid">
+            <div class="concept-card discard">
+              <span class="concept-tag" data-de="Falsches Vorbild" data-en="Wrong Role Model">Falsches Vorbild</span>
+              <h4 data-de="CinemaxX" data-en="CinemaxX">CinemaxX</h4>
+              <p data-de="Große Hero-Kampagnen, Konto-Zwang, App-Login, eigener Gastronomie-Bereich. Alles auf Umsatzmaximierung über viele Standorte ausgelegt." data-en="Big hero campaigns, mandatory accounts, app login, its own dining section. Everything built for revenue at scale across many locations.">Große Hero-Kampagnen, Konto-Zwang, App-Login, eigener Gastronomie-Bereich. Alles auf Umsatzmaximierung über viele Standorte ausgelegt.</p>
+              <div class="concept-why" data-de="<b>Warum nicht:</b> App-Zwang und Kampagnen-Optik passen nicht zu einem Familienbetrieb, wirken unpersönlich und sind für ein Ein-Standort-Kino kaum leistbar." data-en="<b>Why not:</b> App requirements and campaign-heavy visuals don't fit a family business, feel impersonal, and are hardly affordable for a single-location cinema."><b>Warum nicht:</b> App-Zwang und Kampagnen-Optik passen nicht zu einem Familienbetrieb, wirken unpersönlich und sind für ein Ein-Standort-Kino kaum leistbar.</div>
+            </div>
+
+            <div class="concept-card chosen">
+              <span class="concept-tag" data-de="Richtiges Vorbild" data-en="Right Role Model">Richtiges Vorbild</span>
+              <h4 data-de="Yorck Kinogruppe" data-en="Yorck Kinogruppe">Yorck Kinogruppe</h4>
+              <p data-de="Horizontale Tages-Tabs, farbcodierte Badges ('Neu', 'Yorck Pick'), eigene redaktionelle Stimme pro Film, Buchung im eigenen Branding bis zum visuellen Saalplan." data-en="Horizontal day tabs, color-coded badges ('New', 'Yorck Pick'), its own editorial voice per film, booking that stays on-brand all the way to a visual seat map.">Horizontale Tages-Tabs, farbcodierte Badges ('Neu', 'Yorck Pick'), eigene redaktionelle Stimme pro Film, Buchung im eigenen Branding bis zum visuellen Saalplan.</p>
+              <div class="concept-why" data-de="<b>Warum diese:</b> Ähnliche Grundhaltung wie Kino Grimm — persönlich, kuratiert, mit Charakter — nur konsequenter umgesetzt." data-en="<b>Why this one:</b> A similar underlying stance to Kino Grimm — personal, curated, with character — just executed more consistently."><b>Warum diese:</b> Ähnliche Grundhaltung wie Kino Grimm — persönlich, kuratiert, mit Charakter — nur konsequenter umgesetzt.</div>
+            </div>
+
+            <div class="concept-card neutral">
+              <span class="concept-tag" data-de="Ausgangslage" data-en="Starting Point">Ausgangslage</span>
+              <h4 data-de="Kino Grimm" data-en="Kino Grimm">Kino Grimm</h4>
+              <p data-de="Solides Karten-Grid, aber keine Tages-Navigation, keine redaktionelle Stimme, keine Specials-Sektion, keine Suche, und ein Buchungsflow, der optisch auf ein Fremdsystem umbricht." data-en="A solid card grid, but no day navigation, no editorial voice, no specials section, no search, and a booking flow that visually breaks into a third-party system.">Solides Karten-Grid, aber keine Tages-Navigation, keine redaktionelle Stimme, keine Specials-Sektion, keine Suche, und ein Buchungsflow, der optisch auf ein Fremdsystem umbricht.</p>
+              <div class="concept-why" data-de="<b>Für das Redesign:</b> Nicht kopieren, sondern übertragen — angepasst an 7 Filme statt 26, an 3 Säle statt 14 Kinos." data-en="<b>For the redesign:</b> Not copied, but translated — scaled to 7 films instead of 26, 3 screens instead of 14 cinemas."><b>Für das Redesign:</b> Nicht kopieren, sondern übertragen — angepasst an 7 Filme statt 26, an 3 Säle statt 14 Kinos.</div>
+            </div>
+          </div>
+
+          <div class="proof-grid" style="margin-top:28px;">
+            <figure class="proof-shot">
+              <img src="assets/bm-yorck-seatmap.png" alt="Yorck Sitzplatzwahl mit visuellem Saalplan" loading="lazy">
+              <figcaption data-de="<b>Yorck-Buchung im eigenen Branding</b>: visueller Saalplan, sticky Info-Box, Gast- oder Konto-Buchung gleichwertig." data-en="<b>Yorck's booking, fully on-brand</b>: a visual seat map, a sticky info box, guest or account booking treated equally."><b>Yorck-Buchung im eigenen Branding</b>: visueller Saalplan, sticky Info-Box, Gast- oder Konto-Buchung gleichwertig.</figcaption>
+            </figure>
+            <figure class="proof-shot">
+              <img src="assets/bm-yorck-programm.png" alt="Yorck Programm mit Tages-Tabs und Filtern" loading="lazy">
+              <figcaption data-de="<b>Yorck-Programm</b>: Tages-Tabs, vier einzeln beschriftete Filter, Ergebnis-Feedback ('26 Filme angezeigt')." data-en="<b>Yorck's program page</b>: day tabs, four individually labeled filters, result feedback ('26 films shown')."><b>Yorck-Programm</b>: Tages-Tabs, vier einzeln beschriftete Filter, Ergebnis-Feedback ('26 Filme angezeigt').</figcaption>
+            </figure>
+          </div>
+
+          <div class="admission" style="margin-top:34px;">
+            <p class="admission-line" data-de="Der Ticketing-Anbieter ist <span class=&quot;accent-italic&quot;>Branchenstandard, kein Kino-Grimm-Problem.</span>" data-en="The ticketing vendor is an <span class=&quot;accent-italic&quot;>industry standard, not a Kino Grimm problem.</span>">Der Ticketing-Anbieter ist <span class="accent-italic">Branchenstandard, kein Kino-Grimm-Problem.</span></p>
+            <p class="admission-note" data-de="kinotickets.express / kinotickets.online (Mars EDV) wird von mehreren hundert kleinen und mittleren Kinos in Deutschland genutzt. Yorck ist als 14-Kino-Verbund kein fairer 1:1-Vergleich mehr an dieser Stelle — ein Anbieterwechsel ist für ein Ein-Standort-Kino wirtschaftlich kaum machbar. Der Bruch im Erlebnis bleibt real, aber die Lösung muss realistisch bleiben: den Übergang selbst verbessern statt das Fremdsystem zu ersetzen, und ein High-Fidelity-Mockup mit eigenem Saalplan als Zukunftsvision, nicht als kurzfristigen Vorschlag." data-en="kinotickets.express / kinotickets.online (Mars EDV) is used by several hundred small and mid-sized cinemas across Germany. As a 14-cinema group, Yorck stops being a fair 1:1 comparison at this specific point — switching vendors is barely feasible economically for a single-location cinema. The break in the experience is still real, but the solution has to stay realistic: improve the transition itself instead of replacing the third-party system, and treat a high-fidelity mockup with a custom seat map as a future vision, not a short-term proposal.">kinotickets.express / kinotickets.online (Mars EDV) wird von mehreren hundert kleinen und mittleren Kinos in Deutschland genutzt. Yorck ist als 14-Kino-Verbund kein fairer 1:1-Vergleich mehr an dieser Stelle — ein Anbieterwechsel ist für ein Ein-Standort-Kino wirtschaftlich kaum machbar. Der Bruch im Erlebnis bleibt real, aber die Lösung muss realistisch bleiben: den Übergang selbst verbessern statt das Fremdsystem zu ersetzen, und ein High-Fidelity-Mockup mit eigenem Saalplan als Zukunftsvision, nicht als kurzfristigen Vorschlag.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 02 INSIGHTS ============ -->
+      <section id="insights" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">02</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Insights" data-en="Insights">Insights</span>
+            <h2 data-de="Vier Probleme, <span class=&quot;accent-italic&quot;>geclustert aus Analyse und Vergleich.</span>" data-en="Four problems, <span class=&quot;accent-italic&quot;>clustered from analysis and comparison.</span>">Vier Probleme, <span class="accent-italic">geclustert aus Analyse und Vergleich.</span></h2>
+          </div>
+        </div>
+
+        <div class="sub-gap" id="kernprobleme">
+          <p class="lede" style="max-width:680px;" data-de="Die Einzelbefunde aus Heuristik und Benchmarking wurden zu vier Kernproblemen gebündelt — jedes mit einer eigenen 'How might we'-Frage und einem Maßstabs-Check: passt der Befund überhaupt zur Größe von Kino Grimm (7 Filme, 3 Säle), oder wurde er unreflektiert von größeren Vorbildern übernommen?" data-en="The individual findings from the heuristic review and the benchmarking were bundled into four core problems — each with its own 'how might we' question and a scale check: does the finding even fit Kino Grimm's size (7 films, 3 screens), or was it copied uncritically from bigger role models?">Die Einzelbefunde aus Heuristik und Benchmarking wurden zu vier Kernproblemen gebündelt — jedes mit einer eigenen 'How might we'-Frage und einem Maßstabs-Check: passt der Befund überhaupt zur Größe von Kino Grimm (7 Filme, 3 Säle), oder wurde er unreflektiert von größeren Vorbildern übernommen?</p>
+
+          <div class="motive">
+            <div class="motiv-band">
+              <span class="motiv-ghost" aria-hidden="true">A</span>
+              <div class="motiv-head">
+                <h4 data-de="Programmfindung im Archiv ist umständlich" data-en="Finding films in the archive is cumbersome">Programmfindung im Archiv ist umständlich</h4>
+                <span class="motiv-count" data-de="Schweregrad 2 · nur das Archiv, nicht das aktuelle Programm" data-en="Severity 2 · archive only, not the current program">Schweregrad 2 · nur das Archiv, nicht das aktuelle Programm</span>
+              </div>
+              <p class="motiv-say" data-de="die Tagesorientierung im kleinen aktuellen Programm klar gestalten und gleichzeitig das umfangreiche Film-Archiv durchsuchbar machen — ohne dem kleinen Programm unnötige Komplexität aufzuzwingen?" data-en="make day-by-day orientation clear for the small current program, while also making the large film archive searchable — without forcing unnecessary complexity onto the small program?">die Tagesorientierung im kleinen aktuellen Programm klar gestalten und gleichzeitig das umfangreiche Film-Archiv durchsuchbar machen — ohne dem kleinen Programm unnötige Komplexität aufzuzwingen?</p>
+              <div class="motiv-ev">
+                <span data-de="Nur 'Heute/Wochenende/Komplettes Programm' statt Tages-Navigation." data-en="Only 'Today/Weekend/Full program' instead of day-by-day navigation.">Nur 'Heute/Wochenende/Komplettes Programm' statt Tages-Navigation.</span>
+                <span data-de="Film-Archiv als eine lange, unstrukturierte Liste ohne Suche oder Paginierung." data-en="Film archive is one long, unstructured list with no search or pagination.">Film-Archiv als eine lange, unstrukturierte Liste ohne Suche oder Paginierung.</span>
+              </div>
+              <div class="motiv-note" data-de="Maßstabs-Check: Bei nur ~7 gleichzeitig laufenden Filmen wäre eine volle Such-/Filter-Infrastruktur überdimensioniert. Das Problem betrifft fast ausschließlich das Archiv, nicht das aktuelle Programm." data-en="Scale check: with only ~7 films running at once, a full search/filter setup would be overkill. The problem is almost entirely about the archive, not the current program.">Maßstabs-Check: Bei nur ~7 gleichzeitig laufenden Filmen wäre eine volle Such-/Filter-Infrastruktur überdimensioniert. Das Problem betrifft fast ausschließlich das Archiv, nicht das aktuelle Programm.</div>
+            </div>
+
+            <div class="motiv-band">
+              <span class="motiv-ghost" aria-hidden="true">B</span>
+              <div class="motiv-head">
+                <h4 data-de="Der Buchungsprozess bricht das Vertrauen kurz vor dem Ziel" data-en="The booking flow breaks trust right before the finish line">Der Buchungsprozess bricht das Vertrauen kurz vor dem Ziel</h4>
+                <span class="motiv-count" data-de="Schweregrad 3 · stärkster Redesign-Hebel" data-en="Severity 3 · strongest redesign lever">Schweregrad 3 · stärkster Redesign-Hebel</span>
+              </div>
+              <p class="motiv-say" data-de="den Übergang zur Ticketbuchung so gestalten, dass er sich vertrauenswürdig und wie aus einem Guss anfühlt, ohne das bestehende Buchungssystem ersetzen zu müssen?" data-en="design the handoff to ticket booking so it feels trustworthy and consistent, without needing to replace the existing booking system?">den Übergang zur Ticketbuchung so gestalten, dass er sich vertrauenswürdig und wie aus einem Guss anfühlt, ohne das bestehende Buchungssystem ersetzen zu müssen?</p>
+              <div class="motiv-ev">
+                <span data-de="Buchungs-Aktion auf Start- und Programm-Seite unterschiedlich dargestellt (Text-Link vs. Button)." data-en="The booking action looks different on the home page vs. the program page (text link vs. button).">Buchungs-Aktion auf Start- und Programm-Seite unterschiedlich dargestellt (Text-Link vs. Button).</span>
+                <span data-de="Übergang zu kinotickets.express ohne Ankündigung, mit komplett anderem Header-Design." data-en="The jump to kinotickets.express happens without warning, with a completely different header design.">Übergang zu kinotickets.express ohne Ankündigung, mit komplett anderem Header-Design.</span>
+              </div>
+              <div class="motiv-note" data-de="Maßstabs-Check: kein Skalierungsproblem — betrifft den Ablauf selbst. Vorteil: mit nur 3 kleinen Sälen (110/54/27 Plätze) ist ein visueller Saalplan als Mockup gut umsetzbar." data-en="Scale check: not a scale problem — it's about the flow itself. Upside: with only 3 small screens (110/54/27 seats), a visual seat map mockup is very achievable.">Maßstabs-Check: kein Skalierungsproblem — betrifft den Ablauf selbst. Vorteil: mit nur 3 kleinen Sälen (110/54/27 Plätze) ist ein visueller Saalplan als Mockup gut umsetzbar.</div>
+            </div>
+
+            <div class="motiv-band">
+              <span class="motiv-ghost" aria-hidden="true">C</span>
+              <div class="motiv-head">
+                <h4 data-de="Die Seite wirkt technisch uneinheitlich und stellenweise unfertig" data-en="The site feels technically inconsistent and unfinished in places">Die Seite wirkt technisch uneinheitlich und stellenweise unfertig</h4>
+                <span class="motiv-count" data-de="Schweregrad 3 · Craft & Konsistenz" data-en="Severity 3 · craft & consistency">Schweregrad 3 · Craft & Konsistenz</span>
+              </div>
+              <p class="motiv-say" data-de="ein konsistentes, durchdachtes Design-System schaffen, das auf jeder Seite gleich sorgfältig wirkt wie das Kino selbst?" data-en="build a consistent, considered design system that feels as carefully made on every page as the cinema itself?">ein konsistentes, durchdachtes Design-System schaffen, das auf jeder Seite gleich sorgfältig wirkt wie das Kino selbst?</p>
+              <div class="motiv-ev">
+                <span data-de="Kino 3 hat kein Foto, während Kino 1 & 2 großformatige Bilder zeigen." data-en="Kino 3 has no photo, while Kino 1 & 2 show large-format images.">Kino 3 hat kein Foto, während Kino 1 & 2 großformatige Bilder zeigen.</span>
+                <span data-de="Formularfelder mit reinem Platzhaltertext, generische Widgets (reCAPTCHA, Checkbox) wirken wie Fremdkörper." data-en="Form fields use placeholder-only labels; generic widgets (reCAPTCHA, checkbox) feel like foreign objects in the design.">Formularfelder mit reinem Platzhaltertext, generische Widgets (reCAPTCHA, Checkbox) wirken wie Fremdkörper.</span>
+              </div>
+              <div class="motiv-note" data-de="Maßstabs-Check: eher verschärft als entschärft — bei nur 3 Sälen fällt eine fehlende Abbildung stärker auf (1 von 3, nicht 1 von 20)." data-en="Scale check: made worse, not better — with only 3 screens, a missing photo stands out more (1 of 3, not 1 of 20).">Maßstabs-Check: eher verschärft als entschärft — bei nur 3 Sälen fällt eine fehlende Abbildung stärker auf (1 von 3, nicht 1 von 20).</div>
+            </div>
+
+            <div class="motiv-band">
+              <span class="motiv-ghost" aria-hidden="true">D</span>
+              <div class="motiv-head">
+                <h4 data-de="Die Persönlichkeit des Traditionskinos geht auf der Website verloren" data-en="The heritage cinema's personality gets lost on the website">Die Persönlichkeit des Traditionskinos geht auf der Website verloren</h4>
+                <span class="motiv-count" data-de="Verschenktes Differenzierungspotenzial" data-en="Wasted differentiation potential">Verschenktes Differenzierungspotenzial</span>
+              </div>
+              <p class="motiv-say" data-de="die Persönlichkeit und Geschichte von Kino Grimm sichtbar in die ganze Website einweben, statt sie auf einer Unterseite zu verstecken?" data-en="weave Kino Grimm's personality and history visibly through the whole site, instead of hiding it on one subpage?">die Persönlichkeit und Geschichte von Kino Grimm sichtbar in die ganze Website einweben, statt sie auf einer Unterseite zu verstecken?</p>
+              <div class="motiv-ev">
+                <span data-de="Keine redaktionelle Stimme bei Filmen, keine Kuratierung/Badges wie Yorcks 'Neu' oder 'Yorck Pick'." data-en="No editorial voice for films, no curation/badges like Yorck's 'New' or 'Yorck Pick'.">Keine redaktionelle Stimme bei Filmen, keine Kuratierung/Badges wie Yorcks 'Neu' oder 'Yorck Pick'.</span>
+                <span data-de="'Familienbesitz seit 1950' und der Kinotag-Rabatt stecken nur auf der 'Unser Kino'-Seite, nirgends sonst spürbar." data-en="'Family-owned since 1950' and the discount day are buried only on the 'About us' page, invisible anywhere else.">'Familienbesitz seit 1950' und der Kinotag-Rabatt stecken nur auf der 'Unser Kino'-Seite, nirgends sonst spürbar.</span>
+              </div>
+              <div class="motiv-note" data-de="Maßstabs-Check: hier ist die kleine Größe ein Vorteil — eine redaktionelle Zeile pro Film ist bei 7 Filmen leichter zu pflegen als bei Yorcks 26+." data-en="Scale check: here the small size is an advantage — an editorial line per film is easier to maintain with 7 films than with Yorck's 26+.">Maßstabs-Check: hier ist die kleine Größe ein Vorteil — eine redaktionelle Zeile pro Film ist bei 7 Filmen leichter zu pflegen als bei Yorcks 26+.</div>
+            </div>
+          </div>
+
+          <div class="converge" style="margin-top:36px;">
+            <div class="converge-out">
+              <span class="converge-kick" data-de="Übergeordnete Leitfrage" data-en="Overarching Guiding Question">Übergeordnete Leitfrage</span>
+              <p data-de="How might we Kino Grimm eine Website geben, die genauso einladend, persönlich und vertrauenswürdig wirkt <span class=&quot;accent-italic&quot;>wie ein Besuch im Kino selbst</span> — von der Filmsuche bis zum gebuchten Ticket?" data-en="How might we give Kino Grimm a website that feels as inviting, personal, and trustworthy <span class=&quot;accent-italic&quot;>as an actual visit to the cinema</span> — from finding a film to a booked ticket?">How might we Kino Grimm eine Website geben, die genauso einladend, persönlich und vertrauenswürdig wirkt <span class="accent-italic">wie ein Besuch im Kino selbst</span> — von der Filmsuche bis zum gebuchten Ticket?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ideen -->
+        <div class="sub-gap" id="ideen">
+          <span class="eyebrow" data-de="Kundenbindungs-Ideen" data-en="Loyalty Ideas">Kundenbindungs-Ideen</span>
+          <h3 data-de="Drei Ideen, die zum <span class=&quot;accent-italic&quot;>Familienbetrieb passen.</span>" data-en="Three ideas that <span class=&quot;accent-italic&quot;>fit the family business.</span>">Drei Ideen, die zum <span class="accent-italic">Familienbetrieb passen.</span></h3>
+          <p class="lede" style="max-width:680px;" data-de="Ergänzend zu Cluster D: drei konkrete Ideen, die Persönlichkeit und Kundenbindung stärken, ohne neue technische Infrastruktur zu brauchen." data-en="As a complement to Cluster D: three concrete ideas that strengthen personality and customer loyalty without needing new technical infrastructure.">Ergänzend zu Cluster D: drei konkrete Ideen, die Persönlichkeit und Kundenbindung stärken, ohne neue technische Infrastruktur zu brauchen.</p>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h4 data-de="Franks Filmtipp der Woche" data-en="Frank's Film Tip of the Week">Franks Filmtipp der Woche</h4>
+              <p data-de="Der Inhaber Frank Grimm ist im Impressum namentlich genannt. Eine persönliche Empfehlung ist glaubwürdiger als ein algorithmisches Badge-System und passt zum Familienbetrieb-Charakter." data-en="Owner Frank Grimm is already named in the legal notice. A personal recommendation is more credible than an algorithmic badge system and fits the family-business character.">Der Inhaber Frank Grimm ist im Impressum namentlich genannt. Eine persönliche Empfehlung ist glaubwürdiger als ein algorithmisches Badge-System und passt zum Familienbetrieb-Charakter.</p>
+            </div>
+            <div class="uebersicht-divider"></div>
+            <div class="feature-item">
+              <h4 data-de="Kinocard: 10 Besuche für X €" data-en="Kinocard: 10 visits for €X">Kinocard: 10 Besuche für X €</h4>
+              <p data-de="Die bestehende Kinogutscheine-Seite beschreibt bereits Restguthaben über mehrere Besuche. Die Grundlage existiert — sie muss nur als eigenes Produkt beworben werden." data-en="The existing gift-voucher page already describes remaining balances carried across multiple visits. The foundation already exists — it just needs to be marketed as its own product.">Die bestehende Kinogutscheine-Seite beschreibt bereits Restguthaben über mehrere Besuche. Die Grundlage existiert — sie muss nur als eigenes Produkt beworben werden.</p>
+            </div>
+            <div class="uebersicht-divider"></div>
+            <div class="feature-item">
+              <h4 data-de="Private Vorstellungen im kleinen Saal" data-en="Private screenings in the small screen">Private Vorstellungen im kleinen Saal</h4>
+              <p data-de="Kino 3 hat nur 27 Plätze — perfekt für Kindergeburtstage oder kleine Gruppen. Taucht auf der aktuellen Seite nirgends auf." data-en="Kino 3 has only 27 seats — perfect for birthday parties or small groups. It doesn't appear anywhere on the current site.">Kino 3 hat nur 27 Plätze — perfekt für Kindergeburtstage oder kleine Gruppen. Taucht auf der aktuellen Seite nirgends auf.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 KONZEPT ============ -->
+      <section id="konzept" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">03</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Konzept" data-en="Concept">Konzept</span>
+            <h2 data-de="Vom Cluster <span class=&quot;accent-italic&quot;>zur Struktur.</span>" data-en="From clusters <span class=&quot;accent-italic&quot;>to structure.</span>">Vom Cluster <span class="accent-italic">zur Struktur.</span></h2>
+          </div>
+        </div>
+
+        <!-- Sitemap -->
+        <div class="sub-gap" id="sitemap">
+          <div class="ia-head">
+            <span class="eyebrow" data-de="Sitemap" data-en="Sitemap">Sitemap</span>
+            <span class="hint" data-de="4 Hauptpunkte statt 10" data-en="4 main items instead of 10">4 Hauptpunkte statt 10</span>
+          </div>
+          <h3 data-de="Eine schlanke Sitemap <span class=&quot;accent-italic&quot;>statt zehn gleichwertiger Menüpunkte.</span>" data-en="A lean sitemap <span class=&quot;accent-italic&quot;>instead of ten equally weighted menu items.</span>">Eine schlanke Sitemap <span class="accent-italic">statt zehn gleichwertiger Menüpunkte.</span></h3>
+          <p class="lede" style="max-width:680px;" data-de="Statt zehn gleichwertigen Hauptnavigationspunkten: vier klar gebündelte Bereiche, die rechtlich/organisatorischen Seiten wandern in den Footer, wo sie hingehören." data-en="Instead of ten equally weighted top-level items: four clearly bundled areas, with the legal and organizational pages moved to the footer where they belong.">Statt zehn gleichwertigen Hauptnavigationspunkten: vier klar gebündelte Bereiche, die rechtlich/organisatorischen Seiten wandern in den Footer, wo sie hingehören.</p>
+
+          <div class="ia-grid">
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="Programm / Bald im Kino" data-en="Program / Coming Soon">Programm / Bald im Kino</div>
+              <ul>
+                <li data-de="Filmdetail" data-en="Film detail">Filmdetail</li>
+                <li data-de="Buchung / Sitzplatzwahl (extern, angekündigt)" data-en="Booking / seat selection (external, announced)">Buchung / Sitzplatzwahl (extern, angekündigt)</li>
+              </ul>
+            </div>
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="Unser Kino & unsere Geschichte" data-en="Our Cinema & Our Story">Unser Kino & unsere Geschichte</div>
+              <ul>
+                <li data-de="Unsere Säle <span class=&quot;ia-tag&quot;>inkl. private Vorstellungen · NEU</span>" data-en="Our screens <span class=&quot;ia-tag&quot;>incl. private screenings · NEW</span>">Unsere Säle <span class="ia-tag">inkl. private Vorstellungen · NEU</span></li>
+              </ul>
+            </div>
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="Kinocard / Eintrittspreise / Gutscheine" data-en="Kinocard / Ticket Prices / Vouchers">Kinocard / Eintrittspreise / Gutscheine</div>
+              <ul>
+                <li data-de="Kinocard <span class=&quot;ia-tag&quot;>NEU</span>" data-en="Kinocard <span class=&quot;ia-tag&quot;>NEW</span>">Kinocard <span class="ia-tag">NEU</span></li>
+                <li data-de="Eintrittspreise" data-en="Ticket prices">Eintrittspreise</li>
+                <li data-de="Kinogutscheine" data-en="Vouchers">Kinogutscheine</li>
+              </ul>
+            </div>
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="Partner" data-en="Partners">Partner</div>
+              <ul>
+                <li data-de="Lokale Partnerschaften <span class=&quot;ia-tag&quot;>z.B. Dinner & Kino · NEU</span>" data-en="Local partnerships <span class=&quot;ia-tag&quot;>e.g. Dinner & Cinema · NEW</span>">Lokale Partnerschaften <span class="ia-tag">z.B. Dinner & Kino · NEU</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="lede" style="max-width:680px;margin-top:30px;" data-de="Footer, auf jeder Seite sichtbar:" data-en="Footer, visible on every page:">Footer, auf jeder Seite sichtbar:</p>
+          <div class="footer-pill-row">
+            <span class="footer-pill" data-de="Film-Archiv (mit Suche · NEU)" data-en="Film archive (with search · NEW)">Film-Archiv (mit Suche · NEU)</span>
+            <span class="footer-pill" data-de="Hausordnung" data-en="House rules">Hausordnung</span>
+            <span class="footer-pill" data-de="Kontakt" data-en="Contact">Kontakt</span>
+            <span class="footer-pill" data-de="AGB" data-en="Terms">AGB</span>
+            <span class="footer-pill" data-de="Impressum" data-en="Legal notice">Impressum</span>
+          </div>
+
+          <a class="btn-ghost" href="https://www.figma.com/design/vttDYIrBIOUaAH8okTkzIy/Case-Studys?node-id=0-1" target="_blank" rel="noopener"><span data-de="Sitemap in Figma ansehen" data-en="View sitemap in Figma">Sitemap in Figma ansehen</span>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- User Flow -->
+        <div class="sub-gap" id="userflow">
+          <span class="eyebrow" data-de="User Flow" data-en="User Flow">User Flow</span>
+          <h3 data-de="Der zentrale Flow: <span class=&quot;accent-italic&quot;>Film finden → Ticket buchen.</span>" data-en="The central flow: <span class=&quot;accent-italic&quot;>find a film → book a ticket.</span>">Der zentrale Flow: <span class="accent-italic">Film finden → Ticket buchen.</span></h3>
+          <p class="lede" style="max-width:680px;" data-de="Neun Schritte vom Programm bis zur Bestätigung. Zwei davon adressieren direkt Cluster B (Buchungsprozess), einer verweist auf die Kinocard-Idee aus Cluster D." data-en="Nine steps from the program page to the confirmation. Two of them directly address Cluster B (the booking flow), one references the Kinocard idea from Cluster D.">Neun Schritte vom Programm bis zur Bestätigung. Zwei davon adressieren direkt Cluster B (Buchungsprozess), einer verweist auf die Kinocard-Idee aus Cluster D.</p>
+
+          <div class="findings-log">
+            <div class="finding-row">
+              <span class="fl-num">01</span>
+              <span class="fl-obs" data-de="Startseite / Programm in Tagesansicht" data-en="Home / program in day view">Startseite / Programm in Tagesansicht</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">02</span>
+              <span class="fl-obs" data-de="Film antippen (Poster im aktuellen Programm)" data-en="Tap a film (poster in the current program)">Film antippen (Poster im aktuellen Programm)</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">03</span>
+              <span class="fl-obs" data-de="Filmdetail: Beschreibung, Trailer, Spielzeiten" data-en="Film detail: description, trailer, showtimes">Filmdetail: Beschreibung, Trailer, Spielzeiten</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">04</span>
+              <span class="fl-obs" data-de="Spielzeit auswählen" data-en="Select a showtime">Spielzeit auswählen</span>
+              <span class="fl-fix" data-de="Falls Kinocard vorhanden: Guthaben wird hier automatisch erkannt (Cluster D)" data-en="If a Kinocard exists: balance is recognized automatically here (Cluster D)">Falls Kinocard vorhanden: Guthaben wird hier automatisch erkannt (Cluster D)</span>
+            </div>
+            <div class="finding-row is-highlight">
+              <span class="fl-num">05</span>
+              <span class="fl-obs" data-de="'Weiter zur Ticketbuchung' — einheitlicher Button, mit Hinweis 'Sie verlassen jetzt kino-grimm.de'" data-en="'Continue to booking' — one consistent button, with a note: 'You're now leaving kino-grimm.de'">'Weiter zur Ticketbuchung' — einheitlicher Button, mit Hinweis 'Sie verlassen jetzt kino-grimm.de'</span>
+              <span class="fl-fix" data-de="Löst Cluster B: konsistente Darstellung statt Text-Link vs. Button" data-en="Solves Cluster B: one consistent look instead of text link vs. button">Löst Cluster B: konsistente Darstellung statt Text-Link vs. Button</span>
+            </div>
+            <div class="finding-row is-highlight">
+              <span class="fl-num">06</span>
+              <span class="fl-obs" data-de="Externes Buchungssystem im Kino-Grimm-Look angekündigt: Sitzplatzwahl über visuellen Saalplan" data-en="Third-party booking system, introduced in Kino Grimm's look: seat selection via a visual seat map">Externes Buchungssystem im Kino-Grimm-Look angekündigt: Sitzplatzwahl über visuellen Saalplan</span>
+              <span class="fl-fix" data-de="Löst Cluster B: keine abrupte, unangekündigte Domain-Wechsel mehr" data-en="Solves Cluster B: no more abrupt, unannounced domain switch">Löst Cluster B: keine abrupte, unangekündigte Domain-Wechsel mehr</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">07</span>
+              <span class="fl-obs" data-de="Ticketart wählen (Normal / Kind / Ermäßigt)" data-en="Choose ticket type (Adult / Child / Reduced)">Ticketart wählen (Normal / Kind / Ermäßigt)</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">08</span>
+              <span class="fl-obs" data-de="Bezahlen (Gast oder mit Kinocard-Konto; Apple Pay, Google Pay, PayPal, Karte)" data-en="Pay (as a guest or with a Kinocard account; Apple Pay, Google Pay, PayPal, card)">Bezahlen (Gast oder mit Kinocard-Konto; Apple Pay, Google Pay, PayPal, Karte)</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">09</span>
+              <span class="fl-obs" data-de="Bestätigung: Ticket per E-Mail oder Abholung an der Kasse" data-en="Confirmation: ticket by email or pickup at the box office">Bestätigung: Ticket per E-Mail oder Abholung an der Kasse</span>
+            </div>
+          </div>
+
+          <a class="btn-ghost" href="https://www.figma.com/design/vttDYIrBIOUaAH8okTkzIy/Case-Studys?node-id=0-1" target="_blank" rel="noopener"><span data-de="User Flow in Figma ansehen" data-en="View user flow in Figma">User Flow in Figma ansehen</span>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ 04 STATUS ============ -->
+      <section id="status" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">04</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Status" data-en="Status">Status</span>
+            <h2 data-de="Diese Case Study <span class=&quot;accent-italic&quot;>ist noch in Arbeit.</span>" data-en="This case study <span class=&quot;accent-italic&quot;>is still in progress.</span>">Diese Case Study <span class="accent-italic">ist noch in Arbeit.</span></h2>
+          </div>
+        </div>
+
+        <div class="admission" style="margin-top:40px;">
+          <p class="admission-line" data-de="Ich bin bei Schritt 5 von 8: <span class=&quot;accent-italic&quot;>Sitemap & User Flow sind fertig.</span>" data-en="I'm at step 5 of 8: <span class=&quot;accent-italic&quot;>sitemap and user flow are done.</span>">Ich bin bei Schritt 5 von 8: <span class="accent-italic">Sitemap & User Flow sind fertig.</span></p>
+          <p class="admission-note" data-de="Der volle Ablauf: heuristische Analyse → Competitor-Benchmarking → (optional) Kurzinterviews → Insights & 'How might we' → Sitemap & User Flows → Low-Fi Wireframes → UI-Design & High-Fidelity Mockups → Prototyp & Case-Study-Text. Diese Seite wächst mit, sobald die nächsten Schritte fertig sind." data-en="The full flow: heuristic analysis → competitor benchmarking → (optional) short interviews → insights & 'how might we' → sitemap & user flows → low-fi wireframes → UI design & high-fidelity mockups → prototype & case study writeup. This page will grow as the next steps get done.">Der volle Ablauf: heuristische Analyse → Competitor-Benchmarking → (optional) Kurzinterviews → Insights & 'How might we' → Sitemap & User Flows → Low-Fi Wireframes → UI-Design & High-Fidelity Mockups → Prototyp & Case-Study-Text. Diese Seite wächst mit, sobald die nächsten Schritte fertig sind.</p>
+
+          <div class="status-row">
+            <span class="status-pill is-done"><span class="status-dot"></span><span data-de="Heuristische Analyse" data-en="Heuristic analysis">Heuristische Analyse</span></span>
+            <span class="status-pill is-done"><span class="status-dot"></span><span data-de="Competitor-Benchmarking" data-en="Competitor benchmarking">Competitor-Benchmarking</span></span>
+            <span class="status-pill is-done"><span class="status-dot"></span><span data-de="Insights & How might we" data-en="Insights & how might we">Insights & How might we</span></span>
+            <span class="status-pill is-current"><span class="status-dot"></span><span data-de="Sitemap & User Flow" data-en="Sitemap & user flow">Sitemap & User Flow</span></span>
+            <span class="status-pill is-next"><span class="status-dot"></span><span data-de="Low-Fi Wireframes" data-en="Low-fi wireframes">Low-Fi Wireframes</span></span>
+            <span class="status-pill is-next"><span class="status-dot"></span><span data-de="High-Fidelity UI" data-en="High-fidelity UI">High-Fidelity UI</span></span>
+            <span class="status-pill is-next"><span class="status-dot"></span><span data-de="Prototyp & Text" data-en="Prototype & writeup">Prototyp & Text</span></span>
+          </div>
+        </div>
+
+        <div class="sub-gap" id="naechste-schritte">
+          <span class="eyebrow" data-de="Nächste Schritte" data-en="Next Steps">Nächste Schritte</span>
+          <h3 data-de="Was als <span class=&quot;accent-italic&quot;>Nächstes kommt.</span>" data-en="What comes <span class=&quot;accent-italic&quot;>next.</span>">Was als <span class="accent-italic">Nächstes kommt.</span></h3>
+
+          <div class="limits" style="margin-top:26px;">
+            <span class="eyebrow" data-de="Fahrplan" data-en="Roadmap">Fahrplan</span>
+            <h4 class="limits-title" data-de="Drei Schritte bis zur fertigen Case Study." data-en="Three steps to the finished case study.">Drei Schritte bis zur fertigen Case Study.</h4>
+            <div class="limit-rail">
+              <div class="limit">
+                <span class="limit-num">01</span>
+                <div class="limit-body">
+                  <h4 data-de="Low-Fi Wireframes" data-en="Low-fi wireframes">Low-Fi Wireframes</h4>
+                  <p class="limit-line" data-de="Kernseiten in Graustufen skizzieren — Struktur und Layout vor Optik. <span class=&quot;limit-arrow&quot;>→</span> Layout-Entscheidungen früh und günstig testen." data-en="Sketch the core pages in grayscale — structure and layout before visuals. <span class=&quot;limit-arrow&quot;>→</span> Test layout decisions early and cheaply.">Kernseiten in Graustufen skizzieren — Struktur und Layout vor Optik. <span class="limit-arrow">→</span> Layout-Entscheidungen früh und günstig testen.</p>
+                </div>
+              </div>
+              <div class="limit">
+                <span class="limit-num">02</span>
+                <div class="limit-body">
+                  <h4 data-de="UI-Design & High-Fidelity Mockups" data-en="UI design & high-fidelity mockups">UI-Design & High-Fidelity Mockups</h4>
+                  <p class="limit-line" data-de="Moodboard und Mini-Design-System, dunkel und filmisch, aber übersichtlich. <span class=&quot;limit-arrow&quot;>→</span> High-Fidelity-Screens im etablierten Portfolio-Stil." data-en="A moodboard and mini design system, dark and cinematic, but clear. <span class=&quot;limit-arrow&quot;>→</span> High-fidelity screens in a consistent portfolio style.">Moodboard und Mini-Design-System, dunkel und filmisch, aber übersichtlich. <span class="limit-arrow">→</span> High-Fidelity-Screens im etablierten Portfolio-Stil.</p>
+                </div>
+              </div>
+              <div class="limit">
+                <span class="limit-num">03</span>
+                <div class="limit-body">
+                  <h4 data-de="Prototyp & Case-Study-Text" data-en="Prototype & case study writeup">Prototyp & Case-Study-Text</h4>
+                  <p class="limit-line" data-de="Klickbarer Figma-Prototyp für den Buchungsflow, dann Problem, Prozess, Entscheidungen und Vorher/Nachher dokumentieren. <span class=&quot;limit-arrow&quot;>→</span> Das eigentliche Verkaufsargument fürs Portfolio." data-en="A clickable Figma prototype for the booking flow, then documenting the problem, process, decisions, and before/after. <span class=&quot;limit-arrow&quot;>→</span> The actual selling point of the portfolio piece.">Klickbarer Figma-Prototyp für den Buchungsflow, dann Problem, Prozess, Entscheidungen und Vorher/Nachher dokumentieren. <span class="limit-arrow">→</span> Das eigentliche Verkaufsargument fürs Portfolio.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- ============ ÜBER MICH ============ -->
+<section id="ueber-mich-cs" style="background:#F5F5F7;padding:clamp(72px,9vw,120px) clamp(20px,5vw,40px);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;letter-spacing:-0.011em;">
+  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(min(100%,320px),1.55fr) minmax(min(100%,240px),1fr);gap:clamp(32px,5vw,64px);align-items:stretch;">
+    <div style="display:flex;flex-direction:column;justify-content:center;">
+      <p style="font-size:14px;font-weight:600;color:#1F7A45;margin-bottom:14px;" data-de="Über mich" data-en="About Me">Über mich</p>
+      <h2 style="font-size:clamp(28px,4vw,46px);font-weight:700;letter-spacing:-0.035em;line-height:1.06;color:#0A0A0A;margin-bottom:24px;" data-de="Hi, ich bin Lina." data-en="Hi, I'm Lina.">Hi, ich bin Lina.</h2>
+      <p style="font-size:17px;color:#1D1D1F;line-height:1.65;margin-bottom:16px;" data-de="Ich bin UX/UI Designerin und komme aus der Mediengestaltung Digital & Print. Irgendwann habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt." data-en="I'm a UX/UI designer, originally from digital & print media design. At some point I realized: I'm not just interested in how something looks, but how it feels to use.">Ich bin UX/UI Designerin und komme aus der Mediengestaltung Digital & Print. Irgendwann habe ich gemerkt: Mich interessiert nicht nur, wie etwas aussieht, sondern wie es sich anfühlt, wenn man es benutzt.</p>
+      <p style="font-size:17px;color:#6E6E73;line-height:1.65;margin-bottom:32px;" data-de="Kino Grimm zeigt genau die Art von Projekt, die mir Spaß macht: ein reales, lokales Unternehmen, ehrliche Probleme, und ein Redesign, das im Rahmen des Möglichen bleibt." data-en="Kino Grimm shows exactly the kind of project I enjoy: a real, local business, honest problems, and a redesign that stays within what's actually possible.">Kino Grimm zeigt genau die Art von Projekt, die mir Spaß macht: ein reales, lokales Unternehmen, ehrliche Probleme, und ein Redesign, das im Rahmen des Möglichen bleibt.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;">
+        <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;" data-de="Behance" data-en="Behance">Behance</a>
+        <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" class="lp-pill" style="font-size:13.5px;font-weight:500;color:#1D1D1F;background:#fff;border-radius:999px;padding:10px 18px;transition:background .18s ease;" data-de="Dribbble" data-en="Dribbble">Dribbble</a>
+        <a href="https://www.linamelissa.de/CV/CV_Lina-Melissa-Arndt.pdf" class="lp-pill-solid" style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#fff;background:#1F7A45;border-radius:999px;padding:10px 18px;transition:background .18s ease;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 10.5L12 16l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span data-de="Lebenslauf" data-en="Resume">Lebenslauf</span></a>
+      </div>
+    </div>
+    <div style="border-radius:28px;overflow:hidden;background:#E8E8ED;align-self:stretch;position:relative;min-height:260px;">
+      <img src="https://www.linamelissa.de/samespot/ich.jpg" alt="Lina Melissa Arndt im Portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background:#0A0A0A;padding:clamp(48px,6vw,68px) clamp(20px,5vw,40px) 28px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;letter-spacing:-0.011em;">
+  <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <span style="font-size:18px;color:#fff;font-weight:600;letter-spacing:-0.025em;" data-de="Lina Melissa Arndt" data-en="Lina Melissa Arndt">Lina Melissa Arndt</span>
+      <span style="font-size:13.5px;color:#8E8E93;" data-de="UX/UI Design · Schwarzenbek" data-en="UX/UI Design · Schwarzenbek, Germany">UX/UI Design · Schwarzenbek</span>
+      <a href="mailto:lina-melissa@web.de" class="lp-imprint" style="font-size:13.5px;color:#8E8E93;margin-top:4px;transition:color .18s ease;" data-de="lina-melissa@web.de" data-en="lina-melissa@web.de">lina-melissa@web.de</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.linkedin.com/in/linamelissa/" target="_blank" rel="noopener" aria-label="LinkedIn" class="lp-social" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:background .18s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </a>
+      <a href="https://www.behance.net/linamelissa" target="_blank" rel="noopener" aria-label="Behance" class="lp-social" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:background .18s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 7H3v10h4.5a3 3 0 0 0 0-6 2.5 2.5 0 0 0 0-4z"></path><path d="M3 12h5"></path><path d="M15 7h4"></path></svg>
+      </a>
+      <a href="https://dribbble.com/linamelissade" target="_blank" rel="noopener" aria-label="Dribbble" class="lp-social" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.09);color:#fff;transition:background .18s ease;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path></svg>
+      </a>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:clamp(36px,4.5vw,52px) auto 0;padding-top:22px;border-top:0.5px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap;">
+    <span style="font-size:12.5px;color:#6E6E73;" data-de="© Lina Melissa Arndt" data-en="© Lina Melissa Arndt">© Lina Melissa Arndt</span>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <span style="font-size:12.5px;color:#6E6E73;" data-de="Zuletzt aktualisiert: August 2026 · Case Study in Arbeit" data-en="Last updated: August 2026 · case study in progress">Zuletzt aktualisiert: August 2026 · Case Study in Arbeit</span>
+      <a href="https://www.linamelissa.de/impressum.html" class="lp-imprint" style="font-size:12.5px;color:#8E8E93;transition:color .18s ease;" data-de="Impressum & Datenschutz" data-en="Legal Notice & Privacy">Impressum & Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<div id="customCursor" class="custom-cursor"></div>
+
+<button id="backToTop" class="back-to-top" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="kinogrimm.js"></script>
+</body>
+</html>
