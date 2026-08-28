@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.add('js-ready');
+
   /* ---------- Scroll progress bar ---------- */
   var progressEl = document.getElementById('scrollProgress');
   function updateProgress() {
@@ -47,6 +49,9 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
+    setTimeout(function () {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    }, 3000);
   } else {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });
   }
