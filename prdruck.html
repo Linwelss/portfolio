@@ -232,7 +232,6 @@
               </div>
             </div>
           </div>
-          <p class="lede" style="font-size:12.5px;margin-top:12px;color:var(--ink-35);" data-de="Beide Seiten scrollen synchron mit – so lässt sich Abschnitt für Abschnitt vergleichen." data-en="Both sides scroll in sync, so you can compare section by section.">Beide Seiten scrollen synchron mit – so lässt sich Abschnitt für Abschnitt vergleichen.</p>
 
           <span class="eyebrow" style="display:block;margin-top:48px;" data-de="Zwischenschritte" data-en="Steps In Between">Zwischenschritte</span>
           <div class="fidelity f2" style="margin-top:16px;">
@@ -301,6 +300,25 @@
 <div id="lightbox" class="lightbox">
   <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
   <img id="lightboxImg" alt="">
+</div>
+
+<!-- Alt/Neu Vergleich, groß & scrollbar -->
+<div id="compareLightbox" class="compare-lightbox">
+  <button class="lightbox-close" id="compareLightboxClose" aria-label="Schließen">×</button>
+  <div class="compare-scroll compare-scroll-lg">
+    <div class="compare-col">
+      <span class="compare-label" data-de="Alt" data-en="Old">Alt</span>
+      <div class="compare-viewport" data-missing="prdruck/alt.png">
+        <img src="prdruck/alt.png" alt="Alte Website, komplette Seite" onerror="this.closest('.compare-viewport').classList.add('is-empty')">
+      </div>
+    </div>
+    <div class="compare-col">
+      <span class="compare-label" data-de="Neu" data-en="New">Neu</span>
+      <div class="compare-viewport" data-missing="prdruck/neu.png">
+        <img src="prdruck/neu.png" alt="Neue Website, komplette Seite" onerror="this.closest('.compare-viewport').classList.add('is-empty')">
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Back to top -->
