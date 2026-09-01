@@ -2709,3 +2709,15 @@ main{
 
 /* struct-shot nicht mehr verwendet, aber falls noch irgendwo referenziert: unsichtbar machen statt Bruch */
 .struct-shot{ all: unset; }
+
+/* ================= Beleg-Karten: ohne "Beleg"-Label direkt unterm Absatz ================= */
+.proof-shot.natural{
+  margin-top:28px;
+}
+
+/* ================= Sidebar bei "Über mich" ausblenden ================= */
+.sidebar.is-hidden{
+  opacity:0 !important;
+  pointer-events:none !important;
+  transition:opacity .25s ease;
+}
