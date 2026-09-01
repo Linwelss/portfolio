@@ -3048,3 +3048,10 @@ main{
   .nav a::after{ transition:none; }
   .sub-gap.reveal.in-view .compare-viewport{ animation:none; }
 }
+
+/* ================= Fix: Beleg-Bilder dürfen nie unsichtbar hängen bleiben ================= */
+.sub-gap .proof-shot,
+.sub-gap .struct-shot{
+  opacity:1 !important;
+  transform:none !important;
+}
