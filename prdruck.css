@@ -2230,9 +2230,48 @@ body.side-on .sidebar{
 
 main{padding-left:var(--nav-gutter);}
 .hero-split{
-  margin-left:calc(-1 * var(--nav-gutter));
-  width:calc(100% + var(--nav-gutter));
+  margin-left:0;
+  width:100%;
 }
 @media (max-width:1080px){:root{--nav-gutter:200px;} .sidebar{left:0;width:180px;}}
 @media (max-width:860px){:root{--nav-gutter:0px;} .sidebar{display:none;}}
 @media (prefers-reduced-motion: reduce){.sidebar{transition:none;}}
+
+/* ================= Finale Korrekturen (Feedback-Runde) ================= */
+
+/* 1) Die eigentliche Farbkorrektur, ganz am Dateiende, damit sie sicher gewinnt */
+:root{
+  --sage:#42B071;
+  --sage-hover:#2E8C57;
+  --sage-tint:#E3F5EB;
+  --sage-light:#7FCFA0;
+  --coral:#42B071;
+  --coral-tint:#E3F5EB;
+  --coral-border:rgba(76,175,122,.4);
+  --signal:#42B071;
+  --sage-dark:#2E8C57;
+}
+
+/* 2) Flex-Kinder im Hero nicht mehr strecken -> Logo/Chip in eigener Breite */
+.hero-split-content{
+  align-items:flex-start;
+}
+.hero-logo{
+  max-width:100%;
+}
+
+/* 3) Meta-Reihe linksbündig statt zentriert */
+.hero-split .hero-meta{
+  justify-content:flex-start;
+}
+
+/* 4) Kein weißes Band hinter der Nav-Kapsel */
+.topbar{
+  background:transparent;
+  box-shadow:none;
+}
+
+/* 5) Bildspalte schmaler statt unbegrenzt breit */
+.hero-split{
+  grid-template-columns:minmax(400px,1fr) minmax(360px,600px);
+}
