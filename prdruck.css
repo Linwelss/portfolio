@@ -2406,3 +2406,27 @@ main{padding-left:var(--nav-gutter);}
   transform:rotate(-1.2deg) translateY(-4px);
   box-shadow:0 30px 70px -24px rgba(27,23,20,.4);
 }
+
+/* ================= Hero-Bild: echter Browser-Screenshot, groß, weicher Schatten ================= */
+.hero-split-image{
+  padding:clamp(16px,3vw,32px);
+  background:transparent;
+}
+.hero-split-image img{
+  width:112%;
+  max-width:none;
+  height:auto;
+  border-radius:10px;
+  transform:rotate(-3deg);
+  box-shadow:0 40px 80px -30px rgba(27,23,20,.4), 0 14px 30px -14px rgba(27,23,20,.25);
+  transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
+}
+.hero-split-image:hover img{
+  transform:rotate(-1.2deg) translateY(-4px);
+  box-shadow:0 50px 90px -28px rgba(27,23,20,.45), 0 18px 36px -14px rgba(27,23,20,.3);
+}
+.hero-split-image.is-empty img{opacity:0;}
+.hero-split-image.is-empty .proof-missing{display:block;}
+@media (max-width:900px){
+  .hero-split-image img{width:100%;transform:rotate(-2deg);}
+}
