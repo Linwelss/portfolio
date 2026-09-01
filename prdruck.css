@@ -2802,3 +2802,22 @@ main{
 .hero-split-image.is-empty .wipe-frame{
   display:none;
 }
+
+/* ================= Fix: alte .hero-split-image img Regeln überschrieben den Wipe ================= */
+.hero-split-image .wipe-old{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  object-fit:cover !important;
+  object-position:top center !important;
+}
+.hero-split-image .wipe-new{
+  position:relative !important;
+  height:auto !important;
+}
+.hero-split-image .wipe-frame{
+  display:block;
+  position:relative;
+}
