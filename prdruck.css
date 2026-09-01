@@ -2966,3 +2966,11 @@ main{
     transform:none !important;
   }
 }
+
+/* ================= Ganzen Browser-Rahmen (Leiste + Inhalt) als Einheit leicht drehen ================= */
+.wipe-frame{
+  transform:rotate(-2deg) !important;
+}
+.hero-split-image:hover .wipe-frame{
+  transform:rotate(-0.8deg) translateY(-4px) !important;
+}
