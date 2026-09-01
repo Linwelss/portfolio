@@ -2821,3 +2821,26 @@ main{
   display:block;
   position:relative;
 }
+
+/* ================= Fix: Wipe-Rahmen braucht feste Proportion statt sich auf Bildgröße zu verlassen ================= */
+.wipe-frame{
+  aspect-ratio:16/10;
+  overflow:hidden;
+}
+.hero-split-image .wipe-new,
+.hero-split-image .wipe-old{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  object-fit:cover !important;
+  object-position:top center !important;
+}
+
+/* ================= Fix: Hero-Einzug (Sidebar-Breite) war durch den Zentrierungs-Fix verlorengegangen ================= */
+.hero-split{
+  padding-left:var(--nav-gutter);
+}
+@media (max-width:1080px){ .hero-split{ padding-left:200px; } }
+@media (max-width:860px){ .hero-split{ padding-left:0; } }
