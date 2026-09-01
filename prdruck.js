@@ -162,3 +162,24 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', update);
   update();
 })();
+
+// ---------- Alt/Neu Vergleich: synchrones Scrollen ----------
+(function(){
+  var viewports = document.querySelectorAll('.compare-viewport');
+  if (viewports.length < 2) return;
+  var syncing = false;
+  viewports.forEach(function(vp){
+    vp.addEventListener('scroll', function(){
+      if (syncing) return;
+      syncing = true;
+      var range = vp.scrollHeight - vp.clientHeight;
+      var pct = range > 0 ? vp.scrollTop / range : 0;
+      viewports.forEach(function(other){
+        if (other === vp) return;
+        var otherRange = other.scrollHeight - other.clientHeight;
+        other.scrollTop = pct * otherRange;
+      });
+      syncing = false;
+    }, { passive: true });
+  });
+})();
