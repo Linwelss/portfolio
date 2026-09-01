@@ -2308,3 +2308,86 @@ main{padding-left:var(--nav-gutter);}
   padding-top:14px;
   border-top:1.5px solid rgba(27,23,20,.18);
 }
+
+/* ================= Mehr Luft zwischen den Hero-Elementen ================= */
+.hero-split-content{
+  gap:0;
+}
+.hero-split-content .kategorie{
+  margin-bottom:28px;
+}
+.hero-logo{
+  margin:0 0 40px;
+}
+.hero-split .hero-desc{
+  margin:0 0 32px;
+}
+.hero-split .hero-meta{
+  margin:0 0 40px;
+}
+.hero-split .hero-stats{
+  margin-top:0;
+}
+
+/* ================= Hero-Bild: Browser-Frame statt Foto (Option A) ================= */
+.hero-split-image{
+  background:#EAF6EF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(28px,5vw,64px);
+}
+.hero-split-image img{
+  position:static;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.browser-frame{
+  width:100%;
+  max-width:640px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 24px 60px -24px rgba(27,23,20,.35);
+}
+.browser-bar{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 14px;
+  background:#f2eee6;
+}
+.browser-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:#d8d1c2;
+  flex:0 0 auto;
+}
+.browser-url{
+  margin-left:8px;
+  font-size:11.5px;
+  color:var(--ink-55);
+  background:#fff;
+  border-radius:100px;
+  padding:4px 14px;
+  flex:0 1 220px;
+}
+.browser-body{
+  position:relative;
+  background:#fbfbfa;
+  line-height:0;
+}
+.hero-split-image.is-empty .browser-body{
+  aspect-ratio:16/10;
+  background:repeating-linear-gradient(135deg,#f2eee6 0 12px,#ece7dd 12px 24px);
+}
+.hero-split-image.is-empty .browser-body img{opacity:0;}
+.hero-split-image .browser-body .proof-missing{display:none;}
+.hero-split-image.is-empty .browser-body .proof-missing{
+  display:block;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+}
+
+@media (max-width:900px){
+  .hero-split-image{padding:24px;}
+}
