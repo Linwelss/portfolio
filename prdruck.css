@@ -1902,3 +1902,79 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{
 .hero-visual.is-empty img{ opacity:0; }
 .hero-visual .proof-missing{ display:none; }
 .hero-visual.is-empty .proof-missing{ display:block; }
+
+/* ================= Kopfleiste als schwebende Glas-Kapsel ================= */
+.topbar{padding-top:18px;pointer-events:none;}
+.topbar-inner{
+  pointer-events:auto;
+  position:relative;
+  width:max-content;
+  max-width:calc(100vw - 32px);
+  margin-inline:auto;
+  height:auto;
+  padding:6px 8px;
+  gap:6px;
+  display:flex;
+  align-items:center;
+  border-radius:999px;
+  border:0;
+  -webkit-backdrop-filter:saturate(180%) blur(28px);
+  backdrop-filter:saturate(180%) blur(28px);
+  background:rgba(255,255,255,.72);
+  box-shadow:0 1px 0 rgba(255,255,255,.8) inset,
+             0 0 0 1px rgba(0,0,0,.06),
+             0 14px 40px -14px rgba(0,0,0,.26);
+}
+.topbar-div{
+  width:1px;height:18px;flex:0 0 1px;
+  background:rgba(10,10,10,.12);
+}
+.topbar-left,.topbar-center{
+  display:flex;align-items:center;gap:6px;
+  height:46px;padding:6px 12px;border-radius:999px;
+  font-size:13.5px;font-weight:500;letter-spacing:-.011em;
+  color:rgba(10,10,10,.62);
+}
+.topbar-left:hover{background:rgba(0,0,0,.05);color:#0a0a0a;transform:none;}
+.topbar-left svg{width:14px;height:14px;}
+.topbar-center{background:rgba(0,0,0,.05);color:#0a0a0a;font-weight:600;}
+.topbar-lang{
+  height:46px;padding:0 12px;border-radius:999px;border:0;
+  background:transparent;color:rgba(10,10,10,.62);
+  font-size:13.5px;font-weight:500;font-family:inherit;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.topbar-lang:hover{background:rgba(0,0,0,.05);color:#0a0a0a;transform:none;}
+
+.topbar-brand{
+  display:flex;align-items:center;gap:9px;
+  height:46px;padding:0 14px 0 11px;border-radius:16px;
+  color:#0A0A0A;text-decoration:none;
+  transition:transform .2s cubic-bezier(.22,1,.36,1), background .2s ease;
+}
+.topbar-brand:hover{background:#F0F0F2;color:#0A0A0A;}
+.topbar-brand:active{transform:scale(.94);}
+.topbar-mark{
+  display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:9px;flex-shrink:0;
+  background:linear-gradient(135deg,#248453 0%,#14562F 100%);
+  color:#fff;font-size:12.5px;font-weight:700;letter-spacing:-0.02em;
+}
+.topbar-name{
+  font-size:14.5px;font-weight:600;letter-spacing:-0.025em;white-space:nowrap;
+}
+@media (max-width:640px){.topbar-name{display:none;}.topbar-center{display:none;}}
+
+.topbar-kontakt{
+  display:flex;align-items:center;justify-content:center;
+  height:46px;padding:0 20px;border-radius:16px;
+  background:linear-gradient(135deg,#248453 0%,#14562F 100%);
+  color:#fff;font-size:14.5px;font-weight:600;letter-spacing:-0.01em;
+  white-space:nowrap;text-decoration:none;
+  box-shadow:0 2px 8px rgba(46,139,87,0.3);
+  transition:transform .2s cubic-bezier(.22,1,.36,1), filter .2s ease;
+}
+.topbar-kontakt:hover{color:#fff;filter:brightness(1.08);}
+.topbar-kontakt:active{transform:scale(.94);}
+
+.sidebar{top:70px;height:calc(100vh - 70px);}
