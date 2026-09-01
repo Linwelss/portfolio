@@ -2190,3 +2190,49 @@ body{background:#fff;}
   .hero-split-image{border-radius:0;aspect-ratio:4/3;order:-1;}
   .hero-split-content{padding-top:clamp(96px,14vh,140px);}
 }
+
+/* ================= Sidebar: schwebende Glaskarte, erst nach dem Hero sichtbar ================= */
+:root{--nav-gutter:236px;}
+
+.sidebar{
+  position:fixed;
+  left:0;
+  top:50%;
+  transform:translateY(-50%) translateX(-10px);
+  width:204px;flex:none;
+  height:auto;max-height:min(74vh,620px);
+  padding:14px 12px 12px 32px;
+  border:0;border-right:0;
+  border-radius:0 24px 24px 0;
+  background:rgba(255,255,255,.72);
+  -webkit-backdrop-filter:saturate(180%) blur(28px);
+  backdrop-filter:saturate(180%) blur(28px);
+  box-shadow:0 1px 0 rgba(255,255,255,.8) inset,
+             0 0 0 1px rgba(0,0,0,.06),
+             0 18px 50px -18px rgba(0,0,0,.28);
+  overflow:hidden;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s ease, transform .34s cubic-bezier(.22,1,.36,1);
+  z-index:90;
+}
+body.side-on .sidebar{
+  opacity:1;
+  transform:translateY(-50%) translateX(0);
+  pointer-events:auto;
+}
+.nav{overflow-y:auto;scrollbar-width:none;min-height:0;}
+.nav::-webkit-scrollbar{display:none;}
+.nav a{border-radius:10px;transition:background .2s ease, color .2s ease, transform .2s cubic-bezier(.22,1,.36,1);}
+.nav a:active{transform:scale(.96);}
+.nav a.active{background:rgba(0,0,0,.05);}
+.nav-figma{border-radius:12px;transition:background .2s ease, transform .2s cubic-bezier(.22,1,.36,1);}
+.nav-figma:active{transform:scale(.96);}
+
+main{padding-left:var(--nav-gutter);}
+.hero-split{
+  margin-left:calc(-1 * var(--nav-gutter));
+  width:calc(100% + var(--nav-gutter));
+}
+@media (max-width:1080px){:root{--nav-gutter:200px;} .sidebar{left:0;width:180px;}}
+@media (max-width:860px){:root{--nav-gutter:0px;} .sidebar{display:none;}}
+@media (prefers-reduced-motion: reduce){.sidebar{transition:none;}}
