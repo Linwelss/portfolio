@@ -2824,7 +2824,7 @@ main{
 
 /* ================= Fix: Wipe-Rahmen braucht feste Proportion statt sich auf Bildgröße zu verlassen ================= */
 .wipe-frame{
-  aspect-ratio:16/10;
+  aspect-ratio:1920/2043;
   overflow:hidden;
 }
 .hero-split-image .wipe-new,
