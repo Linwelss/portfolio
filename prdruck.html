@@ -54,28 +54,31 @@
 
   <!-- ============ MAIN ============ -->
   <main>
-    <div class="content-col">
 
-      <!-- ============ ÜBERBLICK ============ -->
-      <section id="ueberblick" class="hero-static">
+    <!-- ============ ÜBERBLICK (Split-Hero) ============ -->
+    <section id="ueberblick" class="hero-split">
+      <div class="hero-split-content">
         <span class="kategorie" data-de="UX/UI Design" data-en="UX/UI Design">UX/UI Design</span>
-        <h1 class="hero-title">pr.<span style="color:var(--sage,#e8785a);">druck</span></h1>
-        <p class="hero-desc" style="max-width:640px;" data-de="Redesign der Website eines Anbieters für Textilveredelung. Ich habe dort selbst am Telefon gearbeitet und aus erster Hand gehört, woran die alte Seite scheitert: Kund:innen riefen für Informationen an, die eigentlich schon online standen, nur zu gut versteckt." data-en="Redesign of a textile-refinement provider's website. I worked the phones there myself and heard first-hand where the old site failed: customers called for information that was already online, just too well hidden.">Redesign der Website eines Anbieters für Textilveredelung. Ich habe dort selbst am Telefon gearbeitet und aus erster Hand gehört, woran die alte Seite scheitert: Kund:innen riefen für Informationen an, die eigentlich schon online standen, nur zu gut versteckt.</p>
+        <img class="hero-logo" src="prdruck/prdruck.png" alt="pr.druck Logo" loading="lazy" onerror="this.closest('.hero-split-content').classList.add('logo-missing')">
+        <p class="hero-desc" data-de="Redesign der Website eines Anbieters für Textilveredelung. Als Mediengestalterin dort auch für die Auftragsannahme am Telefon verantwortlich, hörte ich aus erster Hand, woran die alte Seite scheiterte: Kund:innen riefen für Informationen an, die längst online standen, nur total versteckt." data-en="Redesign of a textile-refinement provider's website. As a media designer also responsible for phone orders there, I heard first-hand where the old site failed: customers called for information that was already online, just completely hidden.">Redesign der Website eines Anbieters für Textilveredelung. Als Mediengestalterin dort auch für die Auftragsannahme am Telefon verantwortlich, hörte ich aus erster Hand, woran die alte Seite scheiterte: Kund:innen riefen für Informationen an, die längst online standen, nur total versteckt.</p>
         <div class="hero-meta">
-          <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="UI Designer" data-en="UI Designer">UI Designer</span></span>
-          <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="Figma" data-en="Figma">Figma</span></span>
+          <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="UX/UI Design" data-en="UX/UI Design">UX/UI Design</span></span>
           <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span data-de="Januar 2026" data-en="January 2026">Januar 2026</span></span>
+          <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="Figma" data-en="Figma">Figma</span></span>
         </div>
         <div class="hero-stats">
           <div class="hs"><b>3</b><span class="hs-l" data-de="Zielgruppen-Cluster neu geordnet" data-en="audience clusters reorganized">Zielgruppen-Cluster neu geordnet</span></div>
           <div class="hs"><b>4</b><span class="hs-l" data-de="Fidelity-Stufen: Audit bis Hi-Fi" data-en="fidelity stages: audit to hi-fi">Fidelity-Stufen: Audit bis Hi-Fi</span></div>
-          <div class="hs"><b>1</b><span class="hs-l" data-de="bestehende, echte Website" data-en="existing, real website">bestehende, echte Website</span></div>
+          <div class="hs"><b>&lt;2</b><span class="hs-l" data-de="Klicks bis zur häufigsten Kundenfrage" data-en="clicks to the most common customer question">Klicks bis zur häufigsten Kundenfrage</span></div>
         </div>
-        <div class="hero-visual" id="heroVisual">
-          <img src="prdruck/hifi-hero.jpg" alt="pr.druck Hi-Fi Startseite" loading="lazy" onerror="this.closest('.hero-visual').classList.add('is-empty')">
-          <span class="proof-missing">prdruck/hifi-hero.jpg</span>
-        </div>
-      </section>
+      </div>
+      <div class="hero-split-image" id="heroSplitImage">
+        <img src="prdruck/header.jpg" alt="pr.druck Website in Benutzung, am Laptop geöffnet" loading="lazy" onerror="this.closest('.hero-split-image').classList.add('is-empty')">
+        <span class="proof-missing">prdruck/header.jpg</span>
+      </div>
+    </section>
+
+    <div class="content-col">
 
       <!-- ============ 01 AUSGANGSLAGE ============ -->
       <section id="ausgangslage" class="section reveal">
