@@ -149,7 +149,52 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTopbarContrast();
 });
 
-// ---------- Sidebar erscheint erst nach dem Hero ----------
+// ---------- Alt/Neu Vergleich: synchrones Scrollen (pro Container getrennt) ----------
+(function(){
+  document.querySelectorAll('.compare-scroll').forEach(function(container){
+    var viewports = container.querySelectorAll('.compare-viewport');
+    if (viewports.length < 2) return;
+    var syncing = false;
+    viewports.forEach(function(vp){
+      vp.addEventListener('scroll', function(){
+        if (syncing) return;
+        syncing = true;
+        var range = vp.scrollHeight - vp.clientHeight;
+        var pct = range > 0 ? vp.scrollTop / range : 0;
+        viewports.forEach(function(other){
+          if (other === vp) return;
+          var otherRange = other.scrollHeight - other.clientHeight;
+          other.scrollTop = pct * otherRange;
+        });
+        syncing = false;
+      }, { passive: true });
+    });
+  });
+})();
+
+// ---------- Alt/Neu Vergleich: Klick öffnet groß & scrollbar ----------
+(function(){
+  var lb = document.getElementById('compareLightbox');
+  var closeBtn = document.getElementById('compareLightboxClose');
+  if (!lb) return;
+  function open(){
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('#compareScroll .compare-viewport').forEach(function(vp){
+    vp.addEventListener('click', function(){
+      if (vp.classList.contains('is-empty')) return;
+      open();
+    });
+  });
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
 (function(){
   var hero = document.getElementById('ueberblick');
   if(!hero) return;
@@ -161,25 +206,4 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   update();
-})();
-
-// ---------- Alt/Neu Vergleich: synchrones Scrollen ----------
-(function(){
-  var viewports = document.querySelectorAll('.compare-viewport');
-  if (viewports.length < 2) return;
-  var syncing = false;
-  viewports.forEach(function(vp){
-    vp.addEventListener('scroll', function(){
-      if (syncing) return;
-      syncing = true;
-      var range = vp.scrollHeight - vp.clientHeight;
-      var pct = range > 0 ? vp.scrollTop / range : 0;
-      viewports.forEach(function(other){
-        if (other === vp) return;
-        var otherRange = other.scrollHeight - other.clientHeight;
-        other.scrollTop = pct * otherRange;
-      });
-      syncing = false;
-    }, { passive: true });
-  });
 })();
