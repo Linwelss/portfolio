@@ -222,24 +222,4 @@ document.addEventListener('DOMContentLoaded', () => {
   toggle();
 })();
 
-// ---------- Hero: Alt→Neu-Wipe beim Scrollen ----------
-(function(){
-  var frame = document.getElementById('wipeFrame');
-  var wrap = document.getElementById('heroSplitImage');
-  if (!frame || !wrap) return;
-  var DISTANCE = 650; // px Scroll-Strecke, über die der Wipe komplett durchläuft
-  var raf = null;
-  function update(){
-    raf = null;
-    var pct = Math.min(Math.max(window.scrollY / DISTANCE, 0), 1);
-    wrap.style.setProperty('--wipe', (pct * 100).toFixed(1) + '%');
-    wrap.style.setProperty('--old-o', (1 - pct).toFixed(2));
-    wrap.style.setProperty('--new-o', pct.toFixed(2));
-  }
-  function onScroll(){
-    if (!raf) raf = requestAnimationFrame(update);
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  update();
-})();
+// ---------- Hero: Alt→Neu-Wipe läuft automatisch per CSS-Animation (siehe prdruck.css) ----------
