@@ -2522,3 +2522,8 @@ html, body{
   line-height:1.35;
   color:var(--ink-55);
 }
+
+/* ================= Fix: Content wirklich zentriert statt durch Nav-Gutter verschoben ================= */
+main{
+  padding-left:0;
+}
