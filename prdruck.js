@@ -148,3 +148,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateTopbarContrast();
 });
+
+// ---------- Sidebar erscheint erst nach dem Hero ----------
+(function(){
+  var hero = document.getElementById('ueberblick');
+  if(!hero) return;
+  function update(){
+    var rect = hero.getBoundingClientRect();
+    var pastHero = rect.bottom < window.innerHeight * 0.5;
+    document.body.classList.toggle('side-on', pastHero);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
