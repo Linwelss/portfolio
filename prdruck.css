@@ -1978,3 +1978,151 @@ p, li, .fid-note, .concept-why, .loop-node p, .after{
 .topbar-kontakt:active{transform:scale(.94);}
 
 .sidebar{top:70px;height:calc(100vh - 70px);}
+
+/* ============================================================
+   iOS-TOUCH-LAYER — Oberflächen wie auf der Startseite
+   große Radien, warme Neutrals, Grün als einziger Akzent
+   ============================================================ */
+:root{
+  --r-card:24px;
+  --r-tile:18px;
+  --r-pill:100px;
+  --hairline:#e7e1d6;
+  --sh-rest:0 1px 3px rgba(27,23,20,.04), 0 2px 8px rgba(27,23,20,.035);
+  --sh-lift:0 10px 28px rgba(74,59,49,.13), 0 2px 6px rgba(27,23,20,.05);
+  --sh-glass:0 4px 20px rgba(74,59,49,.08);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --ease-ios:cubic-bezier(.4,0,.2,1);
+  --beige:#ece7dd;
+}
+html{-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);}
+
+.stat-card,
+.quote-card,
+.persona-card,
+.ia-card,
+.concept-card,
+.uebersicht-card,
+.build-card-compact,
+.data-table,
+.priority-col,
+.type-scale-compact,
+.accordion-item,
+.scatter-wrap,
+.admission,
+.limits,
+.proof-shot{
+  border-radius:var(--r-card);
+  box-shadow:var(--sh-rest);
+  transition:transform .25s var(--ease-ios), box-shadow .25s var(--ease-ios), background .25s ease;
+}
+.stat-card,
+.persona-card,
+.ia-card,
+.concept-card.discard,
+.build-card-compact,
+.data-table,
+.type-scale-compact,
+.accordion-item,
+.scatter-wrap,
+.admission{
+  background:#fff;
+  border:1px solid var(--hairline);
+}
+.quote-card{background:var(--beige);border:1px solid rgba(27,23,20,.05);}
+.uebersicht-card{background:#fff;border:1px solid var(--hairline);padding:22px;}
+.uebersicht-card:hover{background:#fff;transform:translateY(-3px);box-shadow:var(--sh-lift);}
+.stat-card:hover,
+.quote-card:hover,
+.persona-card:hover,
+.ia-card:hover,
+.concept-card.discard:hover,
+.build-card-compact:hover{transform:translateY(-3px);box-shadow:var(--sh-lift);}
+.concept-card{border-radius:var(--r-card);}
+.concept-card.chosen{background:var(--ink);border:1px solid var(--ink);}
+.concept-card.chosen:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(27,23,20,.28);}
+.uebersicht-divider{background:rgba(27,23,20,.07);}
+
+.kategorie,
+.pill-badge,
+.loop-pill,
+.concept-tag,
+.at-tag,
+.phase-label,
+.btn-outline-dark,
+.btn-ghost,
+.fid-flag{border-radius:var(--r-pill);}
+.loop-pill.outline{border:1px solid rgba(27,23,20,.12);color:var(--ink-55);background:#fff;}
+.loop-pill.filled{background:var(--sage);color:#fff;box-shadow:0 6px 16px rgba(76,175,122,.28);}
+.btn-outline-dark{transition:background .25s ease, transform .18s var(--spring);}
+.btn-outline-dark:active{transform:scale(.96);}
+
+.phone-screen,.mockup-screen,.fid-screen{border-radius:var(--pf-radius);overflow:hidden;}
+.b-shot-wrap{border-radius:var(--r-tile);overflow:hidden;}
+.avatar{border-radius:50%;overflow:hidden;}
+
+.data-table{overflow:hidden;}
+.data-table .t-head{background:var(--beige);}
+.data-table .t-row + .t-row{border-top:1px solid rgba(27,23,20,.07);}
+.accordion-item{overflow:hidden;margin-bottom:8px;}
+.accordion-trigger{transition:background .2s ease;}
+.accordion-trigger:hover{background:rgba(27,23,20,.03);}
+.priority-col{background:#fff;border:1px solid var(--hairline);padding:24px;}
+.priority-col.later{background:var(--beige);box-shadow:none;}
+
+.ergebnis-wrap{background:var(--deep-ink);}
+.kpi-card{border-radius:var(--r-card);}
+.ergebnis-list .dot{border-radius:50%;}
+.main-chip{border-radius:14px;}
+.cl-swatch{border-radius:7px;}
+
+.back-to-top{
+  border-radius:50%;
+  background:rgba(255,255,255,.75);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(27,23,20,.08);
+  box-shadow:var(--sh-glass);
+  color:var(--ink);
+  transition:transform .2s var(--spring), background .2s ease;
+}
+.back-to-top:hover{background:#fff;transform:translateY(-2px);}
+.back-to-top:active{transform:scale(.92);}
+
+/* ============================================================
+   WEISS + LINIEN — finale Grundfarben
+   Coral -> Grün bereits umgesetzt, hier zusätzlich die Basis von
+   warmem Beige auf reines Weiß mit dünnen Trennlinien umgestellt.
+   Das ist der Schritt, der bei sameSpot den heutigen, "sauberen"
+   Look ausmacht — ohne ihn bleibt alles im alten Beige-Stand hängen.
+   ============================================================ */
+:root{
+  --bg:#ffffff;
+  --beige:#ffffff;
+  --surface:#ffffff;
+  --hairline:rgba(27,23,20,.11);
+  --line-soft:rgba(27,23,20,.07);
+  --sage-tint:#E3F5EB;
+  --coral-tint:#E3F5EB;
+  --sh-rest:0 1px 2px rgba(27,23,20,.04);
+  --sh-lift:0 12px 30px -12px rgba(27,23,20,.16);
+  --content-pad:64px;
+}
+body{background:#fff;}
+.sidebar{border-right:1px solid var(--line-soft);background:#ffffff;}
+
+.quote-card,
+.data-table .t-head,
+.priority-col.later,
+.uebersicht-card,
+.priority-col{background:#fff;border:1px solid var(--hairline);}
+.quote-card{border-left:2px solid var(--sage);}
+.data-table .t-head{border:0;border-bottom:1px solid var(--ink-14);}
+.priority-col.later{box-shadow:none;opacity:.86;}
+.proof-shot img{background:#fbfbfa;}
+.proof-shot.is-empty{background:repeating-linear-gradient(135deg,#fafaf9 0 12px,#f3f3f1 12px 24px);}
+.fid-screen{background:#fbfbfa;}
+
+.section{padding-top:clamp(76px,8vw,116px);}
+.sub-gap{margin-top:clamp(56px,6vw,84px);}
