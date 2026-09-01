@@ -2275,3 +2275,36 @@ main{padding-left:var(--nav-gutter);}
 .hero-split{
   grid-template-columns:minmax(400px,1fr) minmax(360px,600px);
 }
+
+/* ================= Mehr visuelles Gewicht im Hero (Feedback: zu schwach) ================= */
+.hero-logo{
+  height:clamp(84px,13vw,148px);
+  margin:18px 0 22px;
+}
+.hero-split .hero-desc{
+  font-size:clamp(16px,1.7vw,19px);
+  line-height:1.55;
+  max-width:56ch;
+  color:var(--ink);
+}
+.hero-split .kategorie{
+  font-size:15.5px;
+  font-weight:600;
+  padding:7px 16px;
+}
+.hero-split .hero-meta .item{
+  font-size:14.5px;
+  font-weight:500;
+}
+.hero-split .hero-stats b{
+  font-size:clamp(30px,3.6vw,44px);
+  font-weight:700;
+}
+.hero-split .hero-stats .hs-l{
+  font-size:12.5px;
+  line-height:1.4;
+}
+.hero-split .hero-stats .hs{
+  padding-top:14px;
+  border-top:1.5px solid rgba(27,23,20,.18);
+}
