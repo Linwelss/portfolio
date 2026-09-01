@@ -2953,3 +2953,16 @@ main{
   .wipe-divider{ left:50%; }
   .wipe-tag-old, .wipe-tag-new{ opacity:1; }
 }
+
+/* ================= Fix: Alte Regel drehte die <img>-Elemente selbst, unabhängig vom Rahmen ================= */
+.hero-split-image .wipe-img{
+  transform:none !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  transition:none !important;
+}
+@media (max-width:900px){
+  .hero-split-image .wipe-img{
+    transform:none !important;
+  }
+}
