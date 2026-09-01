@@ -2430,3 +2430,40 @@ main{padding-left:var(--nav-gutter);}
 @media (max-width:900px){
   .hero-split-image img{width:100%;transform:rotate(-2deg);}
 }
+
+/* ================= Fix: Bild lief über den Viewport-Rand hinaus ================= */
+html, body{
+  overflow-x:hidden;
+}
+.hero-split-image{
+  padding:clamp(8px,2vw,20px) clamp(20px,4vw,40px);
+  overflow:visible;
+}
+.hero-split-image img{
+  width:100%;
+  max-width:100%;
+}
+
+/* ================= Bild weiter zur Mitte hin, sauberer Schatten ================= */
+.hero-split{
+  grid-template-columns:minmax(400px,1fr) minmax(320px,480px);
+  padding-right:clamp(24px,5vw,72px);
+}
+.hero-split-image{
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-split-image img{
+  width:100%;
+  max-width:440px;
+  box-shadow:0 34px 64px -24px rgba(27,23,20,.28);
+}
+.hero-split-image:hover img{
+  box-shadow:0 40px 74px -22px rgba(27,23,20,.32);
+}
+@media (max-width:900px){
+  .hero-split{padding-right:0;}
+  .hero-split-image img{max-width:520px;}
+}
