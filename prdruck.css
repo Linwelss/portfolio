@@ -2692,3 +2692,20 @@ main{
 .lp-pill-solid:hover{background:#0A0A0A;color:#fff;}
 .lp-social:hover{background:#fff;color:#0A0A0A;}
 .lp-imprint:hover{color:#fff;}
+
+/* ================= Beleg-Karten: Bild in Originalproportion statt beschnitten ================= */
+.proof-shot.natural img{
+  aspect-ratio:auto;
+  height:auto;
+  object-fit:contain;
+  background:#fbfbfa;
+}
+.proof-shot.natural.is-empty img{
+  display:none;
+}
+.proof-shot.natural.is-empty{
+  aspect-ratio:16/9;
+}
+
+/* struct-shot nicht mehr verwendet, aber falls noch irgendwo referenziert: unsichtbar machen statt Bruch */
+.struct-shot{ all: unset; }
