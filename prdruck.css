@@ -2900,3 +2900,56 @@ main{
 .wipe-body .wipe-old{
   clip-path:inset(0 var(--wipe) 0 0);
 }
+
+/* ================= Fix: Screens nicht mehr gedreht, Wipe läuft automatisch als Dauerschleife ================= */
+.wipe-frame{
+  transform:none !important;
+}
+.hero-split-image:hover .wipe-frame{
+  transform:translateY(-4px) !important;
+}
+
+.wipe-body .wipe-old{
+  clip-path:inset(0 0% 0 0);
+  animation:wipeReveal 5s ease-in-out infinite alternate;
+}
+.wipe-divider{
+  animation:wipeDividerMove 5s ease-in-out infinite alternate;
+}
+.wipe-tag-old{
+  animation:wipeTagOld 5s ease-in-out infinite alternate;
+}
+.wipe-tag-new{
+  animation:wipeTagNew 5s ease-in-out infinite alternate;
+}
+
+@keyframes wipeReveal{
+  0%   { clip-path:inset(0 0% 0 0); }
+  100% { clip-path:inset(0 100% 0 0); }
+}
+@keyframes wipeDividerMove{
+  0%   { left:100%; }
+  100% { left:0%; }
+}
+@keyframes wipeTagOld{
+  0%   { opacity:1; }
+  85%  { opacity:1; }
+  100% { opacity:0; }
+}
+@keyframes wipeTagNew{
+  0%   { opacity:0; }
+  15%  { opacity:0; }
+  100% { opacity:1; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .wipe-body .wipe-old,
+  .wipe-divider,
+  .wipe-tag-old,
+  .wipe-tag-new{
+    animation:none;
+  }
+  .wipe-body .wipe-old{ clip-path:inset(0 50% 0 0); }
+  .wipe-divider{ left:50%; }
+  .wipe-tag-old, .wipe-tag-new{ opacity:1; }
+}
