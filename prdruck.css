@@ -2391,3 +2391,18 @@ main{padding-left:var(--nav-gutter);}
 @media (max-width:900px){
   .hero-split-image{padding:24px;}
 }
+
+/* ================= Browser-Fenster: lässig schräg, ohne Hintergrundfläche ================= */
+.hero-split-image{
+  background:transparent;
+  padding:clamp(28px,5vw,72px);
+}
+.hero-split-image.is-empty{background:transparent;}
+.browser-frame{
+  transform:rotate(-3deg);
+  transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
+}
+.hero-split-image:hover .browser-frame{
+  transform:rotate(-1.2deg) translateY(-4px);
+  box-shadow:0 30px 70px -24px rgba(27,23,20,.4);
+}
