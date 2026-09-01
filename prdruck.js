@@ -207,3 +207,17 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', update);
   update();
 })();
+
+// ---------- Sidebar bei "Über mich" ausblenden ----------
+(function(){
+  var sidebar = document.querySelector('.sidebar');
+  var boundary = document.getElementById('ueber-mich-cs');
+  if (!sidebar || !boundary) return;
+  function toggle(){
+    var rect = boundary.getBoundingClientRect();
+    sidebar.classList.toggle('is-hidden', rect.top < window.innerHeight * 0.5);
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  window.addEventListener('resize', toggle);
+  toggle();
+})();
