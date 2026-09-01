@@ -2654,3 +2654,8 @@ main{
 .lede{
   text-wrap:pretty;
 }
+
+/* ================= Fix: Fließtext bricht zu früh, obwohl Platz frei ist ================= */
+.lede{
+  max-width:820px !important;
+}
