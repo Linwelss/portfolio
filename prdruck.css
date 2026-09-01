@@ -2467,3 +2467,15 @@ html, body{
   .hero-split{padding-right:0;}
   .hero-split-image img{max-width:520px;}
 }
+
+/* ================= Bild größer, stärker zentriert ================= */
+.hero-split{
+  grid-template-columns:minmax(360px,0.85fr) minmax(420px,1fr);
+  padding-right:clamp(16px,3vw,40px);
+}
+.hero-split-image img{
+  max-width:620px;
+}
+@media (max-width:1200px){
+  .hero-split-image img{max-width:520px;}
+}
