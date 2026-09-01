@@ -223,3 +223,54 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 // ---------- Hero: Alt→Neu-Wipe läuft automatisch per CSS-Animation (siehe prdruck.css) ----------
+
+// ---------- Zahlen zählen beim Erscheinen hoch (Hero-Stats & Co.) ----------
+(function(){
+  var targets = document.querySelectorAll('.hero-stats b');
+  if (!targets.length) return;
+
+  function animateCount(el){
+    var text = el.textContent.trim();
+    var match = text.match(/^([^\d]*)(\d+)([^\d]*)$/);
+    if (!match) return; // kein reiner Zahlenwert enthalten, nichts animieren
+    var prefix = match[1], target = parseInt(match[2], 10), suffix = match[3];
+    var duration = 900;
+    var startTime = null;
+    function step(ts){
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  targets.forEach(function(el){ io.observe(el); });
+})();
+
+// ---------- Micro-Animation: sanftes Parallax auf dem Hero-Bild ----------
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var wrap = document.getElementById('heroSplitImage');
+  if (!wrap) return;
+  var raf = null;
+  function update(){
+    raf = null;
+    var y = Math.min(window.scrollY * 0.08, 40);
+    wrap.style.transform = 'translateY(' + y.toFixed(1) + 'px)';
+  }
+  function onScroll(){ if (!raf) raf = requestAnimationFrame(update); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  update();
+})();
