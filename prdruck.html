@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pr.druck Case Study</title>
+<link rel="stylesheet" href="prdruck.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ TOP NAVBAR ============ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-left" href="/">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-de="Zur Startseite" data-en="Back to home">Zur Startseite</span>
+    </a>
+    <span class="topbar-div" aria-hidden="true"></span>
+    <a class="topbar-brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <span class="topbar-mark" aria-hidden="true">LA</span>
+      <span class="topbar-name">Lina Melissa Arndt</span>
+    </a>
+    <span class="topbar-div" aria-hidden="true"></span>
+    <a class="topbar-kontakt" href="https://www.linamelissa.de/#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    <button type="button" class="topbar-lang" id="lang-toggle">EN</button>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <nav class="nav">
+      <a href="#ueberblick" class="active nav-top" data-nav data-de="Überblick" data-en="Overview">Überblick</a>
+
+      <a href="#ausgangslage" class="chapter" data-nav data-chapter-for="ausgangslage"><span class="num">01</span><span data-de="Ausgangslage" data-en="Starting Point">Ausgangslage</span></a>
+      <a href="#telefon" class="sub" data-nav data-de="Was ich am Telefon gehört habe" data-en="What I heard on the phone">Was ich am Telefon gehört habe</a>
+      <a href="#audit" class="sub" data-nav data-de="Audit" data-en="Audit">Audit</a>
+
+      <a href="#struktur" class="chapter" data-nav data-chapter-for="struktur"><span class="num">02</span><span data-de="Struktur" data-en="Structure">Struktur</span></a>
+      <a href="#cluster" class="sub" data-nav data-de="Drei Zielgruppen, drei Wege" data-en="Three audiences, three paths">Drei Zielgruppen, drei Wege</a>
+      <a href="#drucktechniken" class="sub" data-nav data-de="Drucktechniken sichtbar machen" data-en="Making print techniques visible">Drucktechniken sichtbar machen</a>
+      <a href="#vertrauen" class="sub" data-nav data-de="Vertrauen über Partnermarken" data-en="Trust via partner brands">Vertrauen über Partnermarken</a>
+
+      <a href="#fidelity" class="chapter" data-nav data-chapter-for="fidelity"><span class="num">03</span><span data-de="Vom Audit zum Hi-Fi" data-en="From Audit to Hi-Fi">Vom Audit zum Hi-Fi</span></a>
+
+      <a href="#ergebnis" class="chapter" data-nav data-chapter-for="ergebnis"><span class="num">04</span><span data-de="Ergebnis" data-en="Result">Ergebnis</span></a>
+      <a href="#grenzen" class="sub" data-nav data-de="Grenzen" data-en="Limits">Grenzen</a>
+    </nav>
+    <div class="sidebar-footer" data-de="UI-Redesign 2026" data-en="UI Redesign 2026">UI-Redesign 2026</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <div class="content-col">
+
+      <!-- ============ ÜBERBLICK ============ -->
+      <section id="ueberblick" class="hero-static">
+        <span class="kategorie" data-de="UX/UI Design" data-en="UX/UI Design">UX/UI Design</span>
+        <h1 class="hero-title">pr.<span style="color:var(--sage,#e8785a);">druck</span></h1>
+        <p class="hero-desc" style="max-width:640px;" data-de="Redesign der Website eines Anbieters für Textilveredelung. Ich habe dort selbst am Telefon gearbeitet und aus erster Hand gehört, woran die alte Seite scheitert: Kund:innen riefen für Informationen an, die eigentlich schon online standen, nur zu gut versteckt." data-en="Redesign of a textile-refinement provider's website. I worked the phones there myself and heard first-hand where the old site failed: customers called for information that was already online, just too well hidden.">Redesign der Website eines Anbieters für Textilveredelung. Ich habe dort selbst am Telefon gearbeitet und aus erster Hand gehört, woran die alte Seite scheitert: Kund:innen riefen für Informationen an, die eigentlich schon online standen, nur zu gut versteckt.</p>
+        <div class="hero-meta">
+          <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="UI Designer" data-en="UI Designer">UI Designer</span></span>
+          <span class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.472c.663.664 1 1.442 1 2.528h6c0-1.086.337-1.864 1-2.528A6 6 0 0012 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-de="Figma" data-en="Figma">Figma</span></span>
+          <span class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span data-de="Januar 2026" data-en="January 2026">Januar 2026</span></span>
+        </div>
+        <div class="hero-stats">
+          <div class="hs"><b>3</b><span class="hs-l" data-de="Zielgruppen-Cluster neu geordnet" data-en="audience clusters reorganized">Zielgruppen-Cluster neu geordnet</span></div>
+          <div class="hs"><b>4</b><span class="hs-l" data-de="Fidelity-Stufen: Audit bis Hi-Fi" data-en="fidelity stages: audit to hi-fi">Fidelity-Stufen: Audit bis Hi-Fi</span></div>
+          <div class="hs"><b>1</b><span class="hs-l" data-de="bestehende, echte Website" data-en="existing, real website">bestehende, echte Website</span></div>
+        </div>
+        <div class="hero-visual" id="heroVisual">
+          <img src="prdruck/hifi-hero.jpg" alt="pr.druck Hi-Fi Startseite" loading="lazy" onerror="this.closest('.hero-visual').classList.add('is-empty')">
+          <span class="proof-missing">prdruck/hifi-hero.jpg</span>
+        </div>
+      </section>
+
+      <!-- ============ 01 AUSGANGSLAGE ============ -->
+      <section id="ausgangslage" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">01</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Ausgangslage" data-en="Starting Point">Ausgangslage</span>
+            <h2 class="h2-oneline" style="margin-top:6px;" data-de="Die Antwort stand schon da, <span class=&quot;accent-italic&quot;>nur keiner fand sie.</span>" data-en="The answer was already there, <span class=&quot;accent-italic&quot;>nobody could find it.</span>">Die Antwort stand schon da, <span class="accent-italic">nur keiner fand sie.</span></h2>
+          </div>
+        </div>
+
+        <div class="chain sub-gap" id="telefon" style="margin-top:52px;">
+          <div class="chain-step">
+            <div class="chain-rail"><span class="chain-num">01</span><span class="chain-line"></span></div>
+            <div class="chain-body">
+              <span class="chain-kicker" data-de="Der Ausgangspunkt" data-en="The starting point">Der Ausgangspunkt</span>
+              <p class="say" data-de="Ich hab bei pr.druck selbst am Telefon gesessen, <span class=&quot;accent-italic&quot;>nicht nur am Design.</span>" data-en="I sat at the phones at pr.druck myself, <span class=&quot;accent-italic&quot;>not just at the design.</span>">Ich hab bei pr.druck selbst am Telefon gesessen, <span class="accent-italic">nicht nur am Design.</span></p>
+              <p class="after" data-de="Kein Interview, keine Umfrage. Ich habe die immer gleichen Fragen live von echten Kund:innen bekommen, während ich gleichzeitig wusste: die Antwort steht eigentlich auf der Website." data-en="No interviews, no survey. I got the same recurring questions live from real customers, while knowing the whole time: the answer was actually already on the website.">Kein Interview, keine Umfrage. Ich habe die immer gleichen Fragen live von echten Kund:innen bekommen, während ich gleichzeitig wusste: die Antwort steht eigentlich auf der Website.</p>
+            </div>
+          </div>
+
+          <div class="chain-step">
+            <div class="chain-rail"><span class="chain-num">02</span><span class="chain-line"></span></div>
+            <div class="chain-body">
+              <span class="chain-kicker" data-de="Was immer wieder kam" data-en="What kept coming up">Was immer wieder kam</span>
+              <p class="say" data-de="Dieselben drei, vier Fragen, <span class=&quot;accent-italic&quot;>Woche für Woche.</span>" data-en="The same three or four questions, <span class=&quot;accent-italic&quot;>week after week.</span>">Dieselben drei, vier Fragen, <span class="accent-italic">Woche für Woche.</span></p>
+              <p class="after" data-de="Welche Drucktechniken es gibt und was sie kosten. Ob auch kleine Stückzahlen für Teams möglich sind. Ob die Marke selbst liefern kann oder man eigene Textilien mitbringen darf. Alles Dinge, die auf der Seite standen, aber in Fließtext-Absätzen vergraben oder unter falschen Menüpunkten." data-en="Which print techniques exist and what they cost. Whether small quantities are possible for teams. Whether the brand supplies textiles or you can bring your own. All things that were on the site, but buried in paragraphs of text or under the wrong menu items.">Welche Drucktechniken es gibt und was sie kosten. Ob auch kleine Stückzahlen für Teams möglich sind. Ob die Marke selbst liefern kann oder man eigene Textilien mitbringen darf. Alles Dinge, die auf der Seite standen, aber in Fließtext-Absätzen vergraben oder unter falschen Menüpunkten.</p>
+            </div>
+          </div>
+
+          <div class="chain-step">
+            <div class="chain-rail"><span class="chain-num">03</span></div>
+            <div class="chain-body">
+              <span class="chain-kicker" data-de="Die eigentliche These" data-en="The actual thesis">Die eigentliche These</span>
+              <div class="verdict">
+                <p data-de="Es fehlte keine Information. Es fehlte eine Struktur, <em>die zeigt, wer gerade auf der Seite ist</em>, und ihr direkt die richtigen Antworten gibt." data-en="It wasn't missing information. What was missing was a structure <em>that recognizes who's on the site right now</em> and gives them the right answers directly.">Es fehlte keine Information. Es fehlte eine Struktur, <em>die zeigt, wer gerade auf der Seite ist</em>, und ihr direkt die richtigen Antworten gibt.</p>
+                <div class="foot" data-de="Grundlage: eigene Beobachtung im Kundensupport bei pr.druck" data-en="Basis: own observation in customer support at pr.druck">Grundlage: eigene Beobachtung im Kundensupport bei pr.druck</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audit -->
+        <div class="sub-gap" id="audit">
+          <span class="eyebrow" data-de="Audit" data-en="Audit">Audit</span>
+          <h3 data-de="Drei strukturelle Probleme, <span class=&quot;accent-italic&quot;>keine Textprobleme.</span>" data-en="Three structural problems, <span class=&quot;accent-italic&quot;>not text problems.</span>">Drei strukturelle Probleme, <span class="accent-italic">keine Textprobleme.</span></h3>
+          <p class="lede" style="max-width:64ch;" data-de="Die bestehende Seite hatte fast alle Inhalte, die es brauchte. Das Problem lag in der Anordnung: Es gab keine Sortierung nach Zielgruppe, Drucktechniken waren nur an einer Stelle knapp erwähnt, und Vertrauenssignale (bekannte Partnermarken) standen isoliert am Seitenende statt dort, wo Entscheidungen fallen." data-en="The existing site had almost all the content it needed. The problem was in the arrangement: there was no sorting by audience, print techniques were only briefly mentioned in one spot, and trust signals (known partner brands) sat isolated at the bottom instead of where decisions get made.">Die bestehende Seite hatte fast alle Inhalte, die es brauchte. Das Problem lag in der Anordnung: Es gab keine Sortierung nach Zielgruppe, Drucktechniken waren nur an einer Stelle knapp erwähnt, und Vertrauenssignale (bekannte Partnermarken) standen isoliert am Seitenende statt dort, wo Entscheidungen fallen.</p>
+
+          <div class="findings-log">
+            <div class="finding-row">
+              <span class="fl-num">01</span>
+              <span class="fl-obs" data-de="Keine Trennung nach Zielgruppe: Merch-Drops, Teams/Unternehmen und Sonderanwendungen standen alle im selben, undifferenzierten Textblock." data-en="No separation by audience: merch drops, teams/companies and special applications all sat in the same undifferentiated text block.">Keine Trennung nach Zielgruppe: Merch-Drops, Teams/Unternehmen und Sonderanwendungen standen alle im selben, undifferenzierten Textblock.</span>
+              <span class="fl-fix" data-de="gelöst in Kapitel 02: drei eigene Cluster" data-en="solved in chapter 02: three dedicated clusters">gelöst in Kapitel 02: drei eigene Cluster</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">02</span>
+              <span class="fl-obs" data-de="Drucktechniken (Direktdruck, Siebdruck, Transferdruck, Sticker) wurden nirgends vergleichbar nebeneinander gezeigt, obwohl genau das die häufigste Telefonfrage war." data-en="Print techniques (direct print, screen print, transfer print, stickers) were never shown side by side for comparison, even though that was the most common phone question.">Drucktechniken (Direktdruck, Siebdruck, Transferdruck, Sticker) wurden nirgends vergleichbar nebeneinander gezeigt, obwohl genau das die häufigste Telefonfrage war.</span>
+              <span class="fl-fix" data-de="gelöst in Kapitel 02: eigener Drucktechniken-Bereich" data-en="solved in chapter 02: dedicated print-techniques area">gelöst in Kapitel 02: eigener Drucktechniken-Bereich</span>
+            </div>
+            <div class="finding-row">
+              <span class="fl-num">03</span>
+              <span class="fl-obs" data-de="Die Partnermarke Stanley/Stella tauchte nur ganz unten auf der Seite auf, nach allen Inhalten, statt als Vertrauenssignal in der Nähe der Kaufentscheidung." data-en="The partner brand Stanley/Stella only appeared at the very bottom of the page, after all content, instead of as a trust signal near the purchase decision.">Die Partnermarke Stanley/Stella tauchte nur ganz unten auf der Seite auf, nach allen Inhalten, statt als Vertrauenssignal in der Nähe der Kaufentscheidung.</span>
+              <span class="fl-fix" data-de="gelöst in Kapitel 02: Partnermarken weiter oben" data-en="solved in chapter 02: partner brands moved higher up">gelöst in Kapitel 02: Partnermarken weiter oben</span>
+            </div>
+          </div>
+
+          <div class="belege-open">
+            <span class="belege-kick" data-de="Beleg" data-en="Evidence">Beleg</span>
+            <figure class="proof-shot wide">
+              <img src="prdruck/audit-alt.jpg" alt="Bestehende pr.druck-Website vor dem Redesign" loading="lazy" onerror="this.closest('.proof-shot').classList.add('is-empty');">
+              <span class="proof-missing">prdruck/audit-alt.jpg</span>
+              <figcaption data-de="<b>Die bestehende Website</b>: Inhalte fast vollständig vorhanden, aber ohne Struktur nach Zielgruppe oder Kaufentscheidung." data-en="<b>The existing website</b>: content almost entirely present, but without structure by audience or purchase decision."><b>Die bestehende Website</b>: Inhalte fast vollständig vorhanden, aber ohne Struktur nach Zielgruppe oder Kaufentscheidung.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 02 STRUKTUR ============ -->
+      <section id="struktur" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">02</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Struktur" data-en="Structure">Struktur</span>
+            <h2 style="margin-top:6px;" data-de="Also habe ich <span class=&quot;accent-italic&quot;>nach Person sortiert,</span> nicht nach Produkt." data-en="So I sorted <span class=&quot;accent-italic&quot;>by person,</span> not by product.">Also habe ich <span class="accent-italic">nach Person sortiert,</span> nicht nach Produkt.</h2>
+          </div>
+        </div>
+
+        <div class="sub-gap" id="cluster">
+          <span class="eyebrow" data-de="Drei Zielgruppen, drei Wege" data-en="Three Audiences, Three Paths">Drei Zielgruppen, drei Wege</span>
+          <h3 data-de="Wer auf die Seite kommt, <span class=&quot;accent-italic&quot;>will meist nur eine der drei Antworten.</span>" data-en="Whoever lands on the site <span class=&quot;accent-italic&quot;>usually only wants one of the three answers.</span>">Wer auf die Seite kommt, <span class="accent-italic">will meist nur eine der drei Antworten.</span></h3>
+          <p class="lede" style="max-width:64ch;" data-de="Aus den wiederkehrenden Anrufen ließen sich drei klare Anliegen ablesen. Die neue Struktur macht daraus drei eigene Einstiege, statt alle in einem Text zu vermischen." data-en="The recurring calls revealed three clear intents. The new structure turns those into three dedicated entry points instead of blending everything into one text.">Aus den wiederkehrenden Anrufen ließen sich drei klare Anliegen ablesen. Die neue Struktur macht daraus drei eigene Einstiege, statt alle in einem Text zu vermischen.</p>
+
+          <div class="ia-grid" style="grid-template-columns:repeat(3,1fr);">
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="For Merch & Drops" data-en="For Merch & Drops">For Merch & Drops</div>
+              <ul>
+                <li data-de="Kleinserien für Creator" data-en="Small batches for creators">Kleinserien für Creator</li>
+                <li data-de="Schnelle Umsetzung" data-en="Fast turnaround">Schnelle Umsetzung</li>
+                <li data-de="Direkter Online-Bestellweg" data-en="Direct online ordering">Direkter Online-Bestellweg</li>
+              </ul>
+            </div>
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="For Teams & Companies" data-en="For Teams & Companies">For Teams & Companies</div>
+              <ul>
+                <li data-de="Größere Stückzahlen" data-en="Larger quantities">Größere Stückzahlen</li>
+                <li data-de="Persönliche Anfrage statt Sofortkauf" data-en="Personal inquiry instead of instant checkout">Persönliche Anfrage statt Sofortkauf</li>
+                <li data-de="Firmenbezug im Ton" data-en="Business-oriented tone">Firmenbezug im Ton</li>
+              </ul>
+            </div>
+            <div class="ia-card">
+              <div class="ia-dot-title" data-de="For Special Applications" data-en="For Special Applications">For Special Applications</div>
+              <ul>
+                <li data-de="Individuelle Materialien" data-en="Custom materials">Individuelle Materialien</li>
+                <li data-de="Beratung statt Katalog" data-en="Consultation instead of catalog">Beratung statt Katalog</li>
+                <li data-de="Anfragebasiert" data-en="Inquiry-based">Anfragebasiert</li>
+              </ul>
+            </div>
+          </div>
+          <p class="ia-caption" data-de="Direkt im Hero sichtbar: „Direkt online bestellen“ vs. „Persönliche Anfrage“ als zwei große, gleichwertige Wege, statt einer einzigen Kaufoption für alle." data-en="Directly visible in the hero: 'Order directly online' vs. 'Personal inquiry' as two large, equal paths, instead of one single purchase option for everyone.">Direkt im Hero sichtbar: „Direkt online bestellen“ vs. „Persönliche Anfrage“ als zwei große, gleichwertige Wege, statt einer einzigen Kaufoption für alle.</p>
+        </div>
+
+        <div class="sub-gap" id="drucktechniken">
+          <span class="eyebrow" data-de="Drucktechniken sichtbar machen" data-en="Making Print Techniques Visible">Drucktechniken sichtbar machen</span>
+          <h3 data-de="Die häufigste Anruf-Frage bekam <span class=&quot;accent-italic&quot;>einen eigenen Bereich.</span>" data-en="The most common call question got <span class=&quot;accent-italic&quot;>its own section.</span>">Die häufigste Anruf-Frage bekam <span class="accent-italic">einen eigenen Bereich.</span></h3>
+          <p class="lede" style="max-width:62ch;" data-de="Digitaldirektdruck, Siebdruck, Transferdruck und Sticker jetzt nebeneinander statt verstreut im Fließtext, jeweils mit knapper Einordnung, wofür sich welche Technik eignet." data-en="Digital direct print, screen print, transfer print and stickers now sit side by side instead of scattered through the copy, each with a short note on what it's suited for.">Digitaldirektdruck, Siebdruck, Transferdruck und Sticker jetzt nebeneinander statt verstreut im Fließtext, jeweils mit knapper Einordnung, wofür sich welche Technik eignet.</p>
+        </div>
+
+        <div class="sub-gap" id="vertrauen">
+          <span class="eyebrow" data-de="Vertrauen über Partnermarken" data-en="Trust via Partner Brands">Vertrauen über Partnermarken</span>
+          <h3 data-de="Stanley/Stella rückt <span class=&quot;accent-italic&quot;>näher an die Entscheidung.</span>" data-en="Stanley/Stella moves <span class=&quot;accent-italic&quot;>closer to the decision.</span>">Stanley/Stella rückt <span class="accent-italic">näher an die Entscheidung.</span></h3>
+          <p class="lede" style="max-width:60ch;" data-de="Statt als Randnotiz am Seitenende erscheint die Partnermarke jetzt weiter oben, direkt nach dem „Was uns besonders macht“-Bereich, wo Vertrauen tatsächlich gebraucht wird." data-en="Instead of a footnote at the bottom, the partner brand now appears higher up, right after the 'What makes us different' section, where trust is actually needed.">Statt als Randnotiz am Seitenende erscheint die Partnermarke jetzt weiter oben, direkt nach dem „Was uns besonders macht“-Bereich, wo Vertrauen tatsächlich gebraucht wird.</p>
+        </div>
+      </section>
+
+      <!-- ============ 03 VOM AUDIT ZUM HI-FI ============ -->
+      <section id="fidelity" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">03</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Vom Audit zum Hi-Fi" data-en="From Audit to Hi-Fi">Vom Audit zum Hi-Fi</span>
+            <h2 style="margin-top:6px;" data-de="Zwei Lo-Fi-Runden, <span class=&quot;accent-italic&quot;>bevor die Farbe dazukam.</span>" data-en="Two rounds of lo-fi <span class=&quot;accent-italic&quot;>before color entered the picture.</span>">Zwei Lo-Fi-Runden, <span class="accent-italic">bevor die Farbe dazukam.</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="max-width:66ch;margin-top:14px;" data-de="Die Grobstruktur (Hero → How it works → Was uns besonders macht → Gruppierung nach Zielgruppe → Textilien → Drucktechniken) stand schon im ersten Lo-Fi. Die zweite Runde hat vor allem die Gruppierung und den Partnermarken-Block nach oben gezogen, bevor daraus das finale Hi-Fi-Design wurde." data-en="The rough structure (hero → how it works → what makes us different → grouping by audience → fabrics → print techniques) was already there in the first lo-fi. The second round mainly pulled the grouping and the partner-brand block further up, before it became the final hi-fi design.">Die Grobstruktur (Hero → How it works → Was uns besonders macht → Gruppierung nach Zielgruppe → Textilien → Drucktechniken) stand schon im ersten Lo-Fi. Die zweite Runde hat vor allem die Gruppierung und den Partnermarken-Block nach oben gezogen, bevor daraus das finale Hi-Fi-Design wurde.</p>
+
+        <div class="fidelity f4" style="margin-top:34px;">
+          <div class="fid-step">
+            <div class="fid-stage"><b>01</b> <span data-de="Bestand" data-en="Existing">Bestand</span></div>
+            <div class="fid-shot" style="aspect-ratio:4/5;">
+              <div class="fid-screen"><img src="prdruck/audit-alt.jpg" alt="Bestehende Website vor dem Redesign" onerror="this.closest('.fid-step').classList.add('is-empty')"></div>
+            </div>
+            <div class="fid-title" data-de="Alte Website" data-en="Old Website">Alte Website</div>
+            <p class="fid-note" data-de="Inhalte vorhanden, aber ohne Sortierung nach Zielgruppe oder Kaufweg." data-en="Content present, but no sorting by audience or purchase path.">Inhalte vorhanden, aber ohne Sortierung nach Zielgruppe oder Kaufweg.</p>
+          </div>
+          <div class="fid-step">
+            <div class="fid-stage"><b>02</b> <span data-de="Lo-Fi 1" data-en="Lo-Fi 1">Lo-Fi 1</span></div>
+            <div class="fid-shot" style="aspect-ratio:4/5;">
+              <div class="fid-screen"><img src="prdruck/lofi1.jpg" alt="Lo-Fi Wireframe, erste Runde" onerror="this.closest('.fid-step').classList.add('is-empty')"></div>
+            </div>
+            <div class="fid-title" data-de="Erste Grobstruktur" data-en="First Rough Structure">Erste Grobstruktur</div>
+            <p class="fid-note" data-de="Hero, „How it works“, Gruppierung nach Zielgruppe zum ersten Mal als eigener Block." data-en="Hero, 'how it works', grouping by audience as its own block for the first time.">Hero, „How it works“, Gruppierung nach Zielgruppe zum ersten Mal als eigener Block.</p>
+          </div>
+          <div class="fid-step">
+            <div class="fid-stage"><b>03</b> <span data-de="Lo-Fi 2" data-en="Lo-Fi 2">Lo-Fi 2</span></div>
+            <div class="fid-shot" style="aspect-ratio:4/5;">
+              <div class="fid-screen"><img src="prdruck/lofi2.jpg" alt="Lo-Fi Wireframe, zweite Runde" onerror="this.closest('.fid-step').classList.add('is-empty')"></div>
+            </div>
+            <div class="fid-title" data-de="Reihenfolge geschärft" data-en="Order Sharpened">Reihenfolge geschärft</div>
+            <p class="fid-note" data-de="Drucktechniken und Partnermarken-Vertrauen rücken näher an den Anfang." data-en="Print techniques and partner-brand trust move closer to the top.">Drucktechniken und Partnermarken-Vertrauen rücken näher an den Anfang.</p>
+          </div>
+          <div class="fid-step is-final">
+            <div class="fid-stage"><b>04</b> <span data-de="Hi-Fi" data-en="Hi-Fi">Hi-Fi</span></div>
+            <div class="fid-shot" style="aspect-ratio:4/5;">
+              <div class="fid-screen"><img src="prdruck/hifi-full.jpg" alt="Finales Hi-Fi Design" onerror="this.closest('.fid-step').classList.add('is-empty')"></div>
+            </div>
+            <div class="fid-title" data-de="Finales Design" data-en="Final Design">Finales Design</div>
+            <p class="fid-note" data-de="Markenfarbe Grün, klare Kategorie-Navigation, Partnermarke direkt unter dem Vertrauens-Block." data-en="Brand green, clear category navigation, partner brand right under the trust block.">Markenfarbe Grün, klare Kategorie-Navigation, Partnermarke direkt unter dem Vertrauens-Block.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 ERGEBNIS ============ -->
+      <section id="ergebnis" class="section reveal">
+        <div class="chapter-head">
+          <span class="chapter-num">04</span>
+          <span class="chapter-rule" aria-hidden="true"></span>
+          <div>
+            <span class="eyebrow" data-de="Ergebnis" data-en="Result">Ergebnis</span>
+            <h2 style="margin-top:6px;" data-de="Kein A/B-Test, <span class=&quot;accent-italic&quot;>aber ein klarer Unterschied.</span>" data-en="No A/B test, <span class=&quot;accent-italic&quot;>but a clear difference.</span>">Kein A/B-Test, <span class="accent-italic">aber ein klarer Unterschied.</span></h2>
+          </div>
+        </div>
+
+        <div class="admission" style="margin-top:14px;">
+          <p class="admission-line" data-de="Die Fragen vom Telefon lassen sich jetzt <span class=&quot;accent-italic&quot;>alle in unter zwei Klicks beantworten.</span>" data-en="The questions from the phone can now <span class=&quot;accent-italic&quot;>all be answered in under two clicks.</span>">Die Fragen vom Telefon lassen sich jetzt <span class="accent-italic">alle in unter zwei Klicks beantworten.</span></p>
+          <p class="admission-note" data-de="Drucktechniken, Zielgruppen-Wege und Vertrauenssignale sitzen jetzt dort, wo sie im echten Kundenkontakt gebraucht wurden, nicht dort, wo sie zufällig im alten Text standen. Das lässt sich qualitativ begründen, nicht mit einer Kennzahl belegen, dafür hätte es eine Testphase mit der echten Seite gebraucht." data-en="Print techniques, audience paths and trust signals now sit exactly where they were needed in real customer contact, not wherever they happened to land in the old text. This is a qualitative argument, not backed by a metric, that would have required a live test phase with the real site.">Drucktechniken, Zielgruppen-Wege und Vertrauenssignale sitzen jetzt dort, wo sie im echten Kundenkontakt gebraucht wurden, nicht dort, wo sie zufällig im alten Text standen. Das lässt sich qualitativ begründen, nicht mit einer Kennzahl belegen, dafür hätte es eine Testphase mit der echten Seite gebraucht.</p>
+        </div>
+
+        <div class="sub-gap" id="grenzen">
+          <div class="limits">
+            <span class="eyebrow" data-de="Grenzen" data-en="Limits">Grenzen</span>
+            <h3 class="limits-title" data-de="Was diese Case Study <span class=&quot;accent-italic&quot;>nicht beweist.</span>" data-en="What this case study <span class=&quot;accent-italic&quot;>doesn't prove.</span>">Was diese Case Study <span class="accent-italic">nicht beweist.</span></h3>
+            <p class="limits-lede" data-de="Zwei Grenzen, ehrlich benannt." data-en="Two limits, named honestly.">Zwei Grenzen, ehrlich benannt.</p>
+            <div class="limit-rail">
+              <div class="limit">
+                <span class="limit-num">01</span>
+                <div class="limit-body">
+                  <h4 data-de="Keine formalen Interviews oder Tests" data-en="No Formal Interviews or Testing">Keine formalen Interviews oder Tests</h4>
+                  <p class="limit-line" data-de="Die Grundlage ist eigene Beobachtung im Kundensupport, keine strukturierte Nutzerforschung. <span class=&quot;limit-arrow&quot;>→</span> Reicht für wiederkehrende, eindeutige Muster, aber nicht für seltenere Bedürfnisse." data-en="The basis is personal observation in customer support, not structured user research. <span class=&quot;limit-arrow&quot;>→</span> Enough for recurring, clear-cut patterns, not for rarer needs.">Die Grundlage ist eigene Beobachtung im Kundensupport, keine strukturierte Nutzerforschung. <span class="limit-arrow">→</span> Reicht für wiederkehrende, eindeutige Muster, aber nicht für seltenere Bedürfnisse.</p>
+                </div>
+              </div>
+              <div class="limit">
+                <span class="limit-num">02</span>
+                <div class="limit-body">
+                  <h4 data-de="Kein Live-Vergleich" data-en="No Live Comparison">Kein Live-Vergleich</h4>
+                  <p class="limit-line" data-de="Ob die Anrufe dadurch wirklich zurückgehen, wurde nicht gemessen. <span class=&quot;limit-arrow&quot;>→</span> Wäre der nächste Schritt bei einem echten Rollout." data-en="Whether calls actually decrease as a result wasn't measured. <span class=&quot;limit-arrow&quot;>→</span> Would be the next step in a real rollout.">Ob die Anrufe dadurch wirklich zurückgehen, wurde nicht gemessen. <span class="limit-arrow">→</span> Wäre der nächste Schritt bei einem echten Rollout.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- Custom cursor -->
+<div id="customCursor" class="custom-cursor"></div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
+  <img id="lightboxImg" alt="">
+</div>
+
+<!-- Back to top -->
+<button id="backToTop" class="back-to-top" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="prdruck.js"></script>
+</body>
+</html>
