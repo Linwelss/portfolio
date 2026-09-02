@@ -3019,7 +3019,7 @@ main{
   column-gap:clamp(32px,5vw,96px) !important;
   align-items:center !important;
   min-height:0 !important;
-  max-width:clamp(1100px,92vw,1760px) !important;
+  max-width:min(94vw, 1760px) !important;
   margin:0 auto !important;
   padding:calc(76px + clamp(20px,3vw,44px)) clamp(20px,4vw,48px) clamp(40px,6vw,72px) !important;
 }
