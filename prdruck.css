@@ -3045,8 +3045,9 @@ main{
 }
 
 .wipe-frame{
-  width:min(46vw, 620px);
-  max-height:min(66svh, 62vh);
+  width:100% !important;
+  max-width:min(46vw, 620px) !important;
+  max-height:min(66svh, 62vh) !important;
 }
 
 @media (max-width:900px){
@@ -3062,7 +3063,8 @@ main{
   .hero-split .hero-meta{justify-content:center;}
   .hero-split .hero-stats{margin-inline:auto;}
   .wipe-frame{
-    width:100%;
-    max-height:none;
+    width:100% !important;
+    max-width:100% !important;
+    max-height:none !important;
   }
 }
