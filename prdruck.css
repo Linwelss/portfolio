@@ -3002,6 +3002,15 @@ html, body{
   padding-left:0 !important;
 }
 
+/* ================= Fix: der eigentliche Übeltäter für den Freiraum links ================= */
+/* main{padding-left:var(--nav-gutter);} (bis zu 236px) war beim letzten Mal aus
+   Versehen nicht mehr mit main{padding-left:0;} zurückgesetzt — dadurch wurde
+   der GESAMTE main-Bereich (Hero inklusive) nach rechts geschoben, nicht nur
+   .hero-split. Das war die eigentliche Ursache des großen Freiraums links. */
+main{
+  padding-left:0 !important;
+}
+
 /* ================= Fix: Textblock genau wie bei sameSpot — links, breiter ================= */
 
 /* Die max-width+margin:auto-Zentrierung von eben hat den GANZEN Hero (Text
