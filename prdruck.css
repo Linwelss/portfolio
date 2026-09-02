@@ -3055,3 +3055,32 @@ main{
   opacity:1 !important;
   transform:none !important;
 }
+
+
+/* ================= Fix: Header-Position an sameSpot angleichen ================= */
+
+/* Horizontal: gleiche schrumpfende Nav-Reserve wie bei sameSpot statt fixer --nav-gutter */
+:root{
+  --nav-pad: clamp(0px, calc(var(--nav-gutter) - (100vw - var(--content-max) - 2 * var(--content-pad)) / 2), var(--nav-gutter));
+}
+.hero-split{
+  padding-left:var(--nav-pad);
+}
+
+/* Vertikal: an echter Topbar-Höhe ausrichten (18px + 58px ≈ 76px)
+   plus dem gleichen vw-Abstand wie im samespot Hero-Stage-Padding —
+   statt eines vh-Werts, der mit der Fensterhöhe statt mit der Topbar mitwächst */
+.hero-split-content{
+  padding-top:calc(76px + clamp(20px,3vw,44px));
+}
+
+@media (max-width:900px){
+  .hero-split{padding-left:0;}
+  .hero-split-content{
+    padding-top:calc(70px + clamp(16px,4vw,28px));
+    align-items:center;
+    text-align:center;
+  }
+  .hero-split .hero-meta{justify-content:center;}
+  .hero-split .hero-stats{margin-inline:auto;}
+}
