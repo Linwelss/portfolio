@@ -3000,8 +3000,26 @@ html, body{
    auf einer der beiden. */
 .hero-split{
   padding-left:0 !important;
-  max-width:1680px;
-  margin:0 auto;
+}
+
+/* ================= Fix: Textblock genau wie bei sameSpot — links, breiter ================= */
+
+/* Die max-width+margin:auto-Zentrierung von eben hat den GANZEN Hero (Text
+   UND Bild zusammen) zentriert und den Text dadurch unnötig nach rechts
+   geschoben. sameSpot zentriert nie den ganzen Hero — nur der Textblock hat
+   sein eigenes kleines Padding, das Bild ist komplett unabhängig davon
+   positioniert. Also: keine Breitenbegrenzung/Zentrierung mehr auf
+   .hero-split, dafür bekommt der Text mehr Raum. Am Bild (eigene Grid-Spalte,
+   eigene Regeln) ändert das nichts. */
+.hero-split{
+  max-width:none;
+  margin:0;
+}
+.hero-split .hero-desc{
+  max-width:640px;
+}
+.hero-split .hero-stats{
+  max-width:640px;
 }
 
 /* Vertikal: an der echten Topbar-Höhe ausrichten (18px Padding + 58px Kapsel
